@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="Resource_txfnu"]
 script = ExtResource("2_mwn0d")
 start_hour = 8
-end_hour = 17
+end_hour = 10
 
 [node name="TimeManager" type="Control"]
 layout_mode = 3
@@ -15,5 +15,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_dlgxb")
 ingame_day_times = Array[ExtResource("2_mwn0d")]([SubResource("Resource_txfnu")])

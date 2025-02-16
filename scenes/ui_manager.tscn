@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://naua1f5cbkae"]
+
+[ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_if42o"]
+
+[node name="UIManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_if42o")
+
+[node name="Debuger" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Clock" type="RichTextLabel" parent="Debuger"]
+layout_mode = 0
+offset_left = 1672.0
+offset_top = 33.0
+offset_right = 1900.0
+offset_bottom = 102.0
+bbcode_enabled = true
+text = "[font_size=50]text[/font_size]"

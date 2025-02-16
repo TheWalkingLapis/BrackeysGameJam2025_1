@@ -1,6 +1,8 @@
 extends Control
 class_name TimeManager
 
+signal day_done()
+
 const ingame_hour_in_seconds: float = 15.0
 
 var day_start_hour: int = 0
@@ -29,10 +31,15 @@ func _process(delta):
 	var prev_hour = floor(current_ingame_time)
 	current_real_time += delta * time_fac
 	current_ingame_time = day_start_hour + (current_real_time / ingame_hour_in_seconds)
-	var new_ingame_hour = floor(current_ingame_time)
-	if new_ingame_hour > current_ingame_hour:
-		print("It is now " + str(new_ingame_hour) + ":00 (current factor = " + str(time_fac) + ")")
-	current_ingame_hour = new_ingame_hour
+	current_ingame_hour = floor(current_ingame_time)
+	if current_ingame_hour == day_end_hour:
+		current_ingame_time = day_end_hour
+		day_done.emit()
+
+func get_formated_ingame_time():
+	var hours = current_ingame_hour
+	var minutes = floor(60 * (current_ingame_time - current_ingame_hour))
+	return "%02d:%02d" % [hours, minutes]
 
 func change_time_speed(new_fac: float):
 	time_fac = new_fac
