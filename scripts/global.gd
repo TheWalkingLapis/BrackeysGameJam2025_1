@@ -1,0 +1,5 @@
+extends Node
+
+var game_manager: GameManager = null
+var room_manager: RoomManager = null
+var time_manager: TimeManager = null

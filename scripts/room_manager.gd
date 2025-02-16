@@ -2,12 +2,15 @@ extends Control
 class_name RoomManager
 
 @onready var office: Control = $Office
+var current_room = "Office"
 
-# Called when the node enters the scene tree for the first time.
+var name_to_node_dict: Dictionary
+
 func _ready():
-	pass # Replace with function body.
+	name_to_node_dict = {
+		"Office": office
+	}
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

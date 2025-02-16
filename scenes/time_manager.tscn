@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cavy32fvbqm8w"]
+
+[ext_resource type="Script" path="res://scripts/time_manager.gd" id="1_dlgxb"]
+[ext_resource type="Script" path="res://resources/day_duration_times.gd" id="2_mwn0d"]
+
+[sub_resource type="Resource" id="Resource_txfnu"]
+script = ExtResource("2_mwn0d")
+start_hour = 8
+end_hour = 17
+
+[node name="TimeManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlgxb")
+ingame_day_times = Array[ExtResource("2_mwn0d")]([SubResource("Resource_txfnu")])

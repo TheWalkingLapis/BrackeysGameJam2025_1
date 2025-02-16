@@ -1,11 +1,17 @@
 extends Control
 class_name GameManager
 
-# Called when the node enters the scene tree for the first time.
+@onready var room_manager: RoomManager = $RoomManager
+@onready var time_manager: TimeManager = $TimeManager
+
+var current_day = 0
+
 func _ready():
-	pass # Replace with function body.
+	Global.game_manager = self
+	Global.room_manager = room_manager
+	Global.time_manager = time_manager
+	
+	time_manager.start_day(current_day)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
