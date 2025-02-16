@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvnj4ie205euj"]
+
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
+[ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
+
+[node name="GameManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ga0qp")
+
+[node name="RoomManager" parent="." instance=ExtResource("2_tpo2t")]
+layout_mode = 1

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://kufy4l8qlp63"]
+
+[ext_resource type="Script" path="res://scripts/room_manager.gd" id="1_7csls"]
+[ext_resource type="PackedScene" uid="uid://cfbphyo7451bl" path="res://scenes/rooms/office.tscn" id="2_pdmif"]
+
+[node name="RoomManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7csls")
+
+[node name="Office" parent="." instance=ExtResource("2_pdmif")]
+layout_mode = 1
