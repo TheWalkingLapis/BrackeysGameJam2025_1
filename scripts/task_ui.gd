@@ -19,3 +19,6 @@ func update_task_text():
 			text += " - %s\n" % task_texts[0]
 			text += "   %s\n" % task_texts[1]
 	label.text = Utils.bbc_text(text, 40)
+
+func update_task_display():
+	update_task_text()

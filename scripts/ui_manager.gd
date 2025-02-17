@@ -7,6 +7,8 @@ class_name UIManager
 @onready var taskUI = $TaskUI
 @onready var postDayBG = $PostDayBG
 
+
+
 func to_main_menu():
 	disable_all()
 	mainMenu.visible = true
@@ -25,6 +27,9 @@ func to_post_day():
 
 func setup_tasks(tasks):
 	taskUI.set_tasks(tasks)
+
+func update_tasks():
+	taskUI.update_task_display()
 
 func disable_all():
 	mainMenu.visible = false
