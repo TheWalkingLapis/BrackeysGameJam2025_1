@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cscgywyqf2as7"]
+
+[ext_resource type="Script" path="res://scripts/debug_ui.gd" id="1_w7dx4"]
+
+[node name="DebugUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_w7dx4")
+
+[node name="Clock" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1672.0
+offset_top = 33.0
+offset_right = 1900.0
+offset_bottom = 102.0
+bbcode_enabled = true
+text = "[font_size=50]text[/font_size]"

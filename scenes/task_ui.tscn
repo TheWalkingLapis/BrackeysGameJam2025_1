@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsxbvyxq0uqpj"]
+
+[ext_resource type="Script" path="res://scripts/task_ui.gd" id="1_kvvb3"]
+
+[node name="TaskUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_kvvb3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1588.0
+offset_top = 21.0
+offset_right = 1894.0
+offset_bottom = 426.0
+color = Color(0, 0, 0, 0.211765)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "- Task 1
+- Task 2"
