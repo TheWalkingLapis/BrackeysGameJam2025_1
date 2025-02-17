@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2atafpuskd0w"]
+[gd_scene load_steps=3 format=3 uid="uid://d2atafpuskd0w"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mccc0"]
+[ext_resource type="Texture2D" uid="uid://dtwrya5dg5xa7" path="res://imgs/main_menu_placeholder.png" id="2_yx0ft"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,14 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mccc0")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.27451, 0.623529, 1, 1)
+texture = ExtResource("2_yx0ft")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

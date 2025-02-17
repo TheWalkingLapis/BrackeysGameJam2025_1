@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=4 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
 [ext_resource type="Texture2D" uid="uid://di44kl2jjjuge" path="res://imgs/office_placeholder.png" id="2_uskp3"]
+[ext_resource type="PackedScene" uid="uid://dihw1bwmo6omg" path="res://scenes/tasks/task_1_1_office.tscn" id="3_jjpo7"]
 
 [node name="Office" type="Control"]
 layout_mode = 3
@@ -35,5 +36,18 @@ offset_left = 1278.0
 offset_top = 353.0
 offset_right = 1684.0
 offset_bottom = 565.0
+
+[node name="Tasks" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Day1" type="Control" parent="Tasks"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Task_1_1_office" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
+layout_mode = 1
 
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]

@@ -14,10 +14,10 @@ script = ExtResource("1_kvvb3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 1588.0
+offset_left = 1307.0
 offset_top = 21.0
 offset_right = 1894.0
-offset_bottom = 426.0
+offset_bottom = 686.0
 color = Color(0, 0, 0, 0.211765)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]

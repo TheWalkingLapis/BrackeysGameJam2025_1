@@ -1,11 +1,22 @@
 extends Control
 
+@onready var label = $ColorRect/RichTextLabel
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var current_tasks = {}
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_tasks(tasks):
+	current_tasks = tasks
+	update_task_text()
+	
+func update_task_text():
+	var text = ""
+	for room in current_tasks:
+		var task_list = current_tasks[room]
+		if len(task_list) == 0: continue
+		text += "%s:\n" % [room]
+		for task in task_list:
+			var task_texts = (task as Task).get_task_strings()
+			print(task_texts)
+			text += " - %s\n" % task_texts[0]
+			text += "   %s\n" % task_texts[1]
+	label.text = Utils.bbc_text(text, 40)

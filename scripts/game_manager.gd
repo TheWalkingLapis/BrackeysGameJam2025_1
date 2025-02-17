@@ -34,6 +34,7 @@ func pre_start_day(day):
 
 func start_day(day):
 	gameState = GameState.IDLE
+	room_manager.setup_day(day)
 	ui_manager.to_day()
 	time_manager.start_day(day)
 

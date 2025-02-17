@@ -18,11 +18,13 @@ func to_pre_day():
 func to_day():
 	disable_all()
 	taskUI.visible = true
-	print("TODO")
 
 func to_post_day():
 	disable_all()
 	postDayBG.visible = true
+
+func setup_tasks(tasks):
+	taskUI.set_tasks(tasks)
 
 func disable_all():
 	mainMenu.visible = false
