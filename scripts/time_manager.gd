@@ -13,6 +13,8 @@ var current_ingame_hour: int = 0
 var current_real_time: float = 0.0
 var time_fac: float = 1.0
 
+var day_active = false
+
 @export var ingame_day_times: Array[DayDurationTimes]
 
 func _ready():
@@ -25,15 +27,19 @@ func start_day(day: int):
 	current_ingame_hour = floor(current_ingame_time)
 	current_real_time = 0.0
 	time_fac = 1.0
+	day_active = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !day_active: 
+		return
 	var prev_hour = floor(current_ingame_time)
 	current_real_time += delta * time_fac
 	current_ingame_time = day_start_hour + (current_real_time / ingame_hour_in_seconds)
 	current_ingame_hour = floor(current_ingame_time)
 	if current_ingame_hour == day_end_hour:
 		current_ingame_time = day_end_hour
+		day_active = false
 		day_done.emit()
 
 func get_formated_ingame_time():

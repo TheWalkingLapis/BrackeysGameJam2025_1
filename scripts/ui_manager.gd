@@ -1,17 +1,27 @@
 extends Control
 class_name UIManager
 
-@onready var debug_clock = $Debuger/Clock
+@onready var mainMenu = $MainMenu
+@onready var debugUI = $DebugUI
+@onready var preDayBG = $PreDayBG
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func to_main_menu():
+	disable_all()
+	mainMenu.visible = true
 
+func to_pre_day():
+	disable_all()
+	preDayBG.visible = true
+	
+func to_day():
+	disable_all()
+	print("TODO")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	debug_clock.text = bbc_text(Global.time_manager.get_formated_ingame_time(), 50)
+func to_post_day():
+	disable_all()
+	print("TODO")
 
-
-func bbc_text(txt, font_size=20):
-	return "[font_size=%d]%s[/font_size]" % [font_size, txt]
+func disable_all():
+	mainMenu.visible = false
+	preDayBG.visible = false
+	#debugUI.visible = false
