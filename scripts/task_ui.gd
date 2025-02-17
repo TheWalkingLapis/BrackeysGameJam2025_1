@@ -16,7 +16,6 @@ func update_task_text():
 		text += "%s:\n" % [room]
 		for task in task_list:
 			var task_texts = (task as Task).get_task_strings()
-			print(task_texts)
 			text += " - %s\n" % task_texts[0]
 			text += "   %s\n" % task_texts[1]
 	label.text = Utils.bbc_text(text, 40)

@@ -1,8 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=14 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
-[ext_resource type="Texture2D" uid="uid://xvl1b0pnqunb" path="res://imgs/office.png" id="2_4oge3"]
+[ext_resource type="Texture2D" uid="uid://wsbqqvq6eyg5" path="res://imgs/rooms/office.png" id="2_veu3n"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="3_3vuk7"]
 [ext_resource type="PackedScene" uid="uid://dihw1bwmo6omg" path="res://scenes/tasks/task_1_1_office.tscn" id="3_jjpo7"]
+[ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="4_w0jtv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jdbcn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fdwef"]
+texture = ExtResource("4_w0jtv")
+modulate_color = Color(1, 1, 1, 0.470588)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1n7l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x41pt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
@@ -22,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_24yk3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -30,7 +42,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_4oge3")
+mouse_filter = 2
+texture = ExtResource("2_veu3n")
+
+[node name="Form" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 1108.0
+offset_top = 862.0
+offset_right = 1355.0
+offset_bottom = 1055.0
+mouse_filter = 2
+texture = ExtResource("3_3vuk7")
+
+[node name="Button" type="Button" parent="Background/Form"]
+layout_mode = 0
+offset_right = 247.0
+offset_bottom = 193.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jdbcn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fdwef")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p1n7l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_x41pt")
 
 [node name="Clickables" type="Control" parent="."]
 layout_mode = 1
@@ -39,6 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PCScreen" type="Button" parent="Clickables"]
 layout_mode = 0
@@ -62,6 +94,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Task_1_1_office" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
-layout_mode = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 189.0
+offset_bottom = 143.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]
