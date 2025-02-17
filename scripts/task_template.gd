@@ -1,6 +1,7 @@
 extends Control
 class_name Task
 
+signal started()
 signal completed()
 
 @export var task_name: String = "Task"

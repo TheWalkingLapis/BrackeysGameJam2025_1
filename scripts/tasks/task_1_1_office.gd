@@ -11,6 +11,7 @@ func _on_ready():
 	unsigned.visible = false
 
 func start_task():
+	started.emit()
 	document.visible = false
 	unsigned.visible = true
 	signed.visible = false

@@ -5,11 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="3_t6ogm"]
 [ext_resource type="Texture2D" uid="uid://dcohecbvkrvb6" path="res://imgs/sprites/tasks/hr-signing/document_empty.png" id="3_y5lgl"]
 [ext_resource type="Texture2D" uid="uid://rowl4cchp6gx" path="res://imgs/sprites/tasks/hr-signing/document_signed.png" id="4_g6nh2"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="5_rv01u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmtq6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bm48l"]
-bg_color = Color(0.109804, 0.658824, 0.839216, 0.670588)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3kxn"]
 
@@ -71,7 +69,7 @@ offset_top = 766.0
 offset_right = 1330.0
 offset_bottom = 878.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fmtq6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bm48l")
+theme_override_styles/hover = ExtResource("5_rv01u")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_p3kxn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hf0ig")
 

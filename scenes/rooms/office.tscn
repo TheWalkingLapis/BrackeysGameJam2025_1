@@ -1,17 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=11 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
 [ext_resource type="Texture2D" uid="uid://wsbqqvq6eyg5" path="res://imgs/rooms/office.png" id="2_veu3n"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="3_468xx"]
 [ext_resource type="PackedScene" uid="uid://dihw1bwmo6omg" path="res://scenes/tasks/task_1_1_office.tscn" id="3_jjpo7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqwsi"]
-bg_color = Color(0.637508, 0.818402, 0.95278, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2qgq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbdd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q32h6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rvfy4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_celsl"]
 
 [node name="Office" type="Control"]
 layout_mode = 3
@@ -49,9 +53,20 @@ offset_top = 619.0
 offset_right = 954.0
 offset_bottom = 904.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ky8xr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iqwsi")
+theme_override_styles/hover = ExtResource("3_468xx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2qgq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gbdd0")
+
+[node name="Door" type="Button" parent="Clickables"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 492.0
+offset_right = 1196.0
+offset_bottom = 784.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q32h6")
+theme_override_styles/hover = ExtResource("3_468xx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rvfy4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_celsl")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -76,4 +91,47 @@ layout_mode = 1
 task_name = "Document Signing"
 task_description = "Sign some paperwork on your desk"
 
+[node name="Day2" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day3" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day4" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day5" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day6" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day7" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]
+[connection signal="pressed" from="Clickables/Door" to="." method="_on_door_pressed"]

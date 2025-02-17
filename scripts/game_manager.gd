@@ -20,12 +20,12 @@ func _ready():
 	Global.text_manager = text_manager
 	
 	time_manager.day_done.connect(_on_day_done)
+	room_manager.task_started.connect(_on_task_in_progress)
+	room_manager.task_ended.connect(_on_task_ended)
+	text_manager.text_in_progress.connect(_on_text_in_progress)
 	text_manager.finished_text.connect(_on_text_continue)
 	
 	ui_manager.to_main_menu()
-
-func _process(delta):
-	pass
 
 ## Called before start_day to display news and mail w.o. waisting time
 func pre_start_day(day):
@@ -40,6 +40,11 @@ func start_day(day):
 	time_manager.start_day(day)
 
 func _on_text_in_progress():
+	print("Disabled Interaction")
+	allow_interaction = false
+
+func _on_task_in_progress():
+	print("Disabled Interaction")
 	allow_interaction = false
 
 func _on_text_continue(force):
@@ -49,6 +54,10 @@ func _on_text_continue(force):
 				start_day(current_day)
 			GameState.IDLE:
 				print("Text done")
+	print("Reenabled Interaction")
+	allow_interaction = true
+
+func _on_task_ended():
 	allow_interaction = true
 
 func _on_day_done():

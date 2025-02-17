@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6d4y5ww7g3sb"]
+
+[ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
+[ext_resource type="Texture2D" uid="uid://dvac2jcgd0xdk" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="3_3seoe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxhba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blhor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ussbk"]
+
+[node name="Main_Hallway" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sv7ng")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_ehqfk")
+
+[node name="Doors" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HR" type="Button" parent="Doors"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 457.0
+offset_right = 776.0
+offset_bottom = 792.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qxhba")
+theme_override_styles/hover = ExtResource("3_3seoe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_blhor")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ussbk")
+
+[node name="Tasks" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day1" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day2" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day3" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day4" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day5" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day6" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Day7" type="Control" parent="Tasks"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[connection signal="pressed" from="Doors/HR" to="." method="_on_hr_pressed"]
