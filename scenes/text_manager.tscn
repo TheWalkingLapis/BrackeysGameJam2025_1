@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dam4nevijq3sp"]
+[gd_scene load_steps=7 format=3 uid="uid://dam4nevijq3sp"]
 
 [ext_resource type="Script" path="res://scripts/text_manager.gd" id="1_0stk4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vasi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaqb2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83fpe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uap28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro7ce"]
 
 [node name="TextManager" type="Control"]
 layout_mode = 3
@@ -12,36 +22,97 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0stk4")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="News_and_Mail" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="News_Text" type="RichTextLabel" parent="News_and_Mail"]
 layout_mode = 0
-offset_left = 470.0
+offset_left = 1050.0
 offset_top = 233.0
 offset_right = 1472.0
 offset_bottom = 752.0
 bbcode_enabled = true
-text = "Test"
+text = "News"
 
-[node name="Buttons" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 467.0
-offset_top = 816.0
-offset_right = 1494.0
-offset_bottom = 937.0
-mouse_filter = 2
+[node name="Mail_Text" type="RichTextLabel" parent="News_and_Mail"]
+layout_mode = 0
+offset_left = 323.0
+offset_top = 205.0
+offset_right = 841.0
+offset_bottom = 806.0
+bbcode_enabled = true
+text = "Mail"
 
-[node name="Continue" type="Button" parent="Buttons"]
+[node name="NAM_Continue" type="Button" parent="News_and_Mail"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -211.0
-offset_top = -59.0
-offset_bottom = 59.0
+offset_left = -637.0
+offset_top = 277.5
+offset_right = -426.0
+offset_bottom = 395.5
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
 text = "continue"
 
-[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[node name="Interaction" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Interaction_Box" type="ColorRect" parent="Interaction"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 780.0
+offset_right = 1716.0
+offset_bottom = 1081.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.486275)
+
+[node name="Interaction_Text" type="RichTextLabel" parent="Interaction/Interaction_Box"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -763.5
+offset_top = -301.0
+offset_right = 762.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "MOIN"
+
+[node name="INT_Continue" type="Button" parent="Interaction/Interaction_Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4vasi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yaqb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_83fpe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uap28")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ro7ce")
+
+[connection signal="pressed" from="News_and_Mail/NAM_Continue" to="." method="_on_nam_continue_pressed"]
+[connection signal="pressed" from="Interaction/Interaction_Box/INT_Continue" to="." method="_on_int_continue_pressed"]

@@ -10,6 +10,7 @@ enum GameState {MAIN_MENU, PAUSE_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED,
 var gameState: GameState = GameState.MAIN_MENU
 
 var current_day = 0
+var allow_interaction = true
 
 func _ready():
 	Global.game_manager = self
@@ -38,14 +39,22 @@ func start_day(day):
 	ui_manager.to_day()
 	time_manager.start_day(day)
 
-func _on_text_continue():
-	match gameState:
-		GameState.PRE_DAY:
-			start_day(current_day)
+func _on_text_in_progress():
+	allow_interaction = false
+
+func _on_text_continue(force):
+	if !force:
+		match gameState:
+			GameState.PRE_DAY:
+				start_day(current_day)
+			GameState.IDLE:
+				print("Text done")
+	allow_interaction = true
 
 func _on_day_done():
 	gameState = GameState.POST_DAY
 	ui_manager.to_post_day()
+	text_manager.clear_text()
 	current_day += 1
 	pause_game(false, true) # always force pause
 
