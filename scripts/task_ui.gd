@@ -13,7 +13,6 @@ func update_task_display():
 
 func update_task_text():
 	var working_hours = Global.time_manager.get_working_hours()
-	print(working_hours)
 	var text = "Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
 	for room in current_tasks:
 		var task_list = current_tasks[room]

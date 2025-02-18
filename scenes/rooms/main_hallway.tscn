@@ -1,14 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6d4y5ww7g3sb"]
+[gd_scene load_steps=13 format=3 uid="uid://b6d4y5ww7g3sb"]
 
 [ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
 [ext_resource type="Texture2D" uid="uid://dvac2jcgd0xdk" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="3_3seoe"]
+[ext_resource type="Texture2D" uid="uid://dausw13pqqwto" path="res://imgs/rooms/masks/main-hallway_kitchen_mask.png" id="4_o0wm0"]
+[ext_resource type="Texture2D" uid="uid://co8n6fkuyhppi" path="res://imgs/rooms/masks/main_hallway_storage_mask.png" id="5_o3r2r"]
+[ext_resource type="Texture2D" uid="uid://bsq48gvrsnxu8" path="res://imgs/rooms/masks/main_hallway_passage_mask.png" id="6_tr6t8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxhba"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blhor"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ussbk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v81qw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sj37"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h80am"]
 
 [node name="Main_Hallway" type="Control"]
 layout_mode = 3
@@ -43,7 +52,7 @@ mouse_filter = 2
 [node name="HR" type="Button" parent="Doors"]
 layout_mode = 0
 offset_left = 593.0
-offset_top = 457.0
+offset_top = 456.0
 offset_right = 776.0
 offset_bottom = 792.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qxhba")
@@ -51,7 +60,50 @@ theme_override_styles/hover = ExtResource("3_3seoe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_blhor")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ussbk")
 
+[node name="Boss" type="Button" parent="Doors"]
+layout_mode = 0
+offset_left = 1192.0
+offset_top = 456.0
+offset_right = 1400.0
+offset_bottom = 792.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v81qw")
+theme_override_styles/hover = ExtResource("3_3seoe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0sj37")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h80am")
+
+[node name="Kitchen" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 136.0
+offset_top = 344.0
+offset_right = 345.0
+offset_bottom = 1008.0
+texture_hover = ExtResource("4_o0wm0")
+stretch_mode = 0
+
+[node name="Storage" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+offset_left = 1552.0
+offset_top = 392.0
+offset_right = 1672.0
+offset_bottom = 912.0
+texture_hover = ExtResource("5_o3r2r")
+stretch_mode = 0
+
+[node name="Passage" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+offset_left = 1768.0
+offset_top = 304.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture_hover = ExtResource("6_tr6t8")
+stretch_mode = 0
+
 [node name="Tasks" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,3 +162,7 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [connection signal="pressed" from="Doors/HR" to="." method="_on_hr_pressed"]
+[connection signal="pressed" from="Doors/Boss" to="." method="_on_boss_pressed"]
+[connection signal="pressed" from="Doors/Kitchen" to="." method="_on_kitchen_pressed"]
+[connection signal="pressed" from="Doors/Storage" to="." method="_on_storage_pressed"]
+[connection signal="pressed" from="Doors/Passage" to="." method="_on_passage_pressed"]
