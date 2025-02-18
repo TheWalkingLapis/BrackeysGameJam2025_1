@@ -7,6 +7,11 @@ signal task_ended()
 @onready var office: Room = $Office
 @onready var kitchen: Room = $Kitchen
 @onready var main_hallway: Room = $Main_Hallway
+@onready var storage: Room = $Storage
+@onready var boss: Room = $Boss
+@onready var passage: Room = $Passage
+@onready var control: Room = $Control
+@onready var reactor: Room = $Reactor
 var current_room = "Office"
 
 var name_to_node_dict: Dictionary
@@ -19,7 +24,12 @@ func _ready():
 	name_to_node_dict = {
 		"Office": office,
 		"Kitchen": kitchen,
-		"Main_Hallway": main_hallway
+		"Main_Hallway": main_hallway,
+		"Storage": storage,
+		"Boss": boss,
+		"Passage": passage,
+		"Control": control,
+		"Reactor": reactor
 	}
 	for room_name in name_to_node_dict:
 		name_to_node_dict[room_name].visible = (current_room == room_name)
