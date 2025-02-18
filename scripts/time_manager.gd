@@ -47,5 +47,8 @@ func get_formated_ingame_time():
 	var minutes = floor(60 * (current_ingame_time - current_ingame_hour))
 	return "%02d:%02d" % [hours, minutes]
 
+func get_working_hours():
+	return [day_start_hour, day_end_hour]
+
 func change_time_speed(new_fac: float):
 	time_fac = new_fac

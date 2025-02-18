@@ -17,19 +17,29 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1650.0
-offset_top = 17.0
-offset_right = -71.0
-offset_bottom = -949.0
+offset_left = 26.0
+offset_top = 27.0
+offset_right = -1524.0
+offset_bottom = -812.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8)
 
 [node name="Clock" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 1672.0
-offset_top = 33.0
-offset_right = 1900.0
-offset_bottom = 102.0
+offset_left = 48.0
+offset_top = 43.0
+offset_right = 333.0
+offset_bottom = 112.0
 bbcode_enabled = true
 text = "[font_size=50]text[/font_size]"
+scroll_active = false
+
+[node name="GameState" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 131.0
+offset_right = 364.0
+offset_bottom = 208.0
+bbcode_enabled = true
+scroll_active = false

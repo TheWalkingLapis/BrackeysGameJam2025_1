@@ -5,9 +5,7 @@ class_name UIManager
 @onready var debugUI = $DebugUI
 @onready var preDayBG = $PreDayBG
 @onready var taskUI = $TaskUI
-@onready var postDayBG = $PostDayBG
-
-
+@onready var postDayUI = $PostDayUI
 
 func to_main_menu():
 	disable_all()
@@ -23,7 +21,7 @@ func to_day():
 
 func to_post_day():
 	disable_all()
-	postDayBG.visible = true
+	postDayUI.visible = true
 
 func setup_tasks(tasks):
 	taskUI.set_tasks(tasks)
@@ -35,5 +33,5 @@ func disable_all():
 	mainMenu.visible = false
 	preDayBG.visible = false
 	taskUI.visible = false
-	postDayBG.visible = false
+	postDayUI.visible = false
 	#debugUI.visible = false

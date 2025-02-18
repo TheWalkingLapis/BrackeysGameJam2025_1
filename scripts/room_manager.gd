@@ -12,7 +12,7 @@ signal task_ended()
 @onready var passage: Room = $Passage
 @onready var control: Room = $Control
 @onready var reactor: Room = $Reactor
-var current_room = "Office"
+var current_room = "None"
 
 var name_to_node_dict: Dictionary
 var current_tasks = {}
@@ -22,6 +22,7 @@ var num_completed_tasks = 0
 
 func _ready():
 	name_to_node_dict = {
+		"None": null,
 		"Office": office,
 		"Kitchen": kitchen,
 		"Main_Hallway": main_hallway,
@@ -32,6 +33,7 @@ func _ready():
 		"Reactor": reactor
 	}
 	for room_name in name_to_node_dict:
+		if room_name == "None": continue
 		name_to_node_dict[room_name].visible = (current_room == room_name)
 
 func setup_day(day):
@@ -39,6 +41,8 @@ func setup_day(day):
 	num_tasks = 0
 	var tasks = {}
 	for room_name in name_to_node_dict:
+		if room_name == "None": continue
+		name_to_node_dict[room_name].setup_tasks_for_day(day)
 		var room_tasks = name_to_node_dict[room_name].get_tasks_for_day(day)
 		tasks[room_name] = room_tasks
 		for task in room_tasks:
@@ -46,15 +50,18 @@ func setup_day(day):
 			(task as Task).completed.connect(_on_task_completed)
 			num_tasks += 1
 	current_tasks = tasks
+	change_room_to("Office")
 	Global.ui_manager.setup_tasks(tasks)
 
 func change_room_to(room_name: String):
-	name_to_node_dict[current_room].visible = false
+	if current_room != "None":
+		name_to_node_dict[current_room].visible = false
 	if not room_name in name_to_node_dict:
 		printerr("Room name doesn't exist: %s" % [room_name])
 		return
 	current_room = room_name
-	name_to_node_dict[current_room].visible = true
+	if room_name != "None":
+		name_to_node_dict[current_room].visible = true
 
 func _on_task_started():
 	task_in_progress = true

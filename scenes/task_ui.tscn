@@ -12,15 +12,15 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kvvb3")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TaskBG" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 1307.0
-offset_top = 21.0
+offset_left = 1396.0
+offset_top = 99.0
 offset_right = 1894.0
 offset_bottom = 686.0
-color = Color(0, 0, 0, 0.211765)
+color = Color(0, 0, 0, 0.368627)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+[node name="TaskBox" type="RichTextLabel" parent="TaskBG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
