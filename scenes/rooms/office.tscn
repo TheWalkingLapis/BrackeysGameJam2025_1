@@ -1,9 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=16 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
-[ext_resource type="Texture2D" uid="uid://wsbqqvq6eyg5" path="res://imgs/rooms/office.png" id="2_veu3n"]
+[ext_resource type="Texture2D" uid="uid://pck8v580m60y" path="res://imgs/rooms/office/office_day.png" id="2_bd30j"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="3_468xx"]
-[ext_resource type="PackedScene" uid="uid://dihw1bwmo6omg" path="res://scenes/tasks/task_1_1_office.tscn" id="3_jjpo7"]
+[ext_resource type="PackedScene" uid="uid://dihw1bwmo6omg" path="res://scenes/tasks/task_document_sign.tscn" id="3_jjpo7"]
+[ext_resource type="Texture2D" uid="uid://vbbr4fg8146a" path="res://imgs/rooms/office/office_evening.png" id="3_sxjgt"]
+[ext_resource type="Texture2D" uid="uid://cdka7wgxgxe2j" path="res://imgs/rooms/office/office_night.png" id="4_2dutm"]
+[ext_resource type="Texture2D" uid="uid://c6acjfw484epy" path="res://imgs/rooms/office/office_aliens.png" id="5_ltse2"]
+[ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="7_onxbj"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="8_5reqh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
@@ -25,6 +30,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_24yk3")
+bg_texture_day = ExtResource("2_bd30j")
+bg_texture_evening = ExtResource("3_sxjgt")
+bg_texture_night = ExtResource("4_2dutm")
+bg_texture_night_aliens = ExtResource("5_ltse2")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -35,7 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_veu3n")
+texture = ExtResource("2_bd30j")
 
 [node name="Clickables" type="Control" parent="."]
 layout_mode = 1
@@ -48,10 +57,10 @@ mouse_filter = 2
 
 [node name="PCScreen" type="Button" parent="Clickables"]
 layout_mode = 0
-offset_left = 487.0
-offset_top = 619.0
-offset_right = 954.0
-offset_bottom = 904.0
+offset_left = 1025.0
+offset_top = 640.0
+offset_right = 1481.0
+offset_bottom = 919.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ky8xr")
 theme_override_styles/hover = ExtResource("3_468xx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w2qgq")
@@ -59,16 +68,44 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_gbdd0")
 
 [node name="Door" type="Button" parent="Clickables"]
 layout_mode = 0
-offset_left = 988.0
-offset_top = 492.0
-offset_right = 1196.0
-offset_bottom = 784.0
+offset_left = 704.0
+offset_top = 408.0
+offset_right = 952.0
+offset_bottom = 728.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q32h6")
 theme_override_styles/hover = ExtResource("3_468xx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rvfy4")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_celsl")
 
+[node name="DocumentTex" type="TextureRect" parent="Clickables"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 667.0
+offset_top = 881.0
+offset_right = -1055.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_5reqh")
+
+[node name="DocumentSigning" type="TextureButton" parent="Clickables/DocumentTex"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_hover = ExtResource("7_onxbj")
+stretch_mode = 0
+
 [node name="Tasks" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -86,10 +123,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_1_1_office" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
+[node name="Task_Document_Sign" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
 layout_mode = 1
-task_name = "Document Signing"
-task_description = "Sign some paperwork on your desk"
 
 [node name="Day2" type="Control" parent="Tasks"]
 layout_mode = 3
@@ -135,3 +170,4 @@ mouse_filter = 2
 
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]
 [connection signal="pressed" from="Clickables/Door" to="." method="_on_door_pressed"]
+[connection signal="pressed" from="Clickables/DocumentTex/DocumentSigning" to="." method="_on_document_signing_pressed"]
