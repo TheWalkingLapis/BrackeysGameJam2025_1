@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://cu844cc5p8gss"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_1_1_office.gd" id="1_m8idx"]
+[ext_resource type="Texture2D" uid="uid://birsaqu0k8ovt" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="2_dnd48"]
+[ext_resource type="Texture2D" uid="uid://6n6dfucbnu87" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="3_t6ogm"]
+[ext_resource type="Texture2D" uid="uid://mbn6w24e14l7" path="res://imgs/sprites/tasks/hr-signing/document_empty.png" id="3_y5lgl"]
+[ext_resource type="Texture2D" uid="uid://fcdr3s11f0ha" path="res://imgs/sprites/tasks/hr-signing/document_signed.png" id="4_g6nh2"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="5_rv01u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fmtq6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p3kxn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hf0ig"]
+
+[node name="Task_1_1_office" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m8idx")
+task_name = "Bing Chilling"
+task_description = "Watch something on your PC"
+
+[node name="Document" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1110.0
+offset_top = 855.0
+offset_right = -590.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_dnd48")
+texture_hover = ExtResource("3_t6ogm")
+stretch_mode = 0
+
+[node name="Active" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="unsigned" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_y5lgl")
+
+[node name="sign_button" type="Button" parent="Active/unsigned"]
+layout_mode = 0
+offset_left = 875.0
+offset_top = 766.0
+offset_right = 1330.0
+offset_bottom = 878.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fmtq6")
+theme_override_styles/hover = ExtResource("5_rv01u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p3kxn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hf0ig")
+
+[node name="signed" type="TextureButton" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_g6nh2")
+stretch_mode = 0
+
+[connection signal="pressed" from="Document" to="." method="_on_document_pressed"]
+[connection signal="pressed" from="Active/unsigned/sign_button" to="." method="_on_sign_button_pressed"]
+[connection signal="pressed" from="Active/signed" to="." method="_on_signed_pressed"]
