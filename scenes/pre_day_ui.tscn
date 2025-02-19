@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dd1y7r21a5ruw"]
+[gd_scene load_steps=10 format=3 uid="uid://dd1y7r21a5ruw"]
 
 [ext_resource type="Script" path="res://scripts/pre_day_ui.gd" id="1_f3k34"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha1e3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_84waq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ghek"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c282"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6d27n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3l8h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fiyt3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3l818"]
 
 [node name="PreDayUI" type="Control"]
 layout_mode = 3
@@ -11,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_f3k34")
+newspapers = Array[Texture2D]([null, null, null, null, null, null])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -19,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.134617, 0.264385, 0.254371, 1)
 
 [node name="Mail" type="TextureRect" parent="."]
@@ -29,7 +47,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
+mouse_filter = 2
+
+[node name="Mail_Text" type="RichTextLabel" parent="Mail"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 136.0
+offset_right = 1405.0
+offset_bottom = 881.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "Hello,
+me is mail"
 
 [node name="News" type="TextureRect" parent="."]
 texture_filter = 1
@@ -39,4 +68,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
+mouse_filter = 2
+
+[node name="News_to_Mail" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ha1e3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_84waq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2ghek")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2c282")
+
+[node name="Start_day" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6d27n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l3l8h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fiyt3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3l818")
+
+[connection signal="pressed" from="News_to_Mail" to="." method="_on_news_to_mail_pressed"]
+[connection signal="pressed" from="Start_day" to="." method="_on_start_day_pressed"]

@@ -22,49 +22,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0stk4")
 
-[node name="News_and_Mail" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="News_Text" type="RichTextLabel" parent="News_and_Mail"]
-layout_mode = 0
-offset_left = 1050.0
-offset_top = 233.0
-offset_right = 1472.0
-offset_bottom = 752.0
-bbcode_enabled = true
-text = "News"
-
-[node name="Mail_Text" type="RichTextLabel" parent="News_and_Mail"]
-layout_mode = 0
-offset_left = 323.0
-offset_top = 205.0
-offset_right = 841.0
-offset_bottom = 806.0
-bbcode_enabled = true
-text = "Mail"
-
-[node name="NAM_Continue" type="Button" parent="News_and_Mail"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -637.0
-offset_top = 277.5
-offset_right = -426.0
-offset_bottom = 395.5
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 35
-text = "continue"
-
 [node name="Interaction" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -114,5 +71,4 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_83fpe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_uap28")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ro7ce")
 
-[connection signal="pressed" from="News_and_Mail/NAM_Continue" to="." method="_on_nam_continue_pressed"]
 [connection signal="pressed" from="Interaction/Interaction_Box/INT_Continue" to="." method="_on_int_continue_pressed"]

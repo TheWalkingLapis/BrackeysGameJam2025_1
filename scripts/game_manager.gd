@@ -38,11 +38,11 @@ func start_next_day():
 ## Called before start_day to display news and mail w.o. waisting time
 func pre_start_day(day):
 	gameState = GameState.PRE_DAY
-	ui_manager.to_pre_day()
-	text_manager.display_news_and_mail(day)
+	ui_manager.to_pre_day(day)
 	allow_interaction = true
 
-func start_day(day):
+func start_day():
+	var day = current_day
 	gameState = GameState.IDLE
 	time_manager.start_day(day)
 	room_manager.setup_day(day)
@@ -56,12 +56,6 @@ func _on_task_in_progress():
 	gameState = GameState.IN_TASK
 
 func _on_text_continue(force):
-	if !force:
-		match gameState:
-			GameState.PRE_DAY:
-				start_day(current_day)
-			GameState.IDLE:
-				print("Text done")
 	if !time_manager.break_active:
 		allow_interaction = true
 

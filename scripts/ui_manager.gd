@@ -11,8 +11,9 @@ func to_main_menu():
 	disable_all()
 	mainMenu.visible = true
 
-func to_pre_day():
+func to_pre_day(day):
 	disable_all()
+	preDayUI.day(day)
 	preDayUI.visible = true
 	
 func to_day():

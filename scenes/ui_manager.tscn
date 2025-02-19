@@ -22,6 +22,7 @@ layout_mode = 1
 
 [node name="PreDayUI" parent="." instance=ExtResource("3_qn1de")]
 layout_mode = 1
+newspapers = null
 
 [node name="DebugUI" parent="." instance=ExtResource("3_ohgwp")]
 layout_mode = 1
