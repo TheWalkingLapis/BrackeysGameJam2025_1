@@ -20,6 +20,5 @@ func _on_sign_button_pressed():
 	signed.visible = true
 
 func _on_signed_pressed():
-	task_progression += 1
 	signed.visible = false
 	set_task_completed()

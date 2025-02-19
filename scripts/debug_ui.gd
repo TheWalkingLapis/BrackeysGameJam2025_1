@@ -2,6 +2,7 @@ extends Control
 
 @onready var clock = $Clock
 @onready var gameState = $GameState
+@onready var currentRoom = $CurrentRoom
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,4 +30,5 @@ func _process(delta):
 		GameManager.GameState.SUCCESS:
 			string = "SUCCESS" 
 	gameState.text = Utils.bbc_text(string, 30)
+	currentRoom.text = Utils.bbc_text(Global.room_manager.current_room, 30)
 	

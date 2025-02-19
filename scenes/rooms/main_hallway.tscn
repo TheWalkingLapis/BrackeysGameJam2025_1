@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6d4y5ww7g3sb"]
+[gd_scene load_steps=17 format=3 uid="uid://b6d4y5ww7g3sb"]
 
 [ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
 [ext_resource type="Texture2D" uid="uid://dvac2jcgd0xdk" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
@@ -18,6 +18,15 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sj37"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h80am"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62jgl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdk5y"]
+bg_color = Color(0.34902, 0.792157, 1, 0.533333)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yah5k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ijul4"]
 
 [node name="Main_Hallway" type="Control"]
 layout_mode = 3
@@ -85,6 +94,7 @@ stretch_mode = 0
 [node name="Storage" type="TextureButton" parent="Doors"]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 1552.0
 offset_top = 392.0
 offset_right = 1672.0
@@ -95,12 +105,24 @@ stretch_mode = 0
 [node name="Passage" type="TextureButton" parent="Doors"]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 1768.0
 offset_top = 304.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture_hover = ExtResource("6_tr6t8")
 stretch_mode = 0
+
+[node name="Plan" type="Button" parent="Doors"]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 488.0
+offset_right = 968.0
+offset_bottom = 584.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_62jgl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdk5y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_yah5k")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ijul4")
 
 [node name="Tasks" type="Control" parent="."]
 visible = false
@@ -166,3 +188,4 @@ mouse_filter = 2
 [connection signal="pressed" from="Doors/Kitchen" to="." method="_on_kitchen_pressed"]
 [connection signal="pressed" from="Doors/Storage" to="." method="_on_storage_pressed"]
 [connection signal="pressed" from="Doors/Passage" to="." method="_on_passage_pressed"]
+[connection signal="pressed" from="Doors/Plan" to="." method="_on_plan_pressed"]

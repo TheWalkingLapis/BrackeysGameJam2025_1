@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kufy4l8qlp63"]
+[gd_scene load_steps=12 format=3 uid="uid://kufy4l8qlp63"]
 
 [ext_resource type="Script" path="res://scripts/room_manager.gd" id="1_7csls"]
 [ext_resource type="PackedScene" uid="uid://cfbphyo7451bl" path="res://scenes/rooms/office.tscn" id="2_pdmif"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dap5osb6bgk1e" path="res://scenes/rooms/passage.tscn" id="7_2qa5o"]
 [ext_resource type="PackedScene" uid="uid://du1axr6vbmhmm" path="res://scenes/rooms/control.tscn" id="8_4w7ya"]
 [ext_resource type="PackedScene" uid="uid://cc80ca33i1bit" path="res://scenes/rooms/reactor.tscn" id="9_7j8wq"]
+[ext_resource type="PackedScene" uid="uid://u1rhl8blicf5" path="res://scenes/rooms/plan.tscn" id="10_qh3uf"]
+[ext_resource type="PackedScene" uid="uid://2nlkm0ephwj8" path="res://scenes/rooms/restaurant.tscn" id="11_rphnd"]
 
 [node name="RoomManager" type="Control"]
 layout_mode = 3
@@ -41,4 +43,10 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Reactor" parent="." instance=ExtResource("9_7j8wq")]
+layout_mode = 1
+
+[node name="Plan" parent="." instance=ExtResource("10_qh3uf")]
+layout_mode = 1
+
+[node name="Restaurant" parent="." instance=ExtResource("11_rphnd")]
 layout_mode = 1

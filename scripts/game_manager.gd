@@ -20,10 +20,14 @@ func _ready():
 	Global.text_manager = text_manager
 	
 	time_manager.day_done.connect(_on_day_done)
+	time_manager.break_time.connect(_on_break_time)
+	time_manager.break_time_over.connect(_on_break_time_over)
 	room_manager.task_started.connect(_on_task_in_progress)
 	room_manager.task_ended.connect(_on_task_ended)
 	text_manager.text_in_progress.connect(_on_text_in_progress)
 	text_manager.finished_text.connect(_on_text_continue)
+	
+	time_manager.break_time_over.connect(room_manager._on_break_time_over)
 	
 	ui_manager.to_main_menu()
 
@@ -44,11 +48,9 @@ func start_day(day):
 	ui_manager.to_day()
 
 func _on_text_in_progress():
-	print("Disabled Interaction")
 	allow_interaction = false
 
 func _on_task_in_progress():
-	print("Disabled Interaction")
 	allow_interaction = false
 	gameState = GameState.IN_TASK
 
@@ -59,11 +61,12 @@ func _on_text_continue(force):
 				start_day(current_day)
 			GameState.IDLE:
 				print("Text done")
-	print("Reenabled Interaction")
-	allow_interaction = true
+	if !time_manager.break_active:
+		allow_interaction = true
 
 func _on_task_ended():
-	allow_interaction = true
+	if !time_manager.break_active:
+		allow_interaction = true
 	gameState = GameState.IDLE
 
 func _on_day_done():
@@ -73,6 +76,12 @@ func _on_day_done():
 	current_day += 1
 	allow_interaction = false
 	#pause_game(false, true) # always force pause
+
+func _on_break_time():
+	allow_interaction = false
+	
+func _on_break_time_over():
+	allow_interaction = true
 
 ## calls get_tree().paused deferred
 ## @param toggle Whether the pause state is toggled

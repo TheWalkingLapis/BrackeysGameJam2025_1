@@ -19,3 +19,8 @@ func _on_storage_pressed():
 func _on_passage_pressed():
 	if !Global.game_manager.allow_interaction: return
 	Global.room_manager.change_room_to("Passage")
+
+func _on_plan_pressed():
+	Global.time_manager.resume_after_break()
+	#if !Global.game_manager.allow_interaction: return
+	#Global.room_manager.change_room_to("Plan")
