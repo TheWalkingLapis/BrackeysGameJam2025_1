@@ -4,8 +4,29 @@ extends Control
 
 var current_tasks = {}
 
+var optional_string = "Optional"
+var watering_string = "Watering"
+var task_string = "Tasks" # default
+
 func set_tasks(tasks):
-	current_tasks = tasks
+	current_tasks = {task_string: []}
+	for room in tasks:
+		var task_list = tasks[room]
+		if len(task_list) == 0: continue
+		for t in task_list:
+			var task := t as Task
+			if task.optional:
+				if !current_tasks.has(optional_string):
+					current_tasks[optional_string] = []
+				current_tasks[optional_string].append(task)
+			elif task.tag == Task.TaskTag.WATERING:
+				if !current_tasks.has(watering_string):
+					current_tasks[watering_string] = []
+				current_tasks[watering_string].append(task)
+			else:
+				current_tasks[task_string].append(task)
+	if current_tasks.has(watering_string):
+		current_tasks[watering_string].sort_custom(Task._task_compare_func)
 	update_task_text()
 
 func update_task_display():
@@ -22,13 +43,15 @@ func update_task_text():
 	text += Utils.bbc_text(working_hour_text, 22)
 	if !Global.time_manager.post_break:
 		text += Utils.bbc_text(break_time_text, 22)
-	for room in current_tasks:
-		var task_list = current_tasks[room]
+	
+	for category in current_tasks:
+		var task_list = current_tasks[category]
 		if len(task_list) == 0: continue
-		text += "%s:\n" % [room]
-		for task in task_list:
-			var task_texts = (task as Task).get_task_strings()
-			var task_text = " - %s\n" % Utils.bbc_text(task_texts[0], 25)
-			task_text += "   %s\n" % Utils.bbc_text(task_texts[1], 18)
-			text += Utils.bbc_strikethrough(task_text) if (task as Task).get_task_completed() else task_text
+		text += Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
+		for t in task_list:
+			var task := t as Task
+			var task_texts = task.get_task_strings()
+			var task_text = "  - %s\n" % Utils.bbc_text(task_texts[0], 25)
+			task_text += "     %s\n" % Utils.bbc_text(task_texts[1], 18)
+			text += Utils.bbc_strikethrough(task_text) if task.get_task_completed() else task_text
 	task_label.text = text

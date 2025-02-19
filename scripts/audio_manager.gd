@@ -5,7 +5,6 @@ class_name AudioManager
 
 @export var music_track_chill: AudioStream
 
-
 func play_music():
 	if music_player.playing:
 		return

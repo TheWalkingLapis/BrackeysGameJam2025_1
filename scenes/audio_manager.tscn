@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://pmd056tqd6oc"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_cmnvu"]
-[ext_resource type="AudioStream" uid="uid://c5iquj5v8vx4r" path="res://audio/music/JermeyFromHR.mp3" id="2_p2tu1"]
+[ext_resource type="AudioStream" uid="uid://ec3whikw1tvu" path="res://audio/music/JermeyFromHR.mp3" id="2_p2tu1"]
 
 [node name="AudioManager" type="Control"]
 layout_mode = 3

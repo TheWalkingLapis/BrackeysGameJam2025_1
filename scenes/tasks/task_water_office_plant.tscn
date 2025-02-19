@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg3oserfa7fnt"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_water_office_plant.gd" id="1_m82rs"]
+
+[node name="Task_water_Office_Plant" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_m82rs")
+task_name = "Office Plant"
+task_description = "Water the plant in your office"
+tag = 1
+order = 1
+whole_day = true

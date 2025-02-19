@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://byqi3m5byi60j"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_drop_watering_can.gd" id="1_q6qex"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="2_hkwxs"]
+
+[node name="Task_drop_Watering_Can" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_q6qex")
+task_name = "Return of the Can"
+task_description = "Bring the watering can back to the kitchen"
+tag = 1
+order = 3
+whole_day = true
+
+[node name="Watering_Can" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 138.0
+offset_top = 871.0
+offset_right = 282.0
+offset_bottom = 991.0
+mouse_filter = 2
+texture = ExtResource("2_hkwxs")

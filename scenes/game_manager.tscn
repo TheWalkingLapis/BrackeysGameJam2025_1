@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvnj4ie205euj"]
+[gd_scene load_steps=9 format=3 uid="uid://bvnj4ie205euj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
 [ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dam4nevijq3sp" path="res://scenes/text_manager.tscn" id="5_u72dr"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="6_t7s7w"]
 [ext_resource type="PackedScene" uid="uid://pmd056tqd6oc" path="res://scenes/audio_manager.tscn" id="7_8fxys"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="7_rbi2n"]
 
 [node name="GameManager" type="Control"]
 process_mode = 3
@@ -35,14 +36,19 @@ process_mode = 1
 layout_mode = 1
 
 [node name="Inventory" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_t7s7w")
+watering_can_tex = ExtResource("7_rbi2n")
 
 [node name="Slot" type="TextureRect" parent="Inventory"]
 visible = false
+texture_filter = 1
 layout_mode = 0
 offset_left = 44.0
 offset_top = 348.0

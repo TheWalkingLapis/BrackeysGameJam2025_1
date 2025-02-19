@@ -1,0 +1,7 @@
+[gd_resource type="BitMap" format=4 uid="uid://b6fwap7xy2yhe"]
+
+[resource]
+data = {
+"data": PackedByteArray("APwAAAAA+P8AgH/A/z8A+A/8/w/A/4H//wP8AYD//8AfAMD/P/wAAMD/zw8PAPD///kHAPj/3/8DAP7//38AgP+//wgA4P//B8D/+39/AP7///8H4P///38A/v///w/A/////z78/////4////////H/////P/7g////xw/w///n+AD8/z8cDoD//z/DAeD//w8YAPz//wMAAP//fwAA4P//DwAA+P8fAAAA/v8AAADA/w8AAADwfwAAAAD+BwAAAAB7AAA="),
+"size": Vector2i(45, 35)
+}

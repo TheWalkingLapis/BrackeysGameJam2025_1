@@ -65,9 +65,10 @@ func collect_tasks(day, post_break):
 		if len(room_tasks) == 0: continue
 		tasks[room_name] = []
 		for task in room_tasks:
-			if (task as Task).after_mealtime == post_break:
+			if ((task as Task).after_mealtime == post_break) or (task as Task).whole_day:
 				tasks[room_name].append(task)
-				(task as Task).reset_task()
+				if not post_break:
+					(task as Task).reset_task() # only reset at start of day to avoid reseting whole-day tasks after break
 				task.visible = true
 				if not days_started_once[day]:
 					(task as Task).started.connect(_on_task_started)
@@ -75,7 +76,7 @@ func collect_tasks(day, post_break):
 				num_tasks += 1
 			else:
 				task.visible = false
-		days_started_once[day] = true
+	days_started_once[day] = true
 	current_tasks = tasks
 	change_room_to("Main_Hallway")
 	Global.ui_manager.setup_tasks(tasks)

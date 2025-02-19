@@ -1,16 +1,19 @@
 extends Control
 class_name Inventory
 
-@export var watering_can_tex: Texture2D = null
+@export var watering_can_tex: Texture2D
 @onready var slot_rect: TextureRect = $Slot
 
 enum Items {NONE, WATERING_CAN}
-var tex_dict = {
+var tex_dict = {} # init in ready bc godot
+
+var slot: Items = Items.NONE
+
+func _ready():
+	tex_dict = {
 	Items.NONE: null,
 	Items.WATERING_CAN: watering_can_tex
 }
-
-var slot: Items = Items.NONE
 
 func pick_up(item: Items) -> bool:
 	if slot != Items.NONE and item != Items.NONE:
@@ -23,6 +26,9 @@ func pick_up(item: Items) -> bool:
 
 func drop():
 	pick_up(Items.NONE)
+	
+func is_empty():
+	return slot == Items.NONE
 
 func has_item(item: Items):
 	return slot == item

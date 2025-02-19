@@ -12,6 +12,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_t18mh")
+task_name = "Watering Can"
+task_description = "Pick up the watering can from the kitchen"
+tag = 1
 whole_day = true
 
 [node name="Watering_Can" type="TextureRect" parent="."]

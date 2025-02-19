@@ -8,6 +8,7 @@ extends Room
 var sign_task = null
 var tv_task = null
 var order_task = null
+var watering_task = null
 
 # define this in a room for per-day (or break time) setup of tasks or visiblity
 # (task visiblity itself is handled by the room manager)
@@ -17,18 +18,33 @@ func setup_day(day, post_break):
 		0:
 			sign_task = $Tasks/Day1/Task_Document_Sign_Post if post_break else $Tasks/Day1/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day1/Task_watch_TV_post if post_break else $Tasks/Day1/Task_watch_TV_pre
+			order_task = null
+			watering_task = null
 		1:
 			sign_task = $Tasks/Day2/Task_Document_Sign_Post if post_break else $Tasks/Day2/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day2/Task_watch_TV_post if post_break else $Tasks/Day2/Task_watch_TV_pre
 			order_task = null if post_break else $Tasks/Day2/Task_Order
+			watering_task = null
 		2:
-			pass
+			sign_task = $Tasks/Day3/Task_Document_Sign_Post if post_break else $Tasks/Day3/Task_Document_Sign_Pre
+			tv_task = $Tasks/Day3/Task_watch_TV_post if post_break else $Tasks/Day3/Task_watch_TV_pre
+			order_task = null if post_break else $Tasks/Day3/Task_Order
+			watering_task = $Tasks/Day3/Task_water_Office_Plant
 		3:
-			pass
+			sign_task = null
+			tv_task = null
+			order_task = null
+			watering_task = null
 		4:
-			pass
+			sign_task = null
+			tv_task = null
+			order_task = null
+			watering_task = null
 		5:
-			pass
+			sign_task = null
+			tv_task = null
+			order_task = null
+			watering_task = null
 
 func _on_pc_screen_pressed():
 	if !Global.game_manager.allow_interaction: return
@@ -70,3 +86,15 @@ func _on_couch_pressed():
 	
 func _on_time_evening():
 	$Background.texture = bg_texture_evening
+
+func _on_plant_pressed():
+	if !Global.game_manager.allow_interaction: return
+	if watering_task != null:
+		if (watering_task as Task).get_task_completed():
+			Global.text_manager.display_interaction_text("I already watered this plant")
+		elif !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
+			Global.text_manager.display_interaction_text("I need the waternig can for this")
+		else:
+			watering_task.start_task()
+	else:
+		Global.text_manager.display_interaction_text("I don't need to water the plant")

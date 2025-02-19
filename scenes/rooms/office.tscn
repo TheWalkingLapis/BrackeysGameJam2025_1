@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=24 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
 [ext_resource type="Texture2D" uid="uid://pck8v580m60y" path="res://imgs/rooms/office/office_day.png" id="2_bd30j"]
@@ -12,8 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cmoy00q6rj8jq" path="res://imgs/rooms/masks/office_tv_mask.png" id="9_oewpb"]
 [ext_resource type="Texture2D" uid="uid://dqtqvbeppd8d3" path="res://imgs/rooms/masks/office_couch_mask.png" id="10_p5nc4"]
 [ext_resource type="BitMap" path="res://imgs/rooms/masks/office_couch_mask_bitmap.tres" id="11_4mqv3"]
+[ext_resource type="Texture2D" uid="uid://ba7lyweavi3s8" path="res://imgs/rooms/masks/office_plant_mask.png" id="12_5sxox"]
 [ext_resource type="PackedScene" uid="uid://bjkkjp25nnmlt" path="res://scenes/tasks/task_watch_tv.tscn" id="12_yts8n"]
+[ext_resource type="BitMap" uid="uid://b6fwap7xy2yhe" path="res://imgs/rooms/masks/office_plant_mask_bitmap.tres" id="13_rnoh4"]
 [ext_resource type="PackedScene" uid="uid://co31i2b8h8sod" path="res://scenes/tasks/task_order.tscn" id="14_u11nm"]
+[ext_resource type="PackedScene" uid="uid://dg3oserfa7fnt" path="res://scenes/tasks/task_water_office_plant.tscn" id="17_wvwba"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
@@ -131,6 +134,18 @@ texture_hover = ExtResource("10_p5nc4")
 texture_click_mask = ExtResource("11_4mqv3")
 stretch_mode = 0
 
+[node name="Plant" type="TextureButton" parent="Clickables"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 336.0
+offset_top = 488.0
+offset_right = 696.0
+offset_bottom = 768.0
+texture_hover = ExtResource("12_5sxox")
+texture_click_mask = ExtResource("13_rnoh4")
+stretch_mode = 0
+
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -207,11 +222,43 @@ visible = false
 layout_mode = 1
 
 [node name="Day3" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_Document_Sign_Pre" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "Signing"
+task_description = "Sign the document on your desk"
+
+[node name="Task_Document_Sign_Post" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "More Signing"
+task_description = "Sign another document on your desk"
+after_mealtime = true
+
+[node name="Task_watch_TV_pre" parent="Tasks/Day3" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+
+[node name="Task_watch_TV_post" parent="Tasks/Day3" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+after_mealtime = true
+
+[node name="Task_Order" parent="Tasks/Day3" instance=ExtResource("14_u11nm")]
+visible = false
+layout_mode = 1
+
+[node name="Task_water_Office_Plant" parent="Tasks/Day3" instance=ExtResource("17_wvwba")]
+visible = false
+layout_mode = 1
 
 [node name="Day4" type="Control" parent="Tasks"]
 layout_mode = 3
@@ -246,3 +293,4 @@ mouse_filter = 2
 [connection signal="pressed" from="Clickables/DocumentTex/DocumentSigning" to="." method="_on_document_signing_pressed"]
 [connection signal="pressed" from="Clickables/TV" to="." method="_on_tv_pressed"]
 [connection signal="pressed" from="Clickables/Couch" to="." method="_on_couch_pressed"]
+[connection signal="pressed" from="Clickables/Plant" to="." method="_on_plant_pressed"]
