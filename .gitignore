@@ -6,3 +6,5 @@
 # Kriate ignores
 *~
 *kra-autosave*
+
+*.tscn
