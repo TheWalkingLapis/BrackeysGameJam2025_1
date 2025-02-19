@@ -5,9 +5,9 @@ extends Task
 func start_task():
 	if get_task_completed():
 		return
-	var success = Global.inventory.has_item(Global.inventory.Items.WATERING_CAN)
-	if !success:
+	if !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
 		return
+	Global.inventory.drop()
 	watering_can.visible = true
 	started.emit()
 	set_task_completed()

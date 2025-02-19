@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=9 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
 [ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="3_qwuhf"]
+[ext_resource type="Texture2D" uid="uid://bjnelfly7ca0l" path="res://imgs/sprites/tasks/watering_can_mask.png" id="3_urun6"]
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/watering_can_mask_bitmap.tres" id="4_h4ouc"]
+[ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
 
 [node name="Kitchen" type="Control"]
@@ -26,13 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_eucwl")
-
-[node name="Watering_Can_Hitbox" type="Button" parent="."]
-layout_mode = 0
-offset_left = 145.0
-offset_top = 870.0
-offset_right = 296.0
-offset_bottom = 1004.0
 
 [node name="Leave_Room" type="TextureButton" parent="."]
 layout_mode = 0
@@ -112,5 +108,28 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[connection signal="pressed" from="Watering_Can_Hitbox" to="." method="_on_watering_can_hitbox_pressed"]
+[node name="Watering_Can_Hitbox" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 108.0
+offset_top = 324.0
+offset_right = 343.0
+offset_bottom = 465.0
+texture_hover = ExtResource("3_urun6")
+texture_click_mask = ExtResource("4_h4ouc")
+stretch_mode = 0
+
+[node name="Watering_Can_Sprite" type="TextureRect" parent="Watering_Can_Hitbox"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_26yy8")
+
 [connection signal="pressed" from="Leave_Room" to="." method="_on_leave_room_pressed"]
+[connection signal="pressed" from="Watering_Can_Hitbox" to="." method="_on_watering_can_hitbox_pressed"]

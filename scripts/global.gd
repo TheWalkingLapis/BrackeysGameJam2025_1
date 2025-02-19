@@ -7,3 +7,6 @@ var ui_manager: UIManager = null
 var text_manager: TextManager = null
 var inventory: Inventory = null
 var audio_manager: AudioManager = null
+
+
+var watering_task_allow_discard_watering_can = false

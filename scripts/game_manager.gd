@@ -11,7 +11,7 @@ class_name GameManager
 enum GameState {MAIN_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED, SUCCESS}
 var gameState: GameState = GameState.MAIN_MENU
 
-var current_day = 2
+var current_day = 0
 var allow_interaction = true
 
 func _ready():
@@ -85,6 +85,8 @@ func _on_day_done():
 
 func _on_break_time():
 	allow_interaction = false
+	ui_manager.taskUI._on_break_time()
+	audio_manager.play_break_sound()
 	# TODO check if all non-optional tasks were done
 	if false:
 		pre_start_day(current_day)

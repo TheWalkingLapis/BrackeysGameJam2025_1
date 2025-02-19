@@ -22,7 +22,7 @@ var task_in_progress = false
 var num_tasks = 0
 var num_completed_tasks = 0
 
-var days_started_once = [false, false, false, false, false, false] #avoid signal reconnection on day restart
+var tasks_with_connected_signals = {}
 
 func _ready():
 	name_to_node_dict = {
@@ -70,13 +70,13 @@ func collect_tasks(day, post_break):
 				if not post_break:
 					(task as Task).reset_task() # only reset at start of day to avoid reseting whole-day tasks after break
 				task.visible = true
-				if not days_started_once[day]:
+				if !tasks_with_connected_signals.has(task):
+					tasks_with_connected_signals[task] = null # use as a set for connected signals to avoid errors
 					(task as Task).started.connect(_on_task_started)
 					(task as Task).completed.connect(_on_task_completed)
 				num_tasks += 1
 			else:
 				task.visible = false
-	days_started_once[day] = true
 	current_tasks = tasks
 	change_room_to("Main_Hallway")
 	Global.ui_manager.setup_tasks(tasks)
