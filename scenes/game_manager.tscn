@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvnj4ie205euj"]
+[gd_scene load_steps=8 format=3 uid="uid://bvnj4ie205euj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
 [ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://naua1f5cbkae" path="res://scenes/ui_manager.tscn" id="4_umkd5"]
 [ext_resource type="PackedScene" uid="uid://dam4nevijq3sp" path="res://scenes/text_manager.tscn" id="5_u72dr"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="6_t7s7w"]
+[ext_resource type="PackedScene" uid="uid://pmd056tqd6oc" path="res://scenes/audio_manager.tscn" id="7_8fxys"]
 
 [node name="GameManager" type="Control"]
 process_mode = 3
@@ -57,3 +58,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.662745)
+
+[node name="AudioManager" parent="." instance=ExtResource("7_8fxys")]
+layout_mode = 1

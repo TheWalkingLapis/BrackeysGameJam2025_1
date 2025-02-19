@@ -6,11 +6,12 @@ class_name GameManager
 @onready var ui_manager: UIManager = $UIManager
 @onready var text_manager: TextManager = $TextManager
 @onready var inventory: Inventory = $Inventory
+@onready var audio_manager: AudioManager = $AudioManager
 
 enum GameState {MAIN_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED, SUCCESS}
 var gameState: GameState = GameState.MAIN_MENU
 
-var current_day = 2
+var current_day = 0
 var allow_interaction = true
 
 func _ready():
@@ -20,6 +21,7 @@ func _ready():
 	Global.ui_manager = ui_manager
 	Global.text_manager = text_manager
 	Global.inventory = inventory
+	Global.audio_manager = audio_manager
 	
 	time_manager.day_done.connect(_on_day_done)
 	time_manager.break_time.connect(_on_break_time)
@@ -50,6 +52,7 @@ func start_day():
 	time_manager.start_day(day)
 	room_manager.setup_day(day)
 	ui_manager.to_day()
+	audio_manager.play_music()
 
 func _on_text_in_progress():
 	allow_interaction = false
@@ -72,6 +75,7 @@ func _on_day_done():
 	ui_manager.to_post_day()
 	text_manager.clear_text()
 	# TODO add check for task completion
+	audio_manager.stop_music()
 	if false:
 		pre_start_day(current_day)
 		return
