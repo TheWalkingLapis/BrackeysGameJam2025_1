@@ -28,6 +28,7 @@ func _ready():
 	text_manager.finished_text.connect(_on_text_continue)
 	
 	time_manager.break_time_over.connect(room_manager._on_break_time_over)
+	time_manager.evening.connect(room_manager._on_time_evening)
 	
 	ui_manager.to_main_menu()
 

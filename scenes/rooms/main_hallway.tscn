@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6d4y5ww7g3sb"]
+[gd_scene load_steps=18 format=3 uid="uid://b6d4y5ww7g3sb"]
 
 [ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
 [ext_resource type="Texture2D" uid="uid://dvac2jcgd0xdk" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dausw13pqqwto" path="res://imgs/rooms/masks/main-hallway_kitchen_mask.png" id="4_o0wm0"]
 [ext_resource type="Texture2D" uid="uid://co8n6fkuyhppi" path="res://imgs/rooms/masks/main_hallway_storage_mask.png" id="5_o3r2r"]
 [ext_resource type="Texture2D" uid="uid://bsq48gvrsnxu8" path="res://imgs/rooms/masks/main_hallway_passage_mask.png" id="6_tr6t8"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="7_0d4fg"]
+[ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="8_ovrwh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxhba"]
 
@@ -20,9 +22,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h80am"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62jgl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdk5y"]
-bg_color = Color(0.34902, 0.792157, 1, 0.533333)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yah5k"]
 
@@ -120,9 +119,20 @@ offset_top = 488.0
 offset_right = 968.0
 offset_bottom = 584.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_62jgl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kdk5y")
+theme_override_styles/hover = ExtResource("3_3seoe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_yah5k")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijul4")
+
+[node name="Restaurant" type="TextureButton" parent="Doors"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 925.0
+offset_top = 945.0
+offset_right = 1059.0
+offset_bottom = 1076.0
+texture_normal = ExtResource("7_0d4fg")
+texture_hover = ExtResource("8_ovrwh")
+stretch_mode = 0
 
 [node name="Tasks" type="Control" parent="."]
 visible = false
@@ -189,3 +199,4 @@ mouse_filter = 2
 [connection signal="pressed" from="Doors/Storage" to="." method="_on_storage_pressed"]
 [connection signal="pressed" from="Doors/Passage" to="." method="_on_passage_pressed"]
 [connection signal="pressed" from="Doors/Plan" to="." method="_on_plan_pressed"]
+[connection signal="pressed" from="Doors/Restaurant" to="." method="_on_restaurant_pressed"]

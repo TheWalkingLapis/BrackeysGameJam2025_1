@@ -4,14 +4,17 @@ class_name TimeManager
 signal break_time()
 signal break_time_over()
 signal day_done()
+signal evening()
 
 const ingame_hour_in_seconds: float = 15.0
+const evening_hour: int = 17
 
 var day_start_hour: int = 0
 var day_end_hour: int = 0
 var day_break_hour: int = 0
 var post_break: bool = false
 var day_break_duration: int = 0
+var day_time = "day"
 
 var current_ingame_time: float = 0.0
 var current_ingame_hour: int = 0
@@ -48,6 +51,9 @@ func _process(delta):
 	if !post_break and current_ingame_hour == day_break_hour:
 		break_time.emit()
 		break_active = true
+	if current_ingame_hour == evening_hour and day_time != "evening":
+		evening.emit()
+		day_time = "evening"
 	if current_ingame_hour == day_end_hour:
 		current_ingame_time = day_end_hour
 		current_real_time = (current_ingame_time - day_start_hour) * ingame_hour_in_seconds

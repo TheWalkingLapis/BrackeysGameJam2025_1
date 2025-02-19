@@ -95,5 +95,11 @@ func _on_task_completed():
 	if num_completed_tasks == num_tasks:
 		print("all done, TODO")
 
+func _on_time_evening():
+	for room_name in name_to_node_dict:
+		if room_name == "None": continue
+		if name_to_node_dict[room_name].has_method("_on_time_evening"):
+			name_to_node_dict[room_name]._on_time_evening()
+
 func _process(delta):
 	pass

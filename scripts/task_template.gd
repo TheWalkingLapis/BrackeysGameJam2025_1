@@ -11,13 +11,15 @@ enum TaskTag {NONE}
 @export var tag: TaskTag = TaskTag.NONE
 
 @export var optional: bool = false
+@export var uncompletable: bool = false
 @export var after_mealtime: bool = false
 
 
 var is_completed: bool = false
 
 func set_task_completed():
-	is_completed = true
+	if !uncompletable:
+		is_completed = true
 	completed.emit()
 
 func get_task_completed():

@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjkkjp25nnmlt"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_watch_tv.gd" id="1_qkhe0"]
+[ext_resource type="Texture2D" uid="uid://dtwrya5dg5xa7" path="res://imgs/main_menu_placeholder.png" id="2_idnjv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqsp6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxshv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo4nw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bmdx7"]
+
+[node name="Task_watch_TV" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qkhe0")
+task_name = "Relax"
+task_description = "Watch some TV to pass the time"
+optional = true
+uncompletable = true
+
+[node name="Active" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TV_BG" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1879.0
+offset_top = 6.0
+offset_right = 1.0
+offset_bottom = 1046.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_idnjv")
+
+[node name="Leave" type="Button" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mqsp6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jxshv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo4nw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bmdx7")
+
+[connection signal="pressed" from="Active/Leave" to="." method="_on_leave_pressed"]
