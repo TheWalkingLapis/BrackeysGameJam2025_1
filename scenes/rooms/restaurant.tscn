@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://2nlkm0ephwj8"]
+[gd_scene load_steps=7 format=3 uid="uid://2nlkm0ephwj8"]
 
 [ext_resource type="Script" path="res://scripts/restaurant.gd" id="1_76tx8"]
+[ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_2btrc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pwuhi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glvhg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rhj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7qpk"]
 
 [node name="Restaurant" type="Control"]
 layout_mode = 3
@@ -9,4 +18,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_76tx8")
+
+[node name="BG" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_2btrc")
+
+[node name="Take_Break" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pwuhi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_glvhg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4rhj6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7qpk")
+
+[connection signal="pressed" from="Take_Break" to="." method="_on_take_break_pressed"]

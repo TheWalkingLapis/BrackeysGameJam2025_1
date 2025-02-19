@@ -39,6 +39,8 @@ func start_day(day: int):
 	current_real_time = 0.0
 	time_fac = 1.0
 	day_active = true
+	break_active = false
+	post_break = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

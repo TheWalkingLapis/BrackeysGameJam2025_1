@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds58wystlw712"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_watering_can.gd" id="1_t18mh"]
+[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="2_g6sjo"]
+
+[node name="Task_Pick_up_Watering_Can" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_t18mh")
+whole_day = true
+
+[node name="Watering_Can" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 138.0
+offset_top = 871.0
+offset_right = 282.0
+offset_bottom = 991.0
+mouse_filter = 2
+texture = ExtResource("2_g6sjo")

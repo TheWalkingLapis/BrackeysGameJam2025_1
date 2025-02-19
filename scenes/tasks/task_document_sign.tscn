@@ -23,6 +23,7 @@ script = ExtResource("1_pvf0i")
 optional = true
 
 [node name="Active" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,7 +33,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="unsigned" type="TextureRect" parent="Active"]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -55,7 +55,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_p3kxn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_hf0ig")
 
 [node name="signed" type="TextureButton" parent="Active"]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15

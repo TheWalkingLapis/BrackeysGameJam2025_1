@@ -22,6 +22,8 @@ var task_in_progress = false
 var num_tasks = 0
 var num_completed_tasks = 0
 
+var days_started_once = [false, false, false, false, false, false] #avoid signal reconnection on day restart
+
 func _ready():
 	name_to_node_dict = {
 		"None": null,
@@ -52,20 +54,28 @@ func collect_tasks(day, post_break):
 	var tasks = {}
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
+		for i in range(6):
+			var day_string = "Tasks/Day%d" % [i+1]
+			var day_node = name_to_node_dict[room_name].get_node_or_null(day_string)
+			if day_node != null:
+				day_node.visible = i == day
 		if name_to_node_dict[room_name].has_method("setup_day"):
 			name_to_node_dict[room_name].setup_day(day, post_break)
-		var room_tasks = name_to_node_dict[room_name].get_tasks_for_day(day)
+		var room_tasks = (name_to_node_dict[room_name] as Room).get_tasks_for_day(day)
 		if len(room_tasks) == 0: continue
 		tasks[room_name] = []
 		for task in room_tasks:
 			if (task as Task).after_mealtime == post_break:
 				tasks[room_name].append(task)
+				(task as Task).reset_task()
 				task.visible = true
-				(task as Task).started.connect(_on_task_started)
-				(task as Task).completed.connect(_on_task_completed)
+				if not days_started_once[day]:
+					(task as Task).started.connect(_on_task_started)
+					(task as Task).completed.connect(_on_task_completed)
 				num_tasks += 1
 			else:
 				task.visible = false
+		days_started_once[day] = true
 	current_tasks = tasks
 	change_room_to("Main_Hallway")
 	Global.ui_manager.setup_tasks(tasks)
@@ -79,7 +89,7 @@ func change_room_to(room_name: String):
 	current_room = room_name
 	if room_name != "None":
 		name_to_node_dict[current_room].visible = true
-		
+
 func _on_task_started():
 	task_in_progress = true
 	task_started.emit()

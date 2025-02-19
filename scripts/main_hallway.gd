@@ -3,10 +3,10 @@ extends Room
 var allowed_rooms = {
 	0: ["Plan", "Office"],
 	1: ["Plan", "Office"],
-	2: ["Plan", "Office"],
-	3: ["Plan", "Office"],
-	4: ["Plan", "Office"],
-	5: ["Plan", "Office"]
+	2: ["Plan", "Office", "Kitchen"],
+	3: ["Plan", "Office", "Kitchen"],
+	4: ["Plan", "Office", "Kitchen"],
+	5: ["Plan", "Office", "Kitchen"]
 }
 
 var room_not_allowed_txt = "I shouldn't go there"

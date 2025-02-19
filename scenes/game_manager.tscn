@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvnj4ie205euj"]
+[gd_scene load_steps=7 format=3 uid="uid://bvnj4ie205euj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
 [ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
 [ext_resource type="PackedScene" uid="uid://cavy32fvbqm8w" path="res://scenes/time_manager.tscn" id="3_0l8fs"]
 [ext_resource type="PackedScene" uid="uid://naua1f5cbkae" path="res://scenes/ui_manager.tscn" id="4_umkd5"]
 [ext_resource type="PackedScene" uid="uid://dam4nevijq3sp" path="res://scenes/text_manager.tscn" id="5_u72dr"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="6_t7s7w"]
 
 [node name="GameManager" type="Control"]
 process_mode = 3
@@ -31,3 +32,28 @@ layout_mode = 1
 [node name="TextManager" parent="." instance=ExtResource("5_u72dr")]
 process_mode = 1
 layout_mode = 1
+
+[node name="Inventory" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("6_t7s7w")
+
+[node name="Slot" type="TextureRect" parent="Inventory"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 348.0
+offset_right = 141.0
+offset_bottom = 443.0
+mouse_filter = 2
+
+[node name="SlotBG" type="ColorRect" parent="Inventory/Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.662745)

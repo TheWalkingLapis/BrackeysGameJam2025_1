@@ -15,7 +15,10 @@ func update_task_text():
 	var working_hours = Global.time_manager.get_working_hours()
 	var text = ""
 	var working_hour_text = "Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
-	var break_time_text = "Break Time at %02d:00\n" % Global.time_manager.day_break_hour
+	var break_time_text = "Break Time at %02d:00" % Global.time_manager.day_break_hour
+	if Global.time_manager.day_break_duration >= 1:
+		break_time_text += " for %dh" % Global.time_manager.day_break_duration
+	break_time_text += "\n"
 	text += Utils.bbc_text(working_hour_text, 22)
 	if !Global.time_manager.post_break:
 		text += Utils.bbc_text(break_time_text, 22)

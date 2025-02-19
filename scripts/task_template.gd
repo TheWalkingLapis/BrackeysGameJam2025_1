@@ -13,6 +13,7 @@ enum TaskTag {NONE}
 @export var optional: bool = false
 @export var uncompletable: bool = false
 @export var after_mealtime: bool = false
+@export var whole_day: bool = false
 
 
 var is_completed: bool = false
@@ -24,6 +25,9 @@ func set_task_completed():
 
 func get_task_completed():
 	return is_completed
+	
+func reset_task():
+	is_completed = false
 
 func get_task_strings():
 	var header = task_name

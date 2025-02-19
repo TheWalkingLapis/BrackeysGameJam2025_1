@@ -5,11 +5,12 @@ class_name GameManager
 @onready var time_manager: TimeManager = $TimeManager
 @onready var ui_manager: UIManager = $UIManager
 @onready var text_manager: TextManager = $TextManager
+@onready var inventory: Inventory = $Inventory
 
 enum GameState {MAIN_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED, SUCCESS}
 var gameState: GameState = GameState.MAIN_MENU
 
-var current_day = 0
+var current_day = 2
 var allow_interaction = true
 
 func _ready():
@@ -18,6 +19,7 @@ func _ready():
 	Global.time_manager = time_manager
 	Global.ui_manager = ui_manager
 	Global.text_manager = text_manager
+	Global.inventory = inventory
 	
 	time_manager.day_done.connect(_on_day_done)
 	time_manager.break_time.connect(_on_break_time)
@@ -38,6 +40,7 @@ func start_next_day():
 ## Called before start_day to display news and mail w.o. waisting time
 func pre_start_day(day):
 	gameState = GameState.PRE_DAY
+	inventory.drop()
 	ui_manager.to_pre_day(day)
 	allow_interaction = true
 
@@ -68,12 +71,20 @@ func _on_day_done():
 	gameState = GameState.POST_DAY
 	ui_manager.to_post_day()
 	text_manager.clear_text()
+	# TODO add check for task completion
+	if false:
+		pre_start_day(current_day)
+		return
 	current_day += 1
 	allow_interaction = false
 	#pause_game(false, true) # always force pause
 
 func _on_break_time():
 	allow_interaction = false
+	# TODO check if all non-optional tasks were done
+	if false:
+		pre_start_day(current_day)
+		return
 	
 func _on_break_time_over():
 	allow_interaction = true

@@ -1,17 +1,20 @@
 extends Task
 
+@onready var active = $Active
+
 @onready var signed = $Active/signed
 @onready var sign_button = $Active/unsigned/sign_button
 @onready var unsigned = $Active/unsigned
 
-func _on_ready():
-	signed.visible = false
-	unsigned.visible = false
+func reset_task():
+	super.reset_task()
+	active.visible = false
 
 func start_task():
 	if get_task_completed():
 		return
 	started.emit()
+	active.visible = true
 	unsigned.visible = true
 	signed.visible = false
 

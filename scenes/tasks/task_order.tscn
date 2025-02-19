@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://co31i2b8h8sod"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_order.gd" id="1_431vo"]
+
+[node name="Task_Order" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_431vo")
+task_name = "Logistics"
+task_description = "Order supplies from the PC in your Office"
+
+[node name="Active" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Buttons" type="Control" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Leave" type="Button" parent="Active/Buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leave"
+
+[node name="Screen" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="Active/Buttons/Leave" to="." method="_on_leave_pressed"]
