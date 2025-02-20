@@ -295,6 +295,10 @@ after_mealtime = true
 visible = false
 layout_mode = 1
 
+[node name="Task_Order" parent="Tasks/Day4" instance=ExtResource("14_u11nm")]
+visible = false
+layout_mode = 1
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -330,6 +334,10 @@ after_mealtime = true
 visible = false
 layout_mode = 1
 
+[node name="Task_Order" parent="Tasks/Day5" instance=ExtResource("14_u11nm")]
+visible = false
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -362,6 +370,10 @@ layout_mode = 1
 after_mealtime = true
 
 [node name="Task_water_Office_Plant" parent="Tasks/Day6" instance=ExtResource("17_wvwba")]
+visible = false
+layout_mode = 1
+
+[node name="Task_Order" parent="Tasks/Day6" instance=ExtResource("14_u11nm")]
 visible = false
 layout_mode = 1
 

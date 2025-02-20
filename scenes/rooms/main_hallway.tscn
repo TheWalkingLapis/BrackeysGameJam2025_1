@@ -1,25 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6d4y5ww7g3sb"]
+[gd_scene load_steps=21 format=3 uid="uid://b6d4y5ww7g3sb"]
 
 [ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
-[ext_resource type="Texture2D" uid="uid://dvac2jcgd0xdk" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
+[ext_resource type="Texture2D" uid="uid://djj5s6l7lvov8" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="3_3seoe"]
+[ext_resource type="Texture2D" uid="uid://bhnjfcwe7a6d2" path="res://imgs/rooms/masks/main_hallway_big_D_mask.png" id="4_6v4oq"]
 [ext_resource type="Texture2D" uid="uid://dausw13pqqwto" path="res://imgs/rooms/masks/main-hallway_kitchen_mask.png" id="4_o0wm0"]
+[ext_resource type="BitMap" path="res://imgs/rooms/masks/main_hallway_big_D_mask_bitmap.tres" id="5_6k1am"]
 [ext_resource type="Texture2D" uid="uid://co8n6fkuyhppi" path="res://imgs/rooms/masks/main_hallway_storage_mask.png" id="5_o3r2r"]
 [ext_resource type="Texture2D" uid="uid://bsq48gvrsnxu8" path="res://imgs/rooms/masks/main_hallway_passage_mask.png" id="6_tr6t8"]
-[ext_resource type="Texture2D" uid="uid://dfqmdtt8cm6cb" path="res://imgs/sprites/tasks/hr-signing/document_laying.png" id="7_0d4fg"]
-[ext_resource type="Texture2D" uid="uid://h6xgld1lnyb3" path="res://imgs/sprites/tasks/hr-signing/document_laying_mask.png" id="8_ovrwh"]
+[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="7_k8cvg"]
+[ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="8_lxy8i"]
+[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="9_6cb5g"]
+[ext_resource type="Texture2D" uid="uid://b6ffg1a63u8tj" path="res://imgs/rooms/masks/main_hallway_plant_mask.png" id="12_8re2f"]
+[ext_resource type="BitMap" path="res://imgs/rooms/masks/main_hallway_plant_mask_bitmap.tres" id="13_vneju"]
+[ext_resource type="PackedScene" uid="uid://c0swdtotoaijr" path="res://scenes/tasks/task_water_hallway_plant.tscn" id="14_lj5mk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxhba"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_blhor"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ussbk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v81qw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sj37"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h80am"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62jgl"]
 
@@ -68,16 +68,17 @@ theme_override_styles/hover = ExtResource("3_3seoe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_blhor")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ussbk")
 
-[node name="Boss" type="Button" parent="Doors"]
+[node name="Boss" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
 layout_mode = 0
 offset_left = 1192.0
 offset_top = 456.0
 offset_right = 1400.0
 offset_bottom = 792.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v81qw")
-theme_override_styles/hover = ExtResource("3_3seoe")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_0sj37")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_h80am")
+texture_hover = ExtResource("4_6v4oq")
+texture_click_mask = ExtResource("5_6k1am")
+stretch_mode = 0
 
 [node name="Kitchen" type="TextureButton" parent="Doors"]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -124,14 +125,39 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_yah5k")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ijul4")
 
 [node name="Restaurant" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
-offset_left = 925.0
-offset_top = 945.0
-offset_right = 1059.0
-offset_bottom = 1076.0
-texture_normal = ExtResource("7_0d4fg")
-texture_hover = ExtResource("8_ovrwh")
+offset_left = 922.0
+offset_top = 928.0
+offset_right = 1036.0
+offset_bottom = 1059.0
+texture_hover = ExtResource("7_k8cvg")
+texture_click_mask = ExtResource("8_lxy8i")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Doors/Restaurant"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_6cb5g")
+
+[node name="Plant" type="TextureButton" parent="Doors"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 976.0
+offset_top = 304.0
+offset_right = 1280.0
+offset_bottom = 704.0
+texture_hover = ExtResource("12_8re2f")
+texture_click_mask = ExtResource("13_vneju")
 stretch_mode = 0
 
 [node name="Tasks" type="Control" parent="."]
@@ -165,12 +191,18 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
+[node name="Task_water_Hallway_Plant" parent="Tasks/Day3" instance=ExtResource("14_lj5mk")]
+layout_mode = 1
+
 [node name="Day4" type="Control" parent="Tasks"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+
+[node name="Task_water_Hallway_Plant" parent="Tasks/Day4" instance=ExtResource("14_lj5mk")]
+layout_mode = 1
 
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 3
@@ -179,6 +211,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
+[node name="Task_water_Hallway_Plant" parent="Tasks/Day5" instance=ExtResource("14_lj5mk")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 3
 anchors_preset = 0
@@ -186,12 +221,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Day7" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+[node name="Task_water_Hallway_Plant" parent="Tasks/Day6" instance=ExtResource("14_lj5mk")]
+layout_mode = 1
 
 [connection signal="pressed" from="Doors/HR" to="." method="_on_hr_pressed"]
 [connection signal="pressed" from="Doors/Boss" to="." method="_on_boss_pressed"]
@@ -200,3 +231,4 @@ mouse_filter = 2
 [connection signal="pressed" from="Doors/Passage" to="." method="_on_passage_pressed"]
 [connection signal="pressed" from="Doors/Plan" to="." method="_on_plan_pressed"]
 [connection signal="pressed" from="Doors/Restaurant" to="." method="_on_restaurant_pressed"]
+[connection signal="pressed" from="Doors/Plant" to="." method="_on_plant_pressed"]

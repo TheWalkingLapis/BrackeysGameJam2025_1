@@ -1,6 +1,56 @@
-[gd_scene load_steps=2 format=3 uid="uid://co31i2b8h8sod"]
+[gd_scene load_steps=34 format=3 uid="uid://co31i2b8h8sod"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_order.gd" id="1_431vo"]
+[ext_resource type="Texture2D" uid="uid://biac1l0tohhvu" path="res://imgs/sprites/tasks/orders/app_first-days.png" id="2_b4qit"]
+[ext_resource type="Texture2D" uid="uid://d3ercic2dm10x" path="res://imgs/sprites/tasks/orders/app_atombomb.png" id="3_oqwsx"]
+[ext_resource type="Texture2D" uid="uid://cw2u1yhrt8yrw" path="res://imgs/sprites/tasks/orders/app_plutonium-unlocked.png" id="4_nbcbc"]
+[ext_resource type="Texture2D" uid="uid://dhgadw1jk7hi3" path="res://imgs/sprites/tasks/orders/app_enter-code.png" id="5_nawy8"]
+[ext_resource type="Texture2D" uid="uid://ucjgg5a5jwy1" path="res://imgs/sprites/tasks/orders/app_code-correct.png" id="6_jsb5g"]
+[ext_resource type="Texture2D" uid="uid://bxdcwsv3uowp2" path="res://imgs/sprites/tasks/orders/app_code-wrong.png" id="7_xsws0"]
+[ext_resource type="Texture2D" uid="uid://cbk1f25pd8onf" path="res://imgs/sprites/tasks/orders/app_quit.png" id="8_vma6m"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_pbh5o"]
+[ext_resource type="Texture2D" uid="uid://i7k2nploygar" path="res://imgs/sprites/tasks/logistics/cereal-bars_icon.png" id="10_q0px1"]
+[ext_resource type="Texture2D" uid="uid://bamxkcl4hu68r" path="res://imgs/sprites/tasks/logistics/coffee-cup_icon.png" id="11_eb3pe"]
+[ext_resource type="Texture2D" uid="uid://jc08xtnowu4y" path="res://imgs/sprites/tasks/logistics/uranium_icon.png" id="12_oa37n"]
+[ext_resource type="Texture2D" uid="uid://vdvb1m2oy304" path="res://imgs/sprites/tasks/logistics/hazmat-suit_icon.png" id="13_r175a"]
+[ext_resource type="Texture2D" uid="uid://c055500l7atw1" path="res://imgs/sprites/tasks/logistics/atombomb-kit_icon.png" id="14_7ufo3"]
+[ext_resource type="Texture2D" uid="uid://bgsjcvwkry5ea" path="res://imgs/sprites/tasks/logistics/plutonium_icon.png" id="15_mt50g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e757m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bx7ph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l02l6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vamae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h50hr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s8ts7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w4vbx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nkvve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kij73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ewlse"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_825lw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yrad3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8hih"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io0no"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xquv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3f3tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jskml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3asc0"]
 
 [node name="Task_Order" type="Control"]
 layout_mode = 3
@@ -11,10 +61,124 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_431vo")
-task_name = "Logistics"
+task_name = "Supplies"
 task_description = "Order supplies from the PC in your Office"
+whole_day = true
 
 [node name="Active" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Screen_normal" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_b4qit")
+
+[node name="Screen_bomb" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_oqwsx")
+
+[node name="Screen_plutonium" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_nbcbc")
+
+[node name="Screen_code" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_nawy8")
+
+[node name="Screen_correct" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_jsb5g")
+
+[node name="correct_continue" type="Button" parent="Active/Screen_correct"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 119.0
+offset_right = -232.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e757m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_bx7ph")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_l02l6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vamae")
+
+[node name="Screen_wrong" type="TextureRect" parent="Active"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_xsws0")
+
+[node name="wrong_continue" type="Button" parent="Active/Screen_wrong"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 119.0
+offset_right = -232.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h50hr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s8ts7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w4vbx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nkvve")
+
+[node name="Buttons" type="Control" parent="Active"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -24,7 +188,79 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Buttons" type="Control" parent="Active"]
+[node name="Order_cereal_bar" type="Button" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1312.0
+offset_top = 168.0
+offset_right = 1504.0
+offset_bottom = 240.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Order_coffee_cup" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 304.0
+offset_right = 1504.0
+offset_bottom = 376.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Order_uranium" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 440.0
+offset_right = 1504.0
+offset_bottom = 512.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Order_hazamt_suit" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 576.0
+offset_right = 1504.0
+offset_bottom = 648.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Order_bomb" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 712.0
+offset_right = 1504.0
+offset_bottom = 784.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Unlock_plutonium" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 848.0
+offset_right = 1544.0
+offset_bottom = 920.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Order_plutonium" type="Button" parent="Active/Buttons"]
+offset_left = 1312.0
+offset_top = 848.0
+offset_right = 1504.0
+offset_bottom = 920.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Code" type="Control" parent="Active"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,23 +269,190 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Leave" type="Button" parent="Active/Buttons"]
+[node name="Digit1" type="Button" parent="Active/Code"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 528.0
+offset_right = 784.0
+offset_bottom = 736.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io0no")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4xquv")
+text = "0"
+
+[node name="Digit2" type="Button" parent="Active/Code"]
+offset_left = 840.0
+offset_top = 528.0
+offset_right = 960.0
+offset_bottom = 736.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io0no")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4xquv")
+text = "0"
+
+[node name="Digit3" type="Button" parent="Active/Code"]
+offset_left = 1016.0
+offset_top = 527.0
+offset_right = 1136.0
+offset_bottom = 735.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io0no")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4xquv")
+text = "0"
+
+[node name="Digit4" type="Button" parent="Active/Code"]
+offset_left = 1192.0
+offset_top = 528.0
+offset_right = 1312.0
+offset_bottom = 736.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_io0no")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4xquv")
+text = "0"
+
+[node name="Submit" type="Button" parent="Active/Code"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 773.0
+offset_right = 1321.0
+offset_bottom = 858.0
+text = "Submit"
+
+[node name="Icons" type="Control" parent="Active"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Leave"
+mouse_filter = 2
 
-[node name="Screen" type="TextureRect" parent="Active"]
+[node name="Cereal_bar_icon" type="TextureRect" parent="Active/Icons"]
 texture_filter = 1
+layout_mode = 0
+offset_left = 384.0
+offset_top = 152.0
+offset_right = 488.0
+offset_bottom = 256.0
+mouse_filter = 2
+texture = ExtResource("10_q0px1")
+
+[node name="Coffee_cup_icon" type="TextureRect" parent="Active/Icons"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 288.0
+offset_right = 488.0
+offset_bottom = 392.0
+mouse_filter = 2
+texture = ExtResource("11_eb3pe")
+
+[node name="Uranium_icon" type="TextureRect" parent="Active/Icons"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 424.0
+offset_right = 488.0
+offset_bottom = 528.0
+mouse_filter = 2
+texture = ExtResource("12_oa37n")
+
+[node name="Hazmat_Suit_icon" type="TextureRect" parent="Active/Icons"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 560.0
+offset_right = 488.0
+offset_bottom = 664.0
+mouse_filter = 2
+texture = ExtResource("13_r175a")
+
+[node name="bomb_icon" type="TextureRect" parent="Active/Icons"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 696.0
+offset_right = 488.0
+offset_bottom = 800.0
+mouse_filter = 2
+texture = ExtResource("14_7ufo3")
+
+[node name="plutonium_icon" type="TextureRect" parent="Active/Icons"]
+texture_filter = 1
+offset_left = 384.0
+offset_top = 832.0
+offset_right = 488.0
+offset_bottom = 936.0
+mouse_filter = 2
+texture = ExtResource("15_mt50g")
+
+[node name="Quit_Icon" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1607.0
+offset_top = 128.0
+offset_right = 1681.0
+offset_bottom = 200.0
+mouse_filter = 2
+texture = ExtResource("8_vma6m")
+
+[node name="Leave" type="Button" parent="Active/Quit_Icon"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3f3tn")
+theme_override_styles/hover = ExtResource("9_pbh5o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jskml")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3asc0")
 
-[connection signal="pressed" from="Active/Buttons/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Active/Screen_correct/correct_continue" to="." method="_on_correct_continue_pressed"]
+[connection signal="pressed" from="Active/Screen_wrong/wrong_continue" to="." method="_on_wrong_continue_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_cereal_bar" to="." method="_on_order_cereal_bar_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_coffee_cup" to="." method="_on_order_coffee_cup_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_uranium" to="." method="_on_order_uranium_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_hazamt_suit" to="." method="_on_order_hazamt_suit_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_bomb" to="." method="_on_order_bomb_pressed"]
+[connection signal="pressed" from="Active/Buttons/Unlock_plutonium" to="." method="_on_unlock_plutonium_pressed"]
+[connection signal="pressed" from="Active/Buttons/Order_plutonium" to="." method="_on_order_plutonium_pressed"]
+[connection signal="pressed" from="Active/Code/Digit1" to="." method="_on_digit_1_pressed"]
+[connection signal="pressed" from="Active/Code/Digit2" to="." method="_on_digit_2_pressed"]
+[connection signal="pressed" from="Active/Code/Digit3" to="." method="_on_digit_3_pressed"]
+[connection signal="pressed" from="Active/Code/Digit4" to="." method="_on_digit_4_pressed"]
+[connection signal="pressed" from="Active/Code/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="Active/Quit_Icon/Leave" to="." method="_on_leave_pressed"]

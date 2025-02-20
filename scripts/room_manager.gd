@@ -83,6 +83,7 @@ func collect_tasks(day, post_break):
 					tasks_with_connected_signals[task] = null # use as a set for connected signals to avoid errors
 					(task as Task).started.connect(_on_task_started)
 					(task as Task).completed.connect(_on_task_completed)
+					(task as Task).quit.connect(_on_task_quit)
 				if !(task as Task).optional and !(task as Task).uncompletable:
 					required_tasks_all.append(task)
 					if !(task as Task).after_mealtime and !(task as Task).whole_day:
@@ -108,7 +109,7 @@ func _on_task_started(task):
 	active_task = task
 	task_started.emit()
 
-func _on_task_failed(): # TODO connect
+func _on_task_quit():
 	active_task = null
 	task_ended.emit()
 

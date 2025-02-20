@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://j2i52g7mfivk"]
+[gd_scene load_steps=6 format=3 uid="uid://j2i52g7mfivk"]
 
 [ext_resource type="Script" path="res://scripts/storage.gd" id="1_jh1fd"]
+[ext_resource type="Texture2D" uid="uid://l5hh1d5nkjug" path="res://imgs/rooms/storage.png" id="2_akxj3"]
+[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_q8k8x"]
+[ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_yyox6"]
+[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_1acm1"]
 
 [node name="Storage" type="Control"]
 layout_mode = 3
@@ -21,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_akxj3")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -85,7 +90,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Day7" type="Control" parent="Tasks"]
+[node name="Leave" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+offset_left = 289.0
+offset_top = 841.0
+offset_right = 452.0
+offset_bottom = 1025.0
+texture_hover = ExtResource("3_q8k8x")
+texture_click_mask = ExtResource("4_yyox6")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Leave"]
+show_behind_parent = true
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,3 +111,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("5_1acm1")
+
+[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

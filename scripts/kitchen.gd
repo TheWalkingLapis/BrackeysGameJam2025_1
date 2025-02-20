@@ -50,11 +50,6 @@ func setup_day(day, post_break):
 			else:
 				watering_can_drop_task = $Tasks/Day6/Task_drop_Watering_Can
 
-func _on_leave_room_pressed():
-	if !Global.game_manager.allow_interaction and !Global.time_manager.break_active: return
-	if Global.game_manager.current_day == 4 and Global.time_manager.break_active: return
-	Global.room_manager.change_room_to("Main_Hallway")
-
 func _on_watering_can_hitbox_pressed():
 	if Global.game_manager.allow_interaction:
 		if watering_can_pickup_task != null and !(watering_can_pickup_task as Task).get_task_completed():
@@ -64,7 +59,7 @@ func _on_watering_can_hitbox_pressed():
 			else:
 				Global.text_manager.display_interaction_text("I have to empty my hands before I can pick this up")
 		elif watering_can_drop_task != null and !(watering_can_drop_task as Task).get_task_completed():
-			if Global.watering_task_allow_discard_watering_can:
+			if Global.watering_task_allow_discard_watering_can == 2:
 				if Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
 					watering_can_drop_task.start_task()
 					watering_can_sprite.visible = true
@@ -90,3 +85,9 @@ func _on_snack_pressed():
 	else:
 		if Global.game_manager.allow_interaction:
 			Global.text_manager.display_interaction_text("I don't want to eat anything from the fridge")
+
+
+func _on_leave_pressed():
+	if !Global.game_manager.allow_interaction and !Global.time_manager.break_active: return
+	if Global.game_manager.current_day == 4 and Global.time_manager.break_active: return
+	Global.room_manager.change_room_to("Main_Hallway")

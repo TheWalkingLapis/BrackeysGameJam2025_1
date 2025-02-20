@@ -10,7 +10,7 @@ func start_task():
 		return
 	watering_can.visible = false
 	started.emit(self)
-	Global.watering_task_allow_discard_watering_can = false
+	Global.watering_task_allow_discard_watering_can = 0
 	set_task_completed()
 
 func reset_task():

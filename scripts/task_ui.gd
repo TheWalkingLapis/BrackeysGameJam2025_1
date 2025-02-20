@@ -3,6 +3,7 @@ extends Control
 @onready var task_label = $TaskBG/TaskBox
 
 var current_tasks = {}
+var hide = false
 
 var optional_string = "Optional"
 var watering_string = "Watering"
@@ -74,3 +75,8 @@ func _on_day_done():
 	else:
 		text += Utils.bbc_text("Sleep on the couch in your office", 30)
 	task_label.text = text
+
+
+func _on_hide_pressed():
+	$TaskBG.visible = hide
+	hide = !hide

@@ -8,5 +8,14 @@ var text_manager: TextManager = null
 var inventory: Inventory = null
 var audio_manager: AudioManager = null
 
+# TASKS
+var watering_task_allow_discard_watering_can = 0
 
-var watering_task_allow_discard_watering_can = false
+var cereal_bar_ordered = false
+var coffee_cup_ordered = false
+var uranium_ordered = false
+var hazmat_suit_ordered = false
+var bomb_ordered = false
+var plutonium_ordered = false
+
+var plutonium_code = [1,2,3,4]

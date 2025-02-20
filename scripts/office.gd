@@ -23,27 +23,27 @@ func setup_day(day, post_break):
 		1:
 			sign_task = $Tasks/Day2/Task_Document_Sign_Post if post_break else $Tasks/Day2/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day2/Task_watch_TV_post if post_break else $Tasks/Day2/Task_watch_TV_pre
-			order_task = null if post_break else $Tasks/Day2/Task_Order
+			order_task = $Tasks/Day2/Task_Order
 			watering_task = null
 		2:
 			sign_task = $Tasks/Day3/Task_Document_Sign_Post if post_break else $Tasks/Day3/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day3/Task_watch_TV_post if post_break else $Tasks/Day3/Task_watch_TV_pre
-			order_task = null if post_break else $Tasks/Day3/Task_Order
+			order_task = $Tasks/Day3/Task_Order
 			watering_task = $Tasks/Day3/Task_water_Office_Plant
 		3:
 			sign_task = $Tasks/Day4/Task_Document_Sign_Post if post_break else $Tasks/Day4/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day4/Task_watch_TV_post if post_break else $Tasks/Day4/Task_watch_TV_pre
-			order_task = null
+			order_task = $Tasks/Day4/Task_Order
 			watering_task = $Tasks/Day4/Task_water_Office_Plant
 		4:
 			sign_task = $Tasks/Day5/Task_Document_Sign_Post if post_break else $Tasks/Day5/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day5/Task_watch_TV_post if post_break else $Tasks/Day5/Task_watch_TV_pre
-			order_task = null
+			order_task = $Tasks/Day5/Task_Order
 			watering_task = $Tasks/Day5/Task_water_Office_Plant
 		5:
 			sign_task = $Tasks/Day6/Task_Document_Sign_Post if post_break else $Tasks/Day6/Task_Document_Sign_Pre
 			tv_task = $Tasks/Day6/Task_watch_TV_post if post_break else $Tasks/Day6/Task_watch_TV_pre
-			order_task = null
+			order_task = $Tasks/Day6/Task_Order
 			watering_task = $Tasks/Day6/Task_water_Office_Plant
 
 func _on_pc_screen_pressed():
@@ -94,7 +94,7 @@ func _on_plant_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if watering_task != null:
 		if (watering_task as Task).get_task_completed():
-			Global.text_manager.display_interaction_text("I already watered this plant")
+			Global.text_manager.display_interaction_text("I already watered this plant today")
 		elif !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
 			Global.text_manager.display_interaction_text("I need the waternig can for this")
 		else:

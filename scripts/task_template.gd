@@ -3,6 +3,7 @@ class_name Task
 
 signal started(node)
 signal completed()
+signal quit() # quit but not completed
 
 enum TaskTag {NONE, WATERING}
 

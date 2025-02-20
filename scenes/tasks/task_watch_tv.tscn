@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjkkjp25nnmlt"]
+[gd_scene load_steps=9 format=3 uid="uid://bjkkjp25nnmlt"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_watch_tv.gd" id="1_qkhe0"]
-[ext_resource type="Texture2D" uid="uid://dtwrya5dg5xa7" path="res://imgs/main_menu_placeholder.png" id="2_idnjv"]
+[ext_resource type="Texture2D" uid="uid://6sijou50cyfu" path="res://imgs/sprites/tasks/hr-watch/soap_opera_1.png" id="2_2a3um"]
+[ext_resource type="Texture2D" uid="uid://2n8ouqiw8qyl" path="res://imgs/sprites/tasks/hr-watch/soap_opera_2.png" id="3_10ph7"]
+[ext_resource type="Texture2D" uid="uid://06yi8untfqub" path="res://imgs/sprites/tasks/hr-watch/soap_opera_3.png" id="4_kspcr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mqsp6"]
 
@@ -20,6 +22,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_qkhe0")
+opera_1 = ExtResource("2_2a3um")
+opera_2 = ExtResource("3_10ph7")
+opera_3 = ExtResource("4_kspcr")
 task_name = "Relax"
 task_description = "Watch some TV to pass the time"
 optional = true
@@ -41,14 +46,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1879.0
-offset_top = 6.0
-offset_right = 1.0
-offset_bottom = 1046.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_idnjv")
+texture = ExtResource("2_2a3um")
 
 [node name="Leave" type="Button" parent="Active"]
 layout_mode = 1
