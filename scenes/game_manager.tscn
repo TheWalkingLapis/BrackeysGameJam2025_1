@@ -27,10 +27,6 @@ layout_mode = 1
 process_mode = 1
 layout_mode = 1
 
-[node name="UIManager" parent="." instance=ExtResource("4_umkd5")]
-process_mode = 3
-layout_mode = 1
-
 [node name="TextManager" parent="." instance=ExtResource("5_u72dr")]
 process_mode = 1
 layout_mode = 1
@@ -66,4 +62,8 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.662745)
 
 [node name="AudioManager" parent="." instance=ExtResource("7_8fxys")]
+layout_mode = 1
+
+[node name="UIManager" parent="." instance=ExtResource("4_umkd5")]
+process_mode = 3
 layout_mode = 1

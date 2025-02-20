@@ -3,6 +3,7 @@ class_name RoomManager
 
 signal task_started()
 signal task_ended()
+signal post_day()
 
 @onready var office: Room = $Office
 @onready var kitchen: Room = $Kitchen
@@ -19,8 +20,10 @@ var current_room = "None"
 var name_to_node_dict: Dictionary
 var current_tasks = {}
 var task_in_progress = false
-var num_tasks = 0
-var num_completed_tasks = 0
+var active_task = null
+var required_tasks_pre_break = []
+var required_tasks_all = []
+var completed_tasks = []
 
 var tasks_with_connected_signals = {}
 
@@ -43,14 +46,20 @@ func _ready():
 		name_to_node_dict[room_name].visible = (current_room == room_name)
 
 func setup_day(day):
+	if day < 3:
+		change_room_to("Main_Hallway")
+	else:
+		change_room_to("Office")
 	collect_tasks(day, false)
 
 func _on_break_time_over():
 	collect_tasks(Global.game_manager.current_day, true)
 
 func collect_tasks(day, post_break):
-	num_completed_tasks = 0
-	num_tasks = 0
+	if !post_break:
+		completed_tasks = []
+	required_tasks_pre_break = []
+	required_tasks_all = []
 	var tasks = {}
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
@@ -74,11 +83,13 @@ func collect_tasks(day, post_break):
 					tasks_with_connected_signals[task] = null # use as a set for connected signals to avoid errors
 					(task as Task).started.connect(_on_task_started)
 					(task as Task).completed.connect(_on_task_completed)
-				num_tasks += 1
+				if !(task as Task).optional and !(task as Task).uncompletable:
+					required_tasks_all.append(task)
+					if !(task as Task).after_mealtime and !(task as Task).whole_day:
+						required_tasks_pre_break.append(task)
 			else:
 				task.visible = false
 	current_tasks = tasks
-	change_room_to("Main_Hallway")
 	Global.ui_manager.setup_tasks(tasks)
 	
 func change_room_to(room_name: String):
@@ -87,30 +98,51 @@ func change_room_to(room_name: String):
 	if not room_name in name_to_node_dict:
 		printerr("Room name doesn't exist: %s" % [room_name])
 		return
+	Global.text_manager.clear_text()
 	current_room = room_name
 	if room_name != "None":
 		name_to_node_dict[current_room].visible = true
 
-func _on_task_started():
+func _on_task_started(task):
 	task_in_progress = true
+	active_task = task
 	task_started.emit()
 
 func _on_task_failed(): # TODO connect
+	active_task = null
 	task_ended.emit()
 
 func _on_task_completed():
-	num_completed_tasks += 1
+	completed_tasks.append(active_task)
+	active_task = null
 	task_in_progress = false
 	task_ended.emit()
 	Global.ui_manager.update_tasks()
-	if num_completed_tasks == num_tasks:
-		print("all done, TODO")
 
 func _on_time_evening():
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
 		if name_to_node_dict[room_name].has_method("_on_time_evening"):
 			name_to_node_dict[room_name]._on_time_evening()
+
+func clear_active_tasks():
+	if active_task != null:
+		active_task.visible = false
+		active_task.reset_task()
+		active_task = null
+		Global.game_manager.gameState = Global.game_manager.GameState.IDLE
+
+func get_tasks_completed(post_break):
+	if !post_break:
+		for t in required_tasks_pre_break:
+			if not t in completed_tasks:
+				return false
+		return true
+	else:
+		for t in required_tasks_all:
+			if not t in completed_tasks:
+				return false
+		return true
 
 func _process(delta):
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cavy32fvbqm8w"]
+[gd_scene load_steps=9 format=3 uid="uid://cavy32fvbqm8w"]
 
 [ext_resource type="Script" path="res://scripts/time_manager.gd" id="1_dlgxb"]
 [ext_resource type="Script" path="res://resources/day_duration_times.gd" id="2_mwn0d"]
@@ -7,14 +7,14 @@
 script = ExtResource("2_mwn0d")
 start_hour = 8
 break_hour = 12
-break_duration = 1
+break_duration = 3
 end_hour = 17
 
 [sub_resource type="Resource" id="Resource_jyqet"]
 script = ExtResource("2_mwn0d")
 start_hour = 8
 break_hour = 12
-break_duration = 1
+break_duration = 2
 end_hour = 17
 
 [sub_resource type="Resource" id="Resource_qemd0"]
@@ -34,23 +34,16 @@ end_hour = 17
 [sub_resource type="Resource" id="Resource_xbrmg"]
 script = ExtResource("2_mwn0d")
 start_hour = 8
-break_hour = 12
-break_duration = 1
-end_hour = 17
+break_hour = 13
+break_duration = 0
+end_hour = 20
 
 [sub_resource type="Resource" id="Resource_mrhgw"]
 script = ExtResource("2_mwn0d")
-start_hour = 8
-break_hour = 12
-break_duration = 1
-end_hour = 17
-
-[sub_resource type="Resource" id="Resource_pqb4d"]
-script = ExtResource("2_mwn0d")
-start_hour = 8
-break_hour = 12
-break_duration = 1
-end_hour = 17
+start_hour = 4
+break_hour = -1
+break_duration = 0
+end_hour = 24
 
 [node name="TimeManager" type="Control"]
 layout_mode = 3
@@ -61,4 +54,4 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_dlgxb")
-ingame_day_times = Array[ExtResource("2_mwn0d")]([SubResource("Resource_txfnu"), SubResource("Resource_jyqet"), SubResource("Resource_qemd0"), SubResource("Resource_8t6jq"), SubResource("Resource_xbrmg"), SubResource("Resource_mrhgw"), SubResource("Resource_pqb4d")])
+ingame_day_times = Array[ExtResource("2_mwn0d")]([SubResource("Resource_txfnu"), SubResource("Resource_jyqet"), SubResource("Resource_qemd0"), SubResource("Resource_8t6jq"), SubResource("Resource_xbrmg"), SubResource("Resource_mrhgw")])

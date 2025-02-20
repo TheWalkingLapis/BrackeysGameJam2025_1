@@ -9,7 +9,7 @@ func start_task():
 		return
 	Global.inventory.drop()
 	watering_can.visible = true
-	started.emit()
+	started.emit(self)
 	set_task_completed()
 
 func reset_task():

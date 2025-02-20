@@ -261,32 +261,109 @@ visible = false
 layout_mode = 1
 
 [node name="Day4" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_Document_Sign_Pre" parent="Tasks/Day4" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "Signing"
+task_description = "Sign the document on your desk"
+
+[node name="Task_Document_Sign_Post" parent="Tasks/Day4" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "More Signing"
+task_description = "Sign another document on your desk"
+after_mealtime = true
+
+[node name="Task_watch_TV_pre" parent="Tasks/Day4" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+
+[node name="Task_watch_TV_post" parent="Tasks/Day4" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+after_mealtime = true
+
+[node name="Task_water_Office_Plant" parent="Tasks/Day4" instance=ExtResource("17_wvwba")]
+visible = false
+layout_mode = 1
 
 [node name="Day5" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_Document_Sign_Pre" parent="Tasks/Day5" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "Signing"
+task_description = "Sign the document on your desk"
+
+[node name="Task_Document_Sign_Post" parent="Tasks/Day5" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "More Signing"
+task_description = "Sign another document on your desk"
+after_mealtime = true
+
+[node name="Task_watch_TV_pre" parent="Tasks/Day5" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+
+[node name="Task_watch_TV_post" parent="Tasks/Day5" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+after_mealtime = true
+
+[node name="Task_water_Office_Plant" parent="Tasks/Day5" instance=ExtResource("17_wvwba")]
+visible = false
+layout_mode = 1
 
 [node name="Day6" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="Day7" type="Control" parent="Tasks"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+[node name="Task_Document_Sign_Pre" parent="Tasks/Day6" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "Signing"
+task_description = "Sign the document on your desk"
+
+[node name="Task_Document_Sign_Post" parent="Tasks/Day6" instance=ExtResource("3_jjpo7")]
+visible = false
+layout_mode = 1
+task_name = "More Signing"
+task_description = "Sign another document on your desk"
+after_mealtime = true
+
+[node name="Task_watch_TV_pre" parent="Tasks/Day6" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+
+[node name="Task_watch_TV_post" parent="Tasks/Day6" instance=ExtResource("12_yts8n")]
+visible = false
+layout_mode = 1
+after_mealtime = true
+
+[node name="Task_water_Office_Plant" parent="Tasks/Day6" instance=ExtResource("17_wvwba")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]
 [connection signal="pressed" from="Clickables/Door" to="." method="_on_door_pressed"]

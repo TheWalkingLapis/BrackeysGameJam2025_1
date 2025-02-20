@@ -6,6 +6,6 @@ func start_task():
 		return
 	if !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
 		return
-	started.emit()
+	started.emit(self)
 	Global.watering_task_allow_discard_watering_can = true
 	set_task_completed()

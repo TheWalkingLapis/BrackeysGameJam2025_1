@@ -31,20 +31,20 @@ func setup_day(day, post_break):
 			order_task = null if post_break else $Tasks/Day3/Task_Order
 			watering_task = $Tasks/Day3/Task_water_Office_Plant
 		3:
-			sign_task = null
-			tv_task = null
+			sign_task = $Tasks/Day4/Task_Document_Sign_Post if post_break else $Tasks/Day4/Task_Document_Sign_Pre
+			tv_task = $Tasks/Day4/Task_watch_TV_post if post_break else $Tasks/Day4/Task_watch_TV_pre
 			order_task = null
-			watering_task = null
+			watering_task = $Tasks/Day4/Task_water_Office_Plant
 		4:
-			sign_task = null
-			tv_task = null
+			sign_task = $Tasks/Day5/Task_Document_Sign_Post if post_break else $Tasks/Day5/Task_Document_Sign_Pre
+			tv_task = $Tasks/Day5/Task_watch_TV_post if post_break else $Tasks/Day5/Task_watch_TV_pre
 			order_task = null
-			watering_task = null
+			watering_task = $Tasks/Day5/Task_water_Office_Plant
 		5:
-			sign_task = null
-			tv_task = null
+			sign_task = $Tasks/Day6/Task_Document_Sign_Post if post_break else $Tasks/Day6/Task_Document_Sign_Pre
+			tv_task = $Tasks/Day6/Task_watch_TV_post if post_break else $Tasks/Day6/Task_watch_TV_pre
 			order_task = null
-			watering_task = null
+			watering_task = $Tasks/Day6/Task_water_Office_Plant
 
 func _on_pc_screen_pressed():
 	if !Global.game_manager.allow_interaction: return
@@ -57,7 +57,7 @@ func _on_pc_screen_pressed():
 		Global.text_manager.display_interaction_text("I don't need anything from my PC")
 
 func _on_door_pressed():
-	if !Global.game_manager.allow_interaction and !Global.time_manager.break_active: return
+	if !Global.game_manager.allow_interaction and (!Global.time_manager.break_active and Global.time_manager.day_active): return
 	Global.room_manager.change_room_to("Main_Hallway")
 
 func _on_tv_pressed():
@@ -81,8 +81,11 @@ func _on_document_signing_pressed():
 		Global.text_manager.display_interaction_text("I don't need to sign anything right now")
 
 func _on_couch_pressed():
+	if Global.game_manager.current_day >= 3 and !Global.time_manager.day_active:
+		Global.room_manager.post_day.emit()
+		return
 	if !Global.game_manager.allow_interaction: return
-	print("COUCH TODO")
+	Global.text_manager.display_interaction_text("No time to sleep")
 	
 func _on_time_evening():
 	$Background.texture = bg_texture_evening

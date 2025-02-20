@@ -5,7 +5,7 @@ extends Task
 func start_task():
 	active.visible = true
 	Global.time_manager.change_time_speed(20)
-	started.emit()
+	started.emit(self)
 
 func _on_leave_pressed():
 	active.visible = false

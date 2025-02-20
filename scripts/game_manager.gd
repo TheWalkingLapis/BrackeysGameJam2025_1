@@ -28,6 +28,7 @@ func _ready():
 	time_manager.break_time_over.connect(_on_break_time_over)
 	room_manager.task_started.connect(_on_task_in_progress)
 	room_manager.task_ended.connect(_on_task_ended)
+	room_manager.post_day.connect(_on_post_day)
 	text_manager.text_in_progress.connect(_on_text_in_progress)
 	text_manager.finished_text.connect(_on_text_continue)
 	
@@ -62,15 +63,25 @@ func _on_task_in_progress():
 	gameState = GameState.IN_TASK
 
 func _on_text_continue(force):
-	if !time_manager.break_active:
+	if !time_manager.break_active and time_manager.day_active:
 		allow_interaction = true
 
 func _on_task_ended():
-	if !time_manager.break_active:
+	if !time_manager.break_active and time_manager.day_active:
 		allow_interaction = true
 	gameState = GameState.IDLE
 
 func _on_day_done():
+	text_manager.clear_text()
+	room_manager.clear_active_tasks()
+	if current_day < 3:
+		text_manager.display_interaction_text("Time to leave")
+	else:
+		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office")
+	allow_interaction = false
+	print(room_manager.get_tasks_completed(true))
+
+func _on_post_day():
 	gameState = GameState.POST_DAY
 	ui_manager.to_post_day()
 	text_manager.clear_text()
@@ -81,12 +92,15 @@ func _on_day_done():
 		return
 	current_day += 1
 	allow_interaction = false
-	#pause_game(false, true) # always force pause
 
 func _on_break_time():
 	allow_interaction = false
 	ui_manager.taskUI._on_break_time()
 	audio_manager.play_break_sound()
+	text_manager.clear_text()
+	room_manager.clear_active_tasks()
+	text_manager.display_interaction_text("Time to take my break")
+	print(room_manager.get_tasks_completed(false))
 	# TODO check if all non-optional tasks were done
 	if false:
 		pre_start_day(current_day)

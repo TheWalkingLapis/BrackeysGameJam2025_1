@@ -1,7 +1,7 @@
 extends Control
 class_name Task
 
-signal started()
+signal started(node)
 signal completed()
 
 enum TaskTag {NONE, WATERING}

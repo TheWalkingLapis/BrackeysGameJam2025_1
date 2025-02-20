@@ -6,7 +6,7 @@ func start_task():
 	if get_task_completed():
 		return
 	active.visible = true
-	started.emit()
+	started.emit(self)
 
 func reset_task():
 	super.reset_task()

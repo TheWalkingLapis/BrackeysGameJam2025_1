@@ -42,7 +42,7 @@ func update_task_text():
 		break_time_text += " for %dh" % Global.time_manager.day_break_duration
 	break_time_text += "\n"
 	text += Utils.bbc_text(working_hour_text, 22)
-	if !Global.time_manager.post_break:
+	if !Global.time_manager.post_break and Global.time_manager.day_break_hour >= 0:
 		text += Utils.bbc_text(break_time_text, 22)
 	
 	for category in current_tasks:
@@ -60,8 +60,17 @@ func update_task_text():
 func _on_break_time():
 	var text = ""
 	var day = Global.game_manager.current_day
-	if day < 3:
+	if day <= 3:
 		text += Utils.bbc_text("Leave the power plant for your break", 30)
-	elif day < 5:
+	elif day == 4:
 		text += Utils.bbc_text("Get a snack from the kitchen, no time to leave the site", 30)
+	task_label.text = text
+
+func _on_day_done():
+	var text = ""
+	var day = Global.game_manager.current_day
+	if day <= 2:
+		text += Utils.bbc_text("Go home to sleep", 30)
+	else:
+		text += Utils.bbc_text("Sleep on the couch in your office", 30)
 	task_label.text = text

@@ -13,7 +13,7 @@ func reset_task():
 func start_task():
 	if get_task_completed():
 		return
-	started.emit()
+	started.emit(self)
 	active.visible = true
 	unsigned.visible = true
 	signed.visible = false

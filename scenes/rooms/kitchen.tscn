@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=13 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
@@ -8,6 +8,13 @@
 [ext_resource type="BitMap" path="res://imgs/sprites/tasks/watering_can_mask_bitmap.tres" id="4_h4ouc"]
 [ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_dhca4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2ncf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nk80p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j1il8"]
 
 [node name="Kitchen" type="Control"]
 layout_mode = 3
@@ -90,6 +97,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_Pick_up_Watering_Can" parent="Tasks/Day4" instance=ExtResource("3_xkt3c")]
+layout_mode = 1
+
+[node name="Task_drop_Watering_Can" parent="Tasks/Day4" instance=ExtResource("5_84v6c")]
+layout_mode = 1
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -99,6 +112,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_Pick_up_Watering_Can" parent="Tasks/Day5" instance=ExtResource("3_xkt3c")]
+layout_mode = 1
+
+[node name="Task_drop_Watering_Can" parent="Tasks/Day5" instance=ExtResource("5_84v6c")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -107,6 +126,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_Pick_up_Watering_Can" parent="Tasks/Day6" instance=ExtResource("3_xkt3c")]
+layout_mode = 1
+
+[node name="Task_drop_Watering_Can" parent="Tasks/Day6" instance=ExtResource("5_84v6c")]
+layout_mode = 1
 
 [node name="Watering_Can_Hitbox" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -131,5 +156,17 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_26yy8")
 
+[node name="Snack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 176.0
+offset_right = 1024.0
+offset_bottom = 856.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2ncf")
+theme_override_styles/hover = ExtResource("9_dhca4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nk80p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j1il8")
+
 [connection signal="pressed" from="Leave_Room" to="." method="_on_leave_room_pressed"]
 [connection signal="pressed" from="Watering_Can_Hitbox" to="." method="_on_watering_can_hitbox_pressed"]
+[connection signal="pressed" from="Snack" to="." method="_on_snack_pressed"]

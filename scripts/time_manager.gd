@@ -51,8 +51,9 @@ func _process(delta):
 	current_ingame_time = day_start_hour + (current_real_time / ingame_hour_in_seconds)
 	current_ingame_hour = floor(current_ingame_time)
 	if !post_break and current_ingame_hour == day_break_hour:
-		break_time.emit()
 		break_active = true
+		time_fac = 1.0
+		break_time.emit()
 	if current_ingame_hour == evening_hour and day_time != "evening":
 		evening.emit()
 		day_time = "evening"
