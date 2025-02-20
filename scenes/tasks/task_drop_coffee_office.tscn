@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0xkt236um56u"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_drop_coffee_office.gd" id="1_gytjd"]
+[ext_resource type="Texture2D" uid="uid://ia8ch7ksipxx" path="res://imgs/sprites/tasks/logistics/coffee-cup.png" id="2_hhvlo"]
+
+[node name="Task_drop_Coffee_Office" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gytjd")
+task_name = "Deliver Coffee"
+task_description = "Bring coffee to your office"
+tag = 2
+order = 4
+whole_day = true
+
+[node name="Coffee" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 568.0
+offset_top = 871.0
+offset_right = 651.0
+offset_bottom = 949.0
+mouse_filter = 2
+texture = ExtResource("2_hhvlo")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3n6f3td01our"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_cereal_bar.gd" id="1_hhftk"]
+[ext_resource type="Texture2D" uid="uid://dyoq1lhnqvj4r" path="res://imgs/sprites/tasks/logistics/cereal-bars.png" id="2_owuxi"]
+
+[node name="Task_Pick_up_Cereal_Bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_hhftk")
+task_name = "Collect Cereal Bars"
+task_description = "Pick up the cereal bars  from storage"
+tag = 2
+order = 1
+whole_day = true
+
+[node name="Cereal_Bar" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 944.0
+offset_top = 819.0
+offset_right = 1104.0
+offset_bottom = 921.0
+mouse_filter = 2
+texture = ExtResource("2_owuxi")

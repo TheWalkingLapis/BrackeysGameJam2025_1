@@ -4,15 +4,18 @@ extends Room
 
 var watering_can_pickup_task = null
 var watering_can_drop_task = null
+var drop_cereal_task = null
 
 func setup_day(day, post_break):
 	match day:
 		0:
 			watering_can_pickup_task = null
 			watering_can_drop_task = null
+			drop_cereal_task = null
 		1:
 			watering_can_pickup_task = null
 			watering_can_drop_task = null
+			drop_cereal_task = null
 		2:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -22,6 +25,10 @@ func setup_day(day, post_break):
 				watering_can_drop_task = null
 			else:
 				watering_can_drop_task = $Tasks/Day3/Task_drop_Watering_Can
+			if drop_cereal_task != null and (drop_cereal_task as Task).get_task_completed():
+				drop_cereal_task = null
+			else:
+				drop_cereal_task = $Tasks/Day3/Task_drop_Cereal
 		3:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -31,6 +38,10 @@ func setup_day(day, post_break):
 				watering_can_drop_task = null
 			else:
 				watering_can_drop_task = $Tasks/Day4/Task_drop_Watering_Can
+			if drop_cereal_task != null and (drop_cereal_task as Task).get_task_completed():
+				drop_cereal_task = null
+			else:
+				drop_cereal_task = $Tasks/Day4/Task_drop_Cereal
 		4:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -40,6 +51,10 @@ func setup_day(day, post_break):
 				watering_can_drop_task = null
 			else:
 				watering_can_drop_task = $Tasks/Day5/Task_drop_Watering_Can
+			if drop_cereal_task != null and (drop_cereal_task as Task).get_task_completed():
+				drop_cereal_task = null
+			else:
+				drop_cereal_task = $Tasks/Day5/Task_drop_Cereal
 		5:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -49,6 +64,10 @@ func setup_day(day, post_break):
 				watering_can_drop_task = null
 			else:
 				watering_can_drop_task = $Tasks/Day6/Task_drop_Watering_Can
+			if drop_cereal_task != null and (drop_cereal_task as Task).get_task_completed():
+				drop_cereal_task = null
+			else:
+				drop_cereal_task = $Tasks/Day6/Task_drop_Cereal
 
 func _on_watering_can_hitbox_pressed():
 	if Global.game_manager.allow_interaction:
@@ -70,6 +89,13 @@ func _on_watering_can_hitbox_pressed():
 
 
 func _on_snack_pressed():
+	if Global.game_manager.allow_interaction:
+		if drop_cereal_task != null and !(drop_cereal_task as Task).get_task_completed():
+			if Global.inventory.has_item(Global.inventory.Items.CEREAL_BAR):
+				drop_cereal_task.start_task()
+			else:
+				Global.text_manager.display_interaction_text("I have to bring the cereal bars here")
+			return
 	if Global.game_manager.current_day == 4:
 		if Global.time_manager.break_active:
 			Global.time_manager.resume_after_break()

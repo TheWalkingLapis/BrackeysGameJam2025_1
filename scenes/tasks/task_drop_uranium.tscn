@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://kr7ncqsium4m"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_drop_uranium.gd" id="1_pr4kb"]
+[ext_resource type="Texture2D" uid="uid://blgwjxhluvj4u" path="res://imgs/sprites/tasks/logistics/passage_plutonium.png" id="2_3imi5"]
+
+[node name="Task_drop_Uranium" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pr4kb")
+task_name = "Deliver Uranium"
+task_description = "Bring the urianium to the reactor passage"
+tag = 2
+order = 8
+whole_day = true
+
+[node name="Uranium" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1368.0
+offset_top = 600.0
+offset_right = 1864.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("2_3imi5")

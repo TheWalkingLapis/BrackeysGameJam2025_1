@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvnj4ie205euj"]
+[gd_scene load_steps=15 format=3 uid="uid://bvnj4ie205euj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
 [ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
@@ -8,6 +8,12 @@
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="6_t7s7w"]
 [ext_resource type="Texture2D" uid="uid://d0hrods06sh46" path="res://imgs/sprites/tasks/janitor/watering_can_icon.png" id="6_w7j0i"]
 [ext_resource type="PackedScene" uid="uid://pmd056tqd6oc" path="res://scenes/audio_manager.tscn" id="7_8fxys"]
+[ext_resource type="Texture2D" uid="uid://i7k2nploygar" path="res://imgs/sprites/tasks/logistics/cereal-bars_icon.png" id="7_j8bgl"]
+[ext_resource type="Texture2D" uid="uid://bamxkcl4hu68r" path="res://imgs/sprites/tasks/logistics/coffee-cup_icon.png" id="8_h0j5k"]
+[ext_resource type="Texture2D" uid="uid://jc08xtnowu4y" path="res://imgs/sprites/tasks/logistics/uranium_icon.png" id="9_r7uwo"]
+[ext_resource type="Texture2D" uid="uid://vdvb1m2oy304" path="res://imgs/sprites/tasks/logistics/hazmat-suit_icon.png" id="10_dnq6y"]
+[ext_resource type="Texture2D" uid="uid://c055500l7atw1" path="res://imgs/sprites/tasks/logistics/atombomb-kit_icon.png" id="11_h5i63"]
+[ext_resource type="Texture2D" uid="uid://bgsjcvwkry5ea" path="res://imgs/sprites/tasks/logistics/plutonium_icon.png" id="12_3fpuw"]
 
 [node name="GameManager" type="Control"]
 process_mode = 3
@@ -41,6 +47,12 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("6_t7s7w")
 watering_can_tex = ExtResource("6_w7j0i")
+cereal_bar_tex = ExtResource("7_j8bgl")
+coffee_cup_tex = ExtResource("8_h0j5k")
+uranium_tex = ExtResource("9_r7uwo")
+hazmat_suit_tex = ExtResource("10_dnq6y")
+bomb_kit_tex = ExtResource("11_h5i63")
+plutonium_tex = ExtResource("12_3fpuw")
 
 [node name="Slot" type="TextureRect" parent="Inventory"]
 visible = false

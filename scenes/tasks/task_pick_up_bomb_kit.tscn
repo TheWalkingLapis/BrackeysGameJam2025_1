@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://jbtwahald453"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_bomb_kit.gd" id="1_dccn2"]
+[ext_resource type="Texture2D" uid="uid://c1y6cmy0wfpir" path="res://imgs/sprites/tasks/logistics/atombomb-kit.png" id="2_pfutc"]
+
+[node name="Task_Pick_up_bomb_kit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dccn2")
+task_name = "Collect Bomb-Kit"
+task_description = "Pick up the bomb kit from storage"
+tag = 2
+order = 9
+whole_day = true
+
+[node name="bomb_kit" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1136.0
+offset_top = 654.0
+offset_right = 1317.0
+offset_bottom = 808.0
+mouse_filter = 2
+texture = ExtResource("2_pfutc")

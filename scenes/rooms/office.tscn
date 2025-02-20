@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=27 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
 [ext_resource type="Texture2D" uid="uid://pck8v580m60y" path="res://imgs/rooms/office/office_day.png" id="2_bd30j"]
@@ -15,8 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://ba7lyweavi3s8" path="res://imgs/rooms/masks/office_plant_mask.png" id="12_5sxox"]
 [ext_resource type="PackedScene" uid="uid://bjkkjp25nnmlt" path="res://scenes/tasks/task_watch_tv.tscn" id="12_yts8n"]
 [ext_resource type="BitMap" uid="uid://b6fwap7xy2yhe" path="res://imgs/rooms/masks/office_plant_mask_bitmap.tres" id="13_rnoh4"]
+[ext_resource type="Texture2D" uid="uid://w8ixbfk1f3wx" path="res://imgs/sprites/tasks/logistics/coffee-cup_mask.png" id="14_3kfo5"]
 [ext_resource type="PackedScene" uid="uid://co31i2b8h8sod" path="res://scenes/tasks/task_order.tscn" id="14_u11nm"]
+[ext_resource type="Texture2D" uid="uid://ia8ch7ksipxx" path="res://imgs/sprites/tasks/logistics/coffee-cup.png" id="15_6x5x2"]
 [ext_resource type="PackedScene" uid="uid://dg3oserfa7fnt" path="res://scenes/tasks/task_water_office_plant.tscn" id="17_wvwba"]
+[ext_resource type="PackedScene" uid="uid://b0xkt236um56u" path="res://scenes/tasks/task_drop_coffee_office.tscn" id="18_4w7qg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
@@ -145,6 +148,29 @@ offset_bottom = 768.0
 texture_hover = ExtResource("12_5sxox")
 texture_click_mask = ExtResource("13_rnoh4")
 stretch_mode = 0
+
+[node name="Coffee" type="TextureButton" parent="Clickables"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 568.0
+offset_top = 871.0
+offset_right = 651.0
+offset_bottom = 949.0
+texture_hover = ExtResource("14_3kfo5")
+stretch_mode = 0
+
+[node name="CoffeeGhost" type="TextureRect" parent="Clickables/Coffee"]
+self_modulate = Color(1, 1, 1, 0.282353)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_6x5x2")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -347,6 +373,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_drop_Coffee_office" parent="Tasks/Day6" instance=ExtResource("18_4w7qg")]
+visible = false
+layout_mode = 1
+
 [node name="Task_Document_Sign_Pre" parent="Tasks/Day6" instance=ExtResource("3_jjpo7")]
 visible = false
 layout_mode = 1
@@ -383,3 +413,4 @@ layout_mode = 1
 [connection signal="pressed" from="Clickables/TV" to="." method="_on_tv_pressed"]
 [connection signal="pressed" from="Clickables/Couch" to="." method="_on_couch_pressed"]
 [connection signal="pressed" from="Clickables/Plant" to="." method="_on_plant_pressed"]
+[connection signal="pressed" from="Clickables/Coffee" to="." method="_on_coffee_pressed"]

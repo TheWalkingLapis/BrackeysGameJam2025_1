@@ -7,6 +7,7 @@ var hide = false
 
 var optional_string = "Optional"
 var watering_string = "Watering"
+var resupply_string = "Resupply"
 var task_string = "Tasks" # default
 
 func set_tasks(tasks):
@@ -24,10 +25,16 @@ func set_tasks(tasks):
 				if !current_tasks.has(watering_string):
 					current_tasks[watering_string] = []
 				current_tasks[watering_string].append(task)
+			elif task.tag == Task.TaskTag.RESUPPLY:
+				if !current_tasks.has(resupply_string):
+					current_tasks[resupply_string] = []
+				current_tasks[resupply_string].append(task)
 			else:
 				current_tasks[task_string].append(task)
 	if current_tasks.has(watering_string):
 		current_tasks[watering_string].sort_custom(Task._task_compare_func)
+	if current_tasks.has(resupply_string):
+		current_tasks[resupply_string].sort_custom(Task._task_compare_func)
 	update_task_text()
 
 func update_task_display():
@@ -46,16 +53,33 @@ func update_task_text():
 	if !Global.time_manager.post_break and Global.time_manager.day_break_hour >= 0:
 		text += Utils.bbc_text(break_time_text, 22)
 	
+	var completed = Utils.bbc_underline(Utils.bbc_text("Completed:\n", 30))
+	var completed_flag = false
 	for category in current_tasks:
 		var task_list = current_tasks[category]
+		
 		if len(task_list) == 0: continue
-		text += Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
+		var skip_category_text = true # skip empty categories
+		for t in task_list:
+			if !(t as Task).get_task_completed(): 
+				skip_category_text = false
+				break
+		if !skip_category_text:
+			text += Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
+		
+		
 		for t in task_list:
 			var task := t as Task
 			var task_texts = task.get_task_strings()
 			var task_text = "  - %s\n" % Utils.bbc_text(task_texts[0], 25)
 			task_text += "     %s\n" % Utils.bbc_text(task_texts[1], 18)
-			text += Utils.bbc_strikethrough(task_text) if task.get_task_completed() else task_text
+			if task.get_task_completed():
+				completed_flag = true
+				completed += Utils.bbc_strikethrough(task_text)
+			else:
+				text += task_text
+	if completed_flag:
+		text += completed
 	task_label.text = text
 
 func _on_break_time():

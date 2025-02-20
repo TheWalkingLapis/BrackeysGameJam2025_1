@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=15 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
 [ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
+[ext_resource type="PackedScene" uid="uid://bcbqk8heqeprg" path="res://scenes/tasks/task_drop_cereal_bar.tscn" id="5_xjbd1"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="8_htviv"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_dhca4"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="9_kyirl"]
@@ -80,6 +81,9 @@ layout_mode = 1
 [node name="Task_drop_Watering_Can" parent="Tasks/Day3" instance=ExtResource("5_84v6c")]
 layout_mode = 1
 
+[node name="Task_drop_Cereal" parent="Tasks/Day3" instance=ExtResource("5_xjbd1")]
+layout_mode = 1
+
 [node name="Day4" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -93,6 +97,9 @@ mouse_filter = 2
 layout_mode = 1
 
 [node name="Task_drop_Watering_Can" parent="Tasks/Day4" instance=ExtResource("5_84v6c")]
+layout_mode = 1
+
+[node name="Task_drop_Cereal" parent="Tasks/Day4" instance=ExtResource("5_xjbd1")]
 layout_mode = 1
 
 [node name="Day5" type="Control" parent="Tasks"]
@@ -110,6 +117,9 @@ layout_mode = 1
 [node name="Task_drop_Watering_Can" parent="Tasks/Day5" instance=ExtResource("5_84v6c")]
 layout_mode = 1
 
+[node name="Task_drop_Cereal" parent="Tasks/Day5" instance=ExtResource("5_xjbd1")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -123,6 +133,9 @@ mouse_filter = 2
 layout_mode = 1
 
 [node name="Task_drop_Watering_Can" parent="Tasks/Day6" instance=ExtResource("5_84v6c")]
+layout_mode = 1
+
+[node name="Task_drop_Cereal" parent="Tasks/Day6" instance=ExtResource("5_xjbd1")]
 layout_mode = 1
 
 [node name="Watering_Can_Hitbox" type="TextureButton" parent="."]

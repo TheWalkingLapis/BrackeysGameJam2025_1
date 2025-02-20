@@ -1,10 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dap5osb6bgk1e"]
+[gd_scene load_steps=18 format=3 uid="uid://dap5osb6bgk1e"]
 
 [ext_resource type="Script" path="res://scripts/passage.gd" id="1_746tq"]
-[ext_resource type="Texture2D" uid="uid://crv0ypsbu3epx" path="res://imgs/rooms/passage/passage_box-empty.png" id="2_b0jtw"]
+[ext_resource type="Texture2D" uid="uid://c0d0jlepamwtx" path="res://imgs/rooms/passage/passage_empty.png" id="2_k85yi"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_h3r63"]
+[ext_resource type="PackedScene" uid="uid://mf1kjo7r76u2" path="res://scenes/tasks/task_drop_hazmat_suit.tscn" id="3_ojtfq"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_6qc7q"]
+[ext_resource type="PackedScene" uid="uid://kr7ncqsium4m" path="res://scenes/tasks/task_drop_uranium.tscn" id="4_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_jb1wn"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="6_wwx25"]
+[ext_resource type="Texture2D" uid="uid://g1kn7pn4rvw7" path="res://imgs/rooms/masks/passage_reactor_mask.png" id="7_kofhr"]
+[ext_resource type="BitMap" path="res://imgs/rooms/masks/passage_reactor_mask_bitmap.tres" id="8_dppf4"]
+[ext_resource type="Texture2D" uid="uid://bx14owy2uuu0" path="res://imgs/sprites/tasks/logistics/passage_hazmat_suits_mask.png" id="9_6y4gy"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/logistics/passage_hazmat_suits_mask_bitmap.tres" id="10_2f00m"]
+[ext_resource type="Texture2D" uid="uid://xyf3k6r3ytkk" path="res://imgs/sprites/tasks/logistics/passage_plutonium_mask.png" id="11_3kq7a"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/logistics/passage_plutonium_mask_bitmap.tres" id="12_sjiva"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1lop"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymgiq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nt7iu"]
 
 [node name="Passage" type="Control"]
 layout_mode = 3
@@ -25,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_b0jtw")
+texture = ExtResource("2_k85yi")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -63,6 +78,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_drop_Hazmat_Suit" parent="Tasks/Day3" instance=ExtResource("3_ojtfq")]
+layout_mode = 1
+
+[node name="Task_drop_Uranium" parent="Tasks/Day3" instance=ExtResource("4_x3wgy")]
+layout_mode = 1
+
 [node name="Day4" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -71,6 +92,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_drop_Hazmat_Suit" parent="Tasks/Day4" instance=ExtResource("3_ojtfq")]
+layout_mode = 1
+
+[node name="Task_drop_Uranium" parent="Tasks/Day4" instance=ExtResource("4_x3wgy")]
+layout_mode = 1
 
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
@@ -81,6 +108,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_drop_Hazmat_Suit" parent="Tasks/Day5" instance=ExtResource("3_ojtfq")]
+layout_mode = 1
+
+[node name="Task_drop_Uranium" parent="Tasks/Day5" instance=ExtResource("4_x3wgy")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -90,9 +123,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_drop_Hazmat_Suit" parent="Tasks/Day6" instance=ExtResource("3_ojtfq")]
+layout_mode = 1
+
+[node name="Task_drop_Uranium" parent="Tasks/Day6" instance=ExtResource("4_x3wgy")]
+layout_mode = 1
+
 [node name="Leave" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 957.0
 offset_top = 886.0
 offset_right = 1120.0
@@ -113,4 +153,55 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_jb1wn")
 
+[node name="Control" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 488.0
+offset_right = 1224.0
+offset_bottom = 752.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q1lop")
+theme_override_styles/hover = ExtResource("6_wwx25")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ymgiq")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nt7iu")
+
+[node name="Reactor" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 768.0
+offset_top = 416.0
+offset_right = 977.0
+offset_bottom = 1024.0
+texture_hover = ExtResource("7_kofhr")
+texture_click_mask = ExtResource("8_dppf4")
+stretch_mode = 0
+
+[node name="Hazmat_hitbox" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 71.0
+offset_top = 339.0
+offset_right = 752.0
+offset_bottom = 1081.0
+texture_hover = ExtResource("9_6y4gy")
+texture_click_mask = ExtResource("10_2f00m")
+stretch_mode = 0
+
+[node name="uranium_hitbox" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1368.0
+offset_top = 600.0
+offset_right = 1864.0
+offset_bottom = 1080.0
+texture_hover = ExtResource("11_3kq7a")
+texture_click_mask = ExtResource("12_sjiva")
+stretch_mode = 0
+
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Control" to="." method="_on_control_pressed"]
+[connection signal="pressed" from="Reactor" to="." method="_on_reactor_pressed"]
+[connection signal="pressed" from="Hazmat_hitbox" to="." method="_on_hazmat_hitbox_pressed"]
+[connection signal="pressed" from="uranium_hitbox" to="." method="_on_uranium_hitbox_pressed"]

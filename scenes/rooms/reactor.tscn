@@ -93,6 +93,7 @@ mouse_filter = 2
 [node name="Leave" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 246.0
 offset_top = 884.0
 offset_right = 409.0

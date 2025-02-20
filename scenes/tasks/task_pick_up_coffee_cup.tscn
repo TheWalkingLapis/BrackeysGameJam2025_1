@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce88v3boesvc1"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_coffee_cup.gd" id="1_2i25b"]
+[ext_resource type="Texture2D" uid="uid://ia8ch7ksipxx" path="res://imgs/sprites/tasks/logistics/coffee-cup.png" id="2_vgjx6"]
+
+[node name="Task_Pick_up_Coffee_Cup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2i25b")
+task_name = "Collect Coffee"
+task_description = "Pick up the coffee from storage"
+tag = 2
+order = 3
+whole_day = true
+
+[node name="Coffee_Cup" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1146.0
+offset_top = 829.0
+offset_right = 1229.0
+offset_bottom = 907.0
+mouse_filter = 2
+texture = ExtResource("2_vgjx6")

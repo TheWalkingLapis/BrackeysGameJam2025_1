@@ -13,4 +13,4 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	Global.game_manager.pre_start_day(0)
+	Global.game_manager.pre_start_day(Global.game_manager.current_day)

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct6ns44qytrjv"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_uranium.gd" id="1_4xm8t"]
+[ext_resource type="Texture2D" uid="uid://b8hp134886csv" path="res://imgs/sprites/tasks/logistics/uranium.png" id="1_ohnih"]
+
+[node name="Task_Pick_up_Uranium" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4xm8t")
+task_name = "Collect Uranium"
+task_description = "Pick up the uranium from storage"
+tag = 2
+order = 7
+whole_day = true
+
+[node name="Uranium" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1057.0
+offset_top = 938.0
+offset_right = 1301.0
+offset_bottom = 1036.0
+mouse_filter = 2
+texture = ExtResource("1_ohnih")

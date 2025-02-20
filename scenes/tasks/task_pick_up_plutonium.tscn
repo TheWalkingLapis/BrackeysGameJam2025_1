@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4gico0j05yj"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_plutonium.gd" id="1_6ml12"]
+[ext_resource type="Texture2D" uid="uid://b10smlthsbx8y" path="res://imgs/sprites/tasks/logistics/plutonium.png" id="2_cercm"]
+
+[node name="Task_Pick_up_plutonium" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_6ml12")
+task_name = "Collect Plutonium"
+task_description = "Pick up the plutonium from storage"
+tag = 2
+order = 11
+whole_day = true
+
+[node name="plutonium" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1315.0
+offset_top = 887.0
+offset_right = 1587.0
+offset_bottom = 990.0
+mouse_filter = 2
+texture = ExtResource("2_cercm")

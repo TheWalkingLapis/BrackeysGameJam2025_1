@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://mf1kjo7r76u2"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_drop_hazmat_suit.gd" id="1_mge6r"]
+[ext_resource type="Texture2D" uid="uid://cmql8m5j2m473" path="res://imgs/sprites/tasks/logistics/passage_hazmat_suits.png" id="2_l33vm"]
+
+[node name="Task_drop_Hazmat_Suit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mge6r")
+task_name = "Deliver Hazmat Suit"
+task_description = "Bring the hazmat suit to the reactor passage"
+tag = 2
+order = 6
+whole_day = true
+
+[node name="Hazmat_suit" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 71.0
+offset_top = 339.0
+offset_right = 752.0
+offset_bottom = 1081.0
+mouse_filter = 2
+texture = ExtResource("2_l33vm")

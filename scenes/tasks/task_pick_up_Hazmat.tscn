@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ummrp5wexnd"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_pick_up_hazmat.gd" id="1_dsnpf"]
+[ext_resource type="Texture2D" uid="uid://bx7464ml8s2j4" path="res://imgs/sprites/tasks/logistics/hazmat-suit.png" id="2_p383l"]
+
+[node name="Task_Pick_up_hazmat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dsnpf")
+task_name = "Collect Hazmat Suit"
+task_description = "Pick up the hazmat suit from storage"
+tag = 2
+order = 5
+whole_day = true
+
+[node name="Hazmat" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 551.0
+offset_top = 579.0
+offset_right = 1078.0
+offset_bottom = 812.0
+mouse_filter = 2
+texture = ExtResource("2_p383l")

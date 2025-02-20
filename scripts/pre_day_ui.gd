@@ -1,20 +1,30 @@
 extends Control
 
-@export var newspapers: Array[Texture2D]
+@export var newspapers_aliens: Texture2D
+@export var newspapers_pandemic: Texture2D
 
-@onready var mail: TextureRect = $Mail
-@onready var mail_txt: RichTextLabel = $Mail/Mail_Text
+@onready var mail: Control = $Mail
+@onready var mail_txt: RichTextLabel = $Mail/Text
 @onready var news: TextureRect = $News
 
 @onready var news_continue_button: Button = $News_to_Mail
 @onready var mail_continue_button: Button = $Start_day
 
+var has_news = false
+
 func day(day):
-	news.texture = newspapers[day]
-	news.visible = true
-	news_continue_button.visible = true
-	mail.visible = false
-	mail_continue_button.visible = false
+	if day == 3:
+		news.texture = newspapers_pandemic
+		has_news = true
+	elif day == 4:
+		news.texture = newspapers_aliens
+		has_news = true
+	else:
+		has_news = false
+	news.visible = has_news
+	news_continue_button.visible = has_news
+	mail.visible = !has_news
+	mail_continue_button.visible = !has_news
 
 func _on_news_to_mail_pressed():
 	news.visible = false

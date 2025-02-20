@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6d4y5ww7g3sb"]
+[gd_scene load_steps=22 format=3 uid="uid://b6d4y5ww7g3sb"]
 
 [ext_resource type="Script" path="res://scripts/main_hallway.gd" id="1_sv7ng"]
 [ext_resource type="Texture2D" uid="uid://djj5s6l7lvov8" path="res://imgs/rooms/main-hallway.png" id="2_ehqfk"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ffg1a63u8tj" path="res://imgs/rooms/masks/main_hallway_plant_mask.png" id="12_8re2f"]
 [ext_resource type="BitMap" path="res://imgs/rooms/masks/main_hallway_plant_mask_bitmap.tres" id="13_vneju"]
 [ext_resource type="PackedScene" uid="uid://c0swdtotoaijr" path="res://scenes/tasks/task_water_hallway_plant.tscn" id="14_lj5mk"]
+[ext_resource type="PackedScene" uid="uid://dcd4gsgke76ch" path="res://scenes/tasks/task_drop_coffee_boss.tscn" id="15_2osxc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxhba"]
 
@@ -194,6 +195,9 @@ mouse_filter = 2
 [node name="Task_water_Hallway_Plant" parent="Tasks/Day3" instance=ExtResource("14_lj5mk")]
 layout_mode = 1
 
+[node name="Task_drop_Coffee_boss" parent="Tasks/Day3" instance=ExtResource("15_2osxc")]
+layout_mode = 1
+
 [node name="Day4" type="Control" parent="Tasks"]
 layout_mode = 3
 anchors_preset = 0
@@ -204,6 +208,9 @@ mouse_filter = 2
 [node name="Task_water_Hallway_Plant" parent="Tasks/Day4" instance=ExtResource("14_lj5mk")]
 layout_mode = 1
 
+[node name="Task_drop_Coffee_boss" parent="Tasks/Day4" instance=ExtResource("15_2osxc")]
+layout_mode = 1
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 3
 anchors_preset = 0
@@ -212,6 +219,9 @@ offset_bottom = 40.0
 mouse_filter = 2
 
 [node name="Task_water_Hallway_Plant" parent="Tasks/Day5" instance=ExtResource("14_lj5mk")]
+layout_mode = 1
+
+[node name="Task_drop_Coffee_boss" parent="Tasks/Day5" instance=ExtResource("15_2osxc")]
 layout_mode = 1
 
 [node name="Day6" type="Control" parent="Tasks"]

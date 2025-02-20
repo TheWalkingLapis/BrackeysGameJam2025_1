@@ -1,0 +1,7 @@
+[gd_resource type="BitMap" format=4]
+
+[resource]
+data = {
+"data": PackedByteArray("wA8AAAAAAAD+HwAAAAAAwP8PAAAAAAD8/wMAAAAAAP//AQAAAADA//8AAAAAAPD/PwAAAAAA/P8PAAAAAAD//wMAAAAAwP//8AMAAADw/7//AwAAAPz///8DAAAA/////wEAAMD/////AAAA8P///z8AAAD8////HwAAAP////8HAADA/////wEAAPD/////AAAA/P///z8AAAD/////DwAAwP////8DAADw/////wAAAPz///8/AAAA/////+//D8D///////8H8P///////wf8////////A/////////+B/////////8D///////9/4P///////z/4////////D/z///////8H/v///////wH/////////wP///////z/g////////D/D///////8D/P///////wD+//////8/AP///////w/A////////A+D///////8A8P//////PwD4//////8PAP7//////wOA////////AKD//////z8A4P//////DwDw//////8DAPj//////wAA/v////8/AAD//////w8AgP//////AwDA//////8AAPD/////PwAA+P////8PAAD8/////wMAAP//////"),
+"size": Vector2i(62, 60)
+}

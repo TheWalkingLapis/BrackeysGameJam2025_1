@@ -44,9 +44,10 @@ func _ready():
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
 		name_to_node_dict[room_name].visible = (current_room == room_name)
+	office.ordered.connect(storage._on_orders_update)
 
 func setup_day(day):
-	if day < 3:
+	if day <= 3:
 		change_room_to("Main_Hallway")
 	else:
 		change_room_to("Office")

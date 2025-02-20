@@ -3,36 +3,53 @@ extends Room
 var allowed_rooms = {
 	0: ["Plan", "Office"],
 	1: ["Plan", "Office"],
-	2: ["Plan", "Office", "Kitchen"],
-	3: ["Plan", "Office", "Kitchen"],
-	4: ["Plan", "Office", "Kitchen"],
-	5: ["Plan", "Office", "Kitchen"]
+	2: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
+	3: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
+	4: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
+	5: ["Plan", "Office", "Kitchen", "Passage", "Storage", "Boss"]
 }
 
 var room_not_allowed_txt = "I shouldn't go there"
 var break_txt = "I should take a break first"
 
 var watering_task = null
+var drop_coffee_task = null
 
-# define this in a room for per-day (or break time) setup of tasks or visiblity
-# (task visiblity itself is handled by the room manager)
 func setup_day(day, post_break):
 	match day:
 		0:
 			watering_task = null
+			drop_coffee_task = null
 		1:
 			watering_task = null
+			drop_coffee_task = null
 		2:
 			watering_task = $Tasks/Day3/Task_water_Hallway_Plant
+			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
+				drop_coffee_task = null
+			else:
+				drop_coffee_task = $Tasks/Day3/Task_drop_Coffee_boss
 		3:
 			watering_task = $Tasks/Day4/Task_water_Hallway_Plant
+			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
+				drop_coffee_task = null
+			else:
+				drop_coffee_task = $Tasks/Day4/Task_drop_Coffee_boss
 		4:
 			watering_task = $Tasks/Day5/Task_water_Hallway_Plant
+			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
+				drop_coffee_task = null
+			else:
+				drop_coffee_task = $Tasks/Day5/Task_drop_Coffee_boss
 		5:
 			watering_task = $Tasks/Day6/Task_water_Hallway_Plant
+			drop_coffee_task = null
 
 func try_enter_room(room, break_active_txt=break_txt, not_allowed_txt=room_not_allowed_txt):
 	if Global.game_manager.current_day >= 4 and Global.time_manager.break_active and room == "Kitchen":
+		Global.room_manager.change_room_to(room)
+		return
+	if Global.game_manager.current_day >= 3 and !Global.time_manager.day_active and room == "Office":
 		Global.room_manager.change_room_to(room)
 		return
 	if Global.game_manager.allow_interaction:
@@ -47,6 +64,12 @@ func _on_hr_pressed():
 	try_enter_room("Office")
 
 func _on_boss_pressed():
+	if drop_coffee_task != null and !(drop_coffee_task as Task).get_task_completed():
+		if Global.inventory.has_item(Global.inventory.Items.COFFEE_CUP):
+			drop_coffee_task.start_task()
+		else:
+			Global.text_manager.display_interaction_text("I need to bring Big D his coffee")
+		return
 	try_enter_room("Boss")
 
 func _on_kitchen_pressed():
@@ -63,13 +86,16 @@ func _on_plan_pressed():
 
 func _on_restaurant_pressed():
 	if !Global.time_manager.day_active:
-		if Global.game_manager.current_day < 4:
+		if Global.game_manager.current_day < 3:
 			Global.room_manager.post_day.emit()
 		else:
 			Global.text_manager.display_interaction_text("I will sleep on the couch in my office today")
 		return
-	if Global.game_manager.current_day == 4 and Global.time_manager.break_active:
-		Global.text_manager.display_interaction_text("I should just grab something from the kitchen")
+	if Global.game_manager.current_day >= 4:
+		if Global.game_manager.current_day == 4 and Global.time_manager.break_active:
+			Global.text_manager.display_interaction_text("I should just grab something from the kitchen")
+			return
+		Global.text_manager.display_interaction_text("I got no time to leave")
 		return
 	if Global.time_manager.break_active:
 		Global.room_manager.change_room_to("Restaurant")
