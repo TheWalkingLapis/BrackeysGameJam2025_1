@@ -114,4 +114,12 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_45c5k")
 
+[node name="wirebox" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1792.0
+offset_top = 344.0
+offset_right = 1887.0
+offset_bottom = 464.0
+
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

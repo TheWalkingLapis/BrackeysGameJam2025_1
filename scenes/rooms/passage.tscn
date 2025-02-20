@@ -200,8 +200,18 @@ texture_hover = ExtResource("11_3kq7a")
 texture_click_mask = ExtResource("12_sjiva")
 stretch_mode = 0
 
+[node name="wirebox" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1583.0
+offset_top = 431.0
+offset_right = 1721.0
+offset_bottom = 601.0
+stretch_mode = 0
+
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="Control" to="." method="_on_control_pressed"]
 [connection signal="pressed" from="Reactor" to="." method="_on_reactor_pressed"]
 [connection signal="pressed" from="Hazmat_hitbox" to="." method="_on_hazmat_hitbox_pressed"]
 [connection signal="pressed" from="uranium_hitbox" to="." method="_on_uranium_hitbox_pressed"]
+[connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

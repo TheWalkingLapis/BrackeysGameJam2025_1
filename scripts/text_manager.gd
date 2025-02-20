@@ -12,6 +12,7 @@ func _ready():
 	interaction.visible = false
 
 func display_interaction_text(text):
+	if interaction.visible: return
 	text_in_progress.emit()
 	interaction.visible = true
 	interaction_text.text = text

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpmf5vshyap71"]
+[gd_scene load_steps=5 format=3 uid="uid://bpmf5vshyap71"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_fix_wires.gd" id="1_ry8fs"]
+[ext_resource type="Texture2D" uid="uid://b0ssefu4vstre" path="res://imgs/sprites/tasks/janitor/electricity_minigame.png" id="2_moegm"]
+[ext_resource type="Texture2D" uid="uid://cwng8hkeeqa6r" path="res://imgs/sprites/tasks/janitor/electricity_minigame_outlet_mask.png" id="3_vrt8x"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/janitor/electricity_minigame_outlet_mask_bitmap.tres" id="4_d3ehy"]
 
 [node name="Task_Fix_Wires" type="Control"]
 layout_mode = 3
@@ -9,4 +12,117 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ry8fs")
+task_name = "Electric Boogaloo"
+task_description = "Fix the wires in X"
+tag = 3
+whole_day = true
+
+[node name="Active" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_moegm")
+
+[node name="Target1" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 360.0
+offset_right = 1290.0
+offset_bottom = 510.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Target2" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 585.0
+offset_right = 1290.0
+offset_bottom = 735.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Target3" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1140.0
+offset_top = 840.0
+offset_right = 1290.0
+offset_bottom = 990.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Outlet1" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 675.0
+offset_top = 360.0
+offset_right = 825.0
+offset_bottom = 510.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Wire1" type="Line2D" parent="Active"]
+texture_filter = 1
+width = 25.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Outlet2" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 675.0
+offset_top = 585.0
+offset_right = 825.0
+offset_bottom = 735.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Wire2" type="Line2D" parent="Active"]
+texture_filter = 1
+width = 25.0
+default_color = Color(0, 1, 0, 1)
+
+[node name="Outlet3" type="TextureButton" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 675.0
+offset_top = 840.0
+offset_right = 825.0
+offset_bottom = 990.0
+texture_normal = ExtResource("3_vrt8x")
+texture_click_mask = ExtResource("4_d3ehy")
+stretch_mode = 0
+
+[node name="Wire3" type="Line2D" parent="Active"]
+texture_filter = 1
+width = 25.0
+default_color = Color(0, 0, 1, 1)
+
+[connection signal="pressed" from="Active/Target1" to="." method="_on_target_1_pressed"]
+[connection signal="pressed" from="Active/Target2" to="." method="_on_target_2_pressed"]
+[connection signal="pressed" from="Active/Target3" to="." method="_on_target_3_pressed"]
+[connection signal="pressed" from="Active/Outlet1" to="." method="_on_outlet_1_pressed"]
+[connection signal="pressed" from="Active/Outlet2" to="." method="_on_outlet_2_pressed"]
+[connection signal="pressed" from="Active/Outlet3" to="." method="_on_outlet_3_pressed"]

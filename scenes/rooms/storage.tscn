@@ -248,6 +248,13 @@ offset_bottom = 990.0
 texture_hover = ExtResource("11_2j37j")
 stretch_mode = 0
 
+[node name="wirebox" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 432.0
+offset_right = 648.0
+offset_bottom = 544.0
+
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="pickup_cereal_bar" to="." method="_on_pickup_cereal_bar_pressed"]
 [connection signal="pressed" from="pickup_coffee" to="." method="_on_pickup_coffee_pressed"]
@@ -255,3 +262,4 @@ stretch_mode = 0
 [connection signal="pressed" from="pickup_hazmat" to="." method="_on_pickup_hazmat_pressed"]
 [connection signal="pressed" from="pickup_bomb_kit" to="." method="_on_pickup_bomb_kit_pressed"]
 [connection signal="pressed" from="pickup_plutonium" to="." method="_on_pickup_plutonium_pressed"]
+[connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

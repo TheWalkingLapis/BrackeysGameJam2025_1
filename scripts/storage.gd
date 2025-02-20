@@ -9,10 +9,12 @@ var pickup_hazmat_task = null
 var pickup_uranium_task = null
 var pickup_bomb_kit_task = null
 var pickup_plutonium_task = null
+var wire_task = null
 
 func setup_day(day, post_break):
 	match day:
 		0:
+			wire_task = null
 			pickup_cereal_task = null
 			pickup_coffee_task = null
 			pickup_hazmat_task = null
@@ -26,6 +28,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		1:
+			wire_task = null
 			pickup_cereal_task = null
 			pickup_coffee_task = null
 			pickup_hazmat_task = null
@@ -39,6 +42,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		2:
+			wire_task = null
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -64,6 +68,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		3:
+			wire_task = null
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -89,6 +94,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		4:
+			wire_task = null
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -117,6 +123,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = true
 			pickup_plutonium.visible = false
 		5:
+			wire_task = null
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -239,3 +246,14 @@ func _on_orders_update(): # called when leaving office
 		pickup_bomb_kit_task.get_child(0).visible = Global.bomb_ordered
 	if pickup_plutonium_task != null:
 		pickup_plutonium_task.get_child(0).visible = Global.plutonium_ordered
+
+
+func _on_wirebox_pressed():
+	if !Global.game_manager.allow_interaction: return
+	if wire_task != null:
+		if (wire_task as Task).get_task_completed():
+			Global.text_manager.display_interaction_text("I already fixed these wires")
+		else:
+			wire_task.start_task()
+	else:
+		Global.text_manager.display_interaction_text("I think this one is not broken")
