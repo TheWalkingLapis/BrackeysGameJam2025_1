@@ -19,6 +19,9 @@ func start_task():
 	Global.time_manager.change_time_speed(20)
 	started.emit(self)
 
+func reset_task():
+	active.visible = false
+
 func _process(delta):
 	if !active.visible or len(operas) == 0:
 		return

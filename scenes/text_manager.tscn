@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dam4nevijq3sp"]
+[gd_scene load_steps=8 format=3 uid="uid://dam4nevijq3sp"]
 
 [ext_resource type="Script" path="res://scripts/text_manager.gd" id="1_0stk4"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_nhbac"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vasi"]
 
@@ -53,6 +54,7 @@ offset_right = 762.5
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_nhbac")
 bbcode_enabled = true
 text = "MOIN"
 

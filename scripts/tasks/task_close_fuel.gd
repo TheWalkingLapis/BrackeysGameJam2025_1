@@ -1,0 +1,26 @@
+extends Task
+
+signal refueled()
+
+@onready var active = $Active
+@onready var button = $Active/Button
+
+func start_task():
+	if Global.fuel_task_progress != 2: return
+	active.visible = true
+	started.emit(self)
+
+func reset_task():
+	super.reset_task()
+	active.visible = false
+
+func _on_button_pressed():
+	active.visible = false
+	refueled.emit()
+	Global.fuel_task_progress = 0
+	set_task_completed()
+
+
+func _on_leave_pressed():
+	active.visible = false
+	quit.emit()

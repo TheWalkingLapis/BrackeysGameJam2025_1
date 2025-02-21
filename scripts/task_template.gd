@@ -5,7 +5,7 @@ signal started(node)
 signal completed()
 signal quit() # quit but not completed
 
-enum TaskTag {NONE, WATERING, RESUPPLY, WIRES}
+enum TaskTag {NONE, WATERING, RESUPPLY, WIRES, FUEL, TEMEPERATURE, SAVE_THE_WORLD}
 
 @export var task_name: String = "Task"
 @export var task_description: String = "Short txt of what to do"

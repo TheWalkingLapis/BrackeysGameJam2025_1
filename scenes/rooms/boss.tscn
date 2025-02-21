@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxepcp58f6b5o"]
+[gd_scene load_steps=12 format=3 uid="uid://bxepcp58f6b5o"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_x2fld"]
+[ext_resource type="Texture2D" uid="uid://cv5otjm7pb3ew" path="res://imgs/rooms/bossroom.png" id="2_wfi81"]
+[ext_resource type="PackedScene" uid="uid://4qt46ak8f35e" path="res://scenes/tasks/task_maze.tscn" id="3_t2rdo"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="4_pdt18"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="4_y2qx5"]
+[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="5_c50ab"]
+[ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="6_jfxys"]
+[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="7_bv41v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tqdlm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6x42s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibtj6"]
 
 [node name="Boss" type="Control"]
 layout_mode = 3
@@ -21,6 +34,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_wfi81")
+
+[node name="Vault" type="Button" parent="."]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 336.0
+offset_right = 920.0
+offset_bottom = 768.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tqdlm")
+theme_override_styles/hover = ExtResource("4_pdt18")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6x42s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ibtj6")
+
+[node name="Code" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.741176, 0.733333, 0.721569, 1)
+
+[node name="CodeTxt" type="RichTextLabel" parent="Code"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 368.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("4_y2qx5")
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]Plutonium Code[/center]:
+[center]0000[/center]"
+
+[node name="Leave" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 850.0
+offset_top = 852.0
+offset_right = 1031.0
+offset_bottom = 1063.0
+texture_hover = ExtResource("5_c50ab")
+texture_click_mask = ExtResource("6_jfxys")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Leave"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_bv41v")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -84,3 +157,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_maze" parent="Tasks/Day6" instance=ExtResource("3_t2rdo")]
+layout_mode = 1
+
+[connection signal="pressed" from="Vault" to="." method="_on_vault_pressed"]
+[connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]

@@ -19,3 +19,9 @@ var bomb_ordered = false
 var plutonium_ordered = false
 
 var plutonium_code = [1,2,3,4]
+
+signal fuel_task_progress_changed()
+var fuel_task_progress = 0:
+	set(val):
+		fuel_task_progress = val
+		fuel_task_progress_changed.emit()

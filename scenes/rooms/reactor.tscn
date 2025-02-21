@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc80ca33i1bit"]
+[gd_scene load_steps=12 format=3 uid="uid://cc80ca33i1bit"]
 
 [ext_resource type="Script" path="res://scripts/reactor.gd" id="1_lyky6"]
 [ext_resource type="Texture2D" uid="uid://bjxg4ykpwku06" path="res://imgs/rooms/reactor/reactor_closed.png" id="2_syn40"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_5gjyo"]
+[ext_resource type="Texture2D" uid="uid://6663csbog861" path="res://imgs/rooms/reactor/reactor_opened-empty.png" id="3_8w64p"]
 [ext_resource type="PackedScene" uid="uid://bpmf5vshyap71" path="res://scenes/tasks/task_fix_wires.tscn" id="3_gxbge"]
+[ext_resource type="PackedScene" uid="uid://ugfu68lquw15" path="res://scenes/tasks/task_refuel.tscn" id="3_l2m1h"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_ekii0"]
+[ext_resource type="Texture2D" uid="uid://jlxm277t1yd3" path="res://imgs/rooms/reactor/reactor_opened-full.png" id="4_osajr"]
+[ext_resource type="Texture2D" uid="uid://b54ycccjiyufl" path="res://imgs/sprites/tasks/reactor/fuel_rod_mask.png" id="5_pqdep"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_sa7je"]
 [ext_resource type="Texture2D" uid="uid://dw6a7srjugliq" path="res://imgs/sprites/tasks/janitor/wirebox_reactor_mask.png" id="7_cylip"]
 
@@ -17,6 +21,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_lyky6")
+reactor_closed_tex = ExtResource("2_syn40")
+reactor_open_tex = ExtResource("3_8w64p")
+reactor_open_fueled_tex = ExtResource("4_osajr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -27,7 +34,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_syn40")
+texture = ExtResource("3_8w64p")
+
+[node name="Fuel_Rod_Button" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 880.0
+offset_top = 160.0
+offset_right = 1024.0
+offset_bottom = 584.0
+texture_hover = ExtResource("5_pqdep")
+stretch_mode = 0
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -74,6 +92,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_refuel" parent="Tasks/Day4" instance=ExtResource("3_l2m1h")]
+layout_mode = 1
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -88,6 +109,9 @@ layout_mode = 1
 target_matching = Array[int]([2, 3, 1])
 task_description = "Fix the wires in the reactor room"
 
+[node name="Task_refuel" parent="Tasks/Day5" instance=ExtResource("3_l2m1h")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -101,6 +125,9 @@ mouse_filter = 2
 layout_mode = 1
 target_matching = Array[int]([1, 3, 2])
 task_description = "Fix the wires in the reactor room"
+
+[node name="Task_refuel" parent="Tasks/Day6" instance=ExtResource("3_l2m1h")]
+layout_mode = 1
 
 [node name="Leave" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -137,5 +164,6 @@ offset_bottom = 816.0
 texture_hover = ExtResource("7_cylip")
 stretch_mode = 0
 
+[connection signal="pressed" from="Fuel_Rod_Button" to="." method="_on_fuel_rod_button_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

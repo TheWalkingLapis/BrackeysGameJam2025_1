@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd1y7r21a5ruw"]
+[gd_scene load_steps=14 format=3 uid="uid://dd1y7r21a5ruw"]
 
 [ext_resource type="Script" path="res://scripts/pre_day_ui.gd" id="1_f3k34"]
 [ext_resource type="Texture2D" uid="uid://c5lgc1xbna76c" path="res://imgs/sprites/newspaper_pandemic.png" id="2_56m2w"]
 [ext_resource type="Texture2D" uid="uid://bmpeff23hr3eq" path="res://imgs/sprites/mail/mail_with-font.png" id="2_cg32a"]
 [ext_resource type="Texture2D" uid="uid://ctg0n0ympnapa" path="res://imgs/sprites/newspaper_aliens.png" id="3_nfjsp"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="5_pgvt4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha1e3"]
 
@@ -64,36 +65,42 @@ mouse_filter = 2
 texture = ExtResource("2_cg32a")
 
 [node name="From" type="RichTextLabel" parent="Mail"]
+layout_mode = 0
 offset_left = 429.0
 offset_top = 137.0
 offset_right = 1316.0
 offset_bottom = 200.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pgvt4")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Big D"
 scroll_active = false
 
 [node name="To" type="RichTextLabel" parent="Mail"]
+layout_mode = 0
 offset_left = 343.0
 offset_top = 222.0
 offset_right = 1230.0
 offset_bottom = 285.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pgvt4")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "Jeremy from HR"
 scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="Mail"]
+layout_mode = 0
 offset_left = 314.0
 offset_top = 360.0
 offset_right = 1605.0
 offset_bottom = 975.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_pgvt4")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "AMOGUS AMOGUS"

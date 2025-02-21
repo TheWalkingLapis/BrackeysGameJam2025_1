@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://1g3476d5y57c"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_open_fuel.gd" id="1_a4po3"]
+[ext_resource type="Texture2D" uid="uid://cl7c0rf5hhkv4" path="res://imgs/sprites/tasks/reactor/fuel_rods_buttons.png" id="2_mhlvm"]
+[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_ydiyw"]
+[ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_tvnn0"]
+[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_n01f1"]
+
+[node name="Task_open_fuel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_a4po3")
+task_name = "Open Fuel"
+tag = 4
+uncompletable = true
+whole_day = true
+
+[node name="Active" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_mhlvm")
+
+[node name="Button" type="Button" parent="Active"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 465.0
+offset_right = 855.0
+offset_bottom = 765.0
+
+[node name="Leave" type="TextureButton" parent="Active"]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 79.0
+offset_top = 788.0
+offset_right = 273.0
+offset_bottom = 1023.0
+texture_hover = ExtResource("3_ydiyw")
+texture_click_mask = ExtResource("4_tvnn0")
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Active/Leave"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_n01f1")
+
+[connection signal="pressed" from="Active/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Active/Leave" to="." method="_on_leave_pressed"]

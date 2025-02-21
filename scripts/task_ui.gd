@@ -9,9 +9,12 @@ var optional_string = "Optional"
 var watering_string = "Watering"
 var resupply_string = "Resupply"
 var wire_string = "Wires"
+var save_the_world_string = "Save the World"
 var task_string = "Tasks" # default
 
+
 var order_dict = {
+	save_the_world_string: 2,
 	wire_string: 5,
 	watering_string: 10,
 	resupply_string: 15,
@@ -51,12 +54,18 @@ func set_tasks(tasks):
 				if !current_tasks.has(wire_string):
 					current_tasks[wire_string] = []
 				current_tasks[wire_string].append(task)
+			elif task.tag == Task.TaskTag.SAVE_THE_WORLD:
+				if !current_tasks.has(save_the_world_string):
+					current_tasks[save_the_world_string] = []
+				current_tasks[save_the_world_string].append(task)
 			else:
 				current_tasks[task_string].append(task)
 	if current_tasks.has(watering_string):
 		current_tasks[watering_string].sort_custom(Task._task_compare_func)
 	if current_tasks.has(resupply_string):
 		current_tasks[resupply_string].sort_custom(Task._task_compare_func)
+	if current_tasks.has(save_the_world_string):
+		current_tasks[save_the_world_string].sort_custom(Task._task_compare_func)
 	update_task_text()
 
 func update_task_display():

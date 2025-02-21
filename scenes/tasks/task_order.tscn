@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://co31i2b8h8sod"]
+[gd_scene load_steps=35 format=3 uid="uid://co31i2b8h8sod"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_order.gd" id="1_431vo"]
 [ext_resource type="Texture2D" uid="uid://biac1l0tohhvu" path="res://imgs/sprites/tasks/orders/app_first-days.png" id="2_b4qit"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ucjgg5a5jwy1" path="res://imgs/sprites/tasks/orders/app_code-correct.png" id="6_jsb5g"]
 [ext_resource type="Texture2D" uid="uid://bxdcwsv3uowp2" path="res://imgs/sprites/tasks/orders/app_code-wrong.png" id="7_xsws0"]
 [ext_resource type="Texture2D" uid="uid://cbk1f25pd8onf" path="res://imgs/sprites/tasks/orders/app_quit.png" id="8_vma6m"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="9_h8s50"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_pbh5o"]
 [ext_resource type="Texture2D" uid="uid://i7k2nploygar" path="res://imgs/sprites/tasks/logistics/cereal-bars_icon.png" id="10_q0px1"]
 [ext_resource type="Texture2D" uid="uid://bamxkcl4hu68r" path="res://imgs/sprites/tasks/logistics/coffee-cup_icon.png" id="11_eb3pe"]
@@ -67,6 +68,7 @@ tag = 2
 whole_day = true
 
 [node name="Active" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -288,6 +290,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_h8s50")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
@@ -308,6 +311,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_h8s50")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
@@ -328,6 +332,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_h8s50")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
@@ -348,6 +353,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_h8s50")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yrad3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8hih")
@@ -362,6 +368,8 @@ offset_left = 656.0
 offset_top = 773.0
 offset_right = 1321.0
 offset_bottom = 858.0
+theme_override_fonts/font = ExtResource("9_h8s50")
+theme_override_font_sizes/font_size = 30
 text = "Submit"
 
 [node name="Icons" type="Control" parent="Active"]

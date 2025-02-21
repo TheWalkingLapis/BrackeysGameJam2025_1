@@ -20,6 +20,7 @@ tag = 3
 whole_day = true
 
 [node name="Active" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,9 +43,9 @@ texture = ExtResource("2_moegm")
 [node name="Target1" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1140.0
+offset_left = 1125.0
 offset_top = 360.0
-offset_right = 1290.0
+offset_right = 1275.0
 offset_bottom = 510.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")
@@ -53,10 +54,10 @@ stretch_mode = 0
 [node name="Target2" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1140.0
-offset_top = 585.0
-offset_right = 1290.0
-offset_bottom = 735.0
+offset_left = 1125.0
+offset_top = 600.0
+offset_right = 1275.0
+offset_bottom = 750.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")
 stretch_mode = 0
@@ -64,9 +65,9 @@ stretch_mode = 0
 [node name="Target3" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 1140.0
+offset_left = 1125.0
 offset_top = 840.0
-offset_right = 1290.0
+offset_right = 1275.0
 offset_bottom = 990.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")
@@ -75,9 +76,9 @@ stretch_mode = 0
 [node name="Outlet1" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 675.0
+offset_left = 660.0
 offset_top = 360.0
-offset_right = 825.0
+offset_right = 810.0
 offset_bottom = 510.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")
@@ -91,10 +92,10 @@ default_color = Color(1, 0, 0, 1)
 [node name="Outlet2" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 675.0
-offset_top = 585.0
-offset_right = 825.0
-offset_bottom = 735.0
+offset_left = 660.0
+offset_top = 600.0
+offset_right = 810.0
+offset_bottom = 750.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")
 stretch_mode = 0
@@ -107,9 +108,9 @@ default_color = Color(0, 1, 0, 1)
 [node name="Outlet3" type="TextureButton" parent="Active"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 675.0
+offset_left = 660.0
 offset_top = 840.0
-offset_right = 825.0
+offset_right = 810.0
 offset_bottom = 990.0
 texture_normal = ExtResource("3_vrt8x")
 texture_click_mask = ExtResource("4_d3ehy")

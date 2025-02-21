@@ -1,12 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://du1axr6vbmhmm"]
+[gd_scene load_steps=17 format=3 uid="uid://du1axr6vbmhmm"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_o3g8w"]
 [ext_resource type="Texture2D" uid="uid://c0ye2iw5q7iec" path="res://imgs/rooms/control-room.png" id="2_duuhx"]
 [ext_resource type="PackedScene" uid="uid://bpmf5vshyap71" path="res://scenes/tasks/task_fix_wires.tscn" id="3_5ydpy"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_t1eua"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_8lnc7"]
+[ext_resource type="PackedScene" uid="uid://1g3476d5y57c" path="res://scenes/tasks/task_open_fuel.tscn" id="4_ehbik"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_45c5k"]
+[ext_resource type="PackedScene" uid="uid://dcock8juapnx8" path="res://scenes/tasks/task_close_fuel.tscn" id="5_fwdo2"]
 [ext_resource type="Texture2D" uid="uid://fmvgs65j78v0" path="res://imgs/sprites/tasks/janitor/wirebox_control_mask.png" id="7_34p4m"]
+[ext_resource type="Texture2D" uid="uid://jam61lmjyfj4" path="res://imgs/sprites/tasks/reactor/fuel_display_mask.png" id="8_4akt5"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="8_cmnp6"]
+[ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="8_jwtil"]
+[ext_resource type="PackedScene" uid="uid://0yiqa74ccwgf" path="res://scenes/tasks/task_temperature.tscn" id="13_gdnlv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sairy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k6fne"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaeun"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -28,6 +40,78 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_duuhx")
+
+[node name="Leave" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 850.0
+offset_top = 852.0
+offset_right = 1031.0
+offset_bottom = 1063.0
+texture_hover = ExtResource("3_t1eua")
+texture_click_mask = ExtResource("4_8lnc7")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Leave"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_45c5k")
+
+[node name="wirebox" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1792.0
+offset_top = 344.0
+offset_right = 1887.0
+offset_bottom = 464.0
+texture_hover = ExtResource("7_34p4m")
+stretch_mode = 0
+
+[node name="Temperator_display" type="Button" parent="."]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 368.0
+offset_right = 816.0
+offset_bottom = 496.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sairy")
+theme_override_styles/hover = ExtResource("8_jwtil")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_k6fne")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yaeun")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Temperator_display"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_cmnp6")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]0C[/center]"
+
+[node name="Fuel_Display" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1248.0
+offset_top = 360.0
+offset_right = 1424.0
+offset_bottom = 504.0
+texture_hover = ExtResource("8_4akt5")
+stretch_mode = 0
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -79,6 +163,15 @@ layout_mode = 1
 target_matching = Array[int]([2, 3, 1])
 task_description = "Fix the wires in the control room"
 
+[node name="Task_open_fuel" parent="Tasks/Day4" instance=ExtResource("4_ehbik")]
+layout_mode = 1
+
+[node name="Task_close_fuel" parent="Tasks/Day4" instance=ExtResource("5_fwdo2")]
+layout_mode = 1
+
+[node name="Task_Temperature" parent="Tasks/Day4" instance=ExtResource("13_gdnlv")]
+layout_mode = 1
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -92,6 +185,15 @@ mouse_filter = 2
 layout_mode = 1
 target_matching = Array[int]([2, 1, 3])
 task_description = "Fix the wires in the control room"
+
+[node name="Task_open_fuel" parent="Tasks/Day5" instance=ExtResource("4_ehbik")]
+layout_mode = 1
+
+[node name="Task_close_fuel" parent="Tasks/Day5" instance=ExtResource("5_fwdo2")]
+layout_mode = 1
+
+[node name="Task_Temperature" parent="Tasks/Day5" instance=ExtResource("13_gdnlv")]
+layout_mode = 1
 
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
@@ -107,40 +209,16 @@ layout_mode = 1
 target_matching = Array[int]([3, 2, 1])
 task_description = "Fix the wires in the control room"
 
-[node name="Leave" type="TextureButton" parent="."]
-self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
-texture_filter = 1
-layout_mode = 0
-offset_left = 850.0
-offset_top = 852.0
-offset_right = 1031.0
-offset_bottom = 1063.0
-texture_hover = ExtResource("3_t1eua")
-texture_click_mask = ExtResource("4_8lnc7")
-stretch_mode = 0
-
-[node name="Arraw_tex" type="TextureRect" parent="Leave"]
-show_behind_parent = true
-texture_filter = 1
+[node name="Task_open_fuel" parent="Tasks/Day6" instance=ExtResource("4_ehbik")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("5_45c5k")
 
-[node name="wirebox" type="TextureButton" parent="."]
-self_modulate = Color(0, 0.792157, 1, 0.533333)
-texture_filter = 1
-layout_mode = 0
-offset_left = 1792.0
-offset_top = 344.0
-offset_right = 1887.0
-offset_bottom = 464.0
-texture_hover = ExtResource("7_34p4m")
-stretch_mode = 0
+[node name="Task_close_fuel" parent="Tasks/Day6" instance=ExtResource("5_fwdo2")]
+layout_mode = 1
+
+[node name="Task_Temperature" parent="Tasks/Day6" instance=ExtResource("13_gdnlv")]
+layout_mode = 1
 
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]
+[connection signal="pressed" from="Temperator_display" to="." method="_on_temperator_display_pressed"]
+[connection signal="pressed" from="Fuel_Display" to="." method="_on_fuel_display_pressed"]
