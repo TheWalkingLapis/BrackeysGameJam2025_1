@@ -75,8 +75,8 @@ func update_task_display():
 func update_task_text():
 	var working_hours = Global.time_manager.get_working_hours()
 	var text = ""
-	var working_hour_text = "Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
-	var break_time_text = "Break Time at %02d:00" % Global.time_manager.day_break_hour
+	var working_hour_text = "   Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
+	var break_time_text = "   Break Time at %02d:00" % Global.time_manager.day_break_hour
 	if Global.time_manager.day_break_duration >= 1:
 		break_time_text += " for %dh" % Global.time_manager.day_break_duration
 	break_time_text += "\n"
@@ -98,17 +98,18 @@ func update_task_text():
 				skip_category_text = false
 				break
 		if !skip_category_text:
-			text += Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
+			text += "   " + Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
 		
 		
 		for t in task_list:
 			var task := t as Task
 			var task_texts = task.get_task_strings()
-			var task_text = "  - %s\n" % Utils.bbc_text(task_texts[0], 25)
-			task_text += "     %s\n" % Utils.bbc_text(task_texts[1], 18)
+			#var task_text = "  - %s\n" % Utils.bbc_text(task_texts[0], 25)
+			var task_text = "  -  %s\n" % Utils.bbc_text(task_texts[1], 18)
 			if task.get_task_completed():
 				completed_flag = true
-				completed += Utils.bbc_strikethrough(task_text)
+				#completed += Utils.bbc_strikethrough(task_text)
+				completed += task_text
 			else:
 				text += task_text
 	if completed_flag:

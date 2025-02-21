@@ -28,13 +28,13 @@ end_hour = 17
 script = ExtResource("2_mwn0d")
 start_hour = 8
 break_hour = 12
-break_duration = 1
+break_duration = 0
 end_hour = 17
 
 [sub_resource type="Resource" id="Resource_xbrmg"]
 script = ExtResource("2_mwn0d")
 start_hour = 8
-break_hour = 13
+break_hour = -1
 break_duration = 0
 end_hour = 20
 
