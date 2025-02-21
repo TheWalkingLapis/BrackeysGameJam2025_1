@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://du1axr6vbmhmm"]
+[gd_scene load_steps=8 format=3 uid="uid://du1axr6vbmhmm"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_o3g8w"]
 [ext_resource type="Texture2D" uid="uid://c0ye2iw5q7iec" path="res://imgs/rooms/control-room.png" id="2_duuhx"]
+[ext_resource type="PackedScene" uid="uid://bpmf5vshyap71" path="res://scenes/tasks/task_fix_wires.tscn" id="3_5ydpy"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="3_t1eua"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="4_8lnc7"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="5_45c5k"]
+[ext_resource type="Texture2D" uid="uid://fmvgs65j78v0" path="res://imgs/sprites/tasks/janitor/wirebox_control_mask.png" id="7_34p4m"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -72,6 +74,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_Fix_Wires" parent="Tasks/Day4" instance=ExtResource("3_5ydpy")]
+layout_mode = 1
+target_matching = Array[int]([2, 3, 1])
+task_description = "Fix the wires in the control room"
+
 [node name="Day5" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -81,6 +88,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Task_Fix_Wires" parent="Tasks/Day5" instance=ExtResource("3_5ydpy")]
+layout_mode = 1
+target_matching = Array[int]([2, 1, 3])
+task_description = "Fix the wires in the control room"
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -89,6 +101,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Task_Fix_Wires" parent="Tasks/Day6" instance=ExtResource("3_5ydpy")]
+layout_mode = 1
+target_matching = Array[int]([3, 2, 1])
+task_description = "Fix the wires in the control room"
 
 [node name="Leave" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -115,11 +132,15 @@ mouse_filter = 2
 texture = ExtResource("5_45c5k")
 
 [node name="wirebox" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
 layout_mode = 0
 offset_left = 1792.0
 offset_top = 344.0
 offset_right = 1887.0
 offset_bottom = 464.0
+texture_hover = ExtResource("7_34p4m")
+stretch_mode = 0
 
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

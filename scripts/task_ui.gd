@@ -8,7 +8,25 @@ var hide = false
 var optional_string = "Optional"
 var watering_string = "Watering"
 var resupply_string = "Resupply"
+var wire_string = "Wires"
 var task_string = "Tasks" # default
+
+var order_dict = {
+	wire_string: 5,
+	watering_string: 10,
+	resupply_string: 15,
+	optional_string: 99,
+	task_string: 100
+}
+
+func order_func_categories(a, b):
+	var val_a = 0
+	var val_b = 0
+	if order_dict.has(a):
+		val_a = order_dict[a]
+	if order_dict.has(b):
+		val_b = order_dict[b]
+	return val_a < val_b
 
 func set_tasks(tasks):
 	current_tasks = {task_string: []}
@@ -29,6 +47,10 @@ func set_tasks(tasks):
 				if !current_tasks.has(resupply_string):
 					current_tasks[resupply_string] = []
 				current_tasks[resupply_string].append(task)
+			elif task.tag == Task.TaskTag.WIRES:
+				if !current_tasks.has(wire_string):
+					current_tasks[wire_string] = []
+				current_tasks[wire_string].append(task)
 			else:
 				current_tasks[task_string].append(task)
 	if current_tasks.has(watering_string):
@@ -55,7 +77,9 @@ func update_task_text():
 	
 	var completed = Utils.bbc_underline(Utils.bbc_text("Completed:\n", 30))
 	var completed_flag = false
-	for category in current_tasks:
+	var categories = current_tasks.keys()
+	categories.sort_custom(order_func_categories)
+	for category in categories:
 		var task_list = current_tasks[category]
 		
 		if len(task_list) == 0: continue
@@ -99,7 +123,6 @@ func _on_day_done():
 	else:
 		text += Utils.bbc_text("Sleep on the couch in your office", 30)
 	task_label.text = text
-
 
 func _on_hide_pressed():
 	$TaskBG.visible = hide

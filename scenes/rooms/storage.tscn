@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j2i52g7mfivk"]
+[gd_scene load_steps=19 format=3 uid="uid://j2i52g7mfivk"]
 
 [ext_resource type="Script" path="res://scripts/storage.gd" id="1_jh1fd"]
 [ext_resource type="Texture2D" uid="uid://l5hh1d5nkjug" path="res://imgs/rooms/storage.png" id="2_akxj3"]
@@ -10,10 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://b4ummrp5wexnd" path="res://scenes/tasks/task_pick_up_Hazmat.tscn" id="5_dtxp7"]
 [ext_resource type="PackedScene" uid="uid://ct6ns44qytrjv" path="res://scenes/tasks/task_pick_up_Uranium.tscn" id="6_s8i8r"]
 [ext_resource type="Texture2D" uid="uid://crjsx4cgtsenj" path="res://imgs/sprites/tasks/logistics/cereal-bars_mask.png" id="7_dir65"]
+[ext_resource type="PackedScene" uid="uid://bpmf5vshyap71" path="res://scenes/tasks/task_fix_wires.tscn" id="7_qo6ec"]
 [ext_resource type="PackedScene" uid="uid://jbtwahald453" path="res://scenes/tasks/task_pick_up_bomb_kit.tscn" id="7_stu72"]
 [ext_resource type="PackedScene" uid="uid://dq4gico0j05yj" path="res://scenes/tasks/task_pick_up_plutonium.tscn" id="8_okpt3"]
 [ext_resource type="Texture2D" uid="uid://w8ixbfk1f3wx" path="res://imgs/sprites/tasks/logistics/coffee-cup_mask.png" id="9_i7hxv"]
 [ext_resource type="Texture2D" uid="uid://ckcgvjpbcqgm5" path="res://imgs/sprites/tasks/logistics/uranium_plutonium_mask.png" id="11_2j37j"]
+[ext_resource type="Texture2D" uid="uid://wetog73ase0r" path="res://imgs/sprites/tasks/janitor/wirebox_storage_mask.png" id="11_irk8d"]
 [ext_resource type="Texture2D" uid="uid://ectmbpq5b465" path="res://imgs/sprites/tasks/logistics/hazmat-suit_mask.png" id="13_2pcae"]
 [ext_resource type="Texture2D" uid="uid://lt5gvjexl7dk" path="res://imgs/sprites/tasks/logistics/atombomb-kit_mask.png" id="15_r1fcn"]
 
@@ -37,126 +39,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_akxj3")
-
-[node name="Tasks" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Day1" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Day2" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Day3" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day3" instance=ExtResource("3_iwmw5")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day3" instance=ExtResource("4_iy5j3")]
-layout_mode = 1
-
-[node name="Task_Pick_up_hazmat" parent="Tasks/Day3" instance=ExtResource("5_dtxp7")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Uranium" parent="Tasks/Day3" instance=ExtResource("6_s8i8r")]
-layout_mode = 1
-
-[node name="Day4" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day4" instance=ExtResource("3_iwmw5")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day4" instance=ExtResource("4_iy5j3")]
-layout_mode = 1
-
-[node name="Task_Pick_up_hazmat" parent="Tasks/Day4" instance=ExtResource("5_dtxp7")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Uranium" parent="Tasks/Day4" instance=ExtResource("6_s8i8r")]
-layout_mode = 1
-
-[node name="Day5" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day5" instance=ExtResource("3_iwmw5")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day5" instance=ExtResource("4_iy5j3")]
-layout_mode = 1
-
-[node name="Task_Pick_up_hazmat" parent="Tasks/Day5" instance=ExtResource("5_dtxp7")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Uranium" parent="Tasks/Day5" instance=ExtResource("6_s8i8r")]
-layout_mode = 1
-
-[node name="Task_Pick_up_bomb_kit" parent="Tasks/Day5" instance=ExtResource("7_stu72")]
-layout_mode = 1
-
-[node name="Day6" type="Control" parent="Tasks"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day6" instance=ExtResource("3_iwmw5")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day6" instance=ExtResource("4_iy5j3")]
-layout_mode = 1
-
-[node name="Task_Pick_up_hazmat" parent="Tasks/Day6" instance=ExtResource("5_dtxp7")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Uranium" parent="Tasks/Day6" instance=ExtResource("6_s8i8r")]
-layout_mode = 1
-
-[node name="Task_Pick_up_bomb_kit" parent="Tasks/Day6" instance=ExtResource("7_stu72")]
-layout_mode = 1
-
-[node name="Task_Pick_up_plutonium" parent="Tasks/Day6" instance=ExtResource("8_okpt3")]
-layout_mode = 1
 
 [node name="Leave" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -249,11 +131,149 @@ texture_hover = ExtResource("11_2j37j")
 stretch_mode = 0
 
 [node name="wirebox" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
 layout_mode = 0
 offset_left = 560.0
 offset_top = 432.0
 offset_right = 648.0
 offset_bottom = 544.0
+texture_hover = ExtResource("11_irk8d")
+stretch_mode = 0
+
+[node name="Tasks" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Day1" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Day2" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Day3" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day3" instance=ExtResource("3_iwmw5")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day3" instance=ExtResource("4_iy5j3")]
+layout_mode = 1
+
+[node name="Task_Pick_up_hazmat" parent="Tasks/Day3" instance=ExtResource("5_dtxp7")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Uranium" parent="Tasks/Day3" instance=ExtResource("6_s8i8r")]
+layout_mode = 1
+
+[node name="Task_Fix_Wires" parent="Tasks/Day3" instance=ExtResource("7_qo6ec")]
+layout_mode = 1
+target_matching = Array[int]([2, 1, 3])
+task_description = "Fix the wires in storage"
+
+[node name="Day4" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day4" instance=ExtResource("3_iwmw5")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day4" instance=ExtResource("4_iy5j3")]
+layout_mode = 1
+
+[node name="Task_Pick_up_hazmat" parent="Tasks/Day4" instance=ExtResource("5_dtxp7")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Uranium" parent="Tasks/Day4" instance=ExtResource("6_s8i8r")]
+layout_mode = 1
+
+[node name="Day5" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day5" instance=ExtResource("3_iwmw5")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day5" instance=ExtResource("4_iy5j3")]
+layout_mode = 1
+
+[node name="Task_Pick_up_hazmat" parent="Tasks/Day5" instance=ExtResource("5_dtxp7")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Uranium" parent="Tasks/Day5" instance=ExtResource("6_s8i8r")]
+layout_mode = 1
+
+[node name="Task_Pick_up_bomb_kit" parent="Tasks/Day5" instance=ExtResource("7_stu72")]
+layout_mode = 1
+
+[node name="Task_Fix_Wires" parent="Tasks/Day5" instance=ExtResource("7_qo6ec")]
+layout_mode = 1
+task_description = "Fix the wires in storage"
+
+[node name="Day6" type="Control" parent="Tasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day6" instance=ExtResource("3_iwmw5")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day6" instance=ExtResource("4_iy5j3")]
+layout_mode = 1
+
+[node name="Task_Pick_up_hazmat" parent="Tasks/Day6" instance=ExtResource("5_dtxp7")]
+layout_mode = 1
+
+[node name="Task_Pick_up_Uranium" parent="Tasks/Day6" instance=ExtResource("6_s8i8r")]
+layout_mode = 1
+
+[node name="Task_Pick_up_bomb_kit" parent="Tasks/Day6" instance=ExtResource("7_stu72")]
+layout_mode = 1
+
+[node name="Task_Pick_up_plutonium" parent="Tasks/Day6" instance=ExtResource("8_okpt3")]
+layout_mode = 1
+
+[node name="Task_Fix_Wires" parent="Tasks/Day6" instance=ExtResource("7_qo6ec")]
+layout_mode = 1
+target_matching = Array[int]([3, 2, 1])
+task_description = "Fix the wires in storage"
 
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="pickup_cereal_bar" to="." method="_on_pickup_cereal_bar_pressed"]

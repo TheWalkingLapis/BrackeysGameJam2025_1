@@ -41,7 +41,7 @@ func start_task():
 	target_1.self_modulate = color_dict[target_matching[0]]
 	target_2.self_modulate = color_dict[target_matching[1]]
 	target_3.self_modulate = color_dict[target_matching[2]]
-	started.emit()
+	started.emit(self)
 
 func reset_task():
 	super.reset_task()

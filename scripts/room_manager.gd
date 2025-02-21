@@ -130,7 +130,10 @@ func _on_time_evening():
 func clear_active_tasks():
 	if active_task != null:
 		active_task.visible = false
-		active_task.reset_task()
+		if active_task.has_method("reset_screen"):
+			active_task.reset_screen()
+		else:
+			active_task.reset_task()
 		active_task = null
 		Global.game_manager.gameState = Global.game_manager.GameState.IDLE
 

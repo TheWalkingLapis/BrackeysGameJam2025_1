@@ -42,7 +42,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		2:
-			wire_task = null
+			wire_task = $Tasks/Day3/Task_Fix_Wires
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -94,7 +94,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = false
 		4:
-			wire_task = null
+			wire_task = $Tasks/Day5/Task_Fix_Wires
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:
@@ -123,7 +123,7 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = true
 			pickup_plutonium.visible = false
 		5:
-			wire_task = null
+			wire_task = $Tasks/Day6/Task_Fix_Wires
 			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
 				pickup_cereal_task = null
 			else:

@@ -33,7 +33,7 @@ func setup_day(day, post_break):
 				hazmat_task = null
 			else:
 				hazmat_task = $Tasks/Day4/Task_drop_Hazmat_Suit
-			wire_task = null
+			wire_task = $Tasks/Day4/Task_Fix_Wires
 		4:
 			if uranium_task != null and (uranium_task as Task).get_task_completed():
 				uranium_task = null
@@ -53,7 +53,7 @@ func setup_day(day, post_break):
 				hazmat_task = null
 			else:
 				hazmat_task = $Tasks/Day6/Task_drop_Hazmat_Suit
-			wire_task = null
+			wire_task = $Tasks/Day6/Task_Fix_Wires
 
 var allowed_rooms = {
 	0: [],
