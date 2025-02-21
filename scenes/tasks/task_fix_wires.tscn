@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/tasks/task_fix_wires.gd" id="1_ry8fs"]
 [ext_resource type="Texture2D" uid="uid://b0ssefu4vstre" path="res://imgs/sprites/tasks/janitor/electricity_minigame.png" id="2_moegm"]
 [ext_resource type="Texture2D" uid="uid://cwng8hkeeqa6r" path="res://imgs/sprites/tasks/janitor/electricity_minigame_outlet_mask.png" id="3_vrt8x"]
-[ext_resource type="BitMap" path="res://imgs/sprites/tasks/janitor/electricity_minigame_outlet_mask_bitmap.tres" id="4_d3ehy"]
+[ext_resource type="BitMap" uid="uid://cl2w5r314rhay" path="res://imgs/sprites/tasks/janitor/electricity_minigame_outlet_mask_bitmap.tres" id="4_d3ehy"]
 
 [node name="Task_Fix_Wires" type="Control"]
 layout_mode = 3
@@ -20,7 +20,6 @@ tag = 3
 whole_day = true
 
 [node name="Active" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
