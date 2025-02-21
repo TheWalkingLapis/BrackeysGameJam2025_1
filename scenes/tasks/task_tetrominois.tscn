@@ -1,0 +1,505 @@
+[gd_scene load_steps=28 format=3 uid="uid://cth0k75avrluu"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_tetrominois.gd" id="1_4w8y8"]
+[ext_resource type="Texture2D" uid="uid://ccy3d1gi3scg3" path="res://imgs/sprites/tasks/aliens/aliens-minigame_4x3.png" id="1_om4vi"]
+[ext_resource type="Texture2D" uid="uid://dkabk8vr7knws" path="res://imgs/sprites/tasks/aliens/tetromino_J_0.png" id="3_gebyq"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_J_0_bitmap.tres" id="4_fbut1"]
+[ext_resource type="Texture2D" uid="uid://dwfplq2m2jyfa" path="res://imgs/sprites/tasks/aliens/tetromino_J_3.png" id="5_dh5yf"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_J_3_bitmap.tres" id="6_2g3ec"]
+[ext_resource type="Texture2D" uid="uid://da8og0f0dodbx" path="res://imgs/sprites/tasks/aliens/tetromino_square.png" id="7_kejif"]
+[ext_resource type="Texture2D" uid="uid://cqhkm0kfr2ylg" path="res://imgs/sprites/tasks/aliens/aliens-minigame_4x5.png" id="8_0y5my"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_S_0_mask_bitmap.tres" id="9_xtgcf"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_L_0_mask_bitmap.tres" id="10_1ibix"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_T_0_mask_bitmap.tres" id="11_wc7x0"]
+[ext_resource type="Texture2D" uid="uid://cn38futwi2n1c" path="res://imgs/sprites/tasks/aliens/tetromino_S_0.png" id="12_twxqj"]
+[ext_resource type="Texture2D" uid="uid://ccl4qylad5r5h" path="res://imgs/sprites/tasks/aliens/tetromino_L_0.png" id="13_6v473"]
+[ext_resource type="Texture2D" uid="uid://t7tdkhk3m3h3" path="res://imgs/sprites/tasks/aliens/tetromino_T_0.png" id="14_tdgpl"]
+[ext_resource type="Texture2D" uid="uid://b2j13qk1sn1q1" path="res://imgs/sprites/tasks/aliens/aliens-minigame_6x6.png" id="15_lqacw"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_S_3_mask_bitmap.tres" id="16_v11ve"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/aliens/tetromino_L_2_mask_bitmap.tres" id="17_x3kq0"]
+[ext_resource type="Texture2D" uid="uid://xl1tdei54306" path="res://imgs/sprites/tasks/aliens/tetromino_S_3.png" id="18_n8r4x"]
+[ext_resource type="Texture2D" uid="uid://dmdcdhpuq12bj" path="res://imgs/sprites/tasks/aliens/tetromino_L_2.png" id="19_gl3c5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oevwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ni8rm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxaga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6231"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fnai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e25mq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t74x8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op75c"]
+
+[node name="Task_Tetrominos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4w8y8")
+
+[node name="Active" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="4x3" type="Control" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="TextureRect" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_om4vi")
+
+[node name="PlayArea" type="Button" parent="Active/4x3"]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 376.0
+offset_right = 1216.0
+offset_bottom = 736.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oevwe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ni8rm")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qxaga")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g6231")
+
+[node name="Slot_J_0" type="TextureButton" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 360.0
+offset_right = 352.0
+offset_bottom = 720.0
+texture_click_mask = ExtResource("4_fbut1")
+stretch_mode = 0
+
+[node name="Slot_J_3" type="TextureButton" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 248.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 368.0
+texture_click_mask = ExtResource("6_2g3ec")
+stretch_mode = 0
+
+[node name="Slot_Square" type="TextureButton" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 384.0
+offset_top = 760.0
+offset_right = 624.0
+offset_bottom = 1000.0
+stretch_mode = 0
+
+[node name="J_0" type="TextureRect" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 360.0
+offset_right = 352.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("3_gebyq")
+
+[node name="J_3" type="TextureRect" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 248.0
+offset_top = 128.0
+offset_right = 608.0
+offset_bottom = 368.0
+mouse_filter = 2
+texture = ExtResource("5_dh5yf")
+
+[node name="Square" type="TextureRect" parent="Active/4x3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 384.0
+offset_top = 760.0
+offset_right = 624.0
+offset_bottom = 1000.0
+mouse_filter = 2
+texture = ExtResource("7_kejif")
+
+[node name="5x4" type="Control" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_0y5my")
+
+[node name="PlayArea" type="Button" parent="Active/5x4"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 312.0
+offset_right = 1272.0
+offset_bottom = 792.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1fnai")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e25mq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t74x8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op75c")
+
+[node name="Slot_S_0" type="TextureButton" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 424.0
+offset_bottom = 304.0
+texture_click_mask = ExtResource("9_xtgcf")
+stretch_mode = 0
+
+[node name="Slot_J_0" type="TextureButton" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 360.0
+offset_top = 48.0
+offset_right = 600.0
+offset_bottom = 408.0
+texture_click_mask = ExtResource("4_fbut1")
+stretch_mode = 0
+
+[node name="Slot_L_0" type="TextureButton" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 360.0
+offset_right = 296.0
+offset_bottom = 720.0
+texture_click_mask = ExtResource("10_1ibix")
+stretch_mode = 0
+
+[node name="Slot_T_0_0" type="TextureButton" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 256.0
+offset_top = 448.0
+offset_right = 616.0
+offset_bottom = 688.0
+texture_click_mask = ExtResource("11_wc7x0")
+stretch_mode = 0
+
+[node name="Slot_T_0_1" type="TextureButton" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 744.0
+offset_right = 528.0
+offset_bottom = 984.0
+texture_click_mask = ExtResource("11_wc7x0")
+stretch_mode = 0
+
+[node name="S_0" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 424.0
+offset_bottom = 304.0
+mouse_filter = 2
+texture = ExtResource("12_twxqj")
+
+[node name="J_0" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 360.0
+offset_top = 48.0
+offset_right = 600.0
+offset_bottom = 408.0
+mouse_filter = 2
+texture = ExtResource("3_gebyq")
+
+[node name="L_0" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 56.0
+offset_top = 360.0
+offset_right = 296.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("13_6v473")
+
+[node name="T_0_0" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 256.0
+offset_top = 448.0
+offset_right = 616.0
+offset_bottom = 688.0
+mouse_filter = 2
+texture = ExtResource("14_tdgpl")
+
+[node name="T_0_1" type="TextureRect" parent="Active/5x4"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 744.0
+offset_right = 528.0
+offset_bottom = 984.0
+mouse_filter = 2
+texture = ExtResource("14_tdgpl")
+
+[node name="6x6" type="Control" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_lqacw")
+
+[node name="PlayArea" type="Button" parent="Active/6x6"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 176.0
+offset_right = 1320.0
+offset_bottom = 896.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1fnai")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_e25mq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_t74x8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_op75c")
+
+[node name="Slot_SQ_0" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 288.0
+stretch_mode = 0
+
+[node name="Slot_SQ_1" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 328.0
+offset_right = 280.0
+offset_bottom = 568.0
+stretch_mode = 0
+
+[node name="Slot_J_0" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 312.0
+offset_top = 32.0
+offset_right = 552.0
+offset_bottom = 392.0
+texture_click_mask = ExtResource("4_fbut1")
+stretch_mode = 0
+
+[node name="Slot_L_0_0" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 600.0
+offset_right = 280.0
+offset_bottom = 960.0
+texture_click_mask = ExtResource("10_1ibix")
+stretch_mode = 0
+
+[node name="Slot_L_0_1" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 312.0
+offset_top = 496.0
+offset_right = 552.0
+offset_bottom = 856.0
+texture_click_mask = ExtResource("10_1ibix")
+stretch_mode = 0
+
+[node name="Slot_S_0_0" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 32.0
+offset_right = 1872.0
+offset_bottom = 272.0
+texture_click_mask = ExtResource("9_xtgcf")
+stretch_mode = 0
+
+[node name="Slot_S_0_1" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1504.0
+offset_top = 304.0
+offset_right = 1864.0
+offset_bottom = 544.0
+texture_click_mask = ExtResource("9_xtgcf")
+stretch_mode = 0
+
+[node name="Slot_S_3" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 624.0
+offset_right = 1640.0
+offset_bottom = 984.0
+texture_click_mask = ExtResource("16_v11ve")
+stretch_mode = 0
+
+[node name="Slot_L_2" type="TextureButton" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 584.0
+offset_right = 1848.0
+offset_bottom = 944.0
+texture_click_mask = ExtResource("17_x3kq0")
+stretch_mode = 0
+
+[node name="SQ_0" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 48.0
+offset_right = 280.0
+offset_bottom = 288.0
+mouse_filter = 2
+texture = ExtResource("7_kejif")
+
+[node name="SQ_1" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 328.0
+offset_right = 280.0
+offset_bottom = 568.0
+mouse_filter = 2
+texture = ExtResource("7_kejif")
+
+[node name="J_0" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 312.0
+offset_top = 32.0
+offset_right = 552.0
+offset_bottom = 392.0
+mouse_filter = 2
+texture = ExtResource("3_gebyq")
+
+[node name="L_0_0" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 600.0
+offset_right = 280.0
+offset_bottom = 960.0
+mouse_filter = 2
+texture = ExtResource("13_6v473")
+
+[node name="L_0_1" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 312.0
+offset_top = 496.0
+offset_right = 552.0
+offset_bottom = 856.0
+mouse_filter = 2
+texture = ExtResource("13_6v473")
+
+[node name="S_0_0" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 32.0
+offset_right = 1872.0
+offset_bottom = 272.0
+mouse_filter = 2
+texture = ExtResource("12_twxqj")
+
+[node name="S_0_1" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1504.0
+offset_top = 304.0
+offset_right = 1864.0
+offset_bottom = 544.0
+mouse_filter = 2
+texture = ExtResource("12_twxqj")
+
+[node name="S_3" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1400.0
+offset_top = 624.0
+offset_right = 1640.0
+offset_bottom = 984.0
+mouse_filter = 2
+texture = ExtResource("18_n8r4x")
+
+[node name="L_2" type="TextureRect" parent="Active/6x6"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 584.0
+offset_right = 1848.0
+offset_bottom = 944.0
+mouse_filter = 2
+texture = ExtResource("19_gl3c5")
+
+[connection signal="pressed" from="Active/4x3/PlayArea" to="." method="_on_play_area_pressed"]
+[connection signal="pressed" from="Active/4x3/Slot_J_0" to="." method="_on_slot_j_0_4x3_pressed"]
+[connection signal="pressed" from="Active/4x3/Slot_J_3" to="." method="_on_slot_j_3_4x3_pressed"]
+[connection signal="pressed" from="Active/4x3/Slot_Square" to="." method="_on_slot_square_4x3_pressed"]
+[connection signal="pressed" from="Active/5x4/PlayArea" to="." method="_on_play_area_pressed"]
+[connection signal="pressed" from="Active/5x4/Slot_S_0" to="." method="_on_slot_s_0_5x4_pressed"]
+[connection signal="pressed" from="Active/5x4/Slot_J_0" to="." method="_on_slot_j_0_5x4_pressed"]
+[connection signal="pressed" from="Active/5x4/Slot_L_0" to="." method="_on_slot_l_0_5x4_pressed"]
+[connection signal="pressed" from="Active/5x4/Slot_T_0_0" to="." method="_on_slot_t_0_0_5x4_pressed"]
+[connection signal="pressed" from="Active/5x4/Slot_T_0_1" to="." method="_on_slot_t_0_1_5x4_pressed"]
+[connection signal="pressed" from="Active/6x6/PlayArea" to="." method="_on_play_area_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_SQ_0" to="." method="_on_slot_sq_0_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_SQ_1" to="." method="_on_slot_sq_1_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_J_0" to="." method="_on_slot_j_0_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_L_0_0" to="." method="_on_slot_l_0_0_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_L_0_1" to="." method="_on_slot_l_0_1_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_S_0_0" to="." method="_on_slot_s_0_0_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_S_0_1" to="." method="_on_slot_s_0_1_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_S_3" to="." method="_on_slot_s_3_6x6_pressed"]
+[connection signal="pressed" from="Active/6x6/Slot_L_2" to="." method="_on_slot_l_2_6x6_pressed"]

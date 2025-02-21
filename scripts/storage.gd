@@ -221,15 +221,16 @@ func _on_pickup_bomb_kit_pressed():
 
 func _on_pickup_plutonium_pressed():
 	if Global.game_manager.allow_interaction:
-		if pickup_plutonium != null and !(pickup_plutonium as Task).get_task_completed():
-			if not Global.plutonium_ordered:
-				Global.text_manager.display_interaction_text("I need to order this first")
-			elif Global.inventory.is_empty():
-				pickup_plutonium.start_task()
-				pickup_plutonium.visible = false
-				$pickup_plutonium.visible = false
-			else:
-				Global.text_manager.display_interaction_text("I have to empty my hands before I can pick this up")
+		if pickup_plutonium_task != null:
+			if !(pickup_plutonium_task as Task).get_task_completed():
+				if not Global.plutonium_ordered:
+					Global.text_manager.display_interaction_text("I need to order this first")
+				elif Global.inventory.is_empty():
+					pickup_plutonium_task.start_task()
+					pickup_plutonium_task.visible = false
+					$pickup_plutonium.visible = false
+				else:
+					Global.text_manager.display_interaction_text("I have to empty my hands before I can pick this up")
 
 
 func _on_orders_update(): # called when leaving office 

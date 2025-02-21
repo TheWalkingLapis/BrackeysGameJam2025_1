@@ -6,7 +6,7 @@ signal finished_text(force: bool)
 
 @onready var interaction = $Interaction
 @onready var interaction_text = $Interaction/Interaction_Box/Interaction_Text
-@onready var interaction_continue_button = $Interaction/Interaction_Box/INT_Continue
+@onready var interaction_continue_button = $Interaction/INT_Continue
 
 func _ready():
 	interaction.visible = false
