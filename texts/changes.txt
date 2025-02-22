@@ -13,3 +13,37 @@ Time to leave.
 
 zu:
 Time to go home to my wife!
+
+--- 
+Neue logistics Texte:
+
+Deliver the cereal bars to the cupboard in the kitchen
+
+Deliver the cup of coffe to the door of BigD's office
+
+Deliver the hazmat suit to the hooks in the passage
+
+Deliver the uranium to the box in the passage
+
+Go to the workbench with the atom bomb kit
+
+Deliver the plutonium to the aliens in the kitchen
+
+--- 
+Bitte wenns in Restaurant geht Text ändern zu:
+Time to take my lunch break in a restaurant by leaving this place!
+
+---
+Wenn man ohne Gießkanne auf eine Pflanze klickt:
+watering can (Rechtschreibfehler)
+
+---
+Wenn man ohne Uranium auf Uranium Box klickt
+I need to bring the uranium here (Rechtschreibfehler)
+Ebenso bei hazmat suits!
+
+--- 
+Bei meltdown bitte:
+"Imminent reactor meltdown" bei Textfeld unten (Rechtschreibfehler)
+und
+"Reactor meltdown" bei Warnzeichen (Rechtschreibfehler, fehlt ein "c")

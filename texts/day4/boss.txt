@@ -6,12 +6,11 @@ Max from the Reactor and Alan from the Control room are sick as well.
 I know it's a lot to ask, but please keep the electricity running for our city by doing their tasks.
 I will give you access to the reactor and the control room.
 
-Max was responsible for the amount of uranium fuel in the rods. You can lift the rods by pressing the up button in the control room, then picking up uranium and delivering it to the rods in the reactor room. Afterwards you have to lower the rods again in the control room.
+Max was responsible for the amount of uranium fuel in the rods. You can lift the rods by pressing the up button in the control room, under the fuel meter. Simply touch the rods in the reactor room to refill them. Afterwards you have to lower the rods again in the control room.
 
-Alan kept the temperature of the reactor in check by supplying new cooling water to it. You can do this at the temperature gauge in the control room, simply press the button until there's enough cooling water for the temperature to be low.
+Alan kept the temperature of the reactor in check by supplying new cooling water to it. You can do this at the temperature gauge in the control room, repeatedly press the button until there's enough cooling water for the temperature to be low.
 
 You have to keep the temperature below 1000°C and the fuel above 0%, otherwise there will be a nuclear meltdown!
-
 Our hope rests in you to keep our electricity up and running. I believe in you.
 
 Best regards,
