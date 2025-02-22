@@ -1,5 +1,8 @@
 order_cash-register: https://pixabay.com/sound-effects/cash-register-kaching-sound-effect-125042/
 hr-signing: https://pixabay.com/sound-effects/writingpensignaturepaper-102967/
+watering: https://pixabay.com/sound-effects/water-pouring-out-of-bucket-96841/
+electricity: https://pixabay.com/sound-effects/electricity-106510/
+hammering: https://pixabay.com/sound-effects/hammer-and-anvil-32229/
 
 --- finales
 nuclear-explosion: https://pixabay.com/sound-effects/explosion-3-274684/
@@ -8,3 +11,11 @@ beach: https://pixabay.com/sound-effects/sandy-beach-calm-waves-water-nature-sou
 
 --- random
 eating crunchy: https://pixabay.com/sound-effects/crunchy-chew-45994/
+lunchtime-bell: https://sound-effects.bbcrewind.co.uk/search?q=07012087
+meltdown: https://pixabay.com/sound-effects/germany-eas-alarm-real-270828/
+success: https://pixabay.com/sound-effects/chime-sound-7143/
+day-end: https://pixabay.com/sound-effects/ding-47489/
+door-opening: https://pixabay.com/sound-effects/door-4-98809/
+door-locked: https://pixabay.com/sound-effects/rattling-door-81387/
+restaurant: https://sound-effects.bbcrewind.co.uk/search?q=07074028
+soap-opera: https://www.youtube.com/watch?v=l5sbrt6Kb8U
