@@ -11,7 +11,7 @@ class_name GameManager
 enum GameState {MAIN_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED, SUCCESS}
 var gameState: GameState = GameState.MAIN_MENU
 
-var current_day: int = 4
+var current_day: int = 0
 var allow_interaction = true
 
 func _ready():
