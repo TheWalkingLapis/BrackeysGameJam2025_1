@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://j2i52g7mfivk"]
+[gd_scene load_steps=22 format=3 uid="uid://j2i52g7mfivk"]
 
 [ext_resource type="Script" path="res://scripts/storage.gd" id="1_jh1fd"]
 [ext_resource type="Texture2D" uid="uid://l5hh1d5nkjug" path="res://imgs/rooms/storage.png" id="2_akxj3"]
@@ -16,8 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://w8ixbfk1f3wx" path="res://imgs/sprites/tasks/logistics/coffee-cup_mask.png" id="9_i7hxv"]
 [ext_resource type="Texture2D" uid="uid://ckcgvjpbcqgm5" path="res://imgs/sprites/tasks/logistics/uranium_plutonium_mask.png" id="11_2j37j"]
 [ext_resource type="Texture2D" uid="uid://wetog73ase0r" path="res://imgs/sprites/tasks/janitor/wirebox_storage_mask.png" id="11_irk8d"]
+[ext_resource type="Texture2D" uid="uid://dpxfa5ekjhbvb" path="res://imgs/rooms/masks/workbench_mask.png" id="12_1t2u4"]
 [ext_resource type="Texture2D" uid="uid://ectmbpq5b465" path="res://imgs/sprites/tasks/logistics/hazmat-suit_mask.png" id="13_2pcae"]
+[ext_resource type="BitMap" path="res://imgs/rooms/masks/workbench_mask_bitmap.tres" id="13_ocd8i"]
 [ext_resource type="Texture2D" uid="uid://lt5gvjexl7dk" path="res://imgs/sprites/tasks/logistics/atombomb-kit_mask.png" id="15_r1fcn"]
+[ext_resource type="PackedScene" uid="uid://bl7pqau4ss5e6" path="res://scenes/tasks/task_craft_atom_bomb.tscn" id="20_sma6h"]
 
 [node name="Storage" type="Control"]
 layout_mode = 3
@@ -147,6 +150,18 @@ offset_bottom = 544.0
 texture_hover = ExtResource("11_irk8d")
 stretch_mode = 0
 
+[node name="workbench" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1552.0
+offset_top = 400.0
+offset_right = 1896.0
+offset_bottom = 776.0
+texture_hover = ExtResource("12_1t2u4")
+texture_click_mask = ExtResource("13_ocd8i")
+stretch_mode = 0
+
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -250,6 +265,9 @@ layout_mode = 1
 target_matching = Array[int]([3, 1, 2])
 task_description = "Fix the wires in storage"
 
+[node name="Task_craft_atom_bomb" parent="Tasks/Day5" instance=ExtResource("20_sma6h")]
+layout_mode = 1
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15
@@ -272,3 +290,4 @@ order = 4
 [connection signal="pressed" from="pickup_bomb_kit" to="." method="_on_pickup_bomb_kit_pressed"]
 [connection signal="pressed" from="pickup_plutonium" to="." method="_on_pickup_plutonium_pressed"]
 [connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]
+[connection signal="pressed" from="workbench" to="." method="_on_workbench_pressed"]

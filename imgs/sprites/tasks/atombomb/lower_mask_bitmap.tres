@@ -1,0 +1,7 @@
+[gd_resource type="BitMap" format=4]
+
+[resource]
+data = {
+"data": PackedByteArray("////////////////////////////////////////////9/////////+////////////8/////////+P/////////H/////////9/+P/H///////D/x/8/////w/+P8D/////f/D/AP7/////gf8D4P////8P/AcA/P///z/gHwAA////PwA/AADw//8/AAAAAAD//z8AAAAAAOD/fwAAAA=="),
+"size": Vector2i(67, 19)
+}

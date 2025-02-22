@@ -202,4 +202,3 @@ text = "[center]Sunday"
 
 [connection signal="pressed" from="News_to_Mail" to="." method="_on_news_to_mail_pressed"]
 [connection signal="pressed" from="Start_day" to="." method="_on_start_day_pressed"]
-[connection signal="pressed" from="Weekday/Weekday_continue" to="." method="_on_weekday_continue_pressed"]

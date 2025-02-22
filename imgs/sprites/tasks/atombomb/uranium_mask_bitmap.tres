@@ -1,0 +1,7 @@
+[gd_resource type="BitMap" format=3]
+
+[resource]
+data = {
+"data": PackedByteArray(252, 225, 63, 254, 247, 255, 255, 255, 255, 255, 255, 255, 255, 231, 63, 254, 195, 31),
+"size": Vector2i(12, 12)
+}

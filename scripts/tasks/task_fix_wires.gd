@@ -140,3 +140,8 @@ func _process(delta):
 func leave():
 	active.visible = false
 	set_task_completed()
+
+
+func _on_leave_pressed():
+	active.visible = false
+	quit.emit()

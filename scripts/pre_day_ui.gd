@@ -109,7 +109,7 @@ func day(day):
 		Global.text_manager.finished_menu_text.connect(_on_monologue_done)
 		signal_connected = true
 
-	if day == 3:
+	if day == 2:
 		news.texture = newspapers_pandemic
 		has_news = true
 	elif day == 4:
@@ -150,6 +150,7 @@ func day(day):
 			weekday = "Saturday"
 	$Weekday/day.text = "[center]%s[/center]" % weekday
 	weekday_node.visible = true
+	Global.text_manager.show_text_in_menu(mono_txt, Color(1,1,1,0.1))
 
 func _on_monologue_done():
 	monologue.visible = false
@@ -166,7 +167,3 @@ func _on_news_to_mail_pressed():
 
 func _on_start_day_pressed():
 	Global.game_manager.start_day()
-
-
-func _on_weekday_continue_pressed():
-	Global.text_manager.show_text_in_menu(mono_txt, Color(1,1,1,0.2))

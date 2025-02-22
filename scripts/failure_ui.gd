@@ -6,15 +6,15 @@ extends ColorRect
 @export var planet_explosion_tex: Texture2D
 
 var fail_1 = "You didn't sign your HR paperwork! The employees of the power plant go on strike, leading to a meltdown!
-Your slacking is responsible for the death of thousands."
+Your slacking is responsible for the death of millions."
 var fail_2 = "You didn't finish your tasks! They were essential to keep the power plant running, a meltdown happens!
-Your slacking is responsible for the death of thousands."
+Your slacking is responsible for the death of millions."
 var fail_3 = "You didn't finish your tasks! They were essential to keep the power plant running, a meltdown happens!
-Your slacking is responsible for the death of thousands."
+Your slacking is responsible for the death of millions."
 var fail_4 = "The reactor blew up, you should have kept an eye on your taskbar and the temperature and fuel!
-You are responsible for the death of thousands."
+You are responsible for the death of millions."
 var fail_5 = "The reactor blew up, you should have kept an eye on your taskbar and the temperature and fuel!
-You are responsible for the death of thousands."
+You are responsible for the death of millions."
 var fail_6 = "You couldn't give the aliens the fuel in time! The aliens destroyed earth with their laser beam and are now on their way home."
 
 func set_screen():

@@ -10,6 +10,7 @@ var pickup_uranium_task = null
 var pickup_bomb_kit_task = null
 var pickup_plutonium_task = null
 var wire_task = null
+var build_bomb_task = null
 
 func setup_day(day, post_break):
 	if post_break: return
@@ -22,6 +23,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = null
 			pickup_bomb_kit_task = null
 			pickup_plutonium_task = null
+			build_bomb_task = null
 		1:
 			wire_task = null
 			pickup_cereal_task = null
@@ -30,6 +32,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = null
 			pickup_bomb_kit_task = null
 			pickup_plutonium_task = null
+			build_bomb_task = null
 		2:
 			wire_task = $Tasks/Day3/Task_Fix_Wires
 			pickup_cereal_task = $Tasks/Day3/Task_Pick_up_Cereal_Bar
@@ -38,6 +41,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = $Tasks/Day3/Task_Pick_up_Uranium
 			pickup_bomb_kit_task = null
 			pickup_plutonium_task = null
+			build_bomb_task = null
 		3:
 			wire_task = null
 			pickup_cereal_task = $Tasks/Day4/Task_Pick_up_Cereal_Bar
@@ -46,6 +50,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = $Tasks/Day4/Task_Pick_up_Uranium
 			pickup_bomb_kit_task = null
 			pickup_plutonium_task = null
+			build_bomb_task = null
 		4:
 			wire_task = $Tasks/Day5/Task_Fix_Wires
 			pickup_cereal_task = $Tasks/Day5/Task_Pick_up_Cereal_Bar
@@ -54,6 +59,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = $Tasks/Day5/Task_Pick_up_Uranium
 			pickup_bomb_kit_task = $Tasks/Day5/Task_Pick_up_bomb_kit
 			pickup_plutonium_task = null
+			build_bomb_task = $Tasks/Day5/Task_craft_atom_bomb
 		5:
 			wire_task = null
 			pickup_cereal_task = null
@@ -62,6 +68,7 @@ func setup_day(day, post_break):
 			pickup_uranium_task = null
 			pickup_bomb_kit_task = null
 			pickup_plutonium_task = $Tasks/Day6/Task_Pick_up_plutonium
+			build_bomb_task = null
 	
 	$pickup_cereal_bar.visible = pickup_cereal_task != null
 	$pickup_coffee.visible = pickup_coffee_task != null
@@ -128,9 +135,6 @@ func _on_pickup_bomb_kit_pressed():
 				$pickup_bomb_kit.visible = false
 			else:
 				Global.text_manager.display_interaction_text("I have to empty my hands before I can pick this up.")
-	# TODO remove - for now anti softlock
-	if Global.inventory.has_item(Inventory.Items.BOMB_KIT):
-		Global.inventory.drop()
 
 func _on_pickup_plutonium_pressed():
 	if Global.game_manager.allow_interaction:
@@ -170,3 +174,16 @@ func _on_wirebox_pressed():
 			wire_task.start_task()
 	else:
 		Global.text_manager.display_interaction_text("I think this one is not broken.")
+
+
+func _on_workbench_pressed():
+	if !Global.game_manager.allow_interaction: return
+	if build_bomb_task != null:
+		if (build_bomb_task as Task).get_task_completed():
+			Global.text_manager.display_interaction_text("I'm done building the atom bomb.")
+		elif Global.inventory.has_item(Inventory.Items.BOMB_KIT):
+			build_bomb_task.start_task()
+		else:
+			Global.text_manager.display_interaction_text("I need the atom bomb kit.")
+	else:
+		Global.text_manager.display_interaction_text("I don't have anything to use here.")

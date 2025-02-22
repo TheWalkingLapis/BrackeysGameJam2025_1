@@ -26,7 +26,7 @@ opera_1 = ExtResource("2_2a3um")
 opera_2 = ExtResource("3_10ph7")
 opera_3 = ExtResource("4_kspcr")
 task_name = "Relax"
-task_description = "Watch some TV to pass the time"
+task_description = "Watch some soap opera on the TV in your office to pass the time"
 optional = true
 uncompletable = true
 

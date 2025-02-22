@@ -14,9 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	print(cereal_bar.visible)
 	cereal_bar.visible = Global.cereal_bar_ordered and !Global.cereal_bar_delivered and !Global.inventory.has_item(Inventory.Items.CEREAL_BAR)
-	print(Global.cereal_bar_ordered)
-	print(Global.cereal_bar_delivered)
-	print(Global.inventory.has_item(Inventory.Items.CEREAL_BAR))
-	print(cereal_bar.visible)

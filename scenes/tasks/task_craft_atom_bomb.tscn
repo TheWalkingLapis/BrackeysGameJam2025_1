@@ -1,0 +1,261 @@
+[gd_scene load_steps=20 format=3 uid="uid://bl7pqau4ss5e6"]
+
+[ext_resource type="Script" path="res://scripts/tasks/task_craft_atom_bomb.gd" id="1_lqprv"]
+[ext_resource type="Texture2D" uid="uid://6ci6buwyb5o6" path="res://imgs/sprites/tasks/atombomb/upper.png" id="2_654nd"]
+[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="2_uukcd"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/atombomb/upper_mask_bitmap.tres" id="3_57t2y"]
+[ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="3_gf1ll"]
+[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="4_l25i5"]
+[ext_resource type="Texture2D" uid="uid://c56gnga0t1r64" path="res://imgs/sprites/tasks/atombomb/lower.png" id="4_q5vsf"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/atombomb/lower_mask_bitmap.tres" id="5_jv4le"]
+[ext_resource type="Texture2D" uid="uid://ci5estfibxqvf" path="res://imgs/sprites/tasks/atombomb/c4.png" id="6_o1gg8"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/atombomb/c4_mask_bitmap.tres" id="7_xsu7q"]
+[ext_resource type="Texture2D" uid="uid://xdd6eo31uito" path="res://imgs/sprites/tasks/atombomb/shielding.png" id="8_iqd6n"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/atombomb/shielding_button_mask_bitmap.tres" id="9_kcnnt"]
+[ext_resource type="Texture2D" uid="uid://be8nhlfnwifgf" path="res://imgs/sprites/tasks/atombomb/uranium.png" id="10_mev8k"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/atombomb/uranium_mask_bitmap.tres" id="11_rntxi"]
+[ext_resource type="Texture2D" uid="uid://rlnnib8po1iu" path="res://imgs/sprites/tasks/atombomb/upper_mask.png" id="12_xy313"]
+[ext_resource type="Texture2D" uid="uid://b7ndlvm4h0njj" path="res://imgs/sprites/tasks/atombomb/lower_mask.png" id="13_npgi0"]
+[ext_resource type="Texture2D" uid="uid://cdtc8u3h0e78o" path="res://imgs/sprites/tasks/atombomb/c4_mask.png" id="14_nud05"]
+[ext_resource type="Texture2D" uid="uid://bp602xnkabf51" path="res://imgs/sprites/tasks/atombomb/shielding_obj_mask.png" id="15_875xa"]
+[ext_resource type="Texture2D" uid="uid://0f2dwk73ovea" path="res://imgs/sprites/tasks/atombomb/uranium_mask.png" id="17_7csq0"]
+
+[node name="Task_craft_atom_bomb" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lqprv")
+task_description = "Use the workbench in storage to build the atom bomb"
+tag = 2
+order = 9
+whole_day = true
+
+[node name="Active" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BG" type="ColorRect" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.621524, 0.621524, 0.621524, 1)
+
+[node name="Leave" type="TextureButton" parent="Active"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 114.0
+offset_top = 826.0
+offset_right = 277.0
+offset_bottom = 1010.0
+texture_hover = ExtResource("2_uukcd")
+texture_click_mask = ExtResource("3_gf1ll")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Active/Leave"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_l25i5")
+
+[node name="upper_source" type="TextureButton" parent="Active"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1202.0
+offset_top = 89.0
+offset_right = 1838.0
+offset_bottom = 303.0
+texture_normal = ExtResource("12_xy313")
+texture_click_mask = ExtResource("3_57t2y")
+stretch_mode = 0
+
+[node name="upper_target" type="TextureButton" parent="Active"]
+self_modulate = Color(1, 1, 1, 0.588235)
+texture_filter = 1
+layout_mode = 0
+offset_left = 672.0
+offset_top = 294.0
+offset_right = 1308.0
+offset_bottom = 508.0
+texture_normal = ExtResource("2_654nd")
+texture_click_mask = ExtResource("3_57t2y")
+stretch_mode = 0
+
+[node name="upper_control" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1202.0
+offset_top = 89.0
+offset_right = 1838.0
+offset_bottom = 303.0
+mouse_filter = 2
+texture = ExtResource("2_654nd")
+
+[node name="lower_source" type="TextureButton" parent="Active"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = 102.0
+offset_right = 822.0
+offset_bottom = 316.0
+texture_normal = ExtResource("13_npgi0")
+texture_click_mask = ExtResource("5_jv4le")
+stretch_mode = 0
+
+[node name="lower_target" type="TextureButton" parent="Active"]
+self_modulate = Color(1, 1, 1, 0.588235)
+texture_filter = 1
+layout_mode = 0
+offset_left = 672.0
+offset_top = 508.0
+offset_right = 1308.0
+offset_bottom = 722.0
+texture_normal = ExtResource("4_q5vsf")
+texture_click_mask = ExtResource("5_jv4le")
+stretch_mode = 0
+
+[node name="lower_control" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = 102.0
+offset_right = 822.0
+offset_bottom = 316.0
+mouse_filter = 2
+texture = ExtResource("4_q5vsf")
+
+[node name="c4_source" type="TextureButton" parent="Active"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 395.0
+offset_right = 1748.0
+offset_bottom = 582.0
+texture_normal = ExtResource("14_nud05")
+texture_click_mask = ExtResource("7_xsu7q")
+stretch_mode = 0
+
+[node name="c4_target" type="TextureButton" parent="Active"]
+self_modulate = Color(1, 1, 1, 0.301961)
+texture_filter = 1
+layout_mode = 0
+offset_left = 866.0
+offset_top = 418.0
+offset_right = 1030.0
+offset_bottom = 605.0
+texture_normal = ExtResource("6_o1gg8")
+texture_click_mask = ExtResource("7_xsu7q")
+stretch_mode = 0
+
+[node name="c4_control" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1584.0
+offset_top = 395.0
+offset_right = 1748.0
+offset_bottom = 582.0
+mouse_filter = 2
+texture = ExtResource("6_o1gg8")
+
+[node name="shielding_source" type="TextureButton" parent="Active"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 684.0
+offset_right = 1644.0
+offset_bottom = 918.0
+texture_normal = ExtResource("15_875xa")
+texture_click_mask = ExtResource("9_kcnnt")
+stretch_mode = 0
+
+[node name="shielding_target" type="TextureButton" parent="Active"]
+self_modulate = Color(1, 1, 1, 0.321569)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 388.0
+offset_right = 1266.0
+offset_bottom = 622.0
+texture_normal = ExtResource("8_iqd6n")
+texture_click_mask = ExtResource("9_kcnnt")
+stretch_mode = 0
+
+[node name="shielding_control" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1408.0
+offset_top = 684.0
+offset_right = 1644.0
+offset_bottom = 918.0
+mouse_filter = 2
+texture = ExtResource("8_iqd6n")
+
+[node name="uranium_source" type="TextureButton" parent="Active"]
+self_modulate = Color(0.408329, 0.408329, 0.408329, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 236.0
+offset_top = 413.0
+offset_right = 365.0
+offset_bottom = 535.0
+texture_normal = ExtResource("17_7csq0")
+texture_click_mask = ExtResource("11_rntxi")
+stretch_mode = 0
+
+[node name="uranium_target" type="TextureButton" parent="Active"]
+self_modulate = Color(1, 1, 1, 0.321569)
+texture_filter = 1
+layout_mode = 0
+offset_left = 1084.0
+offset_top = 449.0
+offset_right = 1213.0
+offset_bottom = 571.0
+texture_normal = ExtResource("10_mev8k")
+texture_click_mask = ExtResource("11_rntxi")
+stretch_mode = 0
+
+[node name="uranium_control" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 236.0
+offset_top = 413.0
+offset_right = 365.0
+offset_bottom = 535.0
+mouse_filter = 2
+texture = ExtResource("10_mev8k")
+
+[connection signal="pressed" from="Active/Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Active/upper_source" to="." method="_on_upper_source_pressed"]
+[connection signal="pressed" from="Active/upper_target" to="." method="_on_upper_target_pressed"]
+[connection signal="pressed" from="Active/lower_source" to="." method="_on_lower_source_pressed"]
+[connection signal="pressed" from="Active/lower_target" to="." method="_on_lower_target_pressed"]
+[connection signal="pressed" from="Active/c4_source" to="." method="_on_c_4_source_pressed"]
+[connection signal="pressed" from="Active/c4_target" to="." method="_on_c_4_target_pressed"]
+[connection signal="pressed" from="Active/shielding_source" to="." method="_on_shielding_source_pressed"]
+[connection signal="pressed" from="Active/shielding_target" to="." method="_on_shielding_target_pressed"]
+[connection signal="pressed" from="Active/uranium_source" to="." method="_on_uranium_source_pressed"]
+[connection signal="pressed" from="Active/uranium_target" to="." method="_on_uranium_target_pressed"]
