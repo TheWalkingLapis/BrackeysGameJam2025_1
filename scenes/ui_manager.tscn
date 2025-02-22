@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://naua1f5cbkae"]
+[gd_scene load_steps=17 format=3 uid="uid://naua1f5cbkae"]
 
 [ext_resource type="Script" path="res://scripts/ui_manager.gd" id="1_if42o"]
 [ext_resource type="PackedScene" uid="uid://d2atafpuskd0w" path="res://scenes/main_menu.tscn" id="2_ybs0c"]
@@ -6,6 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://dd1y7r21a5ruw" path="res://scenes/pre_day_ui.tscn" id="3_qn1de"]
 [ext_resource type="PackedScene" uid="uid://dsxbvyxq0uqpj" path="res://scenes/task_ui.tscn" id="5_78rpt"]
 [ext_resource type="PackedScene" uid="uid://dnffgpkobxh3a" path="res://scenes/post_day_ui.tscn" id="6_puv52"]
+[ext_resource type="Script" path="res://scripts/failure_ui.gd" id="7_6acmp"]
+[ext_resource type="Texture2D" uid="uid://ctyw0ov6g5c33" path="res://imgs/meta/finale_meltdown.png" id="8_0ikqu"]
+[ext_resource type="Texture2D" uid="uid://cgx0xytrq3lv1" path="res://imgs/meta/finale_planet-explosion.png" id="9_kvxxw"]
+[ext_resource type="Script" path="res://scripts/success.gd" id="10_q3bwy"]
+[ext_resource type="Texture2D" uid="uid://c6r2i3wu5njlu" path="res://imgs/meta/finale_beach.png" id="11_irxl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uro5f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wvkhm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1x84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydjsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8opml"]
 
 [node name="UIManager" type="Control"]
 layout_mode = 3
@@ -23,11 +38,83 @@ layout_mode = 1
 [node name="PreDayUI" parent="." instance=ExtResource("3_qn1de")]
 layout_mode = 1
 
-[node name="DebugUI" parent="." instance=ExtResource("3_ohgwp")]
-layout_mode = 1
-
 [node name="TaskUI" parent="." instance=ExtResource("5_78rpt")]
 layout_mode = 1
 
 [node name="PostDayUI" parent="." instance=ExtResource("6_puv52")]
 layout_mode = 1
+
+[node name="failureUI" type="ColorRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("7_6acmp")
+meltdown_tex = ExtResource("8_0ikqu")
+planet_explosion_tex = ExtResource("9_kvxxw")
+
+[node name="BG" type="TextureRect" parent="failureUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Continue" type="Button" parent="failureUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uro5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wvkhm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o1x84")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydjsh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8opml")
+
+[node name="successUI" type="ColorRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_q3bwy")
+
+[node name="BG" type="TextureRect" parent="successUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_irxl8")
+
+[node name="Continue" type="Button" parent="successUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uro5f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wvkhm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o1x84")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydjsh")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8opml")
+
+[node name="DebugUI" parent="." instance=ExtResource("3_ohgwp")]
+layout_mode = 1
+
+[connection signal="pressed" from="failureUI/Continue" to="failureUI" method="_on_continue_pressed"]
+[connection signal="pressed" from="successUI/Continue" to="successUI" method="_on_continue_pressed"]

@@ -11,7 +11,7 @@ class_name GameManager
 enum GameState {MAIN_MENU, PRE_DAY, IDLE, IN_TASK, POST_DAY, FAILED, SUCCESS}
 var gameState: GameState = GameState.MAIN_MENU
 
-var current_day = 5
+var current_day = 4
 var allow_interaction = true
 
 func _ready():
@@ -31,6 +31,9 @@ func _ready():
 	room_manager.post_day.connect(_on_post_day)
 	text_manager.text_in_progress.connect(_on_text_in_progress)
 	text_manager.finished_text.connect(_on_text_continue)
+	room_manager.control.meltdown.connect(_on_meltdown)
+	room_manager.control.start_alarm.connect(_on_start_meltdown_alarm)
+	room_manager.control.stop_alarm.connect(_on_stop_meltdown_alarm)
 	
 	time_manager.break_time_over.connect(room_manager._on_break_time_over)
 	time_manager.evening.connect(room_manager._on_time_evening)
@@ -74,24 +77,41 @@ func _on_task_ended():
 func _on_day_done():
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
+	if !room_manager.get_tasks_completed(true):
+		audio_manager.stop_music()
+		ui_manager.to_failure()
+		return
 	if current_day < 3:
 		text_manager.display_interaction_text("Time to leave")
 	else:
 		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office")
 	allow_interaction = false
-	print(room_manager.get_tasks_completed(true))
 
 func _on_post_day():
 	gameState = GameState.POST_DAY
 	ui_manager.to_post_day()
 	text_manager.clear_text()
-	# TODO add check for task completion
 	audio_manager.stop_music()
-	if false:
-		pre_start_day(current_day)
-		return
 	current_day += 1
 	allow_interaction = false
+
+func _on_meltdown():
+	text_manager.clear_text()
+	room_manager.clear_active_tasks()
+	audio_manager.stop_music()
+	audio_manager.stop_alarm_sound()
+	ui_manager.to_failure()
+	return
+
+func _on_start_meltdown_alarm():
+	text_manager.clear_text()
+	text_manager.show_text_in_menu("!!! Imminnent Reactor Meltdown, hurry to the control room !!!")
+	audio_manager.play_alarm_sound()
+	ui_manager.taskUI.show_alarm()
+
+func _on_stop_meltdown_alarm():
+	audio_manager.stop_alarm_sound()
+	ui_manager.taskUI.hide_alarm()
 
 func _on_break_time():
 	allow_interaction = false
@@ -99,15 +119,18 @@ func _on_break_time():
 	audio_manager.play_break_sound()
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
-	text_manager.display_interaction_text("Time to take my break")
-	print(room_manager.get_tasks_completed(false))
-	# TODO check if all non-optional tasks were done
-	if false:
-		pre_start_day(current_day)
+	if !room_manager.get_tasks_completed(false):
+		audio_manager.stop_music()
+		ui_manager.to_failure()
 		return
+	text_manager.display_interaction_text("Time to take my break")
 	
 func _on_break_time_over():
 	allow_interaction = true
+
+func _on_final_task_complete():
+	audio_manager.stop_music()
+	ui_manager.to_success()
 
 ## calls get_tree().paused deferred
 ## @param toggle Whether the pause state is toggled

@@ -11,6 +11,8 @@ var sfx_dict = {}
 @onready var sfx_player_2 := $SFX_Player2
 
 @export var music_track_chill: AudioStream
+@export var break_sound: AudioStream
+@export var alarm_sound: AudioStream
 
 @export var sfx_test: AudioStream
 
@@ -31,6 +33,11 @@ func stop_music():
 
 func play_break_sound():
 	break_player.play()
+
+func play_alarm_sound():
+	alarm_player.play()
+func stop_alarm_sound():
+	alarm_player.stop()
 
 func play_sfx(sfx: SFX):
 	if sfx_player_1.playing:

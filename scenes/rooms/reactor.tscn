@@ -36,6 +36,17 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_8w64p")
 
+[node name="wirebox" type="TextureButton" parent="."]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 88.0
+offset_top = 696.0
+offset_right = 160.0
+offset_bottom = 816.0
+texture_hover = ExtResource("7_cylip")
+stretch_mode = 0
+
 [node name="Fuel_Rod_Button" type="TextureButton" parent="."]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
 texture_filter = 1
@@ -145,17 +156,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_sa7je")
 
-[node name="wirebox" type="TextureButton" parent="."]
-self_modulate = Color(0, 0.792157, 1, 0.533333)
-texture_filter = 1
-layout_mode = 0
-offset_left = 88.0
-offset_top = 696.0
-offset_right = 160.0
-offset_bottom = 816.0
-texture_hover = ExtResource("7_cylip")
-stretch_mode = 0
-
+[connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]
 [connection signal="pressed" from="Fuel_Rod_Button" to="." method="_on_fuel_rod_button_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
-[connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]

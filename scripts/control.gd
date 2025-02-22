@@ -1,10 +1,17 @@
 extends Room
 
+signal meltdown()
+signal start_alarm()
+signal stop_alarm()
+
 var temperature = 0
 var fuel = 100
-var temperature_decay = 0.1
-var temperature_decrease_rate = 10
-var fuel_decay = 0.1
+var temperature_decay = 2.5
+var temperature_decrease_rate = 5
+var fuel_decay = 1
+
+var temperature_critical = false
+var fuel_critical = false
 
 var wire_task = null
 var open_fuel_task = null
@@ -72,10 +79,30 @@ func _on_wirebox_pressed():
 func _process(delta):
 	if Global.time_manager.break_active or !Global.time_manager.day_active: return
 	if Global.game_manager.current_day < 3 or Global.game_manager.current_day == 5: return
-	temperature += temperature_decay * Global.time_manager.time_fac
-	fuel -= fuel_decay * Global.time_manager.time_fac
+	temperature += temperature_decay * Global.time_manager.time_fac * delta
+	fuel -= fuel_decay * Global.time_manager.time_fac * delta
 	
-	$Temperator_display/RichTextLabel.text = "[center]%dC[/center]" % [temperature]
+	if fuel < 0 or temperature > 100:
+		meltdown.emit()
+	
+	fuel = clamp(fuel, 0, 100)
+	temperature = clamp(temperature, 0, 100)
+	
+	var new_temperature_critical = temperature > 80
+	var new_fuel_critical = fuel < 15
+	var critical = temperature_critical or fuel_critical
+	var new_critical = new_temperature_critical or new_fuel_critical
+	if new_critical != critical:
+		print(new_critical)
+		print(critical)
+		if new_critical: 
+			start_alarm.emit()
+		else: 
+			stop_alarm.emit()
+	temperature_critical = new_temperature_critical
+	fuel_critical = new_fuel_critical
+	
+	$Temperator_display/RichTextLabel.text = "[center]%dC[/center]" % [temperature * Global.temperatur_scale]
 
 func _on_refuel():
 	fuel = 100

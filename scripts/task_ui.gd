@@ -1,6 +1,8 @@
 extends Control
 
 @onready var task_label = $TaskBG/TaskBox
+@onready var clock_label = $ClockBG/RichTextLabel
+@onready var alarm = $Alarm
 
 var current_tasks = {}
 var hide = false
@@ -10,11 +12,13 @@ var watering_string = "Watering"
 var resupply_string = "Resupply"
 var wire_string = "Wires"
 var save_the_world_string = "Save the World"
+var reactor_string = "Reactor Control"
 var task_string = "Tasks" # default
 
 
 var order_dict = {
 	save_the_world_string: 2,
+	reactor_string: 3,
 	wire_string: 5,
 	watering_string: 10,
 	resupply_string: 15,
@@ -34,6 +38,7 @@ func order_func_categories(a, b):
 func set_tasks(tasks):
 	$TaskBG.visible = true
 	$Hide.visible = true
+	alarm.visible = false
 	current_tasks = {task_string: []}
 	for room in tasks:
 		var task_list = tasks[room]
@@ -60,12 +65,18 @@ func set_tasks(tasks):
 				if !current_tasks.has(save_the_world_string):
 					current_tasks[save_the_world_string] = []
 				current_tasks[save_the_world_string].append(task)
+			elif task.tag == Task.TaskTag.FUEL or task.tag == Task.TaskTag.TEMEPERATURE:
+				if !current_tasks.has(reactor_string):
+					current_tasks[reactor_string] = []
+				current_tasks[reactor_string].append(task)
 			else:
 				current_tasks[task_string].append(task)
 	if current_tasks.has(watering_string):
 		current_tasks[watering_string].sort_custom(Task._task_compare_func)
 	if current_tasks.has(resupply_string):
 		current_tasks[resupply_string].sort_custom(Task._task_compare_func)
+	if current_tasks.has(reactor_string):
+		current_tasks[reactor_string].sort_custom(Task._task_compare_func)
 	if current_tasks.has(save_the_world_string):
 		current_tasks[save_the_world_string].sort_custom(Task._task_compare_func)
 	update_task_text()
@@ -83,7 +94,6 @@ func update_task_text():
 		if Global.talked_to_aliens_task_received == 0:
 			task_label.text = Utils.bbc_text("Go to the kitchen", 30)
 			return
-		# TODO
 	var working_hours = Global.time_manager.get_working_hours()
 	var text = ""
 	var working_hour_text = "   Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
@@ -109,11 +119,21 @@ func update_task_text():
 				skip_category_text = false
 				break
 		if !skip_category_text:
-			text += "   " + Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
-		
-		
+			text += " " + Utils.bbc_underline(Utils.bbc_text("%s:\n" % category, 30))
+			
 		for t in task_list:
 			var task := t as Task
+			if category == reactor_string:
+				if task.tag == Task.TaskTag.TEMEPERATURE:
+					text += Utils.bbc_text("  > Temperature: %dC" % [Global.room_manager.control.temperature * Global.temperatur_scale], 25)
+					if Global.room_manager.control.temperature_critical:
+						text += Utils.bbc_text(" - CRITICAL", 25)
+					text += "\n"
+				if task.tag == Task.TaskTag.FUEL and task.order == 1:
+					text += Utils.bbc_text("  > Fuel: %d%%" % [Global.room_manager.control.fuel], 25)
+					if Global.room_manager.control.fuel_critical:
+						text += Utils.bbc_text(" - CRITICAL", 25)
+					text += "\n"
 			var task_texts = task.get_task_strings()
 			#var task_text = "  - %s\n" % Utils.bbc_text(task_texts[0], 25)
 			var task_text = "  -  %s\n" % Utils.bbc_text(task_texts[1], 18)
@@ -148,3 +168,14 @@ func _on_day_done():
 func _on_hide_pressed():
 	$TaskBG.visible = hide
 	hide = !hide
+
+func show_alarm():
+	alarm.visible = true
+
+func hide_alarm():
+	alarm.visible = false
+	
+func _process(delta):
+	clock_label.text = "[center]%s[/center]" % [Global.time_manager.get_formated_ingame_time()]
+	if Global.game_manager.current_day == 3 or Global.game_manager.current_day == 4:
+		update_task_display()

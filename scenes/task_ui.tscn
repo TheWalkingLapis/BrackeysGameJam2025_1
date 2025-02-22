@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsxbvyxq0uqpj"]
+[gd_scene load_steps=4 format=3 uid="uid://dsxbvyxq0uqpj"]
 
 [ext_resource type="Script" path="res://scripts/task_ui.gd" id="1_kvvb3"]
 [ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_dhhgo"]
+[ext_resource type="Texture2D" uid="uid://c1aopxfcmyk6n" path="res://imgs/sprites/warnzeichen.png" id="3_3iqu0"]
 
 [node name="TaskUI" type="Control"]
 layout_mode = 3
@@ -19,6 +20,7 @@ offset_left = 1402.0
 offset_top = 25.0
 offset_right = 1900.0
 offset_bottom = 1053.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.572549)
 
 [node name="TaskBox" type="RichTextLabel" parent="TaskBG"]
@@ -32,6 +34,7 @@ offset_right = -11.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_dhhgo")
 bbcode_enabled = true
 text = "- Task 1
@@ -43,5 +46,71 @@ offset_left = 1869.0
 offset_top = 31.0
 offset_right = 1898.0
 offset_bottom = 59.0
+
+[node name="ClockBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 25.0
+offset_right = 159.0
+offset_bottom = 172.0
+grow_horizontal = 2
+color = Color(0.129412, 0.129412, 0.129412, 0.784314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ClockBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -18.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_dhhgo")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]00:00"
+
+[node name="Alarm" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 203.0
+offset_top = 26.0
+offset_right = 593.0
+offset_bottom = 400.0
+mouse_filter = 2
+texture = ExtResource("3_3iqu0")
+
+[node name="ColorRect" type="ColorRect" parent="Alarm"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = 348.0
+offset_right = 144.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.717647)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Alarm/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_dhhgo")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]REATOR STATE CRITICAL!
+MELTDOWN IMMINENT!"
 
 [connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]

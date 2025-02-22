@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2atafpuskd0w"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mccc0"]
-[ext_resource type="Texture2D" uid="uid://dtwrya5dg5xa7" path="res://imgs/main_menu_placeholder.png" id="2_yx0ft"]
+[ext_resource type="Texture2D" uid="uid://dqpqtfp4qdbwd" path="res://imgs/meta/main_menu.png" id="2_jhyph"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,20 +13,21 @@ grow_vertical = 2
 script = ExtResource("1_mccc0")
 
 [node name="ColorRect" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_yx0ft")
+texture = ExtResource("2_jhyph")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 749.0
-offset_top = 644.0
-offset_right = 1251.0
-offset_bottom = 881.0
+offset_left = 1294.0
+offset_top = 690.0
+offset_right = 1796.0
+offset_bottom = 927.0
 text = "Start"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

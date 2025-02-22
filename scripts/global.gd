@@ -18,6 +18,8 @@ var hazmat_suit_ordered = false
 var bomb_ordered = false
 var plutonium_ordered = false
 
+var temperatur_scale = 10
+
 var plutonium_code = [1,2,3,4]
 
 signal fuel_task_progress_changed()

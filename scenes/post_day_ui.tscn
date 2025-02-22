@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnffgpkobxh3a"]
+[gd_scene load_steps=7 format=3 uid="uid://dnffgpkobxh3a"]
 
 [ext_resource type="Script" path="res://scripts/post_day_ui.gd" id="1_bgcj4"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_blk4r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lclxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v5nol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8q0sj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50foj"]
 
 [node name="PostDayUI" type="Control"]
 layout_mode = 3
@@ -21,12 +30,29 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_blk4r")
+theme_override_font_sizes/normal_font_size = 180
+bbcode_enabled = true
+text = "[center]The next day..."
+
 [node name="Next Day" type="Button" parent="."]
-layout_mode = 0
-offset_left = 830.0
-offset_top = 700.0
-offset_right = 1145.0
-offset_bottom = 886.0
-text = "Next Day"
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lclxx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_v5nol")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8q0sj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_50foj")
 
 [connection signal="pressed" from="Next Day" to="." method="_on_next_day_pressed"]

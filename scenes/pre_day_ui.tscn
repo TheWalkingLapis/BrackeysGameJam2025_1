@@ -142,5 +142,22 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_l3l8h")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_fiyt3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3l818")
 
+[node name="Monologue" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monologue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="News_to_Mail" to="." method="_on_news_to_mail_pressed"]
 [connection signal="pressed" from="Start_day" to="." method="_on_start_day_pressed"]

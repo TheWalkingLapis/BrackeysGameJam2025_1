@@ -10,7 +10,12 @@ var watering_can_drop_task = null
 var drop_cereal_task = null
 var task_final = null
 
+var signal_setup = false
+
 func setup_day(day, post_break):
+	if !signal_setup:
+		signal_setup = true
+		$Tasks/Day6/Task_Tetrominos.final_task_complete.connect(Global.game_manager._on_final_task_complete)
 	Global.talked_to_aliens_task_received = 0
 	if day != 5:
 		$Background.texture = normal_bg

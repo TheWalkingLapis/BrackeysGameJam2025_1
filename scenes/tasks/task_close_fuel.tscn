@@ -16,8 +16,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_8701a")
 task_name = "Close Fuel"
+task_description = "Lower the fuel rods in from control room"
 tag = 4
-order = 2
+order = 3
 uncompletable = true
 whole_day = true
 

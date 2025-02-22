@@ -24,6 +24,7 @@ mouse_filter = 2
 script = ExtResource("1_0stk4")
 
 [node name="Interaction" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,4 +73,58 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_83fpe")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_uap28")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ro7ce")
 
+[node name="MenuTalk" type="Control" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Interaction_Box" type="ColorRect" parent="MenuTalk"]
+top_level = true
+layout_mode = 0
+offset_left = 187.0
+offset_top = 780.0
+offset_right = 1716.0
+offset_bottom = 1081.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.737255)
+
+[node name="Interaction_Text" type="RichTextLabel" parent="MenuTalk/Interaction_Box"]
+top_level = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -734.5
+offset_top = -280.0
+offset_right = 730.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_nhbac")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "MENU"
+
+[node name="MENU_Continue" type="Button" parent="MenuTalk"]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4vasi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yaqb2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_83fpe")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_uap28")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ro7ce")
+
 [connection signal="pressed" from="Interaction/INT_Continue" to="." method="_on_int_continue_pressed"]
+[connection signal="pressed" from="MenuTalk/MENU_Continue" to="." method="_on_menu_continue_pressed"]

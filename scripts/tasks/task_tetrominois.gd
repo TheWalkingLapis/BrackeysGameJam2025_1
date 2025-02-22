@@ -1,5 +1,7 @@
 extends Task
 
+signal final_task_complete()
+
 @onready var active = $Active
 
 @onready var stage_4x3 = $"Active/4x3"
@@ -93,6 +95,7 @@ func _ready():
 	type_dict[s01_6x6] = "s0"
 	type_dict[s3_6x6] = "s3"
 	type_dict[l2_6x6] = "l2"
+	start_task()
 
 func start_task():
 	active.visible = true
@@ -125,7 +128,7 @@ func set_stage():
 		l0_5x4.position = slot_l0_5x4.position
 		t00_5x4.position = slot_t00_5x4.position
 		t01_5x4.position = slot_t01_5x4.position
-	else:
+	elif stage == 2:
 		grid = make_grid(6,6)
 		stage_4x3.visible = false
 		stage_5x4.visible = false
@@ -139,6 +142,9 @@ func set_stage():
 		s01_6x6.position = slot_s01_6x6.position
 		s3_6x6.position = slot_s3_6x6.position
 		l2_6x6.position = slot_l2_6x6.position
+	else:
+		set_task_completed()
+		final_task_complete.emit()
 
 func _process(delta):
 	if !active: return

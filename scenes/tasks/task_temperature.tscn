@@ -21,6 +21,7 @@ mouse_filter = 2
 script = ExtResource("1_g3tmk")
 task_name = "Temeperature Control"
 task_description = "Use the button in the controll room to decrease the temperature"
+tag = 5
 uncompletable = true
 whole_day = true
 
@@ -79,6 +80,7 @@ offset_bottom = 765.0
 [node name="Leave" type="TextureButton" parent="Active"]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 79.0
 offset_top = 788.0
 offset_right = 273.0

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://pmd056tqd6oc"]
+[gd_scene load_steps=3 format=3 uid="uid://pmd056tqd6oc"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_cmnvu"]
 [ext_resource type="AudioStream" uid="uid://ec3whikw1tvu" path="res://audio/music/JermeyFromHR.mp3" id="2_p2tu1"]
-[ext_resource type="AudioStream" uid="uid://8lax8l24h83t" path="res://audio/music/JermeyFromEverywhere.mp3" id="3_7yvyo"]
 
 [node name="AudioManager" type="Control"]
 layout_mode = 3
@@ -16,11 +15,10 @@ script = ExtResource("1_cmnvu")
 music_track_chill = ExtResource("2_p2tu1")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -8.0
+volume_db = -12.0
 bus = &"Music"
 
 [node name="BreakPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_7yvyo")
 volume_db = -8.0
 
 [node name="AlarmPlayer" type="AudioStreamPlayer" parent="."]

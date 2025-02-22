@@ -5,7 +5,6 @@ signal break_time()
 signal break_time_over()
 signal day_done()
 signal evening()
-signal _12h()
 
 const ingame_hour_in_seconds: float = 15.0
 const evening_hour: int = 17
@@ -51,7 +50,7 @@ func start_day(day: int):
 func _process(delta):
 	if !day_active or break_active: 
 		return
-	if Global.game_manager.current_day == 6 and !Global.talked_to_aliens_task_received:
+	if Global.game_manager.current_day == 5 and !Global.talked_to_aliens_task_received:
 		return
 	var prev_hour = floor(current_ingame_time)
 	current_real_time += delta * time_fac
@@ -63,9 +62,10 @@ func _process(delta):
 		break_active = true
 		time_fac = 1.0
 		break_time.emit()
-	if current_ingame_hour == 12 and !_12h_flag:
+	if Global.game_manager.current_day == 4 and current_ingame_hour == 12 and !_12h_flag:
 		_12h_flag = true
-		_12h.emit()
+		Global.audio_manager.play_break_sound()
+		Global.text_manager.show_text_in_menu("I don't think I have time for a break today")
 	if current_ingame_hour == evening_hour and day_time != "evening":
 		evening.emit()
 		day_time = "evening"
