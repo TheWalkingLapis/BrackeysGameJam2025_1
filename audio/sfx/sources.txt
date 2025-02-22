@@ -1,0 +1,10 @@
+order_cash-register: https://pixabay.com/sound-effects/cash-register-kaching-sound-effect-125042/
+hr-signing: https://pixabay.com/sound-effects/writingpensignaturepaper-102967/
+
+--- finales
+nuclear-explosion: https://pixabay.com/sound-effects/explosion-3-274684/
+alien-spaceship: https://pixabay.com/sound-effects/alien-spaceship-roar-287340/
+beach: https://pixabay.com/sound-effects/sandy-beach-calm-waves-water-nature-sounds-8052/
+
+--- random
+eating crunchy: https://pixabay.com/sound-effects/crunchy-chew-45994/
