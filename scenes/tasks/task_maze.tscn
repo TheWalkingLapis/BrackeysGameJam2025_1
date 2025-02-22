@@ -166,6 +166,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_25pwc")
 [node name="Continue" type="TextureButton" parent="Active/Maze"]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 1520.0
 offset_top = 424.0
 offset_right = 1720.0

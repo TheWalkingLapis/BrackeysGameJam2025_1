@@ -18,6 +18,8 @@ func start_task():
 	active.visible = true
 	Global.time_manager.change_time_speed(20)
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	active.visible = false

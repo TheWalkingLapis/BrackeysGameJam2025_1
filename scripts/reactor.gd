@@ -54,11 +54,10 @@ func _on_fuel_progress_changed():
 	bg.texture = reactor_closed_tex if Global.fuel_task_progress == 0 else (reactor_open_tex if Global.fuel_task_progress == 1 else reactor_open_fueled_tex)
 	fuel_rod.visible = Global.fuel_task_progress != 0
 
-
 func _on_fuel_rod_button_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if fuel_task != null:
 		if Global.fuel_task_progress == 1:
 			fuel_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need to lower them into the reactor from the control room.")
+			Global.text_manager.display_interaction_text("I need to lower the fuel rods into the reactor with the buttons in the control room.")

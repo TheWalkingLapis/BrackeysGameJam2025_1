@@ -59,6 +59,8 @@ func start_task():
 	active_piece = null
 	active.visible = true
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	super.reset_task()

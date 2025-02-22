@@ -43,6 +43,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.737255)
 
 [node name="Interaction_Text" type="RichTextLabel" parent="Interaction/Interaction_Box"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -95,6 +96,7 @@ color = Color(0, 0, 0, 0.737255)
 
 [node name="Interaction_Text" type="RichTextLabel" parent="MenuTalk/Interaction_Box"]
 top_level = true
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

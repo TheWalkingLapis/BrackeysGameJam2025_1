@@ -73,6 +73,7 @@ mouse_filter = 2
 texture = ExtResource("2_cg32a")
 
 [node name="From" type="RichTextLabel" parent="Mail"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 417.0
 offset_top = 135.0
@@ -87,6 +88,7 @@ text = "big-d@power-plant.com"
 scroll_active = false
 
 [node name="To" type="RichTextLabel" parent="Mail"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 325.0
 offset_top = 216.0
@@ -101,6 +103,7 @@ text = "jeremy-from-hr@power-plant.com"
 scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="Mail"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 276.0
 offset_top = 337.0
@@ -187,6 +190,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_k415h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_u6t4f")
 
 [node name="day" type="RichTextLabel" parent="Weekday"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

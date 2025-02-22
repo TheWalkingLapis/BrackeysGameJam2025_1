@@ -127,6 +127,7 @@ default_color = Color(0, 0, 1, 1)
 [node name="Leave" type="TextureButton" parent="Active"]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 151.0
 offset_top = 847.0
 offset_right = 314.0

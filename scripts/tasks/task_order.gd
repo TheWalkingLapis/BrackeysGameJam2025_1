@@ -73,6 +73,8 @@ func start_task():
 	plutonium_icon.visible = (Global.game_manager.current_day == 5 and plutonium_unlocked)
 	
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	super.reset_task()

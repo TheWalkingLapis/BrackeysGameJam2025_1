@@ -19,6 +19,8 @@ func start_task():
 	cp2.visible = true
 	checkpoints = 0
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	super.reset_task()

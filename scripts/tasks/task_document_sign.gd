@@ -17,6 +17,8 @@ func start_task():
 	active.visible = true
 	unsigned.visible = true
 	signed.visible = false
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func _on_sign_button_pressed():
 	unsigned.visible = false

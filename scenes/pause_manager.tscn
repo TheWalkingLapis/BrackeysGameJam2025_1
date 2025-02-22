@@ -1,0 +1,239 @@
+[gd_scene load_steps=19 format=3 uid="uid://cq8gsn8b52mwm"]
+
+[ext_resource type="Script" path="res://scripts/pause_manager.gd" id="1_3mw14"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_bfamo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t485h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0v0y2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5t54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yupde"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3da3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhvms"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbwyl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mrev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofakr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q41m0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbjhx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv1bl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqoj3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2gbf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ef3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wb48m"]
+
+[node name="Pause_Manager" type="Control"]
+process_mode = 3
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3mw14")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.886275)
+
+[node name="pause" type="RichTextLabel" parent="ColorRect"]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 278.0
+offset_right = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center]PAUSED"
+
+[node name="auto_hide" type="Button" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 696.0
+offset_top = 562.0
+offset_right = 1199.0
+offset_bottom = 920.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t485h")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0v0y2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u5t54")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yupde")
+
+[node name="auto_hide_txt" type="RichTextLabel" parent="ColorRect/auto_hide"]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 704.0
+offset_top = 576.0
+offset_right = -733.0
+offset_bottom = -134.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+bbcode_enabled = true
+text = "
+
+[center][u][font_size=40]Auto-Hide Taskbar[/font_size][/u]
+
+[font_size=24](Automatically hide task bar for tasks that would be covered by it)[/font_size]"
+
+[node name="auto_hide_status" type="RichTextLabel" parent="ColorRect/auto_hide"]
+top_level = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 817.0
+offset_top = 784.0
+offset_right = 1082.0
+offset_bottom = 882.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]ON"
+
+[node name="unpause" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 1390.0
+offset_top = 642.0
+offset_right = 1782.0
+offset_bottom = 855.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3da3j")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fhvms")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tbwyl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8mrev")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="unpause"]
+top_level = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 1366.0
+offset_top = 700.0
+offset_right = 1786.0
+offset_bottom = 838.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+bbcode_enabled = true
+text = "[center][u][font_size=60] Continue"
+
+[node name="Music" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 209.0
+offset_top = 603.0
+offset_right = 490.0
+offset_bottom = 665.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ofakr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q41m0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_tbjhx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lv1bl")
+
+[node name="music_txt" type="RichTextLabel" parent="Music"]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 259.0
+offset_top = 605.0
+offset_right = -1495.0
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+bbcode_enabled = true
+text = "[center][u][font_size=40]Music[/font_size][/u]"
+
+[node name="music_slider" type="HSlider" parent="Music"]
+top_level = true
+layout_mode = 0
+offset_left = 224.0
+offset_top = 675.0
+offset_right = 473.0
+offset_bottom = 717.0
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.75
+scrollable = false
+
+[node name="Sound" type="Button" parent="."]
+top_level = true
+offset_left = 208.0
+offset_top = 771.0
+offset_right = 489.0
+offset_bottom = 833.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nqoj3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2gbf0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ef3u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wb48m")
+
+[node name="sound_txt" type="RichTextLabel" parent="Sound"]
+top_level = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 259.0
+offset_top = 775.0
+offset_right = -1495.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_bfamo")
+bbcode_enabled = true
+text = "[center][u][font_size=40]Sound[/font_size][/u]"
+
+[node name="sound_slider" type="HSlider" parent="Sound"]
+top_level = true
+offset_left = 224.0
+offset_top = 844.0
+offset_right = 473.0
+offset_bottom = 886.0
+min_value = 0.001
+max_value = 1.0
+step = 0.001
+value = 0.75
+scrollable = false
+
+[connection signal="pressed" from="ColorRect/auto_hide" to="." method="_on_auto_hide_pressed"]
+[connection signal="pressed" from="unpause" to="." method="_on_unpause_pressed"]
+[connection signal="value_changed" from="Music/music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Sound/sound_slider" to="." method="_on_sound_slider_value_changed"]

@@ -7,6 +7,8 @@ func start_task():
 	if Global.fuel_task_progress != 0: return
 	active.visible = true
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	super.reset_task()

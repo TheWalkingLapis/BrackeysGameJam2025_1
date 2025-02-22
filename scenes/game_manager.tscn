@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvnj4ie205euj"]
+[gd_scene load_steps=16 format=3 uid="uid://bvnj4ie205euj"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ga0qp"]
 [ext_resource type="PackedScene" uid="uid://kufy4l8qlp63" path="res://scenes/room_manager.tscn" id="2_tpo2t"]
@@ -14,9 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://vdvb1m2oy304" path="res://imgs/sprites/tasks/logistics/hazmat-suit_icon.png" id="10_dnq6y"]
 [ext_resource type="Texture2D" uid="uid://c055500l7atw1" path="res://imgs/sprites/tasks/logistics/atombomb-kit_icon.png" id="11_h5i63"]
 [ext_resource type="Texture2D" uid="uid://bgsjcvwkry5ea" path="res://imgs/sprites/tasks/logistics/plutonium_icon.png" id="12_3fpuw"]
+[ext_resource type="PackedScene" uid="uid://cq8gsn8b52mwm" path="res://scenes/pause_manager.tscn" id="15_yndxq"]
 
 [node name="GameManager" type="Control"]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,4 +79,8 @@ layout_mode = 1
 
 [node name="UIManager" parent="." instance=ExtResource("4_umkd5")]
 process_mode = 3
+layout_mode = 1
+
+[node name="Pause_Manager" parent="." instance=ExtResource("15_yndxq")]
+visible = false
 layout_mode = 1

@@ -78,7 +78,7 @@ Our government ordered us to produce atom bombs now?!
 
 I know you have a lot on your plate already but you have to do this as well, no one else can do it.
 I have the assembly manual here, it reads as follows:
-You have to order a atom bomb kit from your PC, go to the storage and go to the workbench with it.
+You have to order a atom bomb kit from your PC, go to the storage and put it on the workbench there.
 Then assemble the bomb by simply picking up the pieces and putting them to the right space.
 
 I'm starting to get sick too, I have a really bad cough. If I continue to get sicker at this rate, I won't be able to come in tomorrow.

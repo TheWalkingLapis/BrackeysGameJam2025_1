@@ -24,6 +24,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.572549)
 
 [node name="TaskBox" type="RichTextLabel" parent="TaskBG"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,6 +61,7 @@ grow_horizontal = 2
 color = Color(0.129412, 0.129412, 0.129412, 0.784314)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ClockBG"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,6 +102,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.717647)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Alarm"]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

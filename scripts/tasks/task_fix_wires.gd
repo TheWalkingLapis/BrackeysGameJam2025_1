@@ -27,9 +27,6 @@ var connected_3 = false
 var tracking_mode = false
 var tracking_index = 0
 
-func _ready():
-	start_task()
-
 func start_task():
 	if get_task_completed():
 		return
@@ -42,6 +39,8 @@ func start_task():
 	target_2.self_modulate = color_dict[target_matching[1]]
 	target_3.self_modulate = color_dict[target_matching[2]]
 	started.emit(self)
+	if Global.auto_hide_on_task:
+		Global.ui_manager.taskUI.hide_taskbar()
 
 func reset_task():
 	super.reset_task()

@@ -9,8 +9,7 @@ var inventory: Inventory = null
 var audio_manager: AudioManager = null
 
 # settings for auto-hiding the task bar when starting tasks
-var auto_hide_on_task = false
-var auto_hide_on_select = false
+var auto_hide_on_task = true
 
 # TASKS
 var watering_task_allow_discard_watering_can = 0

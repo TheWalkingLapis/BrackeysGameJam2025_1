@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2atafpuskd0w"]
+[gd_scene load_steps=8 format=3 uid="uid://d2atafpuskd0w"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_mccc0"]
 [ext_resource type="Texture2D" uid="uid://dqpqtfp4qdbwd" path="res://imgs/meta/main_menu.png" id="2_jhyph"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="3_abmnf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pey8q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oc5ts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8up02"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72f8e"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,26 +29,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_jhyph")
 
-[node name="Button" type="Button" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 1294.0
-offset_top = 690.0
-offset_right = 1796.0
-offset_bottom = 927.0
-text = "Start"
+offset_left = 1174.0
+offset_top = 734.0
+offset_right = 1770.0
+offset_bottom = 991.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.568627)
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="Button" type="Button" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pey8q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oc5ts")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8up02")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_72f8e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_abmnf")
+bbcode_enabled = true
+text = "[center][font_size=80]Start"
+
+[node name="ColorRect3" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 965.0
-offset_top = 773.0
-offset_right = 1156.0
-offset_bottom = 847.0
-min_value = 1.0
-max_value = 6.0
-value = 1.0
-prefix = "Day"
+offset_left = 38.0
+offset_top = 40.0
+offset_right = 1384.0
+offset_bottom = 247.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.631373)
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_abmnf")
+bbcode_enabled = true
+text = "[color=#dd66b1][font_size=150]Jeremy From HR"
+
+[connection signal="pressed" from="ColorRect2/Button" to="." method="_on_button_pressed"]

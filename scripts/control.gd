@@ -119,7 +119,7 @@ func _on_fuel_display_pressed():
 			elif Global.fuel_task_progress == 2:
 				close_fuel_task.start_task()
 			else:
-				Global.text_manager.display_interaction_text("I need to insert the fuel rods first.")
+				Global.text_manager.display_interaction_text("I need to check the fuel rods before lowering them back into the reactor. Big D said simply touching them is sufficient.")
 		else:
 			Global.text_manager.display_interaction_text("I should leave this alone.")
 

@@ -38,6 +38,7 @@ func order_func_categories(a, b):
 	return val_a < val_b
 
 func set_tasks(tasks):
+	hide_taskbar(false)
 	$TaskBG.visible = true
 	$Hide.visible = true
 	alarm.visible = false
@@ -172,8 +173,11 @@ func _on_day_done():
 	task_label.text = text
 
 func _on_hide_pressed():
-	$TaskBG.visible = hide
-	hide = !hide
+	hide_taskbar(hide)
+
+func hide_taskbar(set_visiblity = true):
+	$TaskBG.visible = !set_visiblity
+	hide = !set_visiblity
 
 func show_alarm():
 	alarm.visible = true

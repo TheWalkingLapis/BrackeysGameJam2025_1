@@ -25,7 +25,7 @@ func setup_day(day, post_break):
 		4:
 			uranium_task = $Tasks/Day5/Task_drop_Uranium
 			hazmat_task = $Tasks/Day5/Task_drop_Hazmat_Suit
-			wire_task = null
+			wire_task = $Tasks/Day5/Task_Fix_Wires
 		5:
 			uranium_task = null
 			hazmat_task = null
