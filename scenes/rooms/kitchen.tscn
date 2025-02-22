@@ -1,11 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=21 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
 [ext_resource type="Texture2D" uid="uid://dfc2nmr41pa4j" path="res://imgs/rooms/kitchen/kitchen_aliens.png" id="3_slvj0"]
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
+[ext_resource type="Texture2D" uid="uid://dxfsp2l06cm5a" path="res://imgs/rooms/masks/kitchen_drawer_mask.png" id="4_n74ki"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
 [ext_resource type="PackedScene" uid="uid://bcbqk8heqeprg" path="res://scenes/tasks/task_drop_cereal_bar.tscn" id="5_xjbd1"]
+[ext_resource type="Texture2D" uid="uid://c6275q14fyebf" path="res://imgs/rooms/masks/kitchen_alien_mask.png" id="6_j1lay"]
+[ext_resource type="BitMap" path="res://imgs/rooms/masks/kitchen_alien_mask_bitmap.tres" id="7_esqed"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="8_htviv"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_dhca4"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="9_kyirl"]
@@ -45,10 +48,12 @@ mouse_filter = 2
 texture = ExtResource("3_slvj0")
 
 [node name="Drawer" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
 offset_right = 720.0
 offset_bottom = 296.0
+texture_hover = ExtResource("4_n74ki")
 stretch_mode = 0
 
 [node name="Snack" type="Button" parent="."]
@@ -63,6 +68,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_nk80p")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j1il8")
 
 [node name="Aliens" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -70,6 +76,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture_hover = ExtResource("6_j1lay")
+texture_click_mask = ExtResource("7_esqed")
 stretch_mode = 0
 
 [node name="Leave" type="TextureButton" parent="."]

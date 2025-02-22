@@ -37,6 +37,8 @@ func _ready():
 	
 	time_manager.break_time_over.connect(room_manager._on_break_time_over)
 	time_manager.evening.connect(room_manager._on_time_evening)
+	time_manager.daytime.connect(room_manager._on_time_daytime)
+	time_manager.night.connect(room_manager._on_time_night)
 	
 	ui_manager.to_main_menu()
 

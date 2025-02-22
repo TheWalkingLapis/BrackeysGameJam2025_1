@@ -122,11 +122,23 @@ func _on_task_completed():
 	task_ended.emit()
 	Global.ui_manager.update_tasks()
 
+func _on_time_daytime():
+	for room_name in name_to_node_dict:
+		if room_name == "None": continue
+		if name_to_node_dict[room_name].has_method("_on_time_daytime"):
+			name_to_node_dict[room_name]._on_time_daytime()
+
 func _on_time_evening():
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
 		if name_to_node_dict[room_name].has_method("_on_time_evening"):
 			name_to_node_dict[room_name]._on_time_evening()
+
+func _on_time_night():
+	for room_name in name_to_node_dict:
+		if room_name == "None": continue
+		if name_to_node_dict[room_name].has_method("_on_time_night"):
+			name_to_node_dict[room_name]._on_time_night()
 
 func clear_active_tasks():
 	if active_task != null:

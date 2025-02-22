@@ -16,7 +16,7 @@ var drop_coffee_task = null
 # define this in a room for per-day (or break time) setup of tasks or visiblity
 # (task visiblity itself is handled by the room manager)
 func setup_day(day, post_break):
-	$Background.texture = bg_texture_day
+	$Background.texture = bg_texture_day if day < 5 else bg_texture_night_aliens
 	#$Clickables/Coffee.visible = (day == 5)
 	match day:
 		0:
@@ -101,9 +101,15 @@ func _on_couch_pressed():
 		return
 	if !Global.game_manager.allow_interaction: return
 	Global.text_manager.display_interaction_text("No time to sleep")
-	
+
+func _on_time_daytime():
+	$Background.texture = bg_texture_day
+
 func _on_time_evening():
 	$Background.texture = bg_texture_evening
+
+func _on_time_night():
+	$Background.texture = bg_texture_night
 
 func _on_plant_pressed():
 	if !Global.game_manager.allow_interaction: return

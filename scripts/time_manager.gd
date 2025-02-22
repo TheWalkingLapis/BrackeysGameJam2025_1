@@ -4,10 +4,15 @@ class_name TimeManager
 signal break_time()
 signal break_time_over()
 signal day_done()
+signal daytime()
 signal evening()
+signal night()
 
 const ingame_hour_in_seconds: float = 15.0
-const evening_hour: int = 17
+const night_morning_hour: int = 4
+const daytime_hour: int = 6
+const evening_hour: int = 16
+const night_late_hour: int = 20
 
 var day_start_hour: int = 0
 var day_end_hour: int = 0
@@ -66,9 +71,18 @@ func _process(delta):
 		_12h_flag = true
 		Global.audio_manager.play_break_sound()
 		Global.text_manager.show_text_in_menu("I don't think I have time for a break today")
+	if current_ingame_hour == night_morning_hour and day_time != "night":
+		night.emit()
+		day_time = "night"
+	if current_ingame_hour == daytime_hour and day_time != "day":
+		daytime.emit()
+		day_time = "day"
 	if current_ingame_hour == evening_hour and day_time != "evening":
 		evening.emit()
 		day_time = "evening"
+	if current_ingame_hour == night_late_hour and day_time != "night":
+		night.emit()
+		day_time = "night"
 	if current_ingame_hour == day_end_hour:
 		current_ingame_time = day_end_hour
 		current_real_time = (current_ingame_time - day_start_hour) * ingame_hour_in_seconds

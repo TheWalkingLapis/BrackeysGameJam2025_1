@@ -129,7 +129,8 @@ func _on_drawer_pressed():
 			else:
 				Global.text_manager.display_interaction_text("I have to bring the cereal bars here")
 		else:
-			Global.text_manager.display_interaction_text("I already brought the cereal bars here")
+			if Global.game_manager.current_day != 5:
+				Global.text_manager.display_interaction_text("I already brought the cereal bars here")
 
 func _on_leave_pressed():
 	if !Global.game_manager.allow_interaction and !Global.time_manager.break_active: return

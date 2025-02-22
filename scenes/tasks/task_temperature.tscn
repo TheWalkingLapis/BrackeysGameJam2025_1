@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0yiqa74ccwgf"]
+[gd_scene load_steps=11 format=3 uid="uid://0yiqa74ccwgf"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_temperature.gd" id="1_g3tmk"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="2_oacw7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqjj3voq38y1g" path="res://imgs/sprites/tasks/reactor/temeperature_progress.png" id="4_7101n"]
 [ext_resource type="Texture2D" uid="uid://r3uaige7rjee" path="res://imgs/sprites/tasks/reactor/temeperature_over.png" id="4_k2vh5"]
 [ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="6_kylr7"]
+[ext_resource type="Texture2D" uid="uid://c26wh3b3huced" path="res://imgs/sprites/tasks/reactor/t_button_mask.png" id="7_2lo5p"]
 
 [node name="Task_Temperature" type="Control"]
 layout_mode = 3
@@ -71,11 +72,15 @@ bbcode_enabled = true
 text = "CRITICAL"
 
 [node name="Button" type="TextureButton" parent="Active"]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
 layout_mode = 0
 offset_left = 735.0
 offset_top = 420.0
 offset_right = 1200.0
 offset_bottom = 765.0
+texture_hover = ExtResource("7_2lo5p")
+stretch_mode = 0
 
 [node name="Leave" type="TextureButton" parent="Active"]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
