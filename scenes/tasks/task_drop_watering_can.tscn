@@ -19,7 +19,6 @@ order = 3
 whole_day = true
 
 [node name="Watering_Can" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
 offset_left = 108.0
