@@ -231,9 +231,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Task_water_Hallway_Plant" parent="Tasks/Day6" instance=ExtResource("14_lj5mk")]
-layout_mode = 1
-
 [connection signal="pressed" from="Doors/HR" to="." method="_on_hr_pressed"]
 [connection signal="pressed" from="Doors/Boss" to="." method="_on_boss_pressed"]
 [connection signal="pressed" from="Doors/Kitchen" to="." method="_on_kitchen_pressed"]

@@ -123,36 +123,21 @@ func setup_day(day, post_break):
 			pickup_bomb_kit.visible = true
 			pickup_plutonium.visible = false
 		5:
-			wire_task = $Tasks/Day6/Task_Fix_Wires
-			if pickup_cereal_task != null and (pickup_cereal_task as Task).get_task_completed():
-				pickup_cereal_task = null
-			else:
-				pickup_cereal_task = $Tasks/Day6/Task_Pick_up_Cereal_Bar
-			if pickup_coffee_task != null and (pickup_coffee_task as Task).get_task_completed():
-				pickup_coffee_task = null
-			else:
-				pickup_coffee_task = $Tasks/Day6/Task_Pick_up_Coffee_Cup
-			if pickup_hazmat_task != null and (pickup_hazmat_task as Task).get_task_completed():
-				pickup_hazmat_task = null
-			else:
-				pickup_hazmat_task = $Tasks/Day6/Task_Pick_up_hazmat
-			if pickup_uranium_task != null and (pickup_uranium_task as Task).get_task_completed():
-				pickup_uranium_task = null
-			else:
-				pickup_uranium_task = $Tasks/Day6/Task_Pick_up_Uranium
-			if pickup_bomb_kit_task != null and (pickup_bomb_kit_task as Task).get_task_completed():
-				pickup_bomb_kit_task = null
-			else:
-				pickup_bomb_kit_task = $Tasks/Day6/Task_Pick_up_bomb_kit
+			wire_task = null
+			pickup_cereal_task = null
+			pickup_coffee_task = null
+			pickup_hazmat_task = null
+			pickup_uranium_task = null
+			pickup_bomb_kit_task = null
 			if pickup_plutonium_task != null and (pickup_plutonium_task as Task).get_task_completed():
 				pickup_plutonium_task = null
 			else:
 				pickup_plutonium_task = $Tasks/Day6/Task_Pick_up_plutonium
-			$pickup_cereal_bar.visible = true
-			$pickup_coffee.visible = true
-			$pickup_uranium.visible = true
-			$pickup_hazmat.visible = true
-			pickup_bomb_kit.visible = true
+			$pickup_cereal_bar.visible = false
+			$pickup_coffee.visible = false
+			$pickup_uranium.visible = false
+			$pickup_hazmat.visible = false
+			pickup_bomb_kit.visible = false
 			pickup_plutonium.visible = true
 
 func _on_leave_pressed():

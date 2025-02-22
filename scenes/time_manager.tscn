@@ -43,7 +43,7 @@ script = ExtResource("2_mwn0d")
 start_hour = 4
 break_hour = -1
 break_duration = 0
-end_hour = 24
+end_hour = 12
 
 [node name="TimeManager" type="Control"]
 layout_mode = 3

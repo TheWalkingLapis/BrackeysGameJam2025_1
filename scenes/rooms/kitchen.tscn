@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=17 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
+[ext_resource type="Texture2D" uid="uid://dfc2nmr41pa4j" path="res://imgs/rooms/kitchen/kitchen_aliens.png" id="3_slvj0"]
 [ext_resource type="Texture2D" uid="uid://bjnelfly7ca0l" path="res://imgs/sprites/tasks/watering_can_mask.png" id="3_urun6"]
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
 [ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
@@ -11,6 +12,7 @@
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_dhca4"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="9_kyirl"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="10_n45dt"]
+[ext_resource type="PackedScene" uid="uid://cth0k75avrluu" path="res://scenes/tasks/task_tetrominois.tscn" id="11_4icy7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2ncf"]
 
@@ -27,6 +29,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pp64o")
+normal_bg = ExtResource("2_eucwl")
+alien_bg = ExtResource("3_slvj0")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -37,7 +41,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_eucwl")
+texture = ExtResource("3_slvj0")
+
+[node name="Drawer" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 296.0
+stretch_mode = 0
+
+[node name="Snack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 176.0
+offset_right = 1024.0
+offset_bottom = 856.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2ncf")
+theme_override_styles/hover = ExtResource("9_dhca4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nk80p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j1il8")
+
+[node name="Aliens" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 0
+
+[node name="Leave" type="TextureButton" parent="."]
+self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 857.0
+offset_top = 887.0
+offset_right = 1020.0
+offset_bottom = 1071.0
+texture_hover = ExtResource("8_htviv")
+texture_click_mask = ExtResource("9_kyirl")
+stretch_mode = 0
+
+[node name="Arraw_tex" type="TextureRect" parent="Leave"]
+show_behind_parent = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_n45dt")
 
 [node name="Tasks" type="Control" parent="."]
 layout_mode = 1
@@ -129,14 +185,13 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Pick_up_Watering_Can" parent="Tasks/Day6" instance=ExtResource("3_xkt3c")]
+[node name="Task_Tetrominos" parent="Tasks/Day6" instance=ExtResource("11_4icy7")]
 layout_mode = 1
-
-[node name="Task_drop_Watering_Can" parent="Tasks/Day6" instance=ExtResource("5_84v6c")]
-layout_mode = 1
-
-[node name="Task_drop_Cereal" parent="Tasks/Day6" instance=ExtResource("5_xjbd1")]
-layout_mode = 1
+task_name = "Tetris"
+task_description = "Talk to the aliens again"
+tag = 6
+order = 8
+whole_day = true
 
 [node name="Watering_Can_Hitbox" type="TextureButton" parent="."]
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
@@ -160,41 +215,8 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("5_26yy8")
 
-[node name="Snack" type="Button" parent="."]
-layout_mode = 0
-offset_left = 680.0
-offset_top = 176.0
-offset_right = 1024.0
-offset_bottom = 856.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f2ncf")
-theme_override_styles/hover = ExtResource("9_dhca4")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_nk80p")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j1il8")
-
-[node name="Leave" type="TextureButton" parent="."]
-self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
-texture_filter = 1
-layout_mode = 0
-offset_left = 857.0
-offset_top = 887.0
-offset_right = 1020.0
-offset_bottom = 1071.0
-texture_hover = ExtResource("8_htviv")
-texture_click_mask = ExtResource("9_kyirl")
-stretch_mode = 0
-
-[node name="Arraw_tex" type="TextureRect" parent="Leave"]
-show_behind_parent = true
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("10_n45dt")
-
-[connection signal="pressed" from="Watering_Can_Hitbox" to="." method="_on_watering_can_hitbox_pressed"]
+[connection signal="pressed" from="Drawer" to="." method="_on_drawer_pressed"]
 [connection signal="pressed" from="Snack" to="." method="_on_snack_pressed"]
+[connection signal="pressed" from="Aliens" to="." method="_on_aliens_pressed"]
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
+[connection signal="pressed" from="Watering_Can_Hitbox" to="." method="_on_watering_can_hitbox_pressed"]

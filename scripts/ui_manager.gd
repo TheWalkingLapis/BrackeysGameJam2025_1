@@ -29,6 +29,7 @@ func setup_tasks(tasks):
 
 func update_tasks():
 	taskUI.update_task_display()
+	
 
 func disable_all():
 	mainMenu.visible = false

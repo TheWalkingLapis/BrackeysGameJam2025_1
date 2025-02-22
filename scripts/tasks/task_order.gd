@@ -11,10 +11,13 @@ extends Task
 @onready var unlock_button = $Active/Buttons/Unlock_plutonium
 @onready var locked_order_button = $Active/Buttons/Order_plutonium
 
-@onready var cereral_icon = $Active/Icons/Cereal_bar_icon
-@onready var coffee_icon = $Active/Icons/Coffee_cup_icon
-@onready var uranium_icon = $Active/Icons/Uranium_icon
-@onready var hazmat_icon = $Active/Icons/Hazmat_Suit_icon
+@onready var block_cereal = $Active/Buttons/Block_cereal
+@onready var block_coffee = $Active/Buttons/Block_coffee
+@onready var block_uranium = $Active/Buttons/Block_uranium
+@onready var block_hazmat = $Active/Buttons/Block_hazmat
+@onready var block_bomb = $Active/Buttons/Block_bomb
+@onready var block_plutonium = $Active/Buttons/Block_plutonium
+
 @onready var bomb_icon = $Active/Icons/bomb_icon
 @onready var plutonium_icon = $Active/Icons/plutonium_icon
 
@@ -32,6 +35,10 @@ func start_task():
 	reset_screen()
 	active.visible = true
 	match Global.game_manager.current_day:
+		0:
+			normal_shop.visible = true
+		1:
+			normal_shop.visible = true
 		2:
 			normal_shop.visible = true
 		3:
@@ -50,21 +57,38 @@ func start_task():
 	$Active/Icons.visible = true
 	$Active/Code.visible = false
 	
-	bomb_icon.visible = (Global.game_manager.current_day >= 4 and !Global.bomb_ordered)
-	plutonium_icon.visible = (Global.game_manager.current_day == 5 and (!Global.plutonium_ordered and plutonium_unlocked))
+	if Global.game_manager.current_day == 5:
+		block_cereal.visible = true
+		block_coffee.visible = true
+		block_uranium.visible = true
+		block_hazmat.visible = true
+		block_bomb.visible = true
+	elif Global.game_manager.current_day == 4:
+		block_plutonium.visible = true
+	else:
+		block_bomb.visible = true
+		block_plutonium.visible = true
+	
+	bomb_icon.visible = Global.game_manager.current_day >= 4
+	plutonium_icon.visible = (Global.game_manager.current_day == 5 and plutonium_unlocked)
 	
 	started.emit(self)
 
 func reset_task():
+	print("Reset Order Task")
 	super.reset_task()
 	active.visible = false
 	
-	cereral_icon.visible = true
-	coffee_icon.visible = true
-	uranium_icon.visible = true
-	hazmat_icon.visible = true
-	bomb_icon.visible = true
-	plutonium_icon.visible = true
+	bomb_icon.visible = false
+	plutonium_icon.visible = false
+	
+	block_cereal.visible = false
+	block_coffee.visible = false
+	block_uranium.visible = false
+	block_hazmat.visible = false
+	block_bomb.visible = false
+	block_plutonium.visible = false
+	
 	Global.cereal_bar_ordered = false
 	Global.coffee_cup_ordered = false
 	Global.uranium_ordered = false
@@ -92,7 +116,7 @@ func _on_leave_pressed():
 	if  Global.game_manager.current_day >= 4:
 		all_ordered = all_ordered and Global.bomb_ordered
 	if  Global.game_manager.current_day == 5:
-		all_ordered = all_ordered and Global.plutonium_ordered
+		all_ordered = Global.plutonium_ordered
 	if !all_ordered:
 		quit.emit()
 	else:
@@ -101,27 +125,27 @@ func _on_leave_pressed():
 func _on_order_cereal_bar_pressed():
 	if !Global.cereal_bar_ordered:
 		Global.cereal_bar_ordered = true
-		cereral_icon.visible = false
+		block_cereal.visible = true
 
 func _on_order_coffee_cup_pressed():
 	if !Global.coffee_cup_ordered:
 		Global.coffee_cup_ordered = true
-		coffee_icon.visible = false
+		block_coffee.visible = true
 
 func _on_order_uranium_pressed():
 	if !Global.uranium_ordered:
 		Global.uranium_ordered = true
-		uranium_icon.visible = false
+		block_uranium.visible = true
 
 func _on_order_hazamt_suit_pressed():
 	if !Global.hazmat_suit_ordered:
 		Global.hazmat_suit_ordered = true
-		hazmat_icon.visible = false
+		block_hazmat.visible = true
 
 func _on_order_bomb_pressed():
-	if !Global.bomb_ordered and Global.game_manager.current_day >= 4:
+	if !Global.bomb_ordered and Global.game_manager.current_day == 4:
 		Global.bomb_ordered = true
-		bomb_icon.visible = false
+		block_bomb.visible = true
 
 func _on_unlock_plutonium_pressed():
 	if !plutonium_unlocked and Global.game_manager.current_day == 5:
@@ -143,7 +167,7 @@ func unlock_success():
 func _on_order_plutonium_pressed():
 	if plutonium_unlocked and Global.game_manager.current_day == 5:
 		Global.plutonium_ordered = true
-		plutonium_icon.visible = false
+		block_plutonium.visible = true
 
 func _on_digit_1_pressed():
 	digits[0] = (digits[0] + 1) % 10

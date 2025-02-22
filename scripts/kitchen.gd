@@ -1,21 +1,34 @@
 extends Room
 
-@onready var watering_can_sprite = $Watering_Can_Hitbox/Watering_Can_Sprite
+@onready var watering_can_sprite = $Watering_Can_Hitbox
+
+@export var normal_bg: Texture2D
+@export var alien_bg: Texture2D
 
 var watering_can_pickup_task = null
 var watering_can_drop_task = null
 var drop_cereal_task = null
+var task_final = null
 
 func setup_day(day, post_break):
+	Global.talked_to_aliens_task_received = 0
+	if day != 5:
+		$Background.texture = normal_bg
+		$Aliens.visible = false
+	else:
+		$Background.texture = alien_bg
+		$Aliens.visible = true
 	match day:
 		0:
 			watering_can_pickup_task = null
 			watering_can_drop_task = null
 			drop_cereal_task = null
+			task_final = null
 		1:
 			watering_can_pickup_task = null
 			watering_can_drop_task = null
 			drop_cereal_task = null
+			task_final = null
 		2:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -29,6 +42,7 @@ func setup_day(day, post_break):
 				drop_cereal_task = null
 			else:
 				drop_cereal_task = $Tasks/Day3/Task_drop_Cereal
+			task_final = null
 		3:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -42,6 +56,7 @@ func setup_day(day, post_break):
 				drop_cereal_task = null
 			else:
 				drop_cereal_task = $Tasks/Day4/Task_drop_Cereal
+			task_final = null
 		4:
 			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
 				watering_can_pickup_task = null
@@ -55,19 +70,13 @@ func setup_day(day, post_break):
 				drop_cereal_task = null
 			else:
 				drop_cereal_task = $Tasks/Day5/Task_drop_Cereal
+			task_final = null
 		5:
-			if watering_can_pickup_task != null and (watering_can_pickup_task as Task).get_task_completed():
-				watering_can_pickup_task = null
-			else:
-				watering_can_pickup_task = $Tasks/Day6/Task_Pick_up_Watering_Can
-			if watering_can_drop_task != null and (watering_can_drop_task as Task).get_task_completed():
-				watering_can_drop_task = null
-			else:
-				watering_can_drop_task = $Tasks/Day6/Task_drop_Watering_Can
-			if drop_cereal_task != null and (drop_cereal_task as Task).get_task_completed():
-				drop_cereal_task = null
-			else:
-				drop_cereal_task = $Tasks/Day6/Task_drop_Cereal
+			watering_can_pickup_task = null
+			watering_can_drop_task = null
+			drop_cereal_task = null
+			task_final = $Tasks/Day6/Task_Tetrominos
+	watering_can_sprite.visible = watering_can_drop_task != null
 
 func _on_watering_can_hitbox_pressed():
 	if Global.game_manager.allow_interaction:
@@ -89,14 +98,7 @@ func _on_watering_can_hitbox_pressed():
 
 
 func _on_snack_pressed():
-	if Global.game_manager.allow_interaction:
-		if drop_cereal_task != null and !(drop_cereal_task as Task).get_task_completed():
-			if Global.inventory.has_item(Global.inventory.Items.CEREAL_BAR):
-				drop_cereal_task.start_task()
-			else:
-				Global.text_manager.display_interaction_text("I have to bring the cereal bars here")
-			return
-	if Global.game_manager.current_day == 4:
+	if Global.game_manager.current_day == 3:
 		if Global.time_manager.break_active:
 			Global.time_manager.resume_after_break()
 			return
@@ -105,7 +107,7 @@ func _on_snack_pressed():
 				Global.text_manager.display_interaction_text("I already had my lunch break")
 			else:
 				Global.text_manager.display_interaction_text("It's not time to eat something yet")
-	elif Global.game_manager.current_day == 5:
+	elif Global.game_manager.current_day == 4 or Global.game_manager.current_day == 5:
 		if Global.game_manager.allow_interaction:
 			Global.text_manager.display_interaction_text("I really don't have time to eat something")
 	else:
@@ -113,7 +115,31 @@ func _on_snack_pressed():
 			Global.text_manager.display_interaction_text("I don't want to eat anything from the fridge")
 
 
+func _on_drawer_pressed():
+	if Global.game_manager.allow_interaction:
+		if drop_cereal_task != null and !(drop_cereal_task as Task).get_task_completed():
+			if Global.inventory.has_item(Global.inventory.Items.CEREAL_BAR):
+				drop_cereal_task.start_task()
+			else:
+				Global.text_manager.display_interaction_text("I have to bring the cereal bars here")
+		else:
+			Global.text_manager.display_interaction_text("I already brought the cereal bars here")
+
 func _on_leave_pressed():
 	if !Global.game_manager.allow_interaction and !Global.time_manager.break_active: return
-	if Global.game_manager.current_day == 4 and Global.time_manager.break_active: return
+	if Global.game_manager.current_day == 3 and Global.time_manager.break_active: return
 	Global.room_manager.change_room_to("Main_Hallway")
+
+
+func _on_aliens_pressed():
+	if Global.inventory.has_item(Inventory.Items.PLUTONIUM):
+		Global.inventory.drop()
+		Global.text_manager.display_interaction_text("Alien Dialogue 2")
+		await Global.text_manager.finished_text
+		$Aliens.visible = false
+		Global.ui_manager.taskUI.ui_final_task()
+		task_final.start_task()
+	else:
+		Global.talked_to_aliens_task_received = 1
+		Global.text_manager.display_interaction_text("Alien Dialogue 1")
+		Global.ui_manager.taskUI.update_task_display()

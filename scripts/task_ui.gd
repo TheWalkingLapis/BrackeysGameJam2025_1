@@ -32,6 +32,8 @@ func order_func_categories(a, b):
 	return val_a < val_b
 
 func set_tasks(tasks):
+	$TaskBG.visible = true
+	$Hide.visible = true
 	current_tasks = {task_string: []}
 	for room in tasks:
 		var task_list = tasks[room]
@@ -72,12 +74,21 @@ func update_task_display():
 	if Global.time_manager.break_active: return
 	update_task_text()
 
+func ui_final_task():
+	$TaskBG.visible = false
+	$Hide.visible = false
+
 func update_task_text():
+	if Global.game_manager.current_day == 5:
+		if Global.talked_to_aliens_task_received == 0:
+			task_label.text = Utils.bbc_text("Go to the kitchen", 30)
+			return
+		# TODO
 	var working_hours = Global.time_manager.get_working_hours()
 	var text = ""
 	var working_hour_text = "   Today's Working Hours: %02d:00 - %02d:00\n" % [working_hours[0], working_hours[1]]
 	var break_time_text = "   Break Time at %02d:00" % Global.time_manager.day_break_hour
-	if Global.time_manager.day_break_duration >= 1:
+	if false:
 		break_time_text += " for %dh" % Global.time_manager.day_break_duration
 	break_time_text += "\n"
 	text += Utils.bbc_text(working_hour_text, 22)
@@ -119,9 +130,9 @@ func update_task_text():
 func _on_break_time():
 	var text = ""
 	var day = Global.game_manager.current_day
-	if day <= 3:
+	if day < 3:
 		text += Utils.bbc_text("Leave the power plant for your break", 30)
-	elif day == 4:
+	elif day == 3:
 		text += Utils.bbc_text("Get a snack from the kitchen, no time to leave the site", 30)
 	task_label.text = text
 

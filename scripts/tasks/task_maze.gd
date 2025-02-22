@@ -1,14 +1,22 @@
 extends Task
 
 @onready var active = $Active
+@onready var maze = $Active/Maze
+@onready var start = $Active/Start
+
+@onready var cp1 = $Active/Maze/Checkpoint
+@onready var cp2 = $Active/Maze/Checkpoint2
+
+signal done()
 
 var checkpoints = 0
 
 func start_task():
 	active.visible = true
-	Input.warp_mouse($Active/MouseStartPos.position)
-	$Active/Checkpoint.visible = true
-	$Active/Checkpoint2.visible = true
+	start.visible = true
+	maze.visible = false
+	cp1.visible = true
+	cp2.visible = true
 	checkpoints = 0
 	started.emit(self)
 
@@ -18,18 +26,19 @@ func reset_task():
 
 
 func _on_walls_mouse_entered():
-	Input.warp_mouse($Active/MouseStartPos.position)
-	$Active/Checkpoint.visible = true
-	$Active/Checkpoint2.visible = true
+	start.visible = true
+	maze.visible = false
+	cp1.visible = true
+	cp2.visible = true
 	checkpoints = 0
 
 func _on_checkpoint_mouse_entered():
 	checkpoints += 1
-	$Active/Checkpoint.visible = false
+	cp1.visible = false
 
 func _on_checkpoint_2_mouse_entered():
 	checkpoints += 1
-	$Active/Checkpoint2.visible = false
+	cp2.visible = false
 
 
 func _on_continue_pressed():
@@ -39,7 +48,12 @@ func _on_continue_pressed():
 		return
 	active.visible = false
 	set_task_completed()
+	done.emit()
 
 func _on_leave_pressed():
 	active.visible = false
 	quit.emit()
+
+func _on_start_pressed():
+	start.visible = false
+	maze.visible = true

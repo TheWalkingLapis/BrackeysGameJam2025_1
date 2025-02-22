@@ -4,6 +4,9 @@ extends Room
 
 var maze_task = null
 
+func _ready():
+	$Tasks/Day6/Task_maze.done.connect(_on_maze_done)
+
 func setup_day(day, post_break):
 	$Code.visible = false
 	match day:
@@ -22,7 +25,7 @@ func setup_day(day, post_break):
 			if !post_break:
 				# second digit never 0 to avoid 0000
 				Global.plutonium_code = [randi_range(0, 9), randi_range(1, 9), randi_range(0, 9),randi_range(0, 9)]
-	$Code/CodeTxt.text = "[u][center]Plutonium code:[/center][/u]\n[center]%d%d%d%d[/center]" % [Global.plutonium_code[0], Global.plutonium_code[1], Global.plutonium_code[2], Global.plutonium_code[3]]
+	$Code/CodeTxt.text = "[center][u]Plutonium code:[/u]\n%d%d%d%d[/center]" % [Global.plutonium_code[0], Global.plutonium_code[1], Global.plutonium_code[2], Global.plutonium_code[3]]
 
 func _on_vault_pressed():
 	if !Global.game_manager.allow_interaction: return
@@ -34,8 +37,12 @@ func _on_vault_pressed():
 	else:
 		Global.text_manager.display_interaction_text("I should leave it alone")
 
+func _on_maze_done():
+	$Code.visible = true
 
 func _on_leave_pressed():
 	if !Global.game_manager.allow_interaction and (!Global.time_manager.break_active and Global.time_manager.day_active): return
-	$Code.visible = false
-	Global.room_manager.change_room_to("Main_Hallway")
+	if $Code.visible:
+		$Code.visible = false
+	else:
+		Global.room_manager.change_room_to("Main_Hallway")

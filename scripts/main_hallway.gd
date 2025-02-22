@@ -6,7 +6,7 @@ var allowed_rooms = {
 	2: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
 	3: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
 	4: ["Plan", "Office", "Kitchen", "Passage", "Storage"],
-	5: ["Plan", "Office", "Kitchen", "Passage", "Storage", "Boss"]
+	5: ["Plan", "Office", "Kitchen", "Storage", "Boss"]
 }
 
 var room_not_allowed_txt = "I shouldn't go there"
@@ -42,11 +42,14 @@ func setup_day(day, post_break):
 			else:
 				drop_coffee_task = $Tasks/Day5/Task_drop_Coffee_boss
 		5:
-			watering_task = $Tasks/Day6/Task_water_Hallway_Plant
+			watering_task = null
 			drop_coffee_task = null
 
 func try_enter_room(room, break_active_txt=break_txt, not_allowed_txt=room_not_allowed_txt):
-	if Global.game_manager.current_day >= 4 and Global.time_manager.break_active and room == "Kitchen":
+	if Global.game_manager.current_day == 5:
+		if Global.talked_to_aliens_task_received == 0 and room != "Kitchen":
+			return
+	if Global.game_manager.current_day >= 3 and Global.time_manager.break_active and room == "Kitchen":
 		Global.room_manager.change_room_to(room)
 		return
 	if Global.game_manager.current_day >= 3 and !Global.time_manager.day_active and room == "Office":
@@ -91,8 +94,8 @@ func _on_restaurant_pressed():
 		else:
 			Global.text_manager.display_interaction_text("I will sleep on the couch in my office today")
 		return
-	if Global.game_manager.current_day >= 4:
-		if Global.game_manager.current_day == 4 and Global.time_manager.break_active:
+	if Global.game_manager.current_day >= 3:
+		if Global.game_manager.current_day != 5 and Global.time_manager.break_active:
 			Global.text_manager.display_interaction_text("I should just grab something from the kitchen")
 			return
 		Global.text_manager.display_interaction_text("I got no time to leave")

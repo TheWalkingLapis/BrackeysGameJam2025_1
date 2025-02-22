@@ -14,11 +14,9 @@ var temperature_task = null
 func _ready():
 	$Tasks/Day4/Task_close_fuel.refueled.connect(_on_refuel)
 	$Tasks/Day5/Task_close_fuel.refueled.connect(_on_refuel)
-	$Tasks/Day6/Task_close_fuel.refueled.connect(_on_refuel)
 	
 	$Tasks/Day4/Task_Temperature.decrease_temperature.connect(_on_decrease_temperature)
 	$Tasks/Day5/Task_Temperature.decrease_temperature.connect(_on_decrease_temperature)
-	$Tasks/Day6/Task_Temperature.decrease_temperature.connect(_on_decrease_temperature)
 
 func setup_day(day, post_break):
 	if !post_break:
@@ -52,10 +50,10 @@ func setup_day(day, post_break):
 			close_fuel_task = $Tasks/Day5/Task_close_fuel
 			temperature_task = $Tasks/Day5/Task_Temperature
 		5:
-			wire_task = $Tasks/Day6/Task_Fix_Wires
-			open_fuel_task = $Tasks/Day6/Task_open_fuel
-			close_fuel_task = $Tasks/Day6/Task_close_fuel
-			temperature_task = $Tasks/Day6/Task_Temperature
+			wire_task = null
+			open_fuel_task = null
+			close_fuel_task = null
+			temperature_task = null
 
 func _on_leave_pressed():
 	if !Global.game_manager.allow_interaction and (!Global.time_manager.break_active and Global.time_manager.day_active): return
@@ -73,7 +71,7 @@ func _on_wirebox_pressed():
 
 func _process(delta):
 	if Global.time_manager.break_active or !Global.time_manager.day_active: return
-	if Global.game_manager.current_day < 3: return
+	if Global.game_manager.current_day < 3 or Global.game_manager.current_day == 5: return
 	temperature += temperature_decay * Global.time_manager.time_fac
 	fuel -= fuel_decay * Global.time_manager.time_fac
 	

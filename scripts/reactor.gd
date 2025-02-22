@@ -32,8 +32,8 @@ func setup_day(day, post_break):
 			wire_task = $Tasks/Day5/Task_Fix_Wires
 			fuel_task = $Tasks/Day5/Task_refuel
 		5:
-			wire_task = $Tasks/Day6/Task_Fix_Wires
-			fuel_task = $Tasks/Day6/Task_refuel
+			wire_task = null
+			fuel_task = null
 
 func _on_leave_pressed():
 	if !Global.game_manager.allow_interaction and (!Global.time_manager.break_active and Global.time_manager.day_active): return

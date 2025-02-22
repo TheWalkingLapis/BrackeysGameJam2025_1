@@ -68,7 +68,6 @@ tag = 2
 whole_day = true
 
 [node name="Active" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,7 +77,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Screen_normal" type="TextureRect" parent="Active"]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -182,7 +180,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_w4vbx")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nkvve")
 
 [node name="Buttons" type="Control" parent="Active"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,6 +264,54 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_kij73")
 theme_override_styles/hover = ExtResource("9_pbh5o")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ewlse")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_825lw")
+
+[node name="Block_cereal" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1307.0
+offset_top = 165.0
+offset_right = 1514.0
+offset_bottom = 244.0
+color = Color(1, 0.992157, 0.858824, 1)
+
+[node name="Block_coffee" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1306.0
+offset_top = 299.0
+offset_right = 1513.0
+offset_bottom = 378.0
+color = Color(1, 0.992157, 0.858824, 1)
+
+[node name="Block_uranium" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1309.0
+offset_top = 437.0
+offset_right = 1516.0
+offset_bottom = 516.0
+color = Color(1, 0.992157, 0.858824, 1)
+
+[node name="Block_hazmat" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1308.0
+offset_top = 571.0
+offset_right = 1515.0
+offset_bottom = 650.0
+color = Color(1, 0.992157, 0.858824, 1)
+
+[node name="Block_bomb" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1306.0
+offset_top = 711.0
+offset_right = 1513.0
+offset_bottom = 790.0
+color = Color(1, 0.992157, 0.858824, 1)
+
+[node name="Block_plutonium" type="ColorRect" parent="Active/Buttons"]
+layout_mode = 0
+offset_left = 1305.0
+offset_top = 845.0
+offset_right = 1557.0
+offset_bottom = 924.0
+color = Color(1, 0.992157, 0.858824, 1)
 
 [node name="Code" type="Control" parent="Active"]
 visible = false

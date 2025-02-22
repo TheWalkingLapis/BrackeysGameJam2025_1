@@ -212,17 +212,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_drop_Hazmat_Suit" parent="Tasks/Day6" instance=ExtResource("3_ojtfq")]
-layout_mode = 1
-
-[node name="Task_drop_Uranium" parent="Tasks/Day6" instance=ExtResource("4_x3wgy")]
-layout_mode = 1
-
-[node name="Task_Fix_Wires" parent="Tasks/Day6" instance=ExtResource("5_afnxa")]
-layout_mode = 1
-target_matching = Array[int]([3, 1, 2])
-task_description = "Fix the wires in the passage"
-
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="Control" to="." method="_on_control_pressed"]
 [connection signal="pressed" from="Reactor" to="." method="_on_reactor_pressed"]

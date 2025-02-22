@@ -204,20 +204,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Fix_Wires" parent="Tasks/Day6" instance=ExtResource("3_5ydpy")]
-layout_mode = 1
-target_matching = Array[int]([3, 2, 1])
-task_description = "Fix the wires in the control room"
-
-[node name="Task_open_fuel" parent="Tasks/Day6" instance=ExtResource("4_ehbik")]
-layout_mode = 1
-
-[node name="Task_close_fuel" parent="Tasks/Day6" instance=ExtResource("5_fwdo2")]
-layout_mode = 1
-
-[node name="Task_Temperature" parent="Tasks/Day6" instance=ExtResource("13_gdnlv")]
-layout_mode = 1
-
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="wirebox" to="." method="_on_wirebox_pressed"]
 [connection signal="pressed" from="Temperator_display" to="." method="_on_temperator_display_pressed"]

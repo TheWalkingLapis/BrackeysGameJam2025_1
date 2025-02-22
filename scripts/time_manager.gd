@@ -5,6 +5,7 @@ signal break_time()
 signal break_time_over()
 signal day_done()
 signal evening()
+signal _12h()
 
 const ingame_hour_in_seconds: float = 15.0
 const evening_hour: int = 17
@@ -24,6 +25,9 @@ var time_fac: float = 1.0
 var day_active = false
 var break_active = false
 
+# used only for the not break case (since break time is not emited)
+var _12h_flag = false
+
 @export var ingame_day_times: Array[DayDurationTimes]
 
 func _ready():
@@ -38,6 +42,7 @@ func start_day(day: int):
 	current_ingame_hour = floor(current_ingame_time)
 	current_real_time = 0.0
 	time_fac = 1.0
+	_12h_flag = false
 	day_active = true
 	break_active = false
 	post_break = false
@@ -46,14 +51,21 @@ func start_day(day: int):
 func _process(delta):
 	if !day_active or break_active: 
 		return
+	if Global.game_manager.current_day == 6 and !Global.talked_to_aliens_task_received:
+		return
 	var prev_hour = floor(current_ingame_time)
 	current_real_time += delta * time_fac
 	current_ingame_time = day_start_hour + (current_real_time / ingame_hour_in_seconds)
 	current_ingame_hour = floor(current_ingame_time)
 	if !post_break and current_ingame_hour == day_break_hour:
+		current_ingame_time = day_break_hour
+		current_real_time = (current_ingame_time - day_start_hour) * ingame_hour_in_seconds
 		break_active = true
 		time_fac = 1.0
 		break_time.emit()
+	if current_ingame_hour == 12 and !_12h_flag:
+		_12h_flag = true
+		_12h.emit()
 	if current_ingame_hour == evening_hour and day_time != "evening":
 		evening.emit()
 		day_time = "evening"

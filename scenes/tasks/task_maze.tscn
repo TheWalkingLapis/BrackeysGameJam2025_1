@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://4qt46ak8f35e"]
+[gd_scene load_steps=20 format=3 uid="uid://4qt46ak8f35e"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_maze.gd" id="1_sva14"]
 [ext_resource type="Texture2D" uid="uid://bj12jitcsxdmi" path="res://imgs/sprites/tasks/boss/boss-minigame.png" id="2_h7qkc"]
+[ext_resource type="Texture2D" uid="uid://kbwtk2atifwf" path="res://imgs/sprites/tasks/boss/boss-minigame_empty.png" id="2_tr1jo"]
 [ext_resource type="Texture2D" uid="uid://boipsn1085afe" path="res://imgs/sprites/tasks/boss/continue_mask.png" id="4_bapdd"]
 [ext_resource type="BitMap" path="res://imgs/sprites/tasks/boss/boss-minigame_mask_bitmap.tres" id="4_vyfy2"]
 [ext_resource type="BitMap" path="res://imgs/sprites/tasks/boss/continue_mask_bitmap.tres" id="5_0ocyw"]
@@ -43,7 +44,6 @@ tag = 6
 whole_day = true
 
 [node name="Active" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,10 +52,45 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MouseStartPos" type="Node2D" parent="Active"]
-position = Vector2(262, 550)
+[node name="EMpty" type="TextureRect" parent="Active"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_tr1jo")
 
-[node name="Maze" type="TextureRect" parent="Active"]
+[node name="Start" type="Control" parent="Active"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Start" type="TextureButton" parent="Active/Start"]
+self_modulate = Color(0, 0.792157, 1, 0.533333)
+texture_filter = 1
+layout_mode = 0
+offset_left = 233.0
+offset_top = 480.0
+offset_right = 433.0
+offset_bottom = 608.0
+texture_hover = ExtResource("4_bapdd")
+texture_click_mask = ExtResource("5_0ocyw")
+stretch_mode = 0
+
+[node name="Maze" type="Control" parent="Active"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Maze" type="TextureRect" parent="Active/Maze"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -66,7 +101,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_h7qkc")
 
-[node name="Walls" type="TextureButton" parent="Active"]
+[node name="Walls" type="TextureButton" parent="Active/Maze"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -77,7 +112,7 @@ grow_vertical = 2
 texture_click_mask = ExtResource("4_vyfy2")
 stretch_mode = 0
 
-[node name="border_u" type="TextureButton" parent="Active"]
+[node name="border_u" type="TextureButton" parent="Active/Maze"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -85,13 +120,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 513.0
 offset_top = 1.0
-offset_right = -480.0
-offset_bottom = -1018.0
+offset_right = -490.0
+offset_bottom = -1020.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 0
 
-[node name="border_d" type="TextureButton" parent="Active"]
+[node name="border_d" type="TextureButton" parent="Active/Maze"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -99,12 +134,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 512.0
 offset_top = 989.0
-offset_right = -481.0
+offset_right = -487.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 0
 
-[node name="Checkpoint" type="Button" parent="Active"]
+[node name="Checkpoint" type="Button" parent="Active/Maze"]
+layout_mode = 0
 offset_left = 1025.0
 offset_top = 260.0
 offset_right = 1131.0
@@ -115,7 +152,7 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_igyn1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ubo2n")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_q8lac")
 
-[node name="Checkpoint2" type="Button" parent="Active"]
+[node name="Checkpoint2" type="Button" parent="Active/Maze"]
 layout_mode = 0
 offset_left = 1177.0
 offset_top = 723.0
@@ -126,10 +163,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_uwutt")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bu5ie")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_25pwc")
 
-[node name="Continue" type="TextureButton" parent="Active"]
+[node name="Continue" type="TextureButton" parent="Active/Maze"]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
 texture_filter = 1
-layout_mode = 0
 offset_left = 1520.0
 offset_top = 424.0
 offset_right = 1720.0
@@ -138,9 +174,22 @@ texture_hover = ExtResource("4_bapdd")
 texture_click_mask = ExtResource("5_0ocyw")
 stretch_mode = 0
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Active/Maze"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 76.0
+offset_top = 62.0
+offset_right = 453.0
+offset_bottom = 297.0
+theme_override_fonts/normal_font = ExtResource("9_xmgal")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Don't touch the walls![/center]"
+
 [node name="Leave" type="TextureButton" parent="Active"]
 self_modulate = Color(0, 0.792157, 1, 0.533333)
 texture_filter = 1
+layout_mode = 0
 offset_left = 81.0
 offset_top = 855.0
 offset_right = 214.0
@@ -160,22 +209,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_j7f26")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Active/Leave"]
-texture_filter = 1
-layout_mode = 0
-offset_left = -5.0
-offset_top = -793.0
-offset_right = 372.0
-offset_bottom = -558.0
-theme_override_fonts/normal_font = ExtResource("9_xmgal")
-theme_override_font_sizes/normal_font_size = 50
-bbcode_enabled = true
-text = "[center]Don't touch the walls![/center]"
-
-[connection signal="mouse_entered" from="Active/Walls" to="." method="_on_walls_mouse_entered"]
-[connection signal="mouse_entered" from="Active/border_u" to="." method="_on_walls_mouse_entered"]
-[connection signal="mouse_entered" from="Active/border_d" to="." method="_on_walls_mouse_entered"]
-[connection signal="mouse_entered" from="Active/Checkpoint" to="." method="_on_checkpoint_mouse_entered"]
-[connection signal="mouse_entered" from="Active/Checkpoint2" to="." method="_on_checkpoint_2_mouse_entered"]
-[connection signal="pressed" from="Active/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Active/Start/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Active/Maze/Walls" to="." method="_on_walls_mouse_entered"]
+[connection signal="mouse_entered" from="Active/Maze/border_u" to="." method="_on_walls_mouse_entered"]
+[connection signal="mouse_entered" from="Active/Maze/border_d" to="." method="_on_walls_mouse_entered"]
+[connection signal="mouse_entered" from="Active/Maze/Checkpoint" to="." method="_on_checkpoint_mouse_entered"]
+[connection signal="mouse_entered" from="Active/Maze/Checkpoint2" to="." method="_on_checkpoint_2_mouse_entered"]
+[connection signal="pressed" from="Active/Maze/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Active/Leave" to="." method="_on_leave_pressed"]

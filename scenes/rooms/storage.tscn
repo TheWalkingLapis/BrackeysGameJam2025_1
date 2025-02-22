@@ -123,10 +123,10 @@ stretch_mode = 0
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
-offset_left = 1315.0
-offset_top = 887.0
-offset_right = 1587.0
-offset_bottom = 990.0
+offset_left = 906.0
+offset_top = 751.0
+offset_right = 1178.0
+offset_bottom = 854.0
 texture_hover = ExtResource("11_2j37j")
 stretch_mode = 0
 
@@ -252,28 +252,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Pick_up_Cereal_Bar" parent="Tasks/Day6" instance=ExtResource("3_iwmw5")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Coffee_Cup" parent="Tasks/Day6" instance=ExtResource("4_iy5j3")]
-layout_mode = 1
-
-[node name="Task_Pick_up_hazmat" parent="Tasks/Day6" instance=ExtResource("5_dtxp7")]
-layout_mode = 1
-
-[node name="Task_Pick_up_Uranium" parent="Tasks/Day6" instance=ExtResource("6_s8i8r")]
-layout_mode = 1
-
-[node name="Task_Pick_up_bomb_kit" parent="Tasks/Day6" instance=ExtResource("7_stu72")]
-layout_mode = 1
-
 [node name="Task_Pick_up_plutonium" parent="Tasks/Day6" instance=ExtResource("8_okpt3")]
 layout_mode = 1
-
-[node name="Task_Fix_Wires" parent="Tasks/Day6" instance=ExtResource("7_qo6ec")]
-layout_mode = 1
-target_matching = Array[int]([3, 2, 1])
-task_description = "Fix the wires in storage"
+tag = 6
+order = 4
 
 [connection signal="pressed" from="Leave" to="." method="_on_leave_pressed"]
 [connection signal="pressed" from="pickup_cereal_bar" to="." method="_on_pickup_cereal_bar_pressed"]

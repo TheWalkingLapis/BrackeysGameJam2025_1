@@ -25,3 +25,5 @@ var fuel_task_progress = 0:
 	set(val):
 		fuel_task_progress = val
 		fuel_task_progress_changed.emit()
+
+var talked_to_aliens_task_received = 0

@@ -51,6 +51,7 @@ func setup_day(day):
 		change_room_to("Main_Hallway")
 	else:
 		change_room_to("Office")
+	Global.talked_to_aliens_task_received = 0
 	collect_tasks(day, false)
 
 func _on_break_time_over():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfbphyo7451bl"]
+[gd_scene load_steps=26 format=3 uid="uid://cfbphyo7451bl"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_24yk3"]
 [ext_resource type="Texture2D" uid="uid://pck8v580m60y" path="res://imgs/rooms/office/office_day.png" id="2_bd30j"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://co31i2b8h8sod" path="res://scenes/tasks/task_order.tscn" id="14_u11nm"]
 [ext_resource type="Texture2D" uid="uid://ia8ch7ksipxx" path="res://imgs/sprites/tasks/logistics/coffee-cup.png" id="15_6x5x2"]
 [ext_resource type="PackedScene" uid="uid://dg3oserfa7fnt" path="res://scenes/tasks/task_water_office_plant.tscn" id="17_wvwba"]
-[ext_resource type="PackedScene" uid="uid://b0xkt236um56u" path="res://scenes/tasks/task_drop_coffee_office.tscn" id="18_4w7qg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ky8xr"]
 
@@ -150,6 +149,7 @@ texture_click_mask = ExtResource("13_rnoh4")
 stretch_mode = 0
 
 [node name="Coffee" type="TextureButton" parent="Clickables"]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -257,33 +257,27 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Task_Document_Sign_Pre" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
-visible = false
 layout_mode = 1
 task_name = "Signing"
 task_description = "Sign the document on your desk"
 
 [node name="Task_Document_Sign_Post" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
-visible = false
 layout_mode = 1
 task_name = "More Signing"
 task_description = "Sign another document on your desk"
 after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day3" instance=ExtResource("12_yts8n")]
-visible = false
 layout_mode = 1
 
 [node name="Task_watch_TV_post" parent="Tasks/Day3" instance=ExtResource("12_yts8n")]
-visible = false
 layout_mode = 1
 after_mealtime = true
 
 [node name="Task_Order" parent="Tasks/Day3" instance=ExtResource("14_u11nm")]
-visible = false
 layout_mode = 1
 
 [node name="Task_water_Office_Plant" parent="Tasks/Day3" instance=ExtResource("17_wvwba")]
-visible = false
 layout_mode = 1
 
 [node name="Day4" type="Control" parent="Tasks"]
@@ -373,39 +367,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_drop_Coffee_office" parent="Tasks/Day6" instance=ExtResource("18_4w7qg")]
-visible = false
-layout_mode = 1
-
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day6" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
-[node name="Task_Document_Sign_Post" parent="Tasks/Day6" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
-
-[node name="Task_watch_TV_pre" parent="Tasks/Day6" instance=ExtResource("12_yts8n")]
-visible = false
-layout_mode = 1
-
-[node name="Task_watch_TV_post" parent="Tasks/Day6" instance=ExtResource("12_yts8n")]
-visible = false
-layout_mode = 1
-after_mealtime = true
-
-[node name="Task_water_Office_Plant" parent="Tasks/Day6" instance=ExtResource("17_wvwba")]
-visible = false
-layout_mode = 1
-
 [node name="Task_Order" parent="Tasks/Day6" instance=ExtResource("14_u11nm")]
-visible = false
 layout_mode = 1
+task_description = "Order plutonium from the PC in your Office"
+tag = 6
+order = 3
 
 [connection signal="pressed" from="Clickables/PCScreen" to="." method="_on_pc_screen_pressed"]
 [connection signal="pressed" from="Clickables/Door" to="." method="_on_door_pressed"]

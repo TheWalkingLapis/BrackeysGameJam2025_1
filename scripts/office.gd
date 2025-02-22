@@ -17,7 +17,7 @@ var drop_coffee_task = null
 # (task visiblity itself is handled by the room manager)
 func setup_day(day, post_break):
 	$Background.texture = bg_texture_day
-	$Clickables/Coffee.visible = (day == 5)
+	#$Clickables/Coffee.visible = (day == 5)
 	match day:
 		0:
 			sign_task = $Tasks/Day1/Task_Document_Sign_Post if post_break else $Tasks/Day1/Task_Document_Sign_Pre
@@ -51,17 +51,17 @@ func setup_day(day, post_break):
 			watering_task = $Tasks/Day5/Task_water_Office_Plant
 			drop_coffee_task = null
 		5:
-			sign_task = $Tasks/Day6/Task_Document_Sign_Post if post_break else $Tasks/Day6/Task_Document_Sign_Pre
-			tv_task = $Tasks/Day6/Task_watch_TV_post if post_break else $Tasks/Day6/Task_watch_TV_pre
+			sign_task = null
+			tv_task = null
 			order_task = $Tasks/Day6/Task_Order
-			watering_task = $Tasks/Day6/Task_water_Office_Plant
-			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
-				drop_coffee_task = null
-			else:
-				drop_coffee_task = $Tasks/Day6/Task_drop_Coffee_office
+			watering_task = null
+			drop_coffee_task = null
 
 func _on_pc_screen_pressed():
 	if !Global.game_manager.allow_interaction: return
+	if Global.game_manager.current_day == 5 and Global.talked_to_aliens_task_received == 0:
+		Global.text_manager.display_interaction_text("I don't need anything from my PC")
+		return
 	if order_task != null:
 		if (order_task as Task).get_task_completed():
 			Global.text_manager.display_interaction_text("I already ordered the required supplies") #never happens
