@@ -1,0 +1,15 @@
+---
+emails ändern zu:
+
+from:
+big-d@power-plant.com
+
+to:
+jeremy-from-hr@power-plant.com
+
+--- 
+Ende des Tages ändern von:
+Time to leave.
+
+zu:
+Time to go home to my wife!
