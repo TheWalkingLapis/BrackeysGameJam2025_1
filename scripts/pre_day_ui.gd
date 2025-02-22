@@ -21,6 +21,9 @@ var mail_1 = "Hi Jeremy,
 this is your last working week after 40 years of hard labour for our nuclear power plant.
 You always did an amazing job. I will miss you sincerely both as a colleague and a friend.
 
+Remember that you can use the plan in the hallway if you're ever lost.
+I will give you tasks that are shown on the right in your taskbar, you have to do them until you shift ends in the evening. Click on the eye in the upper right corner to show or hide your taskbar.
+
 All endings are also a new beginning, I heard you will be going to Gran Canaria with Josephine. That's nice.
 To a successful last week, old sport.
 
@@ -59,9 +62,9 @@ Max from the Reactor and Alan from the Control room are sick as well.
 I know it's a lot to ask, but please keep the electricity running for our city by doing their tasks.
 I will give you access to the reactor and the control room.
 
-Max was responsible for the amount of uranium fuel in the rods. You can lift the rods by pressing the up button in the control room, then picking up uranium and delivering it to the rods in the reactor room. Afterwards you have to lower the rods again in the control room.
+Max was responsible for the amount of uranium fuel in the rods. You can lift the rods by pressing the up button in the control room, under the fuel meter. Simply touch the rods in the reactor room to refill them. Afterwards you have to lower the rods again in the control room.
 
-Alan kept the temperature of the reactor in check by supplying new cooling water to it. You can do this at the temperature gauge in the control room, simply press the button until there's enough cooling water for the temperature to be low.
+Alan kept the temperature of the reactor in check by supplying new cooling water to it. You can do this at the temperature gauge in the control room, repeatedly press the button until there's enough cooling water for the temperature to be low.
 
 You have to keep the temperature below 1000°C and the fuel above 0%, otherwise there will be a nuclear meltdown!
 Our hope rests in you to keep our electricity up and running. I believe in you.
@@ -71,11 +74,11 @@ Big D"
 var mail_5 = "Hi Jeremy,
 
 apparently there's aliens visiting us on earth and everyone's going crazy?
-Our government ordered us to mass-produce atom bombs now?!
+Our government ordered us to produce atom bombs now?!
 
 I know you have a lot on your plate already but you have to do this as well, no one else can do it.
-I have the assembly manual here, it should be as follows:
-You have to order uranium and a atom bomb kit from your PC, go to the storage and put both those things on the workbench.
+I have the assembly manual here, it reads as follows:
+You have to order a atom bomb kit from your PC, go to the storage and go to the workbench with it.
 Then assemble the bomb by simply picking up the pieces and putting them to the right space.
 
 I'm starting to get sick too, I have a really bad cough. If I continue to get sicker at this rate, I won't be able to come in tomorrow.
@@ -88,8 +91,7 @@ Big D"
 var mail_6 = ""
 
 var mono_1 = "5 days. That's all I have left until I can finally retire and me and my wife can go to our well deserved vacation in Gran Canaria. Damn I love my wife.
-Honestly those days should pass quickly, all I have to do is sign two things per day. At this point, nothing can go wrong...
-"
+Honestly those days should pass quickly, all I have to do is sign one document per day. At this point, nothing can go wrong..."
 var mono_2 = "Only 4 days remaining, easy as always. I'm looking forward to Gran Canaria!"
 var mono_3 = "Damn, yesterday I actually had to work for once. I'll just have to persevere and think of my lovely wife!"
 var mono_4 = "Damn, yesterday I worked more than in the last three years combined!

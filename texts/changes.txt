@@ -15,11 +15,13 @@ zu:
 Time to go home to my wife!
 
 --- 
+
+
 Neue logistics Texte:
 
 Deliver the cereal bars to the cupboard in the kitchen
 
-Deliver the cup of coffe to the door of BigD's office
+Deliver the cup of coffee to the door of Big D's office
 
 Deliver the hazmat suit to the hooks in the passage
 

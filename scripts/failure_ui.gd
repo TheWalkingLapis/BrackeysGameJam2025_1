@@ -5,12 +5,17 @@ extends ColorRect
 @export var meltdown_tex: Texture2D
 @export var planet_explosion_tex: Texture2D
 
-var fail_1 = "Fail Day 1"
-var fail_2 = "Fail Day 2"
-var fail_3 = "Fail Day 3"
-var fail_4 = "Fail Day 4"
-var fail_5 = "Fail Day 5"
-var fail_6 = "Fail Day 6"
+var fail_1 = "You didn't sign your HR paperwork! The employees of the power plant go on strike, leading to a meltdown!
+Your slacking is responsible for the death of thousands."
+var fail_2 = "You didn't finish your tasks! They were essential to keep the power plant running, a meltdown happens!
+Your slacking is responsible for the death of thousands."
+var fail_3 = "You didn't finish your tasks! They were essential to keep the power plant running, a meltdown happens!
+Your slacking is responsible for the death of thousands."
+var fail_4 = "The reactor blew up, you should have kept an eye on your taskbar and the temperature and fuel!
+You are responsible for the death of thousands."
+var fail_5 = "The reactor blew up, you should have kept an eye on your taskbar and the temperature and fuel!
+You are responsible for the death of thousands."
+var fail_6 = "You couldn't give the aliens the fuel in time! The aliens destroyed earth with their laser beam and are now on their way home."
 
 func set_screen():
 	Global.time_manager.day_active = false

@@ -73,7 +73,7 @@ func _on_hazmat_hitbox_pressed():
 		if Global.inventory.has_item(Global.inventory.Items.HAZMAT_SUIT):
 			hazmat_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need the bring the hazmat suit here.")
+			Global.text_manager.display_interaction_text("I need to bring the hazmat suit here.")
 	else:
 		Global.text_manager.display_interaction_text("I already brought the hazmat suit.")
 
@@ -84,7 +84,7 @@ func _on_uranium_hitbox_pressed():
 		if Global.inventory.has_item(Global.inventory.Items.URANIUM):
 			uranium_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need the bring the uranium here.")
+			Global.text_manager.display_interaction_text("I need to bring the uranium here.")
 	else:
 		Global.text_manager.display_interaction_text("I already brought the uranium.")
 

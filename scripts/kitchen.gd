@@ -141,7 +141,7 @@ func _on_aliens_pressed():
 	else:
 		Global.text_manager.display_interaction_text("\"Hello lowly worker, we need your help. Bring us plutonium as fuel for our ship!
 Otherwise we'll have to destroy your planet and use the force of the explosion to propel us into space to get to our home planet.
-Make it quick, I'll give you 8 hours or earth will be exterminated!\"")
+Make it quick, I'll give you until 12, or earth will be exterminated!\"")
 		await  Global.text_manager.finished_text
 		Global.text_manager.display_interaction_text("Oh god, what should I do? I remember that I can order plutonium on my PC, but I need the code from the safe in Big D's office to unlock it.")
 		await  Global.text_manager.finished_text

@@ -127,7 +127,7 @@ func _on_break_time():
 		audio_manager.stop_music()
 		ui_manager.to_failure()
 		return
-	text_manager.display_interaction_text("Time to take my break")
+	text_manager.display_interaction_text("Time to take my lunch break in a restaurant by leaving this place!")
 	
 func _on_break_time_over():
 	allow_interaction = true

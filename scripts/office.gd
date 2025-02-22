@@ -117,7 +117,7 @@ func _on_plant_pressed():
 		if (watering_task as Task).get_task_completed():
 			Global.text_manager.display_interaction_text("I already watered this plant today.")
 		elif !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
-			Global.text_manager.display_interaction_text("I need the waternig can for this.")
+			Global.text_manager.display_interaction_text("I need the watering can for this.")
 		else:
 			watering_task.start_task()
 	else:

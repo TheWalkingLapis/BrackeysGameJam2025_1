@@ -197,7 +197,7 @@ mouse_filter = 2
 [node name="Task_Tetrominos" parent="Tasks/Day6" instance=ExtResource("11_4icy7")]
 layout_mode = 1
 task_name = "Tetris"
-task_description = "Talk to the aliens again"
+task_description = "Deliver the plutonium to the aliens in the kitchen"
 tag = 6
 order = 8
 whole_day = true
