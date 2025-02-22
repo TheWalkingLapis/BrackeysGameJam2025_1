@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh3u47j2ysp1h"]
+[gd_scene load_steps=18 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
 [ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
 [ext_resource type="Texture2D" uid="uid://dfc2nmr41pa4j" path="res://imgs/rooms/kitchen/kitchen_aliens.png" id="3_slvj0"]
-[ext_resource type="Texture2D" uid="uid://bjnelfly7ca0l" path="res://imgs/sprites/tasks/watering_can_mask.png" id="3_urun6"]
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
-[ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
 [ext_resource type="PackedScene" uid="uid://bcbqk8heqeprg" path="res://scenes/tasks/task_drop_cereal_bar.tscn" id="5_xjbd1"]
 [ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="8_htviv"]
@@ -13,6 +11,9 @@
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="9_kyirl"]
 [ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="10_n45dt"]
 [ext_resource type="PackedScene" uid="uid://cth0k75avrluu" path="res://scenes/tasks/task_tetrominois.tscn" id="11_4icy7"]
+[ext_resource type="Texture2D" uid="uid://lo683bjxb557" path="res://imgs/sprites/tasks/janitor/watering_can_mask.png" id="12_pkef2"]
+[ext_resource type="BitMap" path="res://imgs/sprites/tasks/janitor/watering_can_mask_bitmap.tres" id="13_orppk"]
+[ext_resource type="Texture2D" uid="uid://v3g3l05q6qxe" path="res://imgs/sprites/tasks/janitor/watering_can.png" id="14_63yll"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2ncf"]
 
@@ -201,7 +202,8 @@ offset_left = 108.0
 offset_top = 324.0
 offset_right = 343.0
 offset_bottom = 465.0
-texture_hover = ExtResource("3_urun6")
+texture_hover = ExtResource("12_pkef2")
+texture_click_mask = ExtResource("13_orppk")
 stretch_mode = 0
 
 [node name="Watering_Can_Sprite" type="TextureRect" parent="Watering_Can_Hitbox"]
@@ -213,7 +215,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("5_26yy8")
+texture = ExtResource("14_63yll")
 
 [connection signal="pressed" from="Drawer" to="." method="_on_drawer_pressed"]
 [connection signal="pressed" from="Snack" to="." method="_on_snack_pressed"]

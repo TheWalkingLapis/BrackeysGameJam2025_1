@@ -1,6 +1,7 @@
 extends Room
 
-@onready var watering_can_sprite = $Watering_Can_Hitbox
+@onready var watering_can_sprite = $Watering_Can_Hitbox/Watering_Can_Sprite
+@onready var watering_can_hitbox = $Watering_Can_Hitbox
 
 @export var normal_bg: Texture2D
 @export var alien_bg: Texture2D
@@ -81,7 +82,7 @@ func setup_day(day, post_break):
 			watering_can_drop_task = null
 			drop_cereal_task = null
 			task_final = $Tasks/Day6/Task_Tetrominos
-	watering_can_sprite.visible = watering_can_drop_task != null
+	watering_can_hitbox.visible = watering_can_drop_task != null
 
 func _on_watering_can_hitbox_pressed():
 	if Global.game_manager.allow_interaction:

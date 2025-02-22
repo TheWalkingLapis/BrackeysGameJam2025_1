@@ -30,4 +30,16 @@ offset_right = 1796.0
 offset_bottom = 927.0
 text = "Start"
 
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 773.0
+offset_right = 1156.0
+offset_bottom = 847.0
+min_value = 1.0
+max_value = 6.0
+value = 1.0
+prefix = "Day"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_spin_box_value_changed"]

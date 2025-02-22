@@ -101,6 +101,7 @@ func _on_restaurant_pressed():
 		Global.text_manager.display_interaction_text("I got no time to leave")
 		return
 	if Global.time_manager.break_active:
+		Global.ui_manager.taskUI.visible = false
 		Global.room_manager.change_room_to("Restaurant")
 	else:
 		Global.text_manager.display_interaction_text("I got no time to leave")

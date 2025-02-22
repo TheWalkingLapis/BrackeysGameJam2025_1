@@ -14,4 +14,6 @@ func _process(delta):
 
 func _on_button_pressed():
 	# TODO change to 0 always
-	Global.game_manager.pre_start_day(Global.game_manager.current_day)
+	var val = $SpinBox.value - 1
+	Global.game_manager.current_day = val
+	Global.game_manager.pre_start_day(val)

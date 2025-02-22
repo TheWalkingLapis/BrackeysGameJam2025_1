@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byqi3m5byi60j"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_drop_watering_can.gd" id="1_q6qex"]
-[ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="2_ma3ro"]
+[ext_resource type="Texture2D" uid="uid://v3g3l05q6qxe" path="res://imgs/sprites/tasks/janitor/watering_can.png" id="2_kufem"]
 
 [node name="Task_drop_Watering_Can" type="Control"]
 layout_mode = 3
@@ -27,4 +27,4 @@ offset_top = 324.0
 offset_right = 343.0
 offset_bottom = 465.0
 mouse_filter = 2
-texture = ExtResource("2_ma3ro")
+texture = ExtResource("2_kufem")

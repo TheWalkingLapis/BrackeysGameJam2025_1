@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://2nlkm0ephwj8"]
 
 [ext_resource type="Script" path="res://scripts/restaurant.gd" id="1_76tx8"]
-[ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_2btrc"]
+[ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_l3do7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pwuhi"]
 
@@ -21,7 +21,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_76tx8")
 
-[node name="BG" type="TextureRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -30,7 +30,33 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2_2btrc")
+color = Color(0, 0, 0, 1)
+
+[node name="Interaction_Box" type="ColorRect" parent="BG"]
+offset_left = 187.0
+offset_top = 780.0
+offset_right = 1716.0
+offset_bottom = 1081.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0.145098)
+
+[node name="Interaction_Text" type="RichTextLabel" parent="BG/Interaction_Box"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -734.5
+offset_top = -280.0
+offset_right = 730.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_l3do7")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "You enjoy a meal at a nearby restaurant."
 
 [node name="Take_Break" type="Button" parent="."]
 layout_mode = 1
