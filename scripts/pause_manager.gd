@@ -24,6 +24,8 @@ func _process(delta):
 		if Input.is_action_just_pressed("pause"):
 			get_tree().paused = !get_tree().paused
 			visible = get_tree().paused
+			#Global.game_manager.current_day += 1
+			#Global.game_manager.pre_start_day(Global.game_manager.current_day)
 
 
 func _on_auto_hide_pressed():

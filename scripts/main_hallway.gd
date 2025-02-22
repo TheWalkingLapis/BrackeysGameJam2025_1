@@ -39,6 +39,7 @@ func setup_day(day, post_break):
 func try_enter_room(room, break_active_txt=break_txt, not_allowed_txt=room_not_allowed_txt):
 	if Global.game_manager.current_day == 5:
 		if Global.talked_to_aliens_task_received == 0 and room != "Kitchen":
+			Global.text_manager.display_interaction_text("I should hurry to the kitchen!")
 			return
 	if Global.game_manager.current_day >= 3 and Global.time_manager.break_active and room == "Kitchen":
 		Global.room_manager.change_room_to(room)
@@ -52,6 +53,7 @@ func try_enter_room(room, break_active_txt=break_txt, not_allowed_txt=room_not_a
 		elif Global.time_manager.break_active:
 			Global.text_manager.display_interaction_text(break_txt)
 		else:
+			Global.audio_manager.play_sfx(AudioManager.SFX.DOOR_LOCKED)
 			Global.text_manager.display_interaction_text(room_not_allowed_txt)
 
 func _on_hr_pressed():
@@ -94,6 +96,7 @@ func _on_restaurant_pressed():
 	if Global.time_manager.break_active:
 		Global.ui_manager.taskUI.visible = false
 		Global.room_manager.change_room_to("Restaurant")
+		Global.audio_manager.play_loop_sfx(AudioManager.SFX.RESTAURANT)
 	else:
 		Global.text_manager.display_interaction_text("I got no time to leave.")
 

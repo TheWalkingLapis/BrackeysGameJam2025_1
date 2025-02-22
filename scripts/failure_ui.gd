@@ -19,6 +19,7 @@ var fail_6 = "You couldn't give the aliens the fuel in time! The aliens destroye
 
 func set_screen():
 	Global.time_manager.day_active = false
+	Global.audio_manager.play_sfx(AudioManager.SFX.ENDING_PLANET if Global.game_manager.current_day == 5 else AudioManager.SFX.ENDING_MELTDOWN)
 	match Global.game_manager.current_day:
 		0:
 			Global.text_manager.show_text_in_menu(fail_1)

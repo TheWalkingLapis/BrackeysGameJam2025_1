@@ -78,6 +78,7 @@ func _on_target_1_pressed():
 	var idx = target_matching[0]
 	if tracking_index != idx:
 		return
+	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_WIRE)
 	tracking_mode = false
 	var wire = (wire_1 if tracking_index == 1 else (wire_2 if tracking_index == 2 else wire_3)) as Line2D
 	wire.set_point_position(1, target_1.position + target_1.size * 0.5)
@@ -95,6 +96,7 @@ func _on_target_2_pressed():
 	if tracking_index != idx:
 		return
 	tracking_mode = false
+	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_WIRE)
 	var wire = (wire_1 if tracking_index == 1 else (wire_2 if tracking_index == 2 else wire_3)) as Line2D
 	wire.set_point_position(1, target_2.position + target_2.size * 0.5)
 	if tracking_index == 1: connected_1 = true
@@ -111,6 +113,7 @@ func _on_target_3_pressed():
 	if tracking_index != idx:
 		return
 	tracking_mode = false
+	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_WIRE)
 	var wire = (wire_1 if tracking_index == 1 else (wire_2 if tracking_index == 2 else wire_3)) as Line2D
 	wire.set_point_position(1, target_3.position + target_3.size * 0.5)
 	if tracking_index == 1: connected_1 = true

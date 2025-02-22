@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://pmd056tqd6oc"]
+[gd_scene load_steps=18 format=3 uid="uid://pmd056tqd6oc"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_cmnvu"]
 [ext_resource type="AudioStream" uid="uid://ec3whikw1tvu" path="res://audio/music/JermeyFromHR.mp3" id="2_p2tu1"]
+[ext_resource type="AudioStream" uid="uid://dar25p5eqpibu" path="res://audio/sfx/meta-other/lunchtime-bell.mp3" id="3_p1ub1"]
+[ext_resource type="AudioStream" uid="uid://bbr62cpn2bgbs" path="res://audio/sfx/finale/beach.mp3" id="3_yu0g8"]
+[ext_resource type="AudioStream" uid="uid://clg6a2fl2yt2p" path="res://audio/sfx/finale/nuclear-explosion.mp3" id="4_as5yh"]
+[ext_resource type="AudioStream" uid="uid://b3yvwyh5m32c2" path="res://audio/sfx/meta-other/meltdown.mp3" id="4_k6hi3"]
+[ext_resource type="AudioStream" uid="uid://bm0sesxsebosh" path="res://audio/sfx/finale/planet-explosion.mp3" id="5_ojf6w"]
+[ext_resource type="AudioStream" uid="uid://byxoa2i5p3aco" path="res://audio/sfx/meta-other/day-end.mp3" id="8_5d6q3"]
+[ext_resource type="AudioStream" uid="uid://d758udjgw3bm" path="res://audio/sfx/meta-other/door-locked.mp3" id="9_2g5ho"]
+[ext_resource type="AudioStream" uid="uid://28mc876qtr3x" path="res://audio/sfx/meta-other/door-opening.mp3" id="10_2kaww"]
+[ext_resource type="AudioStream" uid="uid://bwc1b7lh4c8do" path="res://audio/sfx/meta-other/eating.mp3" id="11_ug0au"]
+[ext_resource type="AudioStream" uid="uid://bct64sqedelp6" path="res://audio/sfx/meta-other/restaurant.mp3" id="12_db0tw"]
+[ext_resource type="AudioStream" uid="uid://dq0xgyhlr0lyb" path="res://audio/sfx/meta-other/task-success.mp3" id="13_v0a1a"]
+[ext_resource type="AudioStream" uid="uid://bv1cgylmnwtx6" path="res://audio/sfx/meta-other/soap-opera.mp3" id="14_mux8r"]
+[ext_resource type="AudioStream" uid="uid://dnyp7k81k03sp" path="res://audio/sfx/tasks/watering-can.mp3" id="15_ppws5"]
+[ext_resource type="AudioStream" uid="uid://cstuvhe555g73" path="res://audio/sfx/tasks/hr-signing.mp3" id="16_pv8ek"]
+[ext_resource type="AudioStream" uid="uid://45bkpq13n8yb" path="res://audio/sfx/tasks/electricity.mp3" id="17_mbbx0"]
 
 [node name="AudioManager" type="Control"]
 layout_mode = 3
@@ -13,17 +28,41 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_cmnvu")
 music_track_chill = ExtResource("2_p2tu1")
+break_sound = ExtResource("3_p1ub1")
+alarm_sound = ExtResource("4_k6hi3")
+sfx_ending_beach = ExtResource("3_yu0g8")
+sfx_ending_meltdown = ExtResource("4_as5yh")
+sfx_ending_planet_boom = ExtResource("5_ojf6w")
+sfx_day_end = ExtResource("8_5d6q3")
+sfx_door_locked = ExtResource("9_2g5ho")
+sfx_door_open = ExtResource("10_2kaww")
+sfx_eat_snack = ExtResource("11_ug0au")
+sfx_restaurant = ExtResource("12_db0tw")
+sfx_task_success = ExtResource("13_v0a1a")
+sfx_task_tv = ExtResource("14_mux8r")
+sfx_task_water = ExtResource("15_ppws5")
+sfx_task_sign = ExtResource("16_pv8ek")
+sfx_task_electric = ExtResource("17_mbbx0")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-volume_db = -12.0
+volume_db = -8.0
 bus = &"Music"
 
 [node name="BreakPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -8.0
+bus = &"Sfx"
 
 [node name="AlarmPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
 
 [node name="SFX_Player" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
 
 [node name="SFX_Player2" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
+
+[node name="SFX_Player3" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"
+
+[node name="SFX_Loop_Player" type="AudioStreamPlayer" parent="."]
+bus = &"Sfx"

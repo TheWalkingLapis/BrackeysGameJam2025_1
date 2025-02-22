@@ -82,34 +82,34 @@ func _on_day_done():
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
 	if !room_manager.get_tasks_completed(true):
-		audio_manager.stop_music()
+		audio_manager.stop_all()
 		ui_manager.to_failure()
 		return
 	if current_day < 3:
 		text_manager.display_interaction_text("Time to go home to my wife!")
 	else:
 		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office.")
+	audio_manager.play_sfx(AudioManager.SFX.DAY_END)
 	allow_interaction = false
 
 func _on_post_day():
 	gameState = GameState.POST_DAY
 	ui_manager.to_post_day()
 	text_manager.clear_text()
-	audio_manager.stop_music()
+	audio_manager.stop_all()
 	current_day += 1
 	allow_interaction = false
 
 func _on_meltdown():
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
-	audio_manager.stop_music()
-	audio_manager.stop_alarm_sound()
+	audio_manager.stop_all()
 	ui_manager.to_failure()
 	return
 
 func _on_start_meltdown_alarm():
 	text_manager.clear_text()
-	text_manager.show_text_in_menu("!!! Imminnent Reactor Meltdown, hurry to the control room !!!")
+	text_manager.show_text_in_menu("!!! Imminent Reactor Meltdown, hurry to the control room !!!")
 	audio_manager.play_alarm_sound()
 	ui_manager.taskUI.show_alarm()
 
@@ -120,20 +120,20 @@ func _on_stop_meltdown_alarm():
 func _on_break_time():
 	allow_interaction = false
 	ui_manager.taskUI._on_break_time()
-	audio_manager.play_break_sound()
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
 	if !room_manager.get_tasks_completed(false):
-		audio_manager.stop_music()
+		audio_manager.stop_all()
 		ui_manager.to_failure()
 		return
+	audio_manager.play_break_sound()
 	text_manager.display_interaction_text("Time to take my lunch break in a restaurant by leaving this place!")
 	
 func _on_break_time_over():
 	allow_interaction = true
 
 func _on_final_task_complete():
-	audio_manager.stop_music()
+	audio_manager.stop_all()
 	ui_manager.to_success()
 
 ## calls get_tree().paused deferred

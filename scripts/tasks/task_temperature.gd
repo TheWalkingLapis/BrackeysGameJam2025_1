@@ -25,4 +25,4 @@ func _on_button_pressed():
 
 func _on_leave_pressed():
 	active.visible = false
-	set_task_completed()
+	quit.emit()

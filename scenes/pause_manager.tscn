@@ -194,6 +194,7 @@ scrollable = false
 
 [node name="Sound" type="Button" parent="."]
 top_level = true
+layout_mode = 0
 offset_left = 208.0
 offset_top = 771.0
 offset_right = 489.0
@@ -223,6 +224,7 @@ text = "[center][u][font_size=40]Sound[/font_size][/u]"
 
 [node name="sound_slider" type="HSlider" parent="Sound"]
 top_level = true
+layout_mode = 0
 offset_left = 224.0
 offset_top = 844.0
 offset_right = 473.0

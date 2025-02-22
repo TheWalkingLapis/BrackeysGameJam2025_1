@@ -20,6 +20,7 @@ func start_task():
 	started.emit(self)
 	if Global.auto_hide_on_task:
 		Global.ui_manager.taskUI.hide_taskbar()
+	Global.audio_manager.play_loop_sfx(AudioManager.SFX.TASK_TV)
 
 func reset_task():
 	active.visible = false
@@ -35,5 +36,6 @@ func _process(delta):
 
 func _on_leave_pressed():
 	active.visible = false
-	set_task_completed() # emits signal without making the tv unclickable, since the task in uncompletable
+	Global.audio_manager.stop_loop_sfx()
+	quit.emit() # emits signal without making the tv unclickable, since the task in uncompletable
 	Global.time_manager.change_time_speed(1)

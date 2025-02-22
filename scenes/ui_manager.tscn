@@ -101,6 +101,7 @@ grow_vertical = 2
 texture = ExtResource("11_irxl8")
 
 [node name="Continue" type="Button" parent="successUI"]
+top_level = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

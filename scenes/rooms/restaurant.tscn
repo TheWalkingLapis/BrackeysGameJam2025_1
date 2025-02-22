@@ -33,6 +33,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Interaction_Box" type="ColorRect" parent="BG"]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 780.0
 offset_right = 1716.0

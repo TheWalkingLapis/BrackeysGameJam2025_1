@@ -97,6 +97,7 @@ func _on_watering_can_hitbox_pressed():
 func _on_snack_pressed():
 	if Global.game_manager.current_day == 3:
 		if Global.time_manager.break_active:
+			Global.audio_manager.play_sfx(AudioManager.SFX.EAT)
 			Global.time_manager.resume_after_break()
 			return
 		if Global.game_manager.allow_interaction:

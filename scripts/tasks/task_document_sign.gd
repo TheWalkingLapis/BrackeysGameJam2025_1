@@ -23,6 +23,7 @@ func start_task():
 func _on_sign_button_pressed():
 	unsigned.visible = false
 	signed.visible = true
+	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_SIGN)
 
 func _on_signed_pressed():
 	signed.visible = false

@@ -115,6 +115,8 @@ func change_room_to(room_name: String):
 		printerr("Room name doesn't exist: %s" % [room_name])
 		return
 	Global.text_manager.clear_text()
+	if current_room != "Restaurant" and current_room != "None":
+		Global.audio_manager.play_sfx(AudioManager.SFX.DOOR_OPEN)
 	current_room = room_name
 	if room_name != "None":
 		name_to_node_dict[current_room].visible = true
@@ -133,6 +135,7 @@ func _on_task_completed():
 	active_task = null
 	task_in_progress = false
 	task_ended.emit()
+	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_SUCCESS)
 	Global.ui_manager.update_tasks()
 
 func _on_time_daytime():
@@ -155,6 +158,7 @@ func _on_time_night():
 
 func clear_active_tasks():
 	if active_task != null:
+		Global.audio_manager.stop_loop_sfx()
 		active_task.visible = false
 		if active_task.has_method("reset_screen"):
 			active_task.reset_screen()

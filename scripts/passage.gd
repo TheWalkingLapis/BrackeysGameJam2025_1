@@ -53,6 +53,7 @@ func try_enter_room(room, break_active_txt=break_txt, not_allowed_txt=room_not_a
 		elif Global.time_manager.break_active:
 			Global.text_manager.display_interaction_text(break_txt)
 		else:
+			Global.audio_manager.play_sfx(AudioManager.SFX.DOOR_LOCKED)
 			Global.text_manager.display_interaction_text(room_not_allowed_txt)
 
 func _on_leave_pressed():
