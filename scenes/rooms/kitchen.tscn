@@ -1,18 +1,19 @@
 [gd_scene load_steps=17 format=3 uid="uid://bh3u47j2ysp1h"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_pp64o"]
-[ext_resource type="Texture2D" uid="uid://c08c5lfhx6p4p" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
-[ext_resource type="Texture2D" uid="uid://dfc2nmr41pa4j" path="res://imgs/rooms/kitchen/kitchen_aliens.png" id="3_slvj0"]
-[ext_resource type="Texture2D" uid="uid://bjnelfly7ca0l" path="res://imgs/sprites/tasks/watering_can_mask.png" id="3_urun6"]
+[ext_resource type="Texture2D" uid="uid://bsklfnxhu6j2v" path="res://imgs/rooms/kitchen/kitchen.png" id="2_eucwl"]
+[ext_resource type="Texture2D" uid="uid://cv6juxakdwfnv" path="res://imgs/rooms/kitchen/kitchen_aliens.png" id="3_slvj0"]
+[ext_resource type="Texture2D" uid="uid://cvtgemo175y40" path="res://imgs/sprites/tasks/janitor/watering_can.png" id="3_urun6"]
 [ext_resource type="PackedScene" uid="uid://ds58wystlw712" path="res://scenes/tasks/task_pick_up_watering_can.tscn" id="3_xkt3c"]
-[ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="5_26yy8"]
+[ext_resource type="Texture2D" uid="uid://cvtgemo175y40" path="res://imgs/sprites/tasks/janitor/watering_can.png" id="5_26yy8"]
 [ext_resource type="PackedScene" uid="uid://byqi3m5byi60j" path="res://scenes/tasks/task_drop_watering_can.tscn" id="5_84v6c"]
 [ext_resource type="PackedScene" uid="uid://bcbqk8heqeprg" path="res://scenes/tasks/task_drop_cereal_bar.tscn" id="5_xjbd1"]
-[ext_resource type="Texture2D" uid="uid://svwcesr5po2k" path="res://imgs/sprites/arrow_mask.png" id="8_htviv"]
+[ext_resource type="Texture2D" uid="uid://c7dqt0p16wrgq" path="res://imgs/sprites/arrow_mask.png" id="8_htviv"]
 [ext_resource type="StyleBox" uid="uid://c17jcsekrhwk2" path="res://resources/button_stylebox.tres" id="9_dhca4"]
 [ext_resource type="BitMap" path="res://imgs/sprites/arrow_ask_bitmap.tres" id="9_kyirl"]
-[ext_resource type="Texture2D" uid="uid://cviltk10vq2sj" path="res://imgs/sprites/arrow.png" id="10_n45dt"]
+[ext_resource type="Texture2D" uid="uid://biq2hysqydkvm" path="res://imgs/sprites/arrow.png" id="10_n45dt"]
 [ext_resource type="PackedScene" uid="uid://cth0k75avrluu" path="res://scenes/tasks/task_tetrominois.tscn" id="11_4icy7"]
+
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2ncf"]
 

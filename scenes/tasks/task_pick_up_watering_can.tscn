@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://ds58wystlw712"]
 
 [ext_resource type="Script" path="res://scripts/tasks/task_pick_up_watering_can.gd" id="1_t18mh"]
-[ext_resource type="Texture2D" uid="uid://dyib2wttwn7ra" path="res://imgs/sprites/tasks/watering_can.png" id="2_332d2"]
+[ext_resource type="Texture2D" uid="uid://cvtgemo175y40" path="res://imgs/sprites/tasks/janitor/watering_can.png" id="2_332d2"]
+
 
 [node name="Task_Pick_up_Watering_Can" type="Control"]
 layout_mode = 3
