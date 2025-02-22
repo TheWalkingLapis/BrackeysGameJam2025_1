@@ -10,7 +10,7 @@ Max was responsible for the amount of uranium fuel in the rods. You can lift the
 
 Alan kept the temperature of the reactor in check by supplying new cooling water to it. You can do this at the temperature gauge in the control room, simply press the button until there's enough cooling water for the temperature to be low.
 
-TODO: temperature und fuel anzeige?
+You have to keep the temperature below 1000°C and the fuel above 0%, otherwise there will be a nuclear meltdown!
 
 Our hope rests in you to keep our electricity up and running. I believe in you.
 
