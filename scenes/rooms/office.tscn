@@ -190,18 +190,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
 [node name="Task_Document_Sign_Post" parent="Tasks/Day1" instance=ExtResource("3_jjpo7")]
 visible = false
 layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day1" instance=ExtResource("12_yts8n")]
 visible = false
@@ -221,18 +212,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day2" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
 [node name="Task_Document_Sign_Post" parent="Tasks/Day2" instance=ExtResource("3_jjpo7")]
 visible = false
 layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day2" instance=ExtResource("12_yts8n")]
 visible = false
@@ -256,16 +238,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
 [node name="Task_Document_Sign_Post" parent="Tasks/Day3" instance=ExtResource("3_jjpo7")]
 layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day3" instance=ExtResource("12_yts8n")]
 layout_mode = 1
@@ -289,18 +263,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day4" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
 [node name="Task_Document_Sign_Post" parent="Tasks/Day4" instance=ExtResource("3_jjpo7")]
 visible = false
 layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day4" instance=ExtResource("12_yts8n")]
 visible = false
@@ -328,18 +293,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Task_Document_Sign_Pre" parent="Tasks/Day5" instance=ExtResource("3_jjpo7")]
-visible = false
-layout_mode = 1
-task_name = "Signing"
-task_description = "Sign the document on your desk"
-
 [node name="Task_Document_Sign_Post" parent="Tasks/Day5" instance=ExtResource("3_jjpo7")]
 visible = false
 layout_mode = 1
-task_name = "More Signing"
-task_description = "Sign another document on your desk"
-after_mealtime = true
 
 [node name="Task_watch_TV_pre" parent="Tasks/Day5" instance=ExtResource("12_yts8n")]
 visible = false

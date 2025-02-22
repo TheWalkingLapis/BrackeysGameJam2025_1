@@ -9,8 +9,8 @@ var allowed_rooms = {
 	5: ["Plan", "Office", "Kitchen", "Storage", "Boss"]
 }
 
-var room_not_allowed_txt = "I shouldn't go there"
-var break_txt = "I should take a break first"
+var room_not_allowed_txt = "I shouldn't go there."
+var break_txt = "I should take a break first."
 
 var watering_task = null
 var drop_coffee_task = null
@@ -25,22 +25,13 @@ func setup_day(day, post_break):
 			drop_coffee_task = null
 		2:
 			watering_task = $Tasks/Day3/Task_water_Hallway_Plant
-			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
-				drop_coffee_task = null
-			else:
-				drop_coffee_task = $Tasks/Day3/Task_drop_Coffee_boss
+			drop_coffee_task = $Tasks/Day3/Task_drop_Coffee_boss
 		3:
 			watering_task = $Tasks/Day4/Task_water_Hallway_Plant
-			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
-				drop_coffee_task = null
-			else:
-				drop_coffee_task = $Tasks/Day4/Task_drop_Coffee_boss
+			drop_coffee_task = $Tasks/Day4/Task_drop_Coffee_boss
 		4:
 			watering_task = $Tasks/Day5/Task_water_Hallway_Plant
-			if drop_coffee_task != null and (drop_coffee_task as Task).get_task_completed():
-				drop_coffee_task = null
-			else:
-				drop_coffee_task = $Tasks/Day5/Task_drop_Coffee_boss
+			drop_coffee_task = $Tasks/Day5/Task_drop_Coffee_boss
 		5:
 			watering_task = null
 			drop_coffee_task = null
@@ -71,7 +62,7 @@ func _on_boss_pressed():
 		if Global.inventory.has_item(Global.inventory.Items.COFFEE_CUP):
 			drop_coffee_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need to bring Big D his coffee")
+			Global.text_manager.display_interaction_text("I need to bring Big D his coffee.")
 		return
 	try_enter_room("Boss")
 
@@ -92,28 +83,28 @@ func _on_restaurant_pressed():
 		if Global.game_manager.current_day < 3:
 			Global.room_manager.post_day.emit()
 		else:
-			Global.text_manager.display_interaction_text("I will sleep on the couch in my office today")
+			Global.text_manager.display_interaction_text("I will sleep on the couch in my office today.")
 		return
 	if Global.game_manager.current_day >= 3:
 		if Global.game_manager.current_day != 5 and Global.time_manager.break_active:
-			Global.text_manager.display_interaction_text("I should just grab something from the kitchen")
+			Global.text_manager.display_interaction_text("I should just grab something from the kitchen.")
 			return
-		Global.text_manager.display_interaction_text("I got no time to leave")
+		Global.text_manager.display_interaction_text("I got no time to leave.")
 		return
 	if Global.time_manager.break_active:
 		Global.ui_manager.taskUI.visible = false
 		Global.room_manager.change_room_to("Restaurant")
 	else:
-		Global.text_manager.display_interaction_text("I got no time to leave")
+		Global.text_manager.display_interaction_text("I got no time to leave.")
 
 func _on_plant_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if watering_task != null:
 		if (watering_task as Task).get_task_completed():
-			Global.text_manager.display_interaction_text("I already watered this plant today")
+			Global.text_manager.display_interaction_text("I already watered this plant today.")
 		elif !Global.inventory.has_item(Global.inventory.Items.WATERING_CAN):
-			Global.text_manager.display_interaction_text("I need the waternig can for this")
+			Global.text_manager.display_interaction_text("I need the waternig can for this.")
 		else:
 			watering_task.start_task()
 	else:
-		Global.text_manager.display_interaction_text("I don't need to water the plant")
+		Global.text_manager.display_interaction_text("I don't need to water the plant.")

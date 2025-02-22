@@ -70,11 +70,11 @@ func _on_wirebox_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if wire_task != null:
 		if (wire_task as Task).get_task_completed():
-			Global.text_manager.display_interaction_text("I already fixed these wires")
+			Global.text_manager.display_interaction_text("I already fixed these wires.")
 		else:
 			wire_task.start_task()
 	else:
-		Global.text_manager.display_interaction_text("I think this one is not broken")
+		Global.text_manager.display_interaction_text("I think this one is not broken.")
 
 func _process(delta):
 	if Global.time_manager.break_active or !Global.time_manager.day_active: return
@@ -119,13 +119,13 @@ func _on_fuel_display_pressed():
 			elif Global.fuel_task_progress == 2:
 				close_fuel_task.start_task()
 			else:
-				Global.text_manager.display_interaction_text("I need to insert the fuel rods first")
+				Global.text_manager.display_interaction_text("I need to insert the fuel rods first.")
 		else:
-			Global.text_manager.display_interaction_text("I should leave this alone")
+			Global.text_manager.display_interaction_text("I should leave this alone.")
 
 func _on_temperator_display_pressed():
 	if Global.game_manager.allow_interaction:
 		if temperature_task != null:
 			temperature_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I should leave this alone")
+			Global.text_manager.display_interaction_text("I should leave this alone.")

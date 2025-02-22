@@ -95,7 +95,6 @@ func _ready():
 	type_dict[s01_6x6] = "s0"
 	type_dict[s3_6x6] = "s3"
 	type_dict[l2_6x6] = "l2"
-	start_task()
 
 func start_task():
 	active.visible = true

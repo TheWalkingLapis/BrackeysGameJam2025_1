@@ -65,6 +65,7 @@ mouse_filter = 2
 texture = ExtResource("5_1acm1")
 
 [node name="pickup_cereal_bar" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -76,6 +77,7 @@ texture_hover = ExtResource("7_dir65")
 stretch_mode = 0
 
 [node name="pickup_coffee" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -87,6 +89,7 @@ texture_hover = ExtResource("9_i7hxv")
 stretch_mode = 0
 
 [node name="pickup_uranium" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -98,6 +101,7 @@ texture_hover = ExtResource("11_2j37j")
 stretch_mode = 0
 
 [node name="pickup_hazmat" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -109,6 +113,7 @@ texture_hover = ExtResource("13_2pcae")
 stretch_mode = 0
 
 [node name="pickup_bomb_kit" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -120,6 +125,7 @@ texture_hover = ExtResource("15_r1fcn")
 stretch_mode = 0
 
 [node name="pickup_plutonium" type="TextureButton" parent="."]
+visible = false
 self_modulate = Color(0.34902, 0.792157, 1, 0.533333)
 texture_filter = 1
 layout_mode = 0
@@ -241,6 +247,7 @@ layout_mode = 1
 
 [node name="Task_Fix_Wires" parent="Tasks/Day5" instance=ExtResource("7_qo6ec")]
 layout_mode = 1
+target_matching = Array[int]([3, 1, 2])
 task_description = "Fix the wires in storage"
 
 [node name="Day6" type="Control" parent="Tasks"]

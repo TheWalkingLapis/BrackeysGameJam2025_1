@@ -114,6 +114,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ydjsh")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8opml")
 
 [node name="DebugUI" parent="." instance=ExtResource("3_ohgwp")]
+visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="failureUI/Continue" to="failureUI" method="_on_continue_pressed"]

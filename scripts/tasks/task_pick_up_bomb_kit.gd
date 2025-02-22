@@ -14,4 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	bomb_kit.visible = Global.bomb_ordered
+	bomb_kit.visible = Global.bomb_delivered

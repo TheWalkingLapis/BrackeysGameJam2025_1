@@ -203,6 +203,11 @@ layout_mode = 1
 [node name="Task_drop_Uranium" parent="Tasks/Day5" instance=ExtResource("4_x3wgy")]
 layout_mode = 1
 
+[node name="Task_Fix_Wires" parent="Tasks/Day5" instance=ExtResource("5_afnxa")]
+layout_mode = 1
+target_matching = Array[int]([2, 3, 1])
+task_description = "Fix the wires in the passage"
+
 [node name="Day6" type="Control" parent="Tasks"]
 layout_mode = 1
 anchors_preset = 15

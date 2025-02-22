@@ -15,34 +15,16 @@ func setup_day(day, post_break):
 			hazmat_task = null
 			wire_task = null
 		2:
-			if uranium_task != null and (uranium_task as Task).get_task_completed():
-				uranium_task = null
-			else:
-				uranium_task = $Tasks/Day3/Task_drop_Uranium
-			if hazmat_task != null and (hazmat_task as Task).get_task_completed():
-				hazmat_task = null
-			else:
-				hazmat_task = $Tasks/Day3/Task_drop_Hazmat_Suit
+			uranium_task = $Tasks/Day3/Task_drop_Uranium
+			hazmat_task = $Tasks/Day3/Task_drop_Hazmat_Suit
 			wire_task = null
 		3:
-			if uranium_task != null and (uranium_task as Task).get_task_completed():
-				uranium_task = null
-			else:
-				uranium_task = $Tasks/Day4/Task_drop_Uranium
-			if hazmat_task != null and (hazmat_task as Task).get_task_completed():
-				hazmat_task = null
-			else:
-				hazmat_task = $Tasks/Day4/Task_drop_Hazmat_Suit
+			uranium_task = $Tasks/Day4/Task_drop_Uranium
+			hazmat_task = $Tasks/Day4/Task_drop_Hazmat_Suit
 			wire_task = $Tasks/Day4/Task_Fix_Wires
 		4:
-			if uranium_task != null and (uranium_task as Task).get_task_completed():
-				uranium_task = null
-			else:
-				uranium_task = $Tasks/Day5/Task_drop_Uranium
-			if hazmat_task != null and (hazmat_task as Task).get_task_completed():
-				hazmat_task = null
-			else:
-				hazmat_task = $Tasks/Day5/Task_drop_Hazmat_Suit
+			uranium_task = $Tasks/Day5/Task_drop_Uranium
+			hazmat_task = $Tasks/Day5/Task_drop_Hazmat_Suit
 			wire_task = null
 		5:
 			uranium_task = null
@@ -91,9 +73,9 @@ func _on_hazmat_hitbox_pressed():
 		if Global.inventory.has_item(Global.inventory.Items.HAZMAT_SUIT):
 			hazmat_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need the bring the hazmat suit here")
+			Global.text_manager.display_interaction_text("I need the bring the hazmat suit here.")
 	else:
-		Global.text_manager.display_interaction_text("I already brought the hazmat suit")
+		Global.text_manager.display_interaction_text("I already brought the hazmat suit.")
 
 
 func _on_uranium_hitbox_pressed():
@@ -102,17 +84,17 @@ func _on_uranium_hitbox_pressed():
 		if Global.inventory.has_item(Global.inventory.Items.URANIUM):
 			uranium_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need the bring the uranium here")
+			Global.text_manager.display_interaction_text("I need the bring the uranium here.")
 	else:
-		Global.text_manager.display_interaction_text("I already brought the uranium")
+		Global.text_manager.display_interaction_text("I already brought the uranium.")
 
 
 func _on_wirebox_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if wire_task != null:
 		if (wire_task as Task).get_task_completed():
-			Global.text_manager.display_interaction_text("I already fixed these wires")
+			Global.text_manager.display_interaction_text("I already fixed these wires.")
 		else:
 			wire_task.start_task()
 	else:
-		Global.text_manager.display_interaction_text("I think this one is not broken")
+		Global.text_manager.display_interaction_text("I think this one is not broken.")

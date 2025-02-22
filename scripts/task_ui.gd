@@ -11,6 +11,7 @@ var optional_string = "Optional"
 var watering_string = "Watering"
 var resupply_string = "Resupply"
 var wire_string = "Wires"
+var sign_string = "Signing"
 var save_the_world_string = "Save the World"
 var reactor_string = "Reactor Control"
 var task_string = "Tasks" # default
@@ -22,6 +23,7 @@ var order_dict = {
 	wire_string: 5,
 	watering_string: 10,
 	resupply_string: 15,
+	sign_string: 18,
 	optional_string: 99,
 	task_string: 100
 }
@@ -49,6 +51,10 @@ func set_tasks(tasks):
 				if !current_tasks.has(optional_string):
 					current_tasks[optional_string] = []
 				current_tasks[optional_string].append(task)
+			elif task.tag == Task.TaskTag.SIGN:
+				if !current_tasks.has(sign_string):
+					current_tasks[sign_string] = []
+				current_tasks[sign_string].append(task)
 			elif task.tag == Task.TaskTag.WATERING:
 				if !current_tasks.has(watering_string):
 					current_tasks[watering_string] = []
@@ -143,7 +149,7 @@ func update_task_text():
 				completed += task_text
 			else:
 				text += task_text
-	if completed_flag:
+	if false:
 		text += completed
 	task_label.text = text
 

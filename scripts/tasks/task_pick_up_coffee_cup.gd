@@ -14,4 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	coffe_cup.visible = Global.coffee_cup_ordered
+	coffe_cup.visible = !Global.coffee_cup_delivered and Global.coffee_cup_ordered

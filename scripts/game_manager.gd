@@ -59,7 +59,9 @@ func start_day():
 	room_manager.setup_day(day)
 	ui_manager.to_day()
 	audio_manager.play_music()
-
+	if day == 5:
+		text_manager.display_interaction_text("\"Hello earthling, we're communicating through telepathy, we are inside your mind. I order you to come to the kitchen to receive our demands!\"")
+	
 func _on_text_in_progress():
 	allow_interaction = false
 
@@ -84,9 +86,9 @@ func _on_day_done():
 		ui_manager.to_failure()
 		return
 	if current_day < 3:
-		text_manager.display_interaction_text("Time to leave")
+		text_manager.display_interaction_text("Time to go home to my wife!")
 	else:
-		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office")
+		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office.")
 	allow_interaction = false
 
 func _on_post_day():

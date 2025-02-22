@@ -14,4 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	plutonium.visible = Global.plutonium_ordered
+	plutonium.visible = !Global.plutonium_delivered and Global.plutonium_ordered

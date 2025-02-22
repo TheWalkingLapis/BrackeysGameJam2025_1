@@ -14,4 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	hazmat_suit.visible = Global.hazmat_suit_ordered
+	hazmat_suit.visible = !Global.hazmat_suit_delivered and Global.hazmat_suit_ordered

@@ -35,7 +35,7 @@ func _on_vault_pressed():
 		else:
 			$Code.visible = true
 	else:
-		Global.text_manager.display_interaction_text("I should leave it alone")
+		Global.text_manager.display_interaction_text("I should leave it alone.")
 
 func _on_maze_done():
 	$Code.visible = true

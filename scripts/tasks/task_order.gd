@@ -75,7 +75,6 @@ func start_task():
 	started.emit(self)
 
 func reset_task():
-	print("Reset Order Task")
 	super.reset_task()
 	active.visible = false
 	
@@ -88,13 +87,6 @@ func reset_task():
 	block_hazmat.visible = false
 	block_bomb.visible = false
 	block_plutonium.visible = false
-	
-	Global.cereal_bar_ordered = false
-	Global.coffee_cup_ordered = false
-	Global.uranium_ordered = false
-	Global.hazmat_suit_ordered = false
-	Global.bomb_ordered = false
-	Global.plutonium_ordered = false
 	
 	plutonium_unlocked = false
 	

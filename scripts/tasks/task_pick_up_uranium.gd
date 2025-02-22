@@ -14,4 +14,4 @@ func start_task():
 
 func reset_task():
 	super.reset_task()
-	uranium.visible = Global.uranium_ordered
+	uranium.visible = !Global.uranium_delivered and Global.uranium_ordered

@@ -8,10 +8,11 @@ func start_task():
 	if !Global.inventory.has_item(Global.inventory.Items.URANIUM):
 		return
 	Global.inventory.drop()
+	Global.uranium_delivered = true
 	uranium.visible = true
 	started.emit(self)
 	set_task_completed()
 
 func reset_task():
 	super.reset_task()
-	uranium.visible = false
+	uranium.visible = Global.uranium_delivered

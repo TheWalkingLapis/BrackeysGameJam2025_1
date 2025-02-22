@@ -20,7 +20,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_pvf0i")
-optional = true
+task_name = "Sign"
+task_description = "Sign the document on your desk"
+tag = 7
+whole_day = true
 
 [node name="Active" type="Control" parent="."]
 visible = false

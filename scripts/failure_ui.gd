@@ -17,10 +17,10 @@ func set_screen():
 	match Global.game_manager.current_day:
 		0:
 			Global.text_manager.show_text_in_menu(fail_1)
-			bg.texture = null
+			bg.texture = meltdown_tex
 		1:
 			Global.text_manager.show_text_in_menu(fail_2)
-			bg.texture = null
+			bg.texture = meltdown_tex
 		2:
 			Global.text_manager.show_text_in_menu(fail_3)
 			bg.texture = meltdown_tex

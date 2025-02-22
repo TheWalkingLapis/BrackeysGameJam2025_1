@@ -44,11 +44,11 @@ func _on_wirebox_pressed():
 	if !Global.game_manager.allow_interaction: return
 	if wire_task != null:
 		if (wire_task as Task).get_task_completed():
-			Global.text_manager.display_interaction_text("I already fixed these wires")
+			Global.text_manager.display_interaction_text("I already fixed these wires.")
 		else:
 			wire_task.start_task()
 	else:
-		Global.text_manager.display_interaction_text("I think this one is not broken")
+		Global.text_manager.display_interaction_text("I think this one is not broken.")
 
 func _on_fuel_progress_changed():
 	bg.texture = reactor_closed_tex if Global.fuel_task_progress == 0 else (reactor_open_tex if Global.fuel_task_progress == 1 else reactor_open_fueled_tex)
@@ -61,4 +61,4 @@ func _on_fuel_rod_button_pressed():
 		if Global.fuel_task_progress == 1:
 			fuel_task.start_task()
 		else:
-			Global.text_manager.display_interaction_text("I need to lower them into the reactor from the control room")
+			Global.text_manager.display_interaction_text("I need to lower them into the reactor from the control room.")

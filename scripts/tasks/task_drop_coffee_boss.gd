@@ -6,6 +6,7 @@ func start_task():
 	if !Global.inventory.has_item(Global.inventory.Items.COFFEE_CUP):
 		return
 	Global.inventory.drop()
+	Global.coffee_cup_delivered = true
 	started.emit(self)
 	set_task_completed()
 

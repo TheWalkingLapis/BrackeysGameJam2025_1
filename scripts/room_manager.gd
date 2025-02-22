@@ -52,6 +52,19 @@ func setup_day(day):
 	else:
 		change_room_to("Office")
 	Global.talked_to_aliens_task_received = 0
+	Global.cereal_bar_ordered = false
+	Global.coffee_cup_ordered = false
+	Global.uranium_ordered = false
+	Global.hazmat_suit_ordered = false
+	Global.bomb_ordered = false
+	Global.plutonium_ordered = false
+	
+	Global.cereal_bar_delivered = false
+	Global.coffee_cup_delivered = false
+	Global.uranium_delivered = false
+	Global.hazmat_suit_delivered = false
+	Global.bomb_delivered = false
+	Global.plutonium_delivered = false
 	collect_tasks(day, false)
 
 func _on_break_time_over():
@@ -65,13 +78,6 @@ func collect_tasks(day, post_break):
 	var tasks = {}
 	for room_name in name_to_node_dict:
 		if room_name == "None": continue
-		for i in range(6):
-			var day_string = "Tasks/Day%d" % [i+1]
-			var day_node = name_to_node_dict[room_name].get_node_or_null(day_string)
-			if day_node != null:
-				day_node.visible = i == day
-		if name_to_node_dict[room_name].has_method("setup_day"):
-			name_to_node_dict[room_name].setup_day(day, post_break)
 		var room_tasks = (name_to_node_dict[room_name] as Room).get_tasks_for_day(day)
 		if len(room_tasks) == 0: continue
 		tasks[room_name] = []
@@ -92,6 +98,13 @@ func collect_tasks(day, post_break):
 						required_tasks_pre_break.append(task)
 			else:
 				task.visible = false
+		for i in range(6):
+			var day_string = "Tasks/Day%d" % [i+1]
+			var day_node = name_to_node_dict[room_name].get_node_or_null(day_string)
+			if day_node != null:
+				day_node.visible = i == day
+		if name_to_node_dict[room_name].has_method("setup_day"):
+			name_to_node_dict[room_name].setup_day(day, post_break)
 	current_tasks = tasks
 	Global.ui_manager.setup_tasks(tasks)
 	
