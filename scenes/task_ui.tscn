@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsxbvyxq0uqpj"]
+[gd_scene load_steps=6 format=3 uid="uid://dsxbvyxq0uqpj"]
 
 [ext_resource type="Script" path="res://scripts/task_ui.gd" id="1_kvvb3"]
 [ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_dhhgo"]
 [ext_resource type="Texture2D" uid="uid://c1aopxfcmyk6n" path="res://imgs/sprites/warnzeichen.png" id="3_3iqu0"]
+[ext_resource type="Texture2D" uid="uid://blwbaqiuv1usr" path="res://imgs/eye.png" id="3_fswwn"]
+[ext_resource type="Texture2D" uid="uid://bj0bq5l02sl4b" path="res://imgs/eye_closed.png" id="3_r6p1e"]
 
 [node name="TaskUI" type="Control"]
 layout_mode = 3
@@ -13,6 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kvvb3")
+eye_open = ExtResource("3_fswwn")
+eye_closed = ExtResource("3_r6p1e")
 
 [node name="TaskBG" type="ColorRect" parent="."]
 layout_mode = 0
@@ -40,13 +44,6 @@ theme_override_fonts/normal_font = ExtResource("2_dhhgo")
 bbcode_enabled = true
 text = "- Task 1
 - Task 2"
-
-[node name="Hide" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1869.0
-offset_top = 31.0
-offset_right = 1898.0
-offset_bottom = 59.0
 
 [node name="ClockBG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -119,5 +116,15 @@ theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[center]REACTOR STATE CRITICAL!
 MELTDOWN IMMINENT!"
+
+[node name="Hide" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1798.0
+offset_top = 64.0
+offset_right = 1875.0
+offset_bottom = 135.0
+texture_normal = ExtResource("3_fswwn")
+stretch_mode = 0
 
 [connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]

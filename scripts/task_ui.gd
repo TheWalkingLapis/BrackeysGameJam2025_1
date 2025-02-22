@@ -4,6 +4,9 @@ extends Control
 @onready var clock_label = $ClockBG/RichTextLabel
 @onready var alarm = $Alarm
 
+@export var eye_open: Texture2D
+@export var eye_closed: Texture2D
+
 var current_tasks = {}
 var hide = false
 
@@ -178,6 +181,8 @@ func _on_hide_pressed():
 func hide_taskbar(set_visiblity = true):
 	$TaskBG.visible = !set_visiblity
 	hide = !set_visiblity
+	$Hide.texture_normal = eye_closed if hide else eye_open
+	$Hide.texture_hover = eye_closed if !hide else eye_open
 
 func show_alarm():
 	alarm.visible = true
@@ -189,3 +194,5 @@ func _process(delta):
 	clock_label.text = "[center]%s[/center]" % [Global.time_manager.get_formated_ingame_time()]
 	if Global.game_manager.current_day == 3 or Global.game_manager.current_day == 4:
 		update_task_display()
+	if not get_tree().paused and Input.is_action_just_pressed("hide_taskbar"):
+		hide_taskbar(hide)
