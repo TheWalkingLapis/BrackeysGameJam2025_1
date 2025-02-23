@@ -29,6 +29,7 @@ task_name = "Relax"
 task_description = "Watch some soap opera on the TV in your office to pass the time"
 optional = true
 uncompletable = true
+completion_sound = false
 
 [node name="Active" type="Control" parent="."]
 visible = false

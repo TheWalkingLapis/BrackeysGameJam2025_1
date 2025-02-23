@@ -25,6 +25,7 @@ task_description = "Use the button in the controll room to decrease the temperat
 tag = 5
 uncompletable = true
 whole_day = true
+completion_sound = false
 
 [node name="Active" type="Control" parent="."]
 visible = false

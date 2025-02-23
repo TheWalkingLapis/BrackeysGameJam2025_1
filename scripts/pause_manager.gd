@@ -11,16 +11,16 @@ func set_auto_hide(val):
 	if val:
 		auto_hide_status.text = "[center][color=#ffffffff]ON"
 	else:
-		auto_hide_status.text = "[center][color=#505050ff]OFF"
+		auto_hide_status.text = "[center][color=#ffffffff]OFF"
 
 func _ready():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(music_slider.value))
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sfx"), linear_to_db(sound_slider.value))
-	set_auto_hide(true)
+	set_auto_hide(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Global.game_manager.gameState != GameManager.GameState.MAIN_MENU:
+	if Global.game_manager.gameState != GameManager.GameState.MAIN_MENU and Global.game_manager.gameState != GameManager.GameState.PRE_DAY and Global.game_manager.gameState != GameManager.GameState.POST_DAY:
 		if Input.is_action_just_pressed("pause"):
 			get_tree().paused = !get_tree().paused
 			visible = get_tree().paused

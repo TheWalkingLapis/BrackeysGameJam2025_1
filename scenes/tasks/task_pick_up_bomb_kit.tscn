@@ -17,6 +17,7 @@ task_description = "Pick up the atom bomb kit from storage"
 tag = 2
 order = 9
 whole_day = true
+completion_sound = false
 
 [node name="bomb_kit" type="TextureRect" parent="."]
 visible = false

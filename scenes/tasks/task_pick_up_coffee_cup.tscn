@@ -17,6 +17,7 @@ task_description = "Pick up the coffee from storage"
 tag = 2
 order = 3
 whole_day = true
+completion_sound = false
 
 [node name="Coffee_Cup" type="TextureRect" parent="."]
 visible = false

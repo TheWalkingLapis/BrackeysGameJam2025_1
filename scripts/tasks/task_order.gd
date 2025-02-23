@@ -105,6 +105,7 @@ func reset_screen():
 	locked_order_button.visible = false
 
 func _on_leave_pressed():
+	Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 	active.visible = false
 	var all_ordered = (Global.cereal_bar_ordered and Global.coffee_cup_ordered and Global.uranium_ordered and Global.hazmat_suit_ordered)
 	if  Global.game_manager.current_day >= 4:
@@ -118,31 +119,37 @@ func _on_leave_pressed():
 
 func _on_order_cereal_bar_pressed():
 	if !Global.cereal_bar_ordered:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.cereal_bar_ordered = true
 		block_cereal.visible = true
 
 func _on_order_coffee_cup_pressed():
 	if !Global.coffee_cup_ordered:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.coffee_cup_ordered = true
 		block_coffee.visible = true
 
 func _on_order_uranium_pressed():
 	if !Global.uranium_ordered:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.uranium_ordered = true
 		block_uranium.visible = true
 
 func _on_order_hazamt_suit_pressed():
 	if !Global.hazmat_suit_ordered:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.hazmat_suit_ordered = true
 		block_hazmat.visible = true
 
 func _on_order_bomb_pressed():
 	if !Global.bomb_ordered and Global.game_manager.current_day == 4:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.bomb_ordered = true
 		block_bomb.visible = true
 
 func _on_unlock_plutonium_pressed():
 	if !plutonium_unlocked and Global.game_manager.current_day == 5:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		bomb_shop.visible = false
 		code.visible = true
 		digits = [0,0,0,0]
@@ -160,6 +167,7 @@ func unlock_success():
 
 func _on_order_plutonium_pressed():
 	if plutonium_unlocked and Global.game_manager.current_day == 5:
+		Global.audio_manager.play_sfx(AudioManager.SFX.CLICK)
 		Global.plutonium_ordered = true
 		block_plutonium.visible = true
 

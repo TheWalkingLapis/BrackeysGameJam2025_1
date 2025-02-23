@@ -115,7 +115,7 @@ func change_room_to(room_name: String):
 		printerr("Room name doesn't exist: %s" % [room_name])
 		return
 	Global.text_manager.clear_text()
-	if current_room != "Restaurant" and current_room != "None":
+	if current_room != "Restaurant" and current_room != "None" and room_name != "Plan" and current_room != "Plan":
 		Global.audio_manager.play_sfx(AudioManager.SFX.DOOR_OPEN)
 	current_room = room_name
 	if room_name != "None":
@@ -132,10 +132,14 @@ func _on_task_quit():
 
 func _on_task_completed():
 	completed_tasks.append(active_task)
+	var play_sound = true
+	if active_task != null:
+		play_sound = (active_task as Task).completion_sound
 	active_task = null
 	task_in_progress = false
 	task_ended.emit()
-	Global.audio_manager.play_sfx(AudioManager.SFX.TASK_SUCCESS)
+	if play_sound:
+		Global.audio_manager.play_sfx(AudioManager.SFX.TASK_SUCCESS)
 	Global.ui_manager.update_tasks()
 
 func _on_time_daytime():

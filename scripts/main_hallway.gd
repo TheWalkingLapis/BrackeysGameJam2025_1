@@ -91,14 +91,14 @@ func _on_restaurant_pressed():
 		if Global.game_manager.current_day != 5 and Global.time_manager.break_active:
 			Global.text_manager.display_interaction_text("I should just grab something from the kitchen.")
 			return
-		Global.text_manager.display_interaction_text("I got no time to leave.")
+		Global.text_manager.display_interaction_text("I don't have time to leave.")
 		return
 	if Global.time_manager.break_active:
 		Global.ui_manager.taskUI.visible = false
 		Global.room_manager.change_room_to("Restaurant")
 		Global.audio_manager.play_loop_sfx(AudioManager.SFX.RESTAURANT)
 	else:
-		Global.text_manager.display_interaction_text("I got no time to leave.")
+		Global.text_manager.display_interaction_text("I don't have time to leave.")
 
 func _on_plant_pressed():
 	if !Global.game_manager.allow_interaction: return
@@ -109,5 +109,6 @@ func _on_plant_pressed():
 			Global.text_manager.display_interaction_text("I need the watering can for this.")
 		else:
 			watering_task.start_task()
+			Global.audio_manager.play_sfx(AudioManager.SFX.TASK_WATER)
 	else:
 		Global.text_manager.display_interaction_text("I don't need to water the plant.")

@@ -79,7 +79,6 @@ func _on_leave_pressed():
 ## Source
  
 func source_helper(source, control):
-	print(active_piece)
 	if active_piece == control:
 		control.position = source.position
 		active_piece = null

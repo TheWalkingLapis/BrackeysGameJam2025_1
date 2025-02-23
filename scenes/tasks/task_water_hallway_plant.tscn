@@ -16,3 +16,4 @@ task_description = "Water the plant in the hallway"
 tag = 1
 order = 2
 whole_day = true
+completion_sound = false

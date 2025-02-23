@@ -17,6 +17,7 @@ task_description = "Pick up the uranium from storage"
 tag = 2
 order = 7
 whole_day = true
+completion_sound = false
 
 [node name="Uranium" type="TextureRect" parent="."]
 visible = false

@@ -120,6 +120,7 @@ func _on_plant_pressed():
 			Global.text_manager.display_interaction_text("I need the watering can for this.")
 		else:
 			watering_task.start_task()
+			Global.audio_manager.play_sfx(AudioManager.SFX.TASK_WATER)
 	else:
 		Global.text_manager.display_interaction_text("I don't need to water the plant.")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://pmd056tqd6oc"]
+[gd_scene load_steps=19 format=3 uid="uid://pmd056tqd6oc"]
 
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="1_cmnvu"]
 [ext_resource type="AudioStream" uid="uid://ec3whikw1tvu" path="res://audio/music/JermeyFromHR.mp3" id="2_p2tu1"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dnyp7k81k03sp" path="res://audio/sfx/tasks/watering-can.mp3" id="15_ppws5"]
 [ext_resource type="AudioStream" uid="uid://cstuvhe555g73" path="res://audio/sfx/tasks/hr-signing.mp3" id="16_pv8ek"]
 [ext_resource type="AudioStream" uid="uid://45bkpq13n8yb" path="res://audio/sfx/tasks/electricity.mp3" id="17_mbbx0"]
+[ext_resource type="AudioStream" uid="uid://cn8gof7i2cb6n" path="res://audio/sfx/meta-other/order-click.mp3" id="18_7wd4m"]
 
 [node name="AudioManager" type="Control"]
 layout_mode = 3
@@ -43,6 +44,7 @@ sfx_task_tv = ExtResource("14_mux8r")
 sfx_task_water = ExtResource("15_ppws5")
 sfx_task_sign = ExtResource("16_pv8ek")
 sfx_task_electric = ExtResource("17_mbbx0")
+sfx_click = ExtResource("18_7wd4m")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

@@ -3,6 +3,7 @@ extends Control
 @onready var task_label = $TaskBG/TaskBox
 @onready var clock_label = $ClockBG/RichTextLabel
 @onready var alarm = $Alarm
+@onready var eye_hide = $HideBG/Hide
 
 @export var eye_open: Texture2D
 @export var eye_closed: Texture2D
@@ -43,7 +44,7 @@ func order_func_categories(a, b):
 func set_tasks(tasks):
 	hide_taskbar(false)
 	$TaskBG.visible = true
-	$Hide.visible = true
+	$HideBG.visible = true
 	alarm.visible = false
 	current_tasks = {task_string: []}
 	for room in tasks:
@@ -92,12 +93,14 @@ func set_tasks(tasks):
 	update_task_text()
 
 func update_task_display():
-	if Global.time_manager.break_active: return
+	if !Global.time_manager.day_active:
+		_on_day_done()
+	if Global.time_manager.break_active or !Global.time_manager.day_active: return
 	update_task_text()
 
 func ui_final_task():
 	$TaskBG.visible = false
-	$Hide.visible = false
+	$HideBG.visible = false
 
 func update_task_text():
 	if Global.game_manager.current_day == 5:
@@ -163,7 +166,7 @@ func _on_break_time():
 	if day < 3:
 		text += Utils.bbc_text("Leave the power plant for your break", 30)
 	elif day == 3:
-		text += Utils.bbc_text("Get a snack from the kitchen, no time to leave the site", 30)
+		text += Utils.bbc_text("Get a snack from the kitchen, there is no time to leave the site", 30)
 	task_label.text = text
 
 func _on_day_done():
@@ -181,8 +184,8 @@ func _on_hide_pressed():
 func hide_taskbar(set_visiblity = true):
 	$TaskBG.visible = !set_visiblity
 	hide = !set_visiblity
-	$Hide.texture_normal = eye_closed if hide else eye_open
-	$Hide.texture_hover = eye_closed if !hide else eye_open
+	eye_hide.texture_normal = eye_closed if hide else eye_open
+	eye_hide.texture_hover = eye_closed if !hide else eye_open
 
 func show_alarm():
 	alarm.visible = true
@@ -196,3 +199,7 @@ func _process(delta):
 		update_task_display()
 	if not get_tree().paused and Input.is_action_just_pressed("hide_taskbar"):
 		hide_taskbar(hide)
+
+
+func _on_pause_pressed():
+	Global.game_manager.pause_game()

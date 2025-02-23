@@ -93,8 +93,6 @@ func _process(delta):
 	var critical = temperature_critical or fuel_critical
 	var new_critical = new_temperature_critical or new_fuel_critical
 	if new_critical != critical:
-		print(new_critical)
-		print(critical)
 		if new_critical: 
 			start_alarm.emit()
 		else: 

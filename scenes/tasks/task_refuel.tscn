@@ -17,3 +17,4 @@ tag = 4
 order = 2
 uncompletable = true
 whole_day = true
+completion_sound = false

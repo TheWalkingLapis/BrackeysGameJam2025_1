@@ -6,6 +6,9 @@ extends Room
 @export var normal_bg: Texture2D
 @export var alien_bg: Texture2D
 
+@export var fridge_normal: Texture2D
+@export var fridge_aliens: Texture2D
+
 var watering_can_pickup_task = null
 var watering_can_drop_task = null
 var drop_cereal_task = null
@@ -21,9 +24,11 @@ func setup_day(day, post_break):
 	if day != 5:
 		$Background.texture = normal_bg
 		$Aliens.visible = false
+		$Snack.texture_hover = fridge_normal
 	else:
 		$Background.texture = alien_bg
 		$Aliens.visible = true
+		$Snack.texture_hover = fridge_aliens
 	match day:
 		0:
 			watering_can_pickup_task = null

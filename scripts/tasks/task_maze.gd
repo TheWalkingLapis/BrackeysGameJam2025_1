@@ -45,7 +45,7 @@ func _on_checkpoint_2_mouse_entered():
 
 func _on_continue_pressed():
 	if checkpoints < 2:
-		print("cheat detection")
+		print("cheat detection (you skipped the checkpoint zones)")
 		_on_walls_mouse_entered()
 		return
 	active.visible = false

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsxbvyxq0uqpj"]
+[gd_scene load_steps=7 format=3 uid="uid://dsxbvyxq0uqpj"]
 
 [ext_resource type="Script" path="res://scripts/task_ui.gd" id="1_kvvb3"]
 [ext_resource type="FontFile" uid="uid://dk4sfbnymglpf" path="res://resources/PixeloidSans-mLxMm.ttf" id="2_dhhgo"]
 [ext_resource type="Texture2D" uid="uid://c1aopxfcmyk6n" path="res://imgs/sprites/warnzeichen.png" id="3_3iqu0"]
 [ext_resource type="Texture2D" uid="uid://blwbaqiuv1usr" path="res://imgs/eye.png" id="3_fswwn"]
 [ext_resource type="Texture2D" uid="uid://bj0bq5l02sl4b" path="res://imgs/eye_closed.png" id="3_r6p1e"]
+[ext_resource type="Texture2D" uid="uid://b1ftyiaflmtan" path="res://imgs/pause.png" id="6_ts753"]
 
 [node name="TaskUI" type="Control"]
 layout_mode = 3
@@ -21,9 +22,9 @@ eye_closed = ExtResource("3_r6p1e")
 [node name="TaskBG" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = 1402.0
-offset_top = 25.0
-offset_right = 1900.0
-offset_bottom = 1053.0
+offset_top = 10.0
+offset_right = 1909.0
+offset_bottom = 1070.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.572549)
 
@@ -33,10 +34,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 13.0
-offset_right = -11.0
-offset_bottom = -9.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -117,14 +118,51 @@ bbcode_enabled = true
 text = "[center]REACTOR STATE CRITICAL!
 MELTDOWN IMMINENT!"
 
-[node name="Hide" type="TextureButton" parent="."]
+[node name="HideBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 202.0
+offset_top = 56.0
+offset_right = 279.0
+offset_bottom = 133.0
+grow_horizontal = 2
+color = Color(0.419608, 0.419608, 0.419608, 0.627451)
+
+[node name="Hide" type="TextureButton" parent="HideBG"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 1798.0
-offset_top = 64.0
-offset_right = 1875.0
-offset_bottom = 135.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("3_fswwn")
 stretch_mode = 0
 
-[connection signal="pressed" from="Hide" to="." method="_on_hide_pressed"]
+[node name="PauseBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 55.0
+offset_right = -201.0
+offset_bottom = 132.0
+grow_horizontal = 2
+color = Color(0.419813, 0.419813, 0.419813, 0.627451)
+
+[node name="Pause" type="TextureButton" parent="PauseBG"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6_ts753")
+stretch_mode = 0
+
+[connection signal="pressed" from="HideBG/Hide" to="." method="_on_hide_pressed"]
+[connection signal="pressed" from="PauseBG/Pause" to="." method="_on_pause_pressed"]

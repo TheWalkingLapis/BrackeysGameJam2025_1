@@ -19,6 +19,8 @@ enum TaskTag {NONE, WATERING, RESUPPLY, WIRES, FUEL, TEMEPERATURE, SAVE_THE_WORL
 @export var after_mealtime: bool = false
 @export var whole_day: bool = false
 
+@export var completion_sound = true
+
 var is_completed: bool = false
 
 func set_task_completed():

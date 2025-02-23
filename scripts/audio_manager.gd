@@ -1,7 +1,7 @@
 extends Control
 class_name AudioManager
 
-enum SFX {ENDING_MELTDOWN, ENDING_PLANET, ENDING_BEACH, RESTAURANT, TASK_TV, DAY_END, DOOR_LOCKED, DOOR_OPEN, EAT, TASK_SUCCESS, TASK_WATER, TASK_SIGN, TASK_WIRE}
+enum SFX {ENDING_MELTDOWN, ENDING_PLANET, ENDING_BEACH, RESTAURANT, TASK_TV, DAY_END, DOOR_LOCKED, DOOR_OPEN, EAT, TASK_SUCCESS, TASK_WATER, TASK_SIGN, TASK_WIRE, CLICK}
 var sfx_dict = {}
 
 @onready var music_player := $MusicPlayer
@@ -31,6 +31,7 @@ var sfx_dict = {}
 @export var sfx_task_water: AudioStream
 @export var sfx_task_sign: AudioStream
 @export var sfx_task_electric: AudioStream
+@export var sfx_click: AudioStream
 
 # fill sfx dict
 func _ready():
@@ -47,7 +48,8 @@ func _ready():
 		SFX.TASK_WIRE: sfx_task_electric,
 		SFX.ENDING_BEACH: sfx_ending_beach,
 		SFX.RESTAURANT: sfx_restaurant, 
-		SFX.TASK_TV: sfx_task_tv
+		SFX.TASK_TV: sfx_task_tv,
+		SFX.CLICK: sfx_click
 	}
 	break_player.stream = break_sound
 	alarm_player.stream = alarm_sound

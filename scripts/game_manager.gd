@@ -58,6 +58,7 @@ func start_day():
 	time_manager.start_day(day)
 	room_manager.setup_day(day)
 	ui_manager.to_day()
+	audio_manager.stop_all()
 	audio_manager.play_music()
 	if day == 5:
 		text_manager.display_interaction_text("\"Hello earthling, we're communicating through telepathy, we are inside your mind. I order you to come to the kitchen to receive our demands!\"")
@@ -81,6 +82,7 @@ func _on_task_ended():
 func _on_day_done():
 	text_manager.clear_text()
 	room_manager.clear_active_tasks()
+	ui_manager.taskUI._on_day_done()
 	if !room_manager.get_tasks_completed(true):
 		audio_manager.stop_all()
 		ui_manager.to_failure()
@@ -89,6 +91,7 @@ func _on_day_done():
 		text_manager.display_interaction_text("Time to go home to my wife!")
 	else:
 		text_manager.display_interaction_text("Time to sleep, I guess I'll stay in my office.")
+	_on_stop_meltdown_alarm()
 	audio_manager.play_sfx(AudioManager.SFX.DAY_END)
 	allow_interaction = false
 
@@ -127,7 +130,10 @@ func _on_break_time():
 		ui_manager.to_failure()
 		return
 	audio_manager.play_break_sound()
-	text_manager.display_interaction_text("Time to take my lunch break in a restaurant by leaving this place!")
+	if current_day < 3:
+		text_manager.display_interaction_text("Time to take my lunch break in a restaurant by leaving this place!")
+	elif current_day == 4:
+		text_manager.display_interaction_text("I should just take something to eat from the fridge in the kitchen. I don't have time to go to the restaurant.")
 	
 func _on_break_time_over():
 	allow_interaction = true
@@ -136,11 +142,5 @@ func _on_final_task_complete():
 	audio_manager.stop_all()
 	ui_manager.to_success()
 
-## calls get_tree().paused deferred
-## @param toggle Whether the pause state is toggled
-## @param pause Whether the game should be paused/unpaused (ignored if toggle = true)
-func pause_game(toggle: bool = true, pause: bool = true):
-	var val = !get_tree().paused if toggle else pause
-	call_deferred("helper_pause_game", val)
-func helper_pause_game(val: bool):
-	get_tree().paused = val
+func pause_game():
+	$Pause_Manager._on_unpause_pressed()
